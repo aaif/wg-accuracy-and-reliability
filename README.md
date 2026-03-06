@@ -50,3 +50,11 @@ The current list of working groups are:
    - Observability & Traceability
    - Security & Privacy
    - Workflows & Process Integration
+
+## Commitment to Neutrality
+
+Members of this working group participate as individuals in service of the Agentic AI Foundation's mission, not as representatives of their employers. We are committed to ensuring that every member has a fair and equal opportunity to contribute. We strive to balance speed, inclusiveness, and rigor in our work, and we keep the group focused on shared outcomes that advance the security and privacy of agentic AI for everyone.
+
+## Antitrust Compliance Notice
+
+Meetings of the Agentic AI Foundation (AAIF) involve participation by industry competitors, and it is the intention of the Project to conduct all of its activities in accordance with applicable antitrust and competition laws. It is therefore extremely important that attendees adhere to meeting agendas, and be aware of and not participate in any activities that are prohibited under applicable U.S. state, federal or foreign antitrust and competition laws. Examples of types of actions that are prohibited at AAIF meetings and in connection with AAIF activities are described in the [Linux Foundation Antitrust Policy](https://www.linuxfoundation.org/antitrust-policy). If you have questions about these matters, please contact your company counsel or Andrew Updegrove of the firm Gesmer Updegrove LLP, which provides legal counsel to the Linux Foundation.
