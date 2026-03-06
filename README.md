@@ -2,6 +2,10 @@
 
 For more information, review the Working Group Charter (*coming soon*).
 
+## Mission
+
+The mission of this working group is currently being defined. Check back soon for updates.
+
 ## Chairs
 
 * **Chair: Jordan Augé [@jordanauge](https://github.com/jordanauge)** - Cisco
@@ -33,7 +37,7 @@ All meeting recordings and AI summaries can be found on your [LFX Individual Das
 
 Reach out on the private working group mailing list: wg-accuracy-reliability@lists.aaif.io
 
-Join the private Working Group [Discord channel](https://discord.gg/BAzqNsGctj). 
+Join the private Working Group [Discord channel](https://discord.gg/BAzqNsGctj). **(Please do not share this link publicly; it is for Working Group members only).**
 
 Need help? email: operations@aaif.io.
 
