@@ -13,7 +13,9 @@ Current term for the Working Group Chairs is **March 1, 2026 - January 31, 2027*
 
 ## Meetings
 
-This working group meets biweekly on Tuesdays at 9:00AM PT (USA Pacific Time; [Convert to local time zone](http://www.thetimezoneconverter.com/?t=8:00AM&tz=San%20Francisco)).
+This working group meets **biweekly on Tuesdays at 9:00AM PT** (USA Pacific Time; [Convert to local time zone](http://www.thetimezoneconverter.com/?t=8:00AM&tz=San%20Francisco)).
+
+**[Join the Meeting](https://zoom-lfx.platform.linuxfoundation.org/meeting/99800353299?password=de73443f-0394-4d45-8977-19019251040e)** - Please note the meeting link will only work for those that have signed up for the working group.
 
 **Working Group Meetings are only open to AAIF members at this time.** Participants must be invited to join. 
 
@@ -22,8 +24,9 @@ If someone from an AAIF member organization would like to join, please [sign up 
 
 ## Meeting Agenda and Minutes
 
-* [Running Notes Doc](https://docs.google.com/document/d/13HPunOtlGkU0eBH8LRAEzaioVnrYXDd7-ylkOjPGI6Y/edit?usp%3Dsharing&sa=D&source=calendar&ust=1773014042631461&usg=AOvVaw2yAiOjA5b8j6UiwRjmppGd)
-* All meeting recordings and AI summaries can be found on your [LFX Individual Dashboard](openprofile.dev). Create a Linux Foundation (LFX) account to see all meetings, AI summaries, recordings, etc. all in one place.
+[Running Notes Doc](https://docs.google.com/document/d/13HPunOtlGkU0eBH8LRAEzaioVnrYXDd7-ylkOjPGI6Y/edit?usp%3Dsharing&sa=D&source=calendar&ust=1773014042631461&usg=AOvVaw2yAiOjA5b8j6UiwRjmppGd)
+
+All meeting recordings and AI summaries can be found on your [LFX Individual Dashboard](openprofile.dev). Create a Linux Foundation (LFX) account to see all meetings, AI summaries, recordings, etc. all in one place.
 
 
 ## Communication
