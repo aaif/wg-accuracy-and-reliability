@@ -17,7 +17,7 @@ Current term for the Working Group Chairs is **March 1, 2026 - January 31, 2027*
 
 ## Meetings
 
-This working group meets **biweekly on Tuesdays at 9:00AM PT** (USA Pacific Time; [Convert to local time zone](http://www.thetimezoneconverter.com/?t=8:00AM&tz=San%20Francisco)).
+This working group meets **biweekly on Tuesdays at 9:00AM PT** (USA Pacific Time; [Convert to local time zone](http://www.thetimezoneconverter.com/?t=9:00AM&tz=San%20Francisco)).
 
 **[Join the Meeting](https://zoom-lfx.platform.linuxfoundation.org/meeting/99800353299?password=de73443f-0394-4d45-8977-19019251040e)** - Please note the meeting link will only work for those that have signed up for the working group.
 
