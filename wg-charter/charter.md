@@ -1,0 +1,415 @@
+# Agentic AI Foundation Working Group Charter - Accuracy & Reliability
+
+## Working Group Name
+
+**Working Group Name:** Accuracy & Reliability
+**Short Name / Acronym:** ARWG
+**Date Approved:** 
+**Last Updated:** 2026-04-14
+**Homepage / Repo (if applicable):** https://github.com/aaif/wg-accuracy-and-reliability
+**Primary Contact (Chair/Lead):** Jordan Augé (Cisco) <augjorda@cisco.com>
+
+## Purpose and Mission
+
+### Mission Statement
+
+The Accuracy & Reliability Working Group advances the Agentic AI Foundation's mission by establishing the standards, benchmarks, and engineering practices required for AI agents to operate accurately and reliably under real-world enterprise conditions.
+
+### Why this Working Group exists
+
+This Working Group was formed to address the Probabilistic Gap in Enterprise Operations. While current agentic systems are inherently non-deterministic, enterprise workflows demand rigorous execution; the WG bridges this divide by defining the engineering standards and quality benchmarks required to move agents to production. Additionally, the absence of an industry standard for measuring agent output quality — across dimensions such as functional correctness, task completion, and contextual correctness — makes it difficult for enterprises to enforce the quality bars necessary for deployment. Establishing that standard is a founding purpose of this WG.
+
+### Strategic Objectives
+
+Proactive Reliability Design: Establishing standardized architectural scaffolding, including verifiable Trust Anchors and tool-use constraints to prevent logic drift.
+Resilient Recovery Frameworks: Standardizing state restoration and compensatory logical actions to handle "silent failures" and maintain global workflow integrity.
+Unified Performance Taxonomy: Defining the dimensions and metrics for accuracy, reliability, and response quality, along with measurement techniques, quality thresholds, and evaluation guidance necessary to establish formal, auditable quality standards for  agentic execution.
+
+### Guiding principles
+
+- **Reliability by Design:** We prioritize proactive architectural scaffolding—such as verification loops and tool-use constraints—that prevents failure at the design phase rather than relying on reactive patches.
+- **Deterministic Grounding:** We believe autonomous agents must be anchored to verifiable "Trust Anchors" and authoritative systems of record to transition from probabilistic outputs to predictable execution.
+- **Vendor Neutrality:** Our standards, taxonomies, and reference implementations shall remain independent of specific model providers, agentic frameworks or cloud platforms to ensure industry portability.
+- **Operational Transparency:** Reliability is impossible without visibility; we ensure every agent action is versioned, uniquely identifiable, and fully auditable. We define what reliability outcomes the observability layer must capture — the how of trace emission is delegated to the Observability WG.
+
+### Alignment to Foundation Goals
+
+The work of this WG supports:
+- **Engineering Excellence through Proactive Design:** By defining "Reliability-by-Design" patterns—such as rigorous entity resolution and multi-step validation—the WG enables developers to build agents that are inherently robust to environmental perturbations and ambiguous inputs. This shifts the industry from "trial-and-error" to "rigorous engineering."
+- **Operational Predictability and Recovery:** The WG provides the framework for the "99.9% uptime" mental model for autonomous systems. Standardizing reactive recovery protocols (e.g., state restoration and HITL escalation) allows enterprises to manage AI agents with the same accountability and auditability as traditional mission-critical infrastructure.
+- **Interoperability of Evaluation & Grounding:** By establishing a unified performance taxonomy and aligning with adjacent standards, the WG ensures that agents can share a "common truth" across different frameworks. This reduces vendor lock-in and prevents the fragmentation of the agentic ecosystem.
+
+## Scope
+
+### In Scope (technical areas)
+
+- **Reliable Architecture Patterns:** Defining proactive structural requirements, such as verification loops and deterministic grounding, to ensure agent reasoning remains aligned with authoritative data.
+- **Deterministic Grounding & Trust Anchors:** Establishing protocols for resolving agent entities against permanent, verifiable identifiers to ensure precision across disparate datasets and systems of record.
+- **Failure Taxonomy & Signaling:** Maintaining a standardized classification of agent-specific failure modes — including failure patterns specific to multi-agent coordination, delegation chains, and agentic reasoning, distinct from classical infrastructure failures — and defining how these exceptions are signaled to orchestrators and management layers.
+- **Framework for creating State Recovery & Compensatory actions:** Standardizing the specifications and interfaces for "Safe-State" restoration, trajectory snapshots for rollbacks, and automated compensatory actions — defining what these artifacts must contain and how they interoperate, not building or operating recovery infrastructure.
+- **Agent Accuracy & Reliability Frameworks:** Defining the dimensions and metrics for agent accuracy and reliability, the evaluation techniques for measuring them, and the quality thresholds required for formal performance standards in autonomous systems.
+- **Human-in-the-Loop (HITL) Interoperability:** Specifying the triggers and state-handoff requirements for escalating non-deterministic or ambiguous trajectories to human operators, and defining human feedback signals — including task completion validation and re-prompt events — as accuracy/reliability measurement inputs.
+- **Cross-Boundary Trajectory Reliability:** Addressing the reliability of sub-processes and external dependencies to ensure local failures do not compromise the global workflow state.
+
+### In Scope (activities)
+
+- **Survey and Catalog:** Maintaining a living document of existing reliability benchmarks (e.g., Tau-Bench, SWE-Bench) and their alignment with enterprise requirements.
+- **Design Guidance:** Developing original ARWG "Reliability-by-Design" best practices for building robust agentic workflows, informed by the landscape survey and gap analysis — producing normative recommendations rather than aggregating third-party sources.
+- **Gap Analysis:** Identifying where current agent frameworks lack the "hooks" necessary for state recovery and trajectory snapshots.
+- **Industry Liaison:** Coordinating with external bodies to align accuracy standards.
+- **Evaluation Methodology Guidance:** Developing practical guidance on how to measure agent accuracy and reliability across evaluation dimensions, including test dataset design principles, fault scenario coverage requirements, and statistical validation requirements.
+- **Reference Taxonomy:** Defining the authoritative terminology for "Accuracy," "Reliability," and "Robustness" to be used across all AAIF Working Groups.
+
+### Out of Scope (what the WG will not do)
+
+- **Models, model training & Fine-Tuning:** The WG does not measure the effectiveness/accuracy of the models themself but rather the agent as a whole, nor will the workgroup aim to define how to train foundation models or provide specific prompt-engineering services. 
+- **Building Commercial Tooling:** We provide the "blueprints" and standards for reliability, not production-grade recovery platforms or commercial guardrail software.
+- **Instrumentation Standards:** We do not define how to emit traces or logs (that is the Observability WG); we define what reliability outcomes those traces should measure and which traces/metrics an agent should emit to effectively measure reliability and accuracy.
+- **Domain-Specific Regulatory Policy:** While we provide technical frameworks for accuracy, we do not dictate legal or compliance policy for specific industries (e.g., HIPAA or GDPR).
+- **Agent Runtime Development:** We do not build the runtimes or orchestrators themselves, only the standards for how they should handle failure and ensure accuracy.
+
+### Assumptions and Dependencies
+
+- **Assumptions:** [e.g., “Upstream projects will provide X interface”]
+    - **Operational Predictability:** Enterprise users require a high-reliability mental model for autonomous systems. We assume agent frameworks will adopt standardized "hooks" for state recovery and trajectory management.
+    - **Immutable Agent Identity:** We assume the adoption of standards for uniquely identifying agent instances. Reliability and auditability depend on the ability to uniquely identify the subject of an evaluation across different versions and environments.
+    - **Versioning for Reproducibility:** We assume that agent configurations—including models, prompts, and tool-sets—are versioned. Accuracy and reliability metrics are only valid when tied to a specific, "frozen" state of the agent system.
+    - **Availability of Trust Anchors:** We assume that high-stakes tasks has is an authoritative Trust Anchor or system of record against which an agent’s output can be systematically verified.
+
+
+- **Dependencies:** [other WGs/projects/standards bodies]
+    - **Identity & Versioning (External/Liaison):** The ARWG depends on the ability to resolve an agent’s identity to audit its lineage. We will coordinate with the Governance WG and Identity and Trust WG (and other relevant LF projects) to ensure identity schemas support reliability metadata.
+    - **Trust Anchors (Data Standards):** Our work on "Entity Resolution" and "Hallucination Prevention" depends on external data standards to provide the persistent IDs required for deterministic grounding.
+    - **Observability WG:** We depend on the Observability WG to provide the "Trace Context" that carries the Agent ID and Version through a multi-step trajectory, allowing us to pinpoint exactly which version failed and why as well as mechanisms to forward “Trace Context” to any subsequent step(s).
+    - **Security & Privacy WG:** We depend on Security to define the "Trust" layer for these anchors (e.g., cryptographic signatures), ensuring that the data the agent is "grounding" itself in hasn't been tampered with.
+
+## Goals, Deliverables, and Success Criteria
+
+### 12-Month Goals (recommended: 3–6)
+
+#### Short-Term Goals (0–3 Months: Foundation)
+
+- **Taxonomy & Dependency Alignment:** Establish a unified industry vocabulary to consolidate fragmented research and map cross-WG technical dependencies (Identity, Observability) to ensure an interoperable foundation.
+- **Baseline Landscape Mapping:** Initiate the "Foundational Positioning Paper" (D3)  and complete the initial Landscape Survey to define the group's stance on proactive grounding versus reactive recovery before technical spec development begins. The full whitepaper is targeted for completion in later phase.
+
+#### Mid-Term Goals (3–6 Months: Strategy & Design)
+
+- **Architecture & Identity Standardization:** Publish the "Reliability-by-Design" blueprints and finalize metadata requirements for Agent Identity/Versioning to ensure all reliability metrics are tied to a reproducible state.
+- **Protocol & Metric Definition:** Establish formal evaluation protocols and Trust Anchor requirements needed to move agent execution from probabilistic outputs to verifiable, enterprise-grade results.
+
+#### Long-Term Goals (12 Months+: Ecosystem Maturity)
+
+- **Standardized Reliability Certification:** Leverage D11 (Conformance Test Suite) as the technical foundation for a "Reliability Conformance Mark" — a process allowing vendors to self-certify and community-verify that their agentic stacks meet ARWG minimum requirements for accuracy, auditability, and state recovery.
+- **Automated Benchmarking Infrastructure:** Transition static benchmarks into a community-driven pipeline where new frameworks can be continuously validated against reliability and accuracy dimensions.
+- **Universal SLA Interoperability:** Drive the adoption of universal signaling protocols so that orchestrators can natively interpret and manage the failure/recovery states of agents across different vendor frameworks.
+
+### Planned Deliverables
+
+For each deliverable, define owner, format, and target date.
+Deliverable types, versioning schemes, and review processes are defined in §11.
+
+#### Phase 1: Foundation (0–3 Months)
+
+**D1. Reliability & Accuracy Taxonomy**
+Formal classification of terminology and boundaries, including failure term taxonomy and shared vocabulary for consistency and robustness.  
+Living document - Owner: TODO - Format: TODO - Target date: TODO
+
+
+**D2. Liaison & Dependency Map [Inter-WG]**
+Identification of cross-WG touchpoints and assigned liaison roles to ensure interoperability and prevent technical overlap.  
+Living document - Owner: TODO - Format: TODO - Target date: TODO
+
+#### Phase 2: Strategy & Best Practices (3–6 Months)
+
+**D3. Canonical Whitepaper: Accuracy & Reliability in Agentic Systems**  
+The foundational positioning paper, covering evaluation dimensions, measurement techniques, quality threshold frameworks, and test dataset design principles alongside proactive reliability patterns.  
+Report/Whitepaper - Owner: TODO - Format: TODO - Target date: TODO
+
+**D4. Gap Analysis and Accuracy Benchmark Survey**  
+Research report mapping enterprise requirements against existing industry benchmarks to identify coverage gaps — specifically which accuracy dimensions and reliability scenarios are underserved by current benchmarks. The findings of D4 directly inform the scope of D7.  
+Report/Whitepaper - Owner: TODO - Format: TODO - Target date: TODO
+
+**D5. Reliability-by-Design Best Practices Guide**  
+Practical translation of taxonomy into architectural patterns, focusing on verification loops, proactive grounding, and delegation controls.  
+Report/Whitepaper - Owner: TODO - Format: TODO - Target date: TODO
+
+**D6. Agent Identity and Versioning Specification [Inter-WG]**  
+Metadata requirements for uniquely identifying agent instances to ensure reproducibility, lineage, and state-pinning for audit.  
+Specification - Owner: TODO - Format: TODO - Target date: TODO  
+
+#### Phase 3: Implementation & Validation (6 Months+)
+
+**D7. Agent Output Quality Standard: Evaluation Protocol and Metric Specification**  
+Normative standard produced in response to the gaps identified in D4 — directly addressing the absence of an industry standard for measuring agent output quality identified in §2. Defines measurement techniques for both accuracy and reliability dimensions, with baseline quality thresholds required for enterprise deployment.  
+Agent Evaluation Playbook: step-by-step guidance on running an evaluation campaign, selecting fault scenarios, interpreting accuracy and reliability results across dimensions, and reporting findings in a format compatible with D7 thresholds. Covers both automated benchmark scoring and user-perceived reliability signals.  
+Specification - Owner: TODO - Format: TODO - Target date: TODO
+
+**D8. Trust Anchors and Grounding Guide [Inter-WG]**  
+Defining evidence requirements and entity resolution protocols that interface with observability and data standards.  
+Specification - Owner: TODO - Format: TODO - Target date: TODO
+
+**D9. Agent SLA and Failure Signaling Specification**  
+Standardized framework for reporting quality-of-service claims, reliability signals, and failure alerts to orchestrators and human operators — including HITL escalation triggers, state-handoff formats, and human feedback signals (task completion validation, re-prompt events) as first-class reliability inputs.  
+Specification - Owner: TODO - Format: TODO - Target date: TODO  
+
+**D10. Recovery Reference Implementation**  
+Code-based reference implementation demonstrating standardized recovery hooks, state restoration, and automated compensation patterns.  
+Reference Implementation - Owner: TODO - Format: TODO - Target date: TODO  
+
+**D11. Conformance Test Suite**  
+Validation artifacts to test whether systems meet the defined protocol and signaling requirements, and the technical foundation for the ARWG Reliability Conformance Mark — including pass/fail criteria, coverage requirements across accuracy and reliability dimensions, and self-certification guidance.  
+Specification - Owner: TODO - Format: TODO - Target date: TODO  
+
+**D12. Benchmark and Leaderboard**  
+Ecosystem artifact for comparing systems consistently across defined tasks and reliability dimensions.  
+Living document - Owner: TODO - Format: TODO - Target date: TODO
+
+### Definition of Done (DoD)
+
+A deliverable is considered complete only when it meets the following criteria:
+- Technical Feasibility & Implementation: For specifications and "Recovery Hooks," at least one Reference Implementation or a formal set of conformance tests must be provided to demonstrate practical application in a multi-agent environment.
+- Proactive & Reactive Validation: Architectural guidelines must explicitly address both Proactive Design (prevention/grounding) and Reactive Recovery (mitigation/restoration) to ensure holistic reliability.
+- Identity & Anchor Verification: Any specification involving entity resolution or grounding must demonstrate compatibility with at least one external Trust Anchor and a versioned Agent Identity schema.
+- Inter-WG Alignment: Deliverables impacting telemetry, metadata, or risk must receive a "no-conflict" sign-off from the Observability or Security & Privacy Working Groups to ensure Foundation-wide interoperability.
+- Consensus-Based Approval: The artifact must be reviewed and approved via the WG’s consensus process, including a minimum 2-week open comment period for all ARWG members.
+- Open Accessibility: Final versions must be published in the WG’s official repository or website with a clear versioning history and vendor-neutral licensing (e.g., Apache 2.0 or Creative Commons).
+- User Perspective Validation: Each deliverable must explicitly address both the system perspective (does the agent produce correct, reliable results?) and the user perspective (do users experience the agent as reliable — would they re-prompt, override, or abandon the task?). For specifications, this means including at least one user-observable reliability signal or user-facing quality criterion. For guidance documents, this means including evaluation scenarios that capture user-perceived accuracy, not only automated benchmark scores.
+
+
+### Success Metrics (KPIs) (pick a small set)
+- **Adoption:** [e.g., number of downstream projects implementing spec]
+- **Quality:** [e.g., passing conformance suite, security review completed]
+- **Community:** [e.g., active contributors, meeting attendance, issue throughput]
+- **Timeliness:** [e.g., % milestones met]
+- **Adoption (Integration Readiness):** Completion of a "Framework Integration Kit" for the ARWG Taxonomy, providing ready-to-use mapping files for at least the set of identified agent frameworks to ensure the spec is "adoptable" on day one.
+- **Quality (Validation):** All Phase 3 specifications must be accompanied by a Reference Implementation or Conformance Test Suite that passes a peer-reviewed technical gate, ensuring the standards are practically viable.
+- **Community (Diversity):** Maintaining a contributor base representing at least five distinct organizations, ensuring the work represents a broad technical consensus rather than a single vendor's viewpoint.
+- **Timeliness (Milestone Progress):** Successful transition of Phase 1 and Phase 2 deliverables from "Initial Draft" to "Stable Draft" status within their designated windows, as verified by WG consensus.
+
+## Working Methods
+
+### Operating Model
+
+**Decision-making:** Consensus-driven, with chair-led resolution. If consensus cannot be reached, a formal vote will be triggered as per the Agentic AI Foundation’s fallback bylaws to ensure progress is not stalled.  
+**Work Tracking:** All technical work, taxonomy updates, and deliverable drafts are tracked in the ARWG GitHub repository under the AAIF organization using the issue tracker and pull request (PR) process.  
+**Primary Artifacts:** Specifications, "Reliability-by-Design" guidance documents, landscape surveys, reference implementation "hooks" (SDKs), and conformance test suites for agent accuracy.
+
+### Meetings
+
+**Cadence:** Biweekly (alternating Tuesdays, as established in Feb/Mar notes)  
+**Duration:** 60 minutes  
+**Time Zone Considerations:** Alternating morning/afternoon (PT/ET/CET) to accommodate global contributors  
+**Open Meetings:** Yes  
+**Recordings:** Recorded and published to the AAIF member portal (participants are notified at the start of each session)  
+**Minutes/Notes:** AI-generated notes are associated to meeting recordings
+
+### Communication Channels
+
+- **Async:**
+    - **Discussions:** GitHub Discussions for deep-dive technical taxonomy threads; Discord/Slack for out-of-band interactions
+    - **Documents:** Shared Google Drive for initial drafting, then ARGW github repository.
+    - **Email:** wg-accuracy-reliability@lists.aaif.io
+- **Sync:** Zoom (link provided via calendar invite to all members)
+- **Announcements:** Distributed via the mailing list and the #wg-accuracy-reliability channel in the AAIF Slack/Discord.
+
+## Membership and Participation
+
+### Who can participate
+
+Participation is open to all individuals and organizations consistent with foundation policies.
+
+### Member Roles
+
+**Participants:** Anyone attending meetings or contributing asynchronously.  
+**Contributors:** Individuals making substantive contributions (issues, PRs, documents, reviews).  
+**Maintainers/Approvers:** Chair and co-chair of the WG..  
+**Chairs/Co-Chairs:** Responsible for WG operations, facilitation, and external representation.  
+
+### Joining
+
+- Subscribe to the WG's communication channel(s).  
+- Attend at least one meeting or make an asynchronous contribution.  
+- Sign the DCO/CLA as required by AAIF policy.  
+
+### Expectations
+
+- Follow the Code of Conduct and collaboration norms.  
+- Make contributions in the open (issues, PRs, meeting discussions) whenever possible.  
+- Declare conflicts of interest when relevant, particularly when advocating for approaches that benefit a specific product or organization.
+
+## Governance and Decision-Making
+
+### Leadership Structure
+
+**Chair(s):** Jordan Augé (Cisco)
+**Co-Chair(s):** Casper Nielsen (Diagrid)
+
+### Selection and Term
+
+**Chairs are selected by:** Election among Contributors, confirmed by the AAIF Technical Committee.  
+**Term Length:** 1 year  
+**Renewal:** Allowed, maximum 2 consecutive terms.  
+**Removal/Resignation:** A chair may resign at any time. Removal requires a supermajority (2/3) vote of Contributors, or action by the AAIF Technical Committee.  
+
+### Decision Process
+
+**Default method:** Rough consensus documented in issues and meeting notes.  
+**When consensus cannot be reached:**  
+    - **Escalation path:** AAIF Technical Committee.  
+    - **Fallback vote rules:**  Quorum of 1/3 of eligible Contributors (defined as those who have been active in the last 6 months), simple majority to pass. One vote per organization to prevent stacking.
+
+### Quorum (if voting is used)
+
+Quorum is met when 1/3 of eligible Contributors (active in the last 6 months) are present or have responded asynchronously within the voting period (minimum 7 days for async votes).
+
+## Relationship to Other Groups
+
+### Internal Coordination
+
+**AAIF Technical Committee:** WG reports to the TC; major deliverables require TC review.  
+**Liaison(s) to other WGs:** (importance, name/role)
+- Identity and trust WG (high) - Liaison not defined
+    - Input to ARWG: Agent identity schemas, versioning standards, and delegation lineage models that ARWG deliverables depend on for attribution and audit.
+    - Output from ARWG: Reliability metadata requirements — what fields an agent identity schema must carry to support accuracy measurement, failure attribution, and reproducibility.
+- Observability & Traceability WG (high) - Casper Nielsen (casper@diagrid.io)
+    - v: Trace Context propagation standards carrying Agent ID and version through multi-step trajectories, enabling ARWG to pinpoint which agent version produced which outcome.
+    - Output from ARWG: Specification of which reliability and accuracy outcomes agent traces must capture — the measurement requirements that the observability layer must support.
+- Security & Privacy WG (high) - Liaison not defined
+    - Input to ARWG: Cryptographic verification mechanisms for Trust Anchors and evidence sources, ensuring grounding data has not been tampered with; privacy controls for sensitive content in agent traces.
+    - Output from ARWG: Privacy requirements for trajectory snapshots and state restoration artifacts; abuse case documentation for reliability features that could expose sensitive behavioral data.
+- Governance, Risk & Regulatory Alignment WG (medium) - Liaison not defined
+    - Input to ARWG: Regulatory vocabulary and compliance frameworks (EU AI Act, NIST AI RMF) that enterprise adopters must satisfy; risk classification models for agentic systems.
+    - Output from ARWG: Canonical accuracy and reliability terminology usable in regulatory filings and compliance documentation; quality threshold frameworks applicable to regulated deployments.
+- Workflows & Process integration WG (medium) - Liaison not defined
+    - Input to ARWG: Workflow orchestration patterns and enterprise process integration requirements that recovery and compensation logic must be compatible with.
+    - Output from ARWG: SLA signaling specification and failure state formats that orchestrators can natively consume; HITL escalation trigger standards for workflow handoff.
+- Agentic commerce WG (low) - Liaison not defined
+    - Input to ARWG: High-stakes transactional use cases and enterprise quality bar requirements for mission-critical agentic deployments, informing D4 gap analysis.
+    - Output from ARWG: Accuracy and reliability measurement standards applicable to commercial agentic transactions; conformance criteria relevant to transactional accountability.
+
+### Shared deliverables/dependencies
+
+Cross-WG dependencies and touchpoints are tracked in D2 (Liaison & Dependency Map), maintained as a living document and updated through regular offline alignment with liaison representatives from each WG.
+
+### External Coordination
+
+#### Standard bodies / Upstream projects
+
+Those bodies should serve as a reference for potential overlapping terminology.
+
+| External Group | Relationship |
+|---|---|
+| OpenTelemetry GenAI SIG | Primary technical boundary. ARWG defines what reliability outcomes agent traces must capture; OTel defines how to emit them. Formal liaison to be named. |
+| W3C PROV | Foundational provenance standard. ARWG deliverables on traceability and lineage must be compatible with the W3C PROV data model. |
+| FINOS / Open Banking | Coordinate on entity resolution and authoritative identifier standards for grounding (D8). |
+| NIST AI RMF / EU AI Act | Terminology alignment on trustworthiness, safety, and accountability to ensure ARWG standards are applicable in regulated enterprise contexts. |
+| OWASP Agentic Security | Coordinate on failure modes at the intersection of reliability and security — prompt injection, tool tampering, and grounding integrity. |
+
+**Policy for external representation:** Chairs may speak on behalf of the WG by default. The WG may nominate members by vote to represent the WG's interests in external groups they already participate in. Technical opinions expressed by individual members outside of this role are their own.
+
+## Intellectual Property, Licensing, and Compliance
+
+### Licensing
+
+**Code contributions:** Apache-2.0 or MIT (per repository license as approved by AAIF). 
+**Documentation and specifications:** CC-BY-4.0 (or per repository license as approved by AAIF).
+
+### Contribution Requirements
+
+- AAIF DCO/CLA policy.
+- Repository contribution guidelines.
+- Review requirements (minimum one approving review from a Maintainer).
+
+### Antitrust and Competition Law
+
+- Meetings and communications must follow the Linux Foundation's antitrust guidelines.
+- Avoid discussions of pricing, market allocation, competitive strategy, or other restricted topics.
+- Deliverables must be vendor-neutral and not advantage any single member organization's products.
+
+### Code of Conduct
+
+This WG adheres to the Linux Foundation Project’s Code of Conduct.
+
+## Security, Safety, and Responsible AI (Agentic AI-Specific)
+
+### Security Practices
+
+**Threat modeling:** Required for any specification that defines data formats containing potentially sensitive content (e.g., agent prompts, tool call arguments, user data).  
+**Vulnerability disclosure:** Follow AAIF's vulnerability disclosure process. [TBD: link]  
+**Security review gates for releases:** Specifications that touch data capture or transmission must undergo security review before publication.: [e.g., dependency scanning, SAST, SBOM]
+
+### Agentic Safety and Risk Management
+
+**Safety by Design:** Specifications must include guidance on autonomy bounds—defining explicit "stop conditions" or guardrails where an agent must halt and request human intervention rather than attempting a risky recovery.  
+**Tool Access Control & Verification:** WG deliverables will emphasize that reliability is tied to safety; agents must verify the integrity of Trust Anchors and tools before execution to prevent prompt injection or "man-in-the-middle" data corruption.  
+**Red Teaming for Reliability:** Recommended practices include using evaluation harnesses that simulate environmental perturbations (e.g., API downtime, ambiguous inputs) to test the robustness of recovery logic.  
+**Abuse Case Documentation:** Specifications must consider how reliability features (like trajectory snapshots) could be misused to reconstruct sensitive interactions or bypass security controls, and include appropriate mitigations.
+Privacy  
+**Data Handling in Recovery:** Specifications must provide guidance on managing personal data within trajectory snapshots and state restoration files, emphasizing data minimization, automated redaction, and granular retention policies.  
+**Privacy-Preserving Grounding:** When utilizing external Trust Anchors for entity resolution, guidance must ensure that grounding queries do not leak sensitive organizational or individual context to external providers.  
+**Logging and Telemetry Guidelines:** WG deliverables will define the distinction between "Standard Operational Metadata" (captured by default) and "Sensitive Content" (e.g., full input/output history), which requires explicit opt-in, encryption, and access controls.
+
+## Deliverable Lifecycle and Publication
+
+### Living document
+
+**Description:** Continuously maintained artifact reflecting the current state of knowledge — taxonomies, landscape surveys, liaison maps, and leaderboards. Not a snapshot; intended to evolve with the ecosystem.  
+**Versioning:** Date-stamped (YYYY-MM-DD). No semantic versioning. Each published update replaces the prior version in place with a visible revision date.  
+**Review process:** Changes merged by WG consensus via pull request. Formal quarterly review by the full WG to assess currency. Deprecated by WG consensus when superseded or no longer maintained.  
+
+### Report or whitepaper
+
+**Description:** Point-in-time artifact capturing analysis, positioning, or guidance — gap analyses, benchmark surveys, best practices guides, and positioning papers. Published once; not updated in place.  
+**Versioning:** Date-versioned (YYYY-MM-DD) at publication. Superseded by a new report when the content is no longer current; the original is archived, not modified.  
+**Review process:** Minimum two-week WG review period. Approval by WG consensus. No public comment period required, but chairs may open one at their discretion for high-impact reports.
+
+### Specification
+
+**Description:** Normative artifact defining requirements, protocols, or measurement standards that downstream implementers must conform to — evaluation protocols, SLA signaling formats, grounding standards, and conformance criteria.  
+**Versioning:** Semantic Versioning (Major.Minor.Patch). Patch: editorial corrections that do not change normative requirements. Minor: additive normative content that does not break existing implementations. Major: breaking changes to normative requirements, requiring a new public comment period.  
+**Review process:** Minimum two-week internal WG review, followed by a thirty-day public comment period open to all AAIF members before ratification. Breaking changes (major version) restart the full process. At least two Maintainer approvals required before ratification.
+
+### Reference implementation
+
+**Description:** Code artifact demonstrating that a specification is practically implementable — recovery hooks, state restoration patterns, or conformance test harnesses. Normative only insofar as it demonstrates spec feasibility; implementations may deviate in non-normative respects.  
+**Versioning:** Semantic Versioning aligned with the specification it implements. A reference implementation must declare which specification version it targets.  
+**Review process:** Peer-reviewed technical gate: the implementation must pass the corresponding conformance test suite and include a mapping from each normative requirement to the implementing code. At least one Maintainer approval required. Security review required before release if the implementation handles agent data or network communication.
+
+### Archival / Deprecation
+
+**Deprecation policy:** A deliverable may be deprecated by WG consensus when it is superseded by superior technical patterns, rendered unnecessary by upstream standards adoption (e.g., from CNCF or W3C), or is no longer functionally maintained.  
+**Sunset criteria:** If a specification or reference implementation has no active maintainer and has received no substantive updates for 12 months, the WG chairs will initiate a review for potential archival or transfer to "Experimental" status.
+
+## Resources and Budget (Optional)
+
+**Infrastructure:** GitHub repository for specification tracking, CI/CD pipelines for validating reference implementation "hooks," and static site hosting (GitHub Pages) for the "Reliability-by-Design" guidance documents.  
+**Sponsor engagement:** Member organizations (specifically Platinum and Gold) are encouraged to contribute dedicated engineering time for developing the Reference Implementation SDKs and maintaining the Reliability Taxonomy.
+
+## Amendments
+
+This charter may be amended by:
+- Consensus of the Working Group, with a minimum 2-week notice period.
+- Amendments are documented in the WG repository.
+- Substantive changes to scope or governance require AAIF Technical Committee approval.
+
+## Ratification
+
+By approving this charter, the Working Group commits to operating transparently, in the open, and in alignment with foundation policies.
+  
+**Approved By:** [TOC / Governing Board / Steering Committee]  
+**Date:** [YYYY-MM-DD]  
+**Signatories (optional):** [Names/Titles]
+
+## Optional Appendix A: Role Descriptions
+
+### Chair/Co-Chair
+
+Runs meetings, sets agendas, ensures notes are published, drives milestones, represents the WG in cross-WG and external coordination, and ensures the WG operates within its charter.
+
+### Maintainer/Approver
+
+Responsible for repository health, reviews and merges contributions, ensures release readiness, and provides technical direction on deliverables within their area.
+
+### Contributor
+
+Provides substantive work items (PRs, documents, issues, reviews), participates in discussions, and helps shape WG deliverables through active engagement.
