@@ -90,7 +90,7 @@ The work of this WG supports:
 #### Short-Term Goals (0–3 Months: Foundation)
 
 - **Taxonomy & Dependency Alignment:** Establish a unified industry vocabulary to consolidate fragmented research and map cross-WG technical dependencies (Identity, Observability) to ensure an interoperable foundation.
-- **Baseline Landscape Mapping:** Initiate the "Foundational Positioning Paper" (D3)  and complete the initial Landscape Survey to define the group's stance on proactive grounding versus reactive recovery before technical spec development begins. The full whitepaper is targeted for completion in later phase.
+- **Baseline Landscape Mapping:** Initiate the "Foundational Positioning Paper" (D4)  and complete the initial Landscape Survey to define the group's stance on proactive grounding versus reactive recovery before technical spec development begins. The full whitepaper is targeted for completion in later phase.
 
 #### Mid-Term Goals (3–6 Months: Strategy & Design)
 
@@ -114,19 +114,18 @@ Deliverable types, versioning schemes, and review processes are defined in §11.
 Formal classification of terminology and boundaries, including failure term taxonomy and shared vocabulary for consistency and robustness.  
 Living document - Owner: TODO - Format: TODO - Target date: TODO
 
-
 **D2. Liaison & Dependency Map [Inter-WG]**
 Identification of cross-WG touchpoints and assigned liaison roles to ensure interoperability and prevent technical overlap.  
 Living document - Owner: TODO - Format: TODO - Target date: TODO
 
 #### Phase 2: Strategy & Best Practices (3–6 Months)
 
-**D3. Canonical Whitepaper: Accuracy & Reliability in Agentic Systems**  
-The foundational positioning paper, covering evaluation dimensions, measurement techniques, quality threshold frameworks, and test dataset design principles alongside proactive reliability patterns.  
+**D3. Gap Analysis and Accuracy Benchmark Survey**  
+Research report mapping enterprise requirements against existing industry benchmarks to identify coverage gaps — specifically which accuracy dimensions and reliability scenarios are underserved by current benchmarks. The findings of D3 directly inform the scope of D7.  
 Report/Whitepaper - Owner: TODO - Format: TODO - Target date: TODO
 
-**D4. Gap Analysis and Accuracy Benchmark Survey**  
-Research report mapping enterprise requirements against existing industry benchmarks to identify coverage gaps — specifically which accuracy dimensions and reliability scenarios are underserved by current benchmarks. The findings of D4 directly inform the scope of D7.  
+**D4. Canonical Whitepaper: Accuracy & Reliability in Agentic Systems**  
+The foundational positioning paper, covering evaluation dimensions, measurement techniques, quality threshold frameworks, and test dataset design principles alongside proactive reliability patterns.  
 Report/Whitepaper - Owner: TODO - Format: TODO - Target date: TODO
 
 **D5. Reliability-by-Design Best Practices Guide**  
@@ -140,7 +139,7 @@ Specification - Owner: TODO - Format: TODO - Target date: TODO
 #### Phase 3: Implementation & Validation (6 Months+)
 
 **D7. Agent Output Quality Standard: Evaluation Protocol and Metric Specification**  
-Normative standard produced in response to the gaps identified in D4 — directly addressing the absence of an industry standard for measuring agent output quality identified in §2. Defines measurement techniques for both accuracy and reliability dimensions, with baseline quality thresholds required for enterprise deployment.  
+Normative standard produced in response to the gaps identified in D3 — directly addressing the absence of an industry standard for measuring agent output quality identified in §2. Defines measurement techniques for both accuracy and reliability dimensions, with baseline quality thresholds required for enterprise deployment.  
 Agent Evaluation Playbook: step-by-step guidance on running an evaluation campaign, selecting fault scenarios, interpreting accuracy and reliability results across dimensions, and reporting findings in a format compatible with D7 thresholds. Covers both automated benchmark scoring and user-perceived reliability signals.  
 Specification - Owner: TODO - Format: TODO - Target date: TODO
 
@@ -284,7 +283,7 @@ Quorum is met when 1/3 of eligible Contributors (active in the last 6 months) ar
     - Input to ARWG: Workflow orchestration patterns and enterprise process integration requirements that recovery and compensation logic must be compatible with.
     - Output from ARWG: SLA signaling specification and failure state formats that orchestrators can natively consume; HITL escalation trigger standards for workflow handoff.
 - Agentic commerce WG (low) - Liaison not defined
-    - Input to ARWG: High-stakes transactional use cases and enterprise quality bar requirements for mission-critical agentic deployments, informing D4 gap analysis.
+    - Input to ARWG: High-stakes transactional use cases and enterprise quality bar requirements for mission-critical agentic deployments, informing D3 gap analysis.
     - Output from ARWG: Accuracy and reliability measurement standards applicable to commercial agentic transactions; conformance criteria relevant to transactional accountability.
 
 ### Shared deliverables/dependencies
