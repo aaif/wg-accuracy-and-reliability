@@ -99,7 +99,7 @@ The work of this WG supports:
 
 #### Long-Term Goals (12 Months+: Ecosystem Maturity)
 
-- **Standardized Reliability Certification:** Leverage D11 (Conformance Test Suite) as the technical foundation for a "Reliability Conformance Mark" — a process allowing vendors to self-certify and community-verify that their agentic stacks meet ARWG minimum requirements for accuracy, auditability, and state recovery.
+- **Standardized Reliability Certification:** Leverage D10 (Conformance Test Suite) as the technical foundation for a "Reliability Conformance Mark" — a process allowing vendors to self-certify and community-verify that their agentic stacks meet ARWG minimum requirements for accuracy, auditability, and state recovery.
 - **Automated Benchmarking Infrastructure:** Transition static benchmarks into a community-driven pipeline where new frameworks can be continuously validated against reliability and accuracy dimensions.
 - **Universal SLA Interoperability:** Drive the adoption of universal signaling protocols so that orchestrators can natively interpret and manage the failure/recovery states of agents across different vendor frameworks.
 
@@ -121,7 +121,7 @@ Living document - Owner: TODO - Format: TODO - Target date: TODO
 #### Phase 2: Strategy & Best Practices (3–6 Months)
 
 **D3. Gap Analysis and Accuracy Benchmark Survey**  
-Research report mapping enterprise requirements against existing industry benchmarks to identify coverage gaps — specifically which accuracy dimensions and reliability scenarios are underserved by current benchmarks. The findings of D3 directly inform the scope of D7.  
+Research report mapping enterprise requirements against existing industry benchmarks to identify coverage gaps — specifically which accuracy dimensions and reliability scenarios are underserved by current benchmarks. The findings of D3 directly inform the scope of D6.  
 Report/Whitepaper - Owner: TODO - Format: TODO - Target date: TODO
 
 **D4. Canonical Whitepaper: Accuracy & Reliability in Agentic Systems**  
@@ -132,34 +132,31 @@ Report/Whitepaper - Owner: TODO - Format: TODO - Target date: TODO
 Practical translation of taxonomy into architectural patterns, focusing on verification loops, proactive grounding, and delegation controls.  
 Report/Whitepaper - Owner: TODO - Format: TODO - Target date: TODO
 
-**D6. Agent Identity and Versioning Specification [Inter-WG]**  
-Metadata requirements for uniquely identifying agent instances to ensure reproducibility, lineage, and state-pinning for audit.  
-Specification - Owner: TODO - Format: TODO - Target date: TODO  
 
 #### Phase 3: Implementation & Validation (6 Months+)
 
-**D7. Agent Output Quality Standard: Evaluation Protocol and Metric Specification**  
+**D6. Agent Output Quality Standard: Evaluation Protocol and Metric Specification**  
 Normative standard produced in response to the gaps identified in D3 — directly addressing the absence of an industry standard for measuring agent output quality identified in §2. Defines measurement techniques for both accuracy and reliability dimensions, with baseline quality thresholds required for enterprise deployment.  
-Agent Evaluation Playbook: step-by-step guidance on running an evaluation campaign, selecting fault scenarios, interpreting accuracy and reliability results across dimensions, and reporting findings in a format compatible with D7 thresholds. Covers both automated benchmark scoring and user-perceived reliability signals.  
+Agent Evaluation Playbook: step-by-step guidance on running an evaluation campaign, selecting fault scenarios, interpreting accuracy and reliability results across dimensions, and reporting findings in a format compatible with D6 thresholds. Covers both automated benchmark scoring and user-perceived reliability signals.  
 Specification - Owner: TODO - Format: TODO - Target date: TODO
 
-**D8. Trust Anchors and Grounding Guide [Inter-WG]**  
+**D7. Trust Anchors and Grounding Guide [Inter-WG]**  
 Defining evidence requirements and entity resolution protocols that interface with observability and data standards.  
 Specification - Owner: TODO - Format: TODO - Target date: TODO
 
-**D9. Agent SLA and Failure Signaling Specification**  
+**D8. Agent SLA and Failure Signaling Specification**  
 Standardized framework for reporting quality-of-service claims, reliability signals, and failure alerts to orchestrators and human operators — including HITL escalation triggers, state-handoff formats, and human feedback signals (task completion validation, re-prompt events) as first-class reliability inputs.  
 Specification - Owner: TODO - Format: TODO - Target date: TODO  
 
-**D10. Recovery Reference Implementation**  
+**D9. Recovery Reference Implementation**  
 Code-based reference implementation demonstrating standardized recovery hooks, state restoration, and automated compensation patterns.  
 Reference Implementation - Owner: TODO - Format: TODO - Target date: TODO  
 
-**D11. Conformance Test Suite**  
+**D10. Conformance Test Suite**  
 Validation artifacts to test whether systems meet the defined protocol and signaling requirements, and the technical foundation for the ARWG Reliability Conformance Mark — including pass/fail criteria, coverage requirements across accuracy and reliability dimensions, and self-certification guidance.  
 Specification - Owner: TODO - Format: TODO - Target date: TODO  
 
-**D12. Benchmark and Leaderboard**  
+**D11. Benchmark and Leaderboard**  
 Ecosystem artifact for comparing systems consistently across defined tasks and reliability dimensions.  
 Living document - Owner: TODO - Format: TODO - Target date: TODO
 
@@ -300,7 +297,7 @@ Those bodies should serve as a reference for potential overlapping terminology.
 |---|---|
 | OpenTelemetry GenAI SIG | Primary technical boundary. ARWG defines what reliability outcomes agent traces must capture; OTel defines how to emit them. Formal liaison to be named. |
 | W3C PROV | Foundational provenance standard. ARWG deliverables on traceability and lineage must be compatible with the W3C PROV data model. |
-| FINOS / Open Banking | Coordinate on entity resolution and authoritative identifier standards for grounding (D8). |
+| FINOS / Open Banking | Coordinate on entity resolution and authoritative identifier standards for grounding (D7). |
 | NIST AI RMF / EU AI Act | Terminology alignment on trustworthiness, safety, and accountability to ensure ARWG standards are applicable in regulated enterprise contexts. |
 | OWASP Agentic Security | Coordinate on failure modes at the intersection of reliability and security — prompt injection, tool tampering, and grounding integrity. |
 
