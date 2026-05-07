@@ -44,13 +44,9 @@ The work of this WG supports:
 
 ### In Scope (technical areas)
 
-- **Reliable Architecture Patterns:** Defining proactive structural requirements, such as verification loops and deterministic grounding, to ensure agent reasoning remains aligned with authoritative data.
-- **Deterministic Grounding & Trust Anchors:** Establishing protocols for resolving agent entities against permanent, verifiable identifiers to ensure precision across disparate datasets and systems of record.
-- **Failure Taxonomy & Signaling:** Maintaining a standardized classification of agent-specific failure modes — including failure patterns specific to multi-agent coordination, delegation chains, and agentic reasoning, distinct from classical infrastructure failures — and defining how these exceptions are signaled to orchestrators and management layers.
-- **Framework for creating State Recovery & Compensatory actions:** Standardizing the specifications and interfaces for "Safe-State" restoration, trajectory snapshots for rollbacks, and automated compensatory actions — defining what these artifacts must contain and how they interoperate, not building or operating recovery infrastructure.
-- **Agent Accuracy & Reliability Frameworks:** Defining the dimensions and metrics for agent accuracy and reliability, the evaluation techniques for measuring them, and the quality thresholds required for formal performance standards in autonomous systems.
-- **Human-in-the-Loop (HITL) Interoperability:** Specifying the triggers and state-handoff requirements for escalating non-deterministic or ambiguous trajectories to human operators, and defining human feedback signals — including task completion validation and re-prompt events — as accuracy/reliability measurement inputs.
-- **Cross-Boundary Trajectory Reliability:** Addressing the reliability of sub-processes and external dependencies to ensure local failures do not compromise the global workflow state.
+ - **Accuracy & Reliability Frameworks**: Defining the dimensions and metrics for agent accuracy and reliability, classifying the failure modes that threaten them, the evaluation techniques for measuring them, and the quality thresholds required for formal performance standards in autonomous systems.
+- ** Reliable Architecture Patterns**: Defining proactive structural requirements, such as verification loops and grounding to authoritative data sources, to ensure agent reasoning remains aligned with authoritative data.
+- **Recovery and Corrective Actions**: Standardizing the specifications for safe-state restoration, rollback mechanisms, and automated compensatory actions, as well as the triggers and handoff requirements for human intervention.
 
 ### In Scope (activities)
 
