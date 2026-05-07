@@ -17,7 +17,7 @@ The Accuracy & Reliability Working Group advances the Agentic AI Foundation's mi
 
 ### Why this Working Group exists
 
-This Working Group was formed to address the Probabilistic Gap in Enterprise Operations. While current agentic systems are inherently non-deterministic, enterprise workflows demand rigorous execution; the WG bridges this divide by defining the engineering standards and quality benchmarks required to move agents to production. Additionally, the absence of an industry standard for measuring agent output quality — across dimensions such as functional correctness, task completion, and contextual correctness — makes it difficult for enterprises to enforce the quality bars necessary for deployment. Establishing that standard is a founding purpose of this WG.
+This Working Group was formed to address the gap in understanding, measuring, and responding to failures of reliability and accuracy in agentic systems. Agentic workloads are non-deterministic, yet most practitioners operate without visibility into whether their systems meet their quality requirements. This WG focuses on a tractable core: classifying the broad categories of failure — what can be controlled, where resilience mechanisms apply, and where human intervention is required — and providing shared definitions and recommendations for how to address each, both proactively and reactively. 
 
 ### Strategic Objectives
 
