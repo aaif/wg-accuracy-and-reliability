@@ -267,7 +267,7 @@ Quorum is met when 1/3 of eligible Contributors (active in the last 6 months) ar
 - Observability & Traceability WG (high) - Robert Kirkum (robert.kirkum@apollographql.com), Casper Nielsen (casper@diagrid.io)
     - v: Trace Context propagation standards carrying Agent ID and version through multi-step trajectories, enabling ARWG to pinpoint which agent version produced which outcome.
     - Output from ARWG: Specification of which reliability and accuracy outcomes agent traces must capture — the measurement requirements that the observability layer must support.
-- Security & Privacy WG (high) - Liaison not defined
+- Security & Privacy WG (high) - Matthew Khouzam (Ericsson)
     - Input to ARWG: Cryptographic verification mechanisms for Trust Anchors and evidence sources, ensuring grounding data has not been tampered with; privacy controls for sensitive content in agent traces.
     - Output from ARWG: Privacy requirements for trajectory snapshots and state restoration artifacts; abuse case documentation for reliability features that could expose sensitive behavioral data.
 - Governance, Risk & Regulatory Alignment WG (medium) - Liaison not defined
