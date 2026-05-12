@@ -123,7 +123,36 @@ Specification - Owner: TODO - Format: TODO - Target date: TODO
 
 **D11. Benchmark and Leaderboard**  
 Ecosystem artifact for comparing systems consistently across defined tasks and reliability dimensions.  
-Living document - Owner: TODO - Format: TODO - Target date: TODO
+Deliverable types, versioning schemes, and review processes are defined in §11. Internal documents (I-series) are working artifacts not intended for public publication.
+
+#### Phase 1 — Foundation (0–3 months)
+
+- **D1. Terminology, Taxonomy & Failure Mode Classification** *(Living Document)*
+  Shared vocabulary for accuracy and reliability in agentic systems. Includes a structured classification of agent-specific failure modes — distinguishing what can be controlled, where resilience applies, and where human intervention is required — and explicit boundaries defining what is and is not within scope of evaluation.
+
+- **D2. Gap Analysis and Benchmark Survey** *(Report)*
+  Survey of existing benchmarks and state of the art, identifying which accuracy and reliability dimensions are underserved. Directly informs D4.
+
+- **I1. Inter-WG Coordination Specification** *(Internal Living Document)*
+  ARWG requirements on adjacent WGs (Identity & Trust, Observability, Security & Privacy), liaison assignments, shared interface contracts, and boundary decisions on failure modes that span multiple WGs.
+
+#### Phase 2 — Best Practices (3–6 months)
+
+- **D3. Reliability-by-Design Best Practices Guide** *(Report)*
+  Practical architectural patterns for building agents and multi-agent systems where reliability and accuracy are first-class properties, including verification loops and grounding practices.
+
+- **D4. Agent Output Quality Standard** *(Specification)*
+  Normative specification defining evaluation dimensions, measurement techniques, and quality thresholds for assessing the accuracy and reliability of agents and multi-agent systems.
+
+#### Phase 3 — Normative Standards (6 months+, speculative)
+
+> The following deliverables represent the WG's longer-term ambitions. Scope, format, and priority will be refined based on progress in Phases 1 and 2.
+
+- **D5. Corrective Action Framework** *(Specification)*
+  Categories of response to accuracy and reliability failures — what can be addressed autonomously, where resilience patterns apply, and when human intervention is required — with handoff and signaling requirements for each.
+
+- **D6. Evaluation and Conformance Guidance** *(Specification)*
+  Criteria and methodology for assessing whether agents or multi-agent systems meet the quality thresholds defined in D4, including self-assessment guidance.
 
 ### Definition of Done (DoD)
 
