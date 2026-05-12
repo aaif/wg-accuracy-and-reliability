@@ -314,45 +314,28 @@ This WG adheres to the Linux Foundation Project’s Code of Conduct.
 
 ### Agentic Safety and Risk Management
 
-**Safety by Design:** Specifications must include guidance on autonomy bounds—defining explicit "stop conditions" or guardrails where an agent must halt and request human intervention rather than attempting a risky recovery.  
-**Tool Access Control & Verification:** WG deliverables will emphasize that reliability is tied to safety; agents must verify the integrity of Trust Anchors and tools before execution to prevent prompt injection or "man-in-the-middle" data corruption.  
-**Red Teaming for Reliability:** Recommended practices include using evaluation harnesses that simulate environmental perturbations (e.g., API downtime, ambiguous inputs) to test the robustness of recovery logic.  
-**Abuse Case Documentation:** Specifications must consider how reliability features (like trajectory snapshots) could be misused to reconstruct sensitive interactions or bypass security controls, and include appropriate mitigations.
-Privacy  
-**Data Handling in Recovery:** Specifications must provide guidance on managing personal data within trajectory snapshots and state restoration files, emphasizing data minimization, automated redaction, and granular retention policies.  
-**Privacy-Preserving Grounding:** When utilizing external Trust Anchors for entity resolution, guidance must ensure that grounding queries do not leak sensitive organizational or individual context to external providers.  
-**Logging and Telemetry Guidelines:** WG deliverables will define the distinction between "Standard Operational Metadata" (captured by default) and "Sensitive Content" (e.g., full input/output history), which requires explicit opt-in, encryption, and access controls.
+- **Safety considerations:** Specifications must define autonomy bounds — explicit conditions under which an agent must halt and request human intervention rather than attempt recovery autonomously.
+- **Required practices:** Evaluation scenarios should include failure and perturbation cases, not only nominal operation. Abuse cases for reliability features must be documented where relevant.
+- **Data handling:** Specifications involving trajectory snapshots or state restoration must include guidance on data minimization and retention. No sensitive or personally identifiable data in WG artifacts, examples, or test cases.
+- **Security dependency:** Trust and integrity controls for grounding and evidence sources are delegated to the Security & Privacy WG.
 
-## Deliverable Lifecycle and Publication
+### Deliverable Lifecycle and Publication
 
-### Living document
+#### Deliverable Types
 
-**Description:** Continuously maintained artifact reflecting the current state of knowledge — taxonomies, landscape surveys, liaison maps, and leaderboards. Not a snapshot; intended to evolve with the ecosystem.  
-**Versioning:** Date-stamped (YYYY-MM-DD). No semantic versioning. Each published update replaces the prior version in place with a visible revision date.  
-**Review process:** Changes merged by WG consensus via pull request. Formal quarterly review by the full WG to assess currency. Deprecated by WG consensus when superseded or no longer maintained.  
+| Type | Versioning | Review Process |
+|---|---|---|
+| **Living Document** | Date-stamped (YYYY-MM-DD) | WG consensus via PR; quarterly currency review |
+| **Report / Whitepaper** | Date-versioned at publication; archived when superseded | Minimum 2-week WG review; WG consensus approval |
+| **Specification** | SemVer; major version restarts public comment | 2-week internal review + 30-day public comment; 2 Maintainer approvals |
+| **Reference Implementation** | SemVer aligned to target specification | Peer review; conformance test pass; 1 Maintainer approval |
 
-### Report or whitepaper
+Internal documents (I-series) follow the Living Document process and are not published externally.
 
-**Description:** Point-in-time artifact capturing analysis, positioning, or guidance — gap analyses, benchmark surveys, best practices guides, and positioning papers. Published once; not updated in place.  
-**Versioning:** Date-versioned (YYYY-MM-DD) at publication. Superseded by a new report when the content is no longer current; the original is archived, not modified.  
-**Review process:** Minimum two-week WG review period. Approval by WG consensus. No public comment period required, but chairs may open one at their discretion for high-impact reports.
+#### Archival / Deprecation
 
-### Specification
-
-**Description:** Normative artifact defining requirements, protocols, or measurement standards that downstream implementers must conform to — evaluation protocols, SLA signaling formats, grounding standards, and conformance criteria.  
-**Versioning:** Semantic Versioning (Major.Minor.Patch). Patch: editorial corrections that do not change normative requirements. Minor: additive normative content that does not break existing implementations. Major: breaking changes to normative requirements, requiring a new public comment period.  
-**Review process:** Minimum two-week internal WG review, followed by a thirty-day public comment period open to all AAIF members before ratification. Breaking changes (major version) restart the full process. At least two Maintainer approvals required before ratification.
-
-### Reference implementation
-
-**Description:** Code artifact demonstrating that a specification is practically implementable — recovery hooks, state restoration patterns, or conformance test harnesses. Normative only insofar as it demonstrates spec feasibility; implementations may deviate in non-normative respects.  
-**Versioning:** Semantic Versioning aligned with the specification it implements. A reference implementation must declare which specification version it targets.  
-**Review process:** Peer-reviewed technical gate: the implementation must pass the corresponding conformance test suite and include a mapping from each normative requirement to the implementing code. At least one Maintainer approval required. Security review required before release if the implementation handles agent data or network communication.
-
-### Archival / Deprecation
-
-**Deprecation policy:** A deliverable may be deprecated by WG consensus when it is superseded by superior technical patterns, rendered unnecessary by upstream standards adoption (e.g., from CNCF or W3C), or is no longer functionally maintained.  
-**Sunset criteria:** If a specification or reference implementation has no active maintainer and has received no substantive updates for 12 months, the WG chairs will initiate a review for potential archival or transfer to "Experimental" status.
+- **Deprecation policy:** Deliverables are deprecated by WG consensus when superseded or no longer maintained.
+- **Sunset criteria:** No active maintainer and no substantive update for 12 months triggers a chair-initiated review for archival or transfer to Experimental status.
 
 ## Resources and Budget (Optional)
 
