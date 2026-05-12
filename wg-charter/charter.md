@@ -67,23 +67,6 @@ This Working Group was formed to address the gap in understanding, measuring, an
 
 ## Goals, Deliverables, and Success Criteria
 
-### 12-Month Goals (recommended: 3–6)
-
-#### Short-Term Goals (0–3 Months: Foundation)
-
-- **Taxonomy & Dependency Alignment:** Establish a unified industry vocabulary to consolidate fragmented research and map cross-WG technical dependencies (Identity, Observability) to ensure an interoperable foundation.
-- **Baseline Landscape Mapping:** Initiate the "Foundational Positioning Paper" (D4)  and complete the initial Landscape Survey to define the group's stance on proactive grounding versus reactive recovery before technical spec development begins. The full whitepaper is targeted for completion in later phase.
-
-#### Mid-Term Goals (3–6 Months: Strategy & Design)
-
-- **Architecture & Identity Standardization:** Publish the "Reliability-by-Design" blueprints and finalize metadata requirements for Agent Identity/Versioning to ensure all reliability metrics are tied to a reproducible state.
-- **Protocol & Metric Definition:** Establish formal evaluation protocols and Trust Anchor requirements needed to move agent execution from probabilistic outputs to verifiable, enterprise-grade results.
-
-#### Long-Term Goals (12 Months+: Ecosystem Maturity)
-
-- **Standardized Reliability Certification:** Leverage D10 (Conformance Test Suite) as the technical foundation for a "Reliability Conformance Mark" — a process allowing vendors to self-certify and community-verify that their agentic stacks meet ARWG minimum requirements for accuracy, auditability, and state recovery.
-- **Automated Benchmarking Infrastructure:** Transition static benchmarks into a community-driven pipeline where new frameworks can be continuously validated against reliability and accuracy dimensions.
-- **Universal SLA Interoperability:** Drive the adoption of universal signaling protocols so that orchestrators can natively interpret and manage the failure/recovery states of agents across different vendor frameworks.
 
 ### Planned Deliverables
 
