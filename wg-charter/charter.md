@@ -28,10 +28,10 @@ This Working Group was formed to address the gap in understanding, measuring, an
 
 ### Guiding principles
 
-- **Reliability by Design:** We prioritize proactive architectural scaffolding—such as verification loops and tool-use constraints—that prevents failure at the design phase rather than relying on reactive patches.
-- **Deterministic Grounding:** We believe autonomous agents must be anchored to verifiable "Trust Anchors" and authoritative systems of record to transition from probabilistic outputs to predictable execution.
-- **Vendor Neutrality:** Our standards, taxonomies, and reference implementations shall remain independent of specific model providers, agentic frameworks or cloud platforms to ensure industry portability.
-- **Operational Transparency:** Reliability is impossible without visibility; we ensure every agent action is versioned, uniquely identifiable, and fully auditable. We define what reliability outcomes the observability layer must capture — the how of trace emission is delegated to the Observability WG.
+- **Reliability and accuracy by design**: We prioritize approaches that prevent failures at the design phase rather than patching them reactively.
+- **Grounding recommendations**: Prescriptions are informed by clear definitions and observable evidence. We aim to define what reliability and accuracy mean before recommending how to achieve them, recognising that definitions and practices will co-evolve.
+- **Vendor neutrality**: Standards, taxonomies, and reference implementations remain independent of specific model providers, agentic frameworks, or cloud platforms.
+- **Transparency as a prerequisite**: Reliability cannot be assessed without visibility. We define what outcomes the observability layer must capture; the mechanics of trace emission are delegated to the Observability WG.
 
 ### Alignment to Foundation Goals
 
