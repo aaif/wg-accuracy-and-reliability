@@ -60,11 +60,10 @@ This Working Group was formed to address the gap in understanding, measuring, an
     - **Availability of Trust Anchors:** We assume that high-stakes tasks has an authoritative Trust Anchor or system of record against which an agent’s output can be systematically verified.
 
 
-- **Dependencies:** [other WGs/projects/standards bodies]
-    - **Identity & Versioning (External/Liaison):** The ARWG depends on the ability to resolve an agent’s identity to audit its lineage. We will coordinate with the Governance WG and Identity and Trust WG (and other relevant LF projects) to ensure identity schemas support reliability metadata.
-    - **Trust Anchors (Data Standards):** Our work on "Entity Resolution" and "Hallucination Prevention" depends on external data standards to provide the persistent IDs required for deterministic grounding.
-    - **Observability WG:** We depend on the Observability WG to provide the "Trace Context" that carries the Agent ID and Version through a multi-step trajectory, allowing us to pinpoint exactly which version failed and why as well as mechanisms to forward “Trace Context” to any subsequent step(s).
-    - **Security & Privacy WG:** We depend on Security to define the "Trust" layer for these anchors (e.g., cryptographic signatures), ensuring that the data the agent is "grounding" itself in hasn't been tampered with.
+- **Identity & Trust WG**: Agent identity standards produced by this WG are a prerequisite for reliable auditability; ARWG will express its requirements and consume its outputs.
+- **Observability WG**: ARWG defines what reliability and accuracy signals must be captured; how those signals are emitted is the Observability WG's domain.
+- **Security & Privacy WG**: Security controls defined by this WG underpin the trustworthiness of agent execution. Trusted anchors for agent identity, benchmark data, and evaluation results all depend on integrity guarantees this WG provides.
+- **Peer AAIF working groups**: Shared terminology, cross-WG deliverable alignment, and handoffs for topics outside ARWG scope.
 
 ## Goals, Deliverables, and Success Criteria
 
