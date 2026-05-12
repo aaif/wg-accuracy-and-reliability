@@ -264,7 +264,7 @@ Quorum is met when 1/3 of eligible Contributors (active in the last 6 months) ar
 - Identity and trust WG (high) - Liaison not defined
     - Input to ARWG: Agent identity schemas, versioning standards, and delegation lineage models that ARWG deliverables depend on for attribution and audit.
     - Output from ARWG: Reliability metadata requirements — what fields an agent identity schema must carry to support accuracy measurement, failure attribution, and reproducibility.
-- Observability & Traceability WG (high) - Robert Kirkum (robert.kirkum@apollographql.com), Casper Nielsen (casper@diagrid.io)
+- Observability & Traceability WG (high) - Robert Kirkum (Apollo GraphQL), Casper Nielsen (Diagrid), Sivapriya Vellaichamy (JP Morgan), Matthew Khouzam (Ericsson)
     - v: Trace Context propagation standards carrying Agent ID and version through multi-step trajectories, enabling ARWG to pinpoint which agent version produced which outcome.
     - Output from ARWG: Specification of which reliability and accuracy outcomes agent traces must capture — the measurement requirements that the observability layer must support.
 - Security & Privacy WG (high) - Matthew Khouzam (Ericsson)
