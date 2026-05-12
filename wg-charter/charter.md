@@ -261,7 +261,7 @@ Quorum is met when 1/3 of eligible Contributors (active in the last 6 months) ar
 
 **AAIF Technical Committee:** WG reports to the TC; major deliverables require TC review.  
 **Liaison(s) to other WGs:** (importance, name/role)
-- Identity and trust WG (high) - Liaison not defined
+- Identity and trust WG (high) - Brian Malone (BrightQuery), Matthew Khouzam (Ericsson)
     - Input to ARWG: Agent identity schemas, versioning standards, and delegation lineage models that ARWG deliverables depend on for attribution and audit.
     - Output from ARWG: Reliability metadata requirements — what fields an agent identity schema must carry to support accuracy measurement, failure attribution, and reproducibility.
 - Observability & Traceability WG (high) - Robert Kirkum (Apollo GraphQL), Casper Nielsen (Diagrid), Sivapriya Vellaichamy (JP Morgan), Matthew Khouzam (Ericsson)
