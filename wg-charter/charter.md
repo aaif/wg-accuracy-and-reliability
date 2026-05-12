@@ -273,7 +273,7 @@ Quorum is met when 1/3 of eligible Contributors (active in the last 6 months) ar
 - Governance, Risk & Regulatory Alignment WG (medium) - Liaison not defined
     - Input to ARWG: Regulatory vocabulary and compliance frameworks (EU AI Act, NIST AI RMF) that enterprise adopters must satisfy; risk classification models for agentic systems.
     - Output from ARWG: Canonical accuracy and reliability terminology usable in regulatory filings and compliance documentation; quality threshold frameworks applicable to regulated deployments.
-- Workflows & Process integration WG (medium) - Liaison not defined
+- Workflows & Process integration WG (medium) - Rahul Vishwakarma (Hitachi)
     - Input to ARWG: Workflow orchestration patterns and enterprise process integration requirements that recovery and compensation logic must be compatible with.
     - Output from ARWG: SLA signaling specification and failure state formats that orchestrators can natively consume; HITL escalation trigger standards for workflow handoff.
 - Agentic commerce WG (low) - Prasad Wangikar (Stripe), Brian Malone (BrightQuery)
