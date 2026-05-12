@@ -45,11 +45,11 @@ This Working Group was formed to address the gap in understanding, measuring, an
 
 ### Out of Scope (what the WG will not do)
 
-- **Models, model training & Fine-Tuning:** The WG does not measure the effectiveness/accuracy of the models themself but rather the agent as a whole, nor will the workgroup aim to define how to train foundation models or provide specific prompt-engineering services. 
-- **Building Commercial Tooling:** We provide the "blueprints" and standards for reliability, not production-grade recovery platforms or commercial guardrail software.
-- **Instrumentation Standards:** We do not define how to emit traces or logs (that is the Observability WG); we define what reliability outcomes those traces should measure and which traces/metrics an agent should emit to effectively measure reliability and accuracy.
-- **Domain-Specific Regulatory Policy:** While we provide technical frameworks for accuracy, we do not dictate legal or compliance policy for specific industries (e.g., HIPAA or GDPR).
-- **Agent Runtime Development:** We do not build the runtimes or orchestrators themselves, only the standards for how they should handle failure and ensure accuracy.
+- **Model internals and training**: The WG evaluates agents or multi-agent systems as a whole, not the underlying models. It does not address foundation model training, fine-tuning, or prompt engineering.
+- **Trace and log emission standards**: We define what reliability and accuracy signals and outcomes should be observable; how to emit traces and logs is delegated to the Observability WG.
+- **Production tooling and platforms**: We produce standards and blueprints, not production-grade recovery platforms or commercial guardrail software.
+- **Domain-specific regulatory compliance**: We provide technical frameworks for accuracy and reliability; we do not prescribe legal or compliance policy for specific industries or jurisdictions.
+- **Runtime and orchestrator development**: We define standards for how runtimes and orchestrators should handle failure and ensure accuracy and reliability in agents or multi-agent systems; we do not develop or maintain production runtimes.
 
 ### Assumptions and Dependencies
 
