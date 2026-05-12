@@ -276,7 +276,7 @@ Quorum is met when 1/3 of eligible Contributors (active in the last 6 months) ar
 - Workflows & Process integration WG (medium) - Liaison not defined
     - Input to ARWG: Workflow orchestration patterns and enterprise process integration requirements that recovery and compensation logic must be compatible with.
     - Output from ARWG: SLA signaling specification and failure state formats that orchestrators can natively consume; HITL escalation trigger standards for workflow handoff.
-- Agentic commerce WG (low) - Liaison not defined
+- Agentic commerce WG (low) - Prasad Wangikar (Stripe), Brian Malone (BrightQuery)
     - Input to ARWG: High-stakes transactional use cases and enterprise quality bar requirements for mission-critical agentic deployments, informing D3 gap analysis.
     - Output from ARWG: Accuracy and reliability measurement standards applicable to commercial agentic transactions; conformance criteria relevant to transactional accountability.
 
