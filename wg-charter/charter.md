@@ -21,10 +21,10 @@ This Working Group was formed to address the gap in understanding, measuring, an
 
 ### Strategic Objectives
 
-Shared understanding — establish what reliability and accuracy mean in the context of agentic systems, including a shared vocabulary and taxonomy that the wider ecosystem can adopt.
-Measurement and detection — provide reference approaches for measuring reliability and accuracy, and for detecting drift or degradation in deployed systems.
-Correction patterns — document the categories of corrective action available when failures occur: what can be addressed autonomously, what requires resilience mechanisms, and what requires human intervention.
-Design guidance — produce design guidelines that help practitioners build agentic systems with reliability and accuracy as first-class properties from the start.
+- **Shared understanding:** Establish what reliability and accuracy mean in the context of agentic systems, including a shared vocabulary and taxonomy that the wider ecosystem can adopt.
+- **Measurement and detection:** Provide reference approaches for measuring reliability and accuracy, and for detecting drift or degradation in deployed systems.
+- **Correction patterns:** Document categories of corrective action available when failures occur, including what can be addressed autonomously, what requires resilience mechanisms, and what requires human intervention.
+- **Design guidance:** Produce guidance that helps practitioners build agentic systems with reliability and accuracy as first-class properties from the start.
 
 ### Guiding principles
 
