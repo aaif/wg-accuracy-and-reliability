@@ -33,12 +33,6 @@ This Working Group was formed to address the gap in understanding, measuring, an
 - **Vendor neutrality**: Standards, taxonomies, and reference implementations remain independent of specific model providers, agentic frameworks, or cloud platforms.
 - **Transparency as a prerequisite**: Reliability cannot be assessed without visibility. We define what outcomes the observability layer must capture; the mechanics of trace emission are delegated to the Observability WG.
 
-### Alignment to Foundation Goals
-
-The work of this WG supports:
-- **Engineering Excellence through Proactive Design:** By defining "Reliability-by-Design" patterns—such as rigorous entity resolution and multi-step validation—the WG enables developers to build agents that are inherently robust to environmental perturbations and ambiguous inputs. This shifts the industry from "trial-and-error" to "rigorous engineering."
-- **Operational Predictability and Recovery:** The WG provides the framework for the "99.9% uptime" mental model for autonomous systems. Standardizing reactive recovery protocols (e.g., state restoration and HITL escalation) allows enterprises to manage AI agents with the same accountability and auditability as traditional mission-critical infrastructure.
-- **Interoperability of Evaluation & Grounding:** By establishing a unified performance taxonomy and aligning with adjacent standards, the WG ensures that agents can share a "common truth" across different frameworks. This reduces vendor lock-in and prevents the fragmentation of the agentic ecosystem.
 
 ## Scope
 
