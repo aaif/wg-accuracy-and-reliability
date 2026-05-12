@@ -177,7 +177,10 @@ A deliverable is considered complete only when it meets the following criteria:
 - **Adoption (Integration Readiness):** Completion of a "Framework Integration Kit" for the ARWG Taxonomy, providing ready-to-use mapping files for at least the set of identified agent frameworks to ensure the spec is "adoptable" on day one.
 - **Quality (Validation):** All Phase 3 specifications must be accompanied by a Reference Implementation or Conformance Test Suite that passes a peer-reviewed technical gate, ensuring the standards are practically viable.
 - **Community (Diversity):** Maintaining a contributor base representing at least five distinct organizations, ensuring the work represents a broad technical consensus rather than a single vendor's viewpoint.
-- **Timeliness (Milestone Progress):** Successful transition of Phase 1 and Phase 2 deliverables from "Initial Draft" to "Stable Draft" status within their designated windows, as verified by WG consensus.
+- **Adoption:** Number of references to ARWG deliverables in other WGs, projects, or external publications. This could be supported by the release of a "Framework Integration Kit" for the ARWG outcomes, providing ready-to-use material for a set of identified agent frameworks.
+- **Quality:** Deliverables meet DoD criteria; Phase 3 specifications validated by at least one reference implementation or conformance test.
+- **Community:** Active contributors from at least five distinct organizations; sustained meeting participation.
+- **Timeliness:** % of milestones delivered on schedule across phases.
 
 ## Working Methods
 
