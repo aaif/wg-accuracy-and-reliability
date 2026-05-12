@@ -54,7 +54,7 @@ This Working Group was formed to address the gap in understanding, measuring, an
 ### Assumptions and Dependencies
 
 - **Assumptions:** [e.g., “Upstream projects will provide X interface”]
-    - **Operational Predictability:** Enterprise users require a high-reliability mental model for autonomous systems. We assume agent frameworks will adopt standardized "hooks" for state recovery and trajectory management.
+    - **Operational Predictability:** Enterprise users require reliable execution of autonomous systems. We assume agent frameworks will adopt standardized "hooks" for state recovery and trajectory management.
     - **Immutable Agent Identity:** We assume the adoption of standards for uniquely identifying agent instances. Reliability and auditability depend on the ability to uniquely identify the subject of an evaluation across different versions and environments.
     - **Versioning for Reproducibility:** We assume that agent configurations—including models, prompts, and tool-sets—are versioned. Accuracy and reliability metrics are only valid when tied to a specific, "frozen" state of the agent system.
     - **Availability of Trust Anchors:** We assume that high-stakes tasks has is an authoritative Trust Anchor or system of record against which an agent’s output can be systematically verified.
