@@ -42,14 +42,6 @@ This Working Group was formed to address the gap in understanding, measuring, an
 - ** Reliable Architecture Patterns**: Defining proactive structural requirements, such as verification loops and grounding to authoritative data sources, to ensure agent reasoning remains aligned with authoritative data.
 - **Recovery and Corrective Actions**: Standardizing the specifications for safe-state restoration, rollback mechanisms, and automated compensatory actions, as well as the triggers and handoff requirements for human intervention.
 
-### In Scope (activities)
-
-- **Survey and Catalog:** Maintaining a living document of existing reliability benchmarks (e.g., Tau-Bench, SWE-Bench) and their alignment with enterprise requirements.
-- **Design Guidance:** Developing original ARWG "Reliability-by-Design" best practices for building robust agentic workflows, informed by the landscape survey and gap analysis — producing normative recommendations rather than aggregating third-party sources.
-- **Gap Analysis:** Identifying where current agent frameworks lack the "hooks" necessary for state recovery and trajectory snapshots.
-- **Industry Liaison:** Coordinating with external bodies to align accuracy standards.
-- **Evaluation Methodology Guidance:** Developing practical guidance on how to measure agent accuracy and reliability across evaluation dimensions, including test dataset design principles, fault scenario coverage requirements, and statistical validation requirements.
-- **Reference Taxonomy:** Defining the authoritative terminology for "Accuracy," "Reliability," and "Robustness" to be used across all AAIF Working Groups.
 
 ### Out of Scope (what the WG will not do)
 
