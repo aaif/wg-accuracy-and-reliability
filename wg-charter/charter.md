@@ -160,9 +160,6 @@ A deliverable is considered complete only when it meets the following criteria:
 - Technical Feasibility & Implementation: For specifications and "Recovery Hooks," at least one Reference Implementation or a formal set of conformance tests must be provided to demonstrate practical application in a multi-agent environment.
 - Proactive & Reactive Validation: Architectural guidelines must explicitly address both Proactive Design (prevention/grounding) and Reactive Recovery (mitigation/restoration) to ensure holistic reliability.
 - Identity & Anchor Verification: Any specification involving entity resolution or grounding must demonstrate compatibility with at least one external Trust Anchor and a versioned Agent Identity schema.
-- Inter-WG Alignment: Deliverables impacting telemetry, metadata, or risk must receive a "no-conflict" sign-off from the Observability or Security & Privacy Working Groups to ensure Foundation-wide interoperability.
-- Consensus-Based Approval: The artifact must be reviewed and approved via the WG’s consensus process, including a minimum 2-week open comment period for all ARWG members.
-- Open Accessibility: Final versions must be published in the WG’s official repository or website with a clear versioning history and vendor-neutral licensing (e.g., Apache 2.0 or Creative Commons).
 - User Perspective Validation: Each deliverable must explicitly address both the system perspective (does the agent produce correct, reliable results?) and the user perspective (do users experience the agent as reliable — would they re-prompt, override, or abandon the task?). For specifications, this means including at least one user-observable reliability signal or user-facing quality criterion. For guidance documents, this means including evaluation scenarios that capture user-perceived accuracy, not only automated benchmark scores.
 
 
