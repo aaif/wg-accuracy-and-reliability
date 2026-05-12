@@ -252,50 +252,34 @@ Participation is open to all individuals and organizations consistent with found
 
 Quorum is met when 1/3 of eligible Contributors (active in the last 6 months) are present or have responded asynchronously within the voting period (minimum 7 days for async votes).
 
-## Relationship to Other Groups
+### Relationship to Other Groups
 
-### Internal Coordination
+#### Internal Coordination
 
-**AAIF Technical Committee:** WG reports to the TC; major deliverables require TC review.  
-**Liaison(s) to other WGs:** (importance, name/role)
-- Identity and trust WG (high) - Brian Malone (BrightQuery), Matthew Khouzam (Ericsson)
-    - Input to ARWG: Agent identity schemas, versioning standards, and delegation lineage models that ARWG deliverables depend on for attribution and audit.
-    - Output from ARWG: Reliability metadata requirements — what fields an agent identity schema must carry to support accuracy measurement, failure attribution, and reproducibility.
-- Observability & Traceability WG (high) - Robert Kirkum (Apollo GraphQL), Casper Nielsen (Diagrid), Sivapriya Vellaichamy (JP Morgan), Matthew Khouzam (Ericsson)
-    - v: Trace Context propagation standards carrying Agent ID and version through multi-step trajectories, enabling ARWG to pinpoint which agent version produced which outcome.
-    - Output from ARWG: Specification of which reliability and accuracy outcomes agent traces must capture — the measurement requirements that the observability layer must support.
-- Security & Privacy WG (high) - Matthew Khouzam (Ericsson)
-    - Input to ARWG: Cryptographic verification mechanisms for Trust Anchors and evidence sources, ensuring grounding data has not been tampered with; privacy controls for sensitive content in agent traces.
-    - Output from ARWG: Privacy requirements for trajectory snapshots and state restoration artifacts; abuse case documentation for reliability features that could expose sensitive behavioral data.
-- Governance, Risk & Regulatory Alignment WG (medium) - Liaison not defined
-    - Input to ARWG: Regulatory vocabulary and compliance frameworks (EU AI Act, NIST AI RMF) that enterprise adopters must satisfy; risk classification models for agentic systems.
-    - Output from ARWG: Canonical accuracy and reliability terminology usable in regulatory filings and compliance documentation; quality threshold frameworks applicable to regulated deployments.
-- Workflows & Process integration WG (medium) - Rahul Vishwakarma (Hitachi)
-    - Input to ARWG: Workflow orchestration patterns and enterprise process integration requirements that recovery and compensation logic must be compatible with.
-    - Output from ARWG: SLA signaling specification and failure state formats that orchestrators can natively consume; HITL escalation trigger standards for workflow handoff.
-- Agentic commerce WG (low) - Prasad Wangikar (Stripe), Brian Malone (BrightQuery)
-    - Input to ARWG: High-stakes transactional use cases and enterprise quality bar requirements for mission-critical agentic deployments, informing D3 gap analysis.
-    - Output from ARWG: Accuracy and reliability measurement standards applicable to commercial agentic transactions; conformance criteria relevant to transactional accountability.
+- **AAIF Technical Committee:** WG reports to the TC; major deliverables require TC review.
+- **Liaison(s) to other WGs:** Liaisons to be delegated by Chair. Cross-WG dependencies and touchpoints are tracked in I1 (Inter-WG Coordination Specification).
 
-### Shared deliverables/dependencies
+| WG | Priority | Liaison |
+|---|---|---|
+| Identity & Trust | High | TBD |
+| Observability & Traceability | High | Casper Nielsen (casper@diagrid.io) |
+| Security & Privacy | High | TBD |
+| Governance, Risk & Regulatory | Medium | TBD |
+| Workflows & Process Integration | Medium | TBD |
+| Agentic Commerce | Low | TBD |
 
-Cross-WG dependencies and touchpoints are tracked in D2 (Liaison & Dependency Map), maintained as a living document and updated through regular offline alignment with liaison representatives from each WG.
+#### External Coordination
 
-### External Coordination
-
-#### Standard bodies / Upstream projects
-
-Those bodies should serve as a reference for potential overlapping terminology.
+These bodies serve as a reference for potential overlapping terminology and related work. ARWG will monitor their outputs and align where applicable.
 
 | External Group | Relationship |
 |---|---|
-| OpenTelemetry GenAI SIG | Primary technical boundary. ARWG defines what reliability outcomes agent traces must capture; OTel defines how to emit them. Formal liaison to be named. |
-| W3C PROV | Foundational provenance standard. ARWG deliverables on traceability and lineage must be compatible with the W3C PROV data model. |
-| FINOS / Open Banking | Coordinate on entity resolution and authoritative identifier standards for grounding (D7). |
-| NIST AI RMF / EU AI Act | Terminology alignment on trustworthiness, safety, and accountability to ensure ARWG standards are applicable in regulated enterprise contexts. |
-| OWASP Agentic Security | Coordinate on failure modes at the intersection of reliability and security — prompt injection, tool tampering, and grounding integrity. |
+| OpenTelemetry GenAI SIG | ARWG defines what reliability outcomes traces must capture; OTel defines how to emit them. |
+| W3C PROV | ARWG traceability and lineage deliverables must be compatible with the W3C PROV data model. |
+| NIST AI RMF / EU AI Act | Terminology alignment on trustworthiness and accountability for regulated contexts. |
+| OWASP Agentic Security | Coordination on failure modes at the intersection of reliability and security. |
 
-**Policy for external representation:** Chairs may speak on behalf of the WG by default. The WG may nominate members by vote to represent the WG's interests in external groups they already participate in. Technical opinions expressed by individual members outside of this role are their own.
+**Policy for external representation:** Chair/Co-Chair speak on behalf of the WG by default. Members may be nominated by vote to represent the WG in external groups they already participate in.
 
 ## Intellectual Property, Licensing, and Compliance
 
