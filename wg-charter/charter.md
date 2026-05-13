@@ -115,6 +115,7 @@ Specification - Owner: TODO - Format: TODO - Target date: TODO
 
 **D7. Trust Anchors and Grounding Guide [Inter-WG]**  
 Defining evidence requirements and entity resolution protocols that interface with observability and data standards.  
+Expose canonical benchmark dataset to validate grounding and trust.
 Specification - Owner: TODO - Format: TODO - Target date: TODO
 
 **D8. Agent SLA and Failure Signaling Specification**  
