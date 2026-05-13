@@ -99,7 +99,7 @@ The foundational positioning paper, covering evaluation dimensions, measurement 
 Report/Whitepaper - Owner: TODO - Format: TODO - Target date: TODO
 - Sanjeev Suresh (Uber)
 - Casper Nielsen (Diagrid)
-
+- Prachi Manchanda (Stripe)
 
 **D5. Reliability-by-Design Best Practices Guide**  
 Practical translation of taxonomy into architectural patterns, focusing on verification loops, proactive grounding, and delegation controls.  
