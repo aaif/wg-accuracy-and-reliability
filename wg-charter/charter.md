@@ -88,6 +88,9 @@ Living document - Owner: TODO - Format: TODO - Target date: TODO
 **D3. Gap Analysis and Accuracy Benchmark Survey**  
 Research report mapping enterprise requirements against existing industry benchmarks to identify coverage gaps — specifically which accuracy dimensions and reliability scenarios are underserved by current benchmarks. The findings of D3 directly inform the scope of D6.  
 Report/Whitepaper - Owner: TODO - Format: TODO - Target date: TODO
+Participants:  
+- Brian Malone (BrightQuery)
+- Sanjeev Suresh (Uber)
 
 **D4. Canonical Whitepaper: Accuracy & Reliability in Agentic Systems**  
 The foundational positioning paper, covering evaluation dimensions, measurement techniques, quality threshold frameworks, and test dataset design principles alongside proactive reliability patterns.  
