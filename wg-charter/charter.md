@@ -97,6 +97,9 @@ Participants:
 **D4. Canonical Whitepaper: Accuracy & Reliability in Agentic Systems**  
 The foundational positioning paper, covering evaluation dimensions, measurement techniques, quality threshold frameworks, and test dataset design principles alongside proactive reliability patterns.  
 Report/Whitepaper - Owner: TODO - Format: TODO - Target date: TODO
+- Sanjeev Suresh (Uber)
+- Casper Nielsen (Diagrid)
+
 
 **D5. Reliability-by-Design Best Practices Guide**  
 Practical translation of taxonomy into architectural patterns, focusing on verification loops, proactive grounding, and delegation controls.  
