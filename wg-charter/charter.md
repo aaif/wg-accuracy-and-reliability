@@ -78,6 +78,8 @@ Deliverable types, versioning schemes, and review processes are defined in §11.
 **D1. Reliability & Accuracy Taxonomy**
 Formal classification of terminology and boundaries, including failure term taxonomy and shared vocabulary for consistency and robustness.  
 Living document - Owner: TODO - Format: TODO - Target date: TODO
+Participants:
+- Casper Nielsen (Diagrid)
 
 **D2. Liaison & Dependency Map [Inter-WG]**
 Identification of cross-WG touchpoints and assigned liaison roles to ensure interoperability and prevent technical overlap.  
