@@ -4,7 +4,7 @@
 
 **Working Group Name:** Accuracy & Reliability  
 **Short Name / Acronym:** ARWG  
-**Date Approved:**   2026-05-15
+**Date Approved:**  2026-05-15  
 **Last Updated:** 2026-04-14  
 **Homepage / Repo (if applicable):** https://github.com/aaif/wg-accuracy-and-reliability  
 **Primary Contact (Chair/Lead):** Jordan Augé (Cisco) <augjorda@cisco.com>
