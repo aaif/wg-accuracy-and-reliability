@@ -1,0 +1,591 @@
+{
+  "schemaVersion": "1.0.0",
+  "title": "Metrics & measurement — P1",
+  "sectionGuide": {
+    "why": "Dimensions are not metrics. Repeated-run success rate, task success rate, and calibration error are quantifiers attached to property and dimension concepts. Conflating name and number blocks protocol design without silently redefining vocabulary. Each symptom and root-cause class needs a named metric or rubric — the taxonomy supplies the noun; protocols supply the number.",
+    "wgUse": "Primary vocabulary for metric specifications and SLAs. Gap analysis asks whether benchmarks report each metric. Review only after property and failure parents are stable. Paired symptom/cause rates link 1:1 to failure leaves via `x-measuresTerm`.",
+    "enables": "Named metrics replace vague “accuracy” in SLAs; gap analysis asks “does benchmark X measure dimension Y with metric Z”; metrics assume dimensions and failure classes are already fixed.",
+    "priorities": "**P0** = Evaluation metric (metrics parent). **P1** = dimension metrics and every **1:1** `{symptom} rate` / `{root cause} rate` paired via `x-measuresTerm`. **P2** = cost and variance adjuncts. Review failure P0 parents before adding P1 metric leaves.",
+    "categories": [
+      {
+        "category": "Measurement & evaluation",
+        "count": 2,
+        "relevance": "Cross-cutting evaluation mechanics: envelopes and methodology — how a measurement claim is bounded and reproduced.",
+        "wgUse": "Protocol specs · benchmark vs production envelope disputes"
+      },
+      {
+        "category": "Metrics",
+        "count": 25,
+        "relevance": "Quantifiers attached to properties, dimensions, and failure classes — separates property names from numbers protocols will specify.",
+        "wgUse": "Metric specifications · “does benchmark X report metric Y” · enterprise SLA language"
+      }
+    ]
+  },
+  "anchorPriority": "P1",
+  "prioritiesPresent": [
+    "P0",
+    "P1"
+  ],
+  "note": "Includes merged single-term band(s).",
+  "count": 25,
+  "terms": [
+    {
+      "term": "Evaluation metric",
+      "priority": "P0",
+      "taxonomyLayer": "metrics",
+      "category": "Metrics",
+      "aliases": [
+        "Quality metric"
+      ],
+      "broaderTerm": null,
+      "definition": "A defined numeric or categorical measure used in an evaluation methodology. Metrics observe outcomes, symptoms, root-cause classes, or dimensions — they are not synonyms for accuracy or reliability themselves.",
+      "scopeNote": "Parent of all quantifiers (P0). P1 metrics pair to failure vocabulary leaves via measuresTerm — use `{symptom} rate` / `{root cause} rate` naming.",
+      "relatedTerms": [
+        "Evaluation methodology",
+        "Hallucination rate",
+        "Repeated-run success rate",
+        "Task success rate"
+      ],
+      "contrastsWith": [],
+      "workgroups": [
+        "Accuracy & Reliability"
+      ],
+      "literatureNote": "Quantifiers attached to dimensions — not synonyms for accuracy or reliability. Academic metric names appear in academicTerms only.",
+      "x-termStatus": "stable",
+      "x-reviewTier": 3,
+      "x-consensus-reached": false
+    },
+    {
+      "term": "Evaluation envelope",
+      "priority": "P1",
+      "taxonomyLayer": "metrics",
+      "category": "Measurement & evaluation",
+      "aliases": [
+        "Evaluation setup",
+        "Test envelope"
+      ],
+      "broaderTerm": "Evaluation methodology",
+      "definition": "Everything declared and held constant when measuring accuracy or reliability: evaluation subject, agent or workflow specification version, scope rings included (infra, world, user fidelity), dataset or traffic slice, perturbations, and the criterion for correctness.",
+      "scopeNote": "Without a declared envelope, scores are not reproducible or comparable. Charter prerequisite for auditability.",
+      "relatedTerms": [],
+      "contrastsWith": [],
+      "workgroups": [
+        "Accuracy & Reliability"
+      ],
+      "literatureNote": "Protocol and envelope vocabulary for reproducible evaluation (evaluation protocols input).",
+      "x-termStatus": "stable",
+      "x-reviewTier": 2,
+      "x-consensus-reached": false
+    },
+    {
+      "term": "Evaluation methodology",
+      "priority": "P1",
+      "taxonomyLayer": "metrics",
+      "category": "Measurement & evaluation",
+      "aliases": [
+        "Evaluation protocol"
+      ],
+      "broaderTerm": null,
+      "definition": "The documented procedure for running an evaluation: chosen subject, datasets or scenarios, success criteria, repetition count, perturbations, and reporting format.",
+      "scopeNote": "Makes accuracy and reliability claims reproducible and comparable.",
+      "relatedTerms": [
+        "Evaluation metric"
+      ],
+      "contrastsWith": [],
+      "workgroups": [
+        "Accuracy & Reliability"
+      ],
+      "literatureNote": "Protocol and envelope vocabulary for reproducible evaluation (evaluation protocols input).",
+      "x-termStatus": "stable",
+      "x-reviewTier": 2,
+      "x-consensus-reached": false
+    },
+    {
+      "term": "Calibration error",
+      "priority": "P1",
+      "taxonomyLayer": "metrics",
+      "category": "Metrics",
+      "aliases": [
+        "Confidence error"
+      ],
+      "broaderTerm": "Evaluation metric",
+      "definition": "A measure of how far stated confidence or uncertainty diverges from observed correctness rate over a defined set of cases.",
+      "scopeNote": "Implements the Calibration reliability dimension. 1:1 quantifier for Overconfident error symptom.",
+      "relatedTerms": [],
+      "contrastsWith": [],
+      "workgroups": [
+        "Accuracy & Reliability"
+      ],
+      "literatureNote": "Implements calibration dimension numerically. 'ECE' is the usual academic label — AAIF uses plain 'calibration error' as the canonical metric name.",
+      "academicTerms": [
+        "AURC",
+        "ECE (expected calibration error)"
+      ],
+      "x-termStatus": "stable",
+      "x-reviewTier": 2,
+      "x-consensus-reached": false
+    },
+    {
+      "term": "Configuration error rate",
+      "priority": "P1",
+      "taxonomyLayer": "metrics",
+      "category": "Metrics",
+      "aliases": [],
+      "broaderTerm": "Evaluation metric",
+      "definition": "The proportion of runs attributed to configuration error in agent or platform setup.",
+      "scopeNote": "1:1 with Configuration error root cause (P1 under Infrastructure failure).",
+      "relatedTerms": [
+        "Infrastructure failure rate"
+      ],
+      "contrastsWith": [],
+      "workgroups": [
+        "Accuracy & Reliability"
+      ],
+      "literatureNote": "Quantifiers attached to dimensions — not synonyms for accuracy or reliability. Academic metric names appear in academicTerms only.",
+      "x-termStatus": "stable",
+      "x-reviewTier": 2,
+      "x-consensus-reached": false
+    },
+    {
+      "term": "Coordination failure rate",
+      "priority": "P1",
+      "taxonomyLayer": "metrics",
+      "category": "Metrics",
+      "aliases": [],
+      "broaderTerm": "Evaluation metric",
+      "definition": "The proportion of multi-agent runs attributed to coordination failure.",
+      "scopeNote": "1:1 with Coordination failure root cause.",
+      "relatedTerms": [
+        "Reasoning failure rate"
+      ],
+      "contrastsWith": [],
+      "workgroups": [
+        "Accuracy & Reliability"
+      ],
+      "literatureNote": "Quantifiers attached to dimensions — not synonyms for accuracy or reliability. Academic metric names appear in academicTerms only.",
+      "x-termStatus": "stable",
+      "x-reviewTier": 2,
+      "x-consensus-reached": false
+    },
+    {
+      "term": "Entity mismatch rate",
+      "priority": "P1",
+      "taxonomyLayer": "metrics",
+      "category": "Metrics",
+      "aliases": [],
+      "broaderTerm": "Evaluation metric",
+      "definition": "The proportion of scenarios where an entity mismatch symptom was observed.",
+      "scopeNote": "1:1 with Entity mismatch symptom.",
+      "relatedTerms": [
+        "Hallucination rate"
+      ],
+      "contrastsWith": [],
+      "workgroups": [
+        "Accuracy & Reliability"
+      ],
+      "literatureNote": "Quantifiers attached to dimensions — not synonyms for accuracy or reliability. Academic metric names appear in academicTerms only.",
+      "x-termStatus": "stable",
+      "x-reviewTier": 2,
+      "x-consensus-reached": false
+    },
+    {
+      "term": "Fabricated tool result rate",
+      "priority": "P1",
+      "taxonomyLayer": "metrics",
+      "category": "Metrics",
+      "aliases": [],
+      "broaderTerm": "Evaluation metric",
+      "definition": "The proportion of scenarios where a fabricated tool result symptom was observed.",
+      "scopeNote": "1:1 with Fabricated tool result symptom.",
+      "relatedTerms": [
+        "Hallucination rate"
+      ],
+      "contrastsWith": [],
+      "workgroups": [
+        "Accuracy & Reliability"
+      ],
+      "literatureNote": "Quantifiers attached to dimensions — not synonyms for accuracy or reliability. Academic metric names appear in academicTerms only.",
+      "x-termStatus": "stable",
+      "x-reviewTier": 2,
+      "x-consensus-reached": false
+    },
+    {
+      "term": "Goal misalignment rate",
+      "priority": "P1",
+      "taxonomyLayer": "metrics",
+      "category": "Metrics",
+      "aliases": [],
+      "broaderTerm": "Evaluation metric",
+      "definition": "The proportion of runs attributed to goal misalignment after failure attribution.",
+      "scopeNote": "1:1 with Goal misalignment root cause (P1 under Reasoning failure).",
+      "relatedTerms": [
+        "Reasoning failure rate"
+      ],
+      "contrastsWith": [],
+      "workgroups": [
+        "Accuracy & Reliability"
+      ],
+      "literatureNote": "Quantifiers attached to dimensions — not synonyms for accuracy or reliability. Academic metric names appear in academicTerms only.",
+      "x-termStatus": "stable",
+      "x-reviewTier": 2,
+      "x-consensus-reached": false
+    },
+    {
+      "term": "Hallucination rate",
+      "priority": "P1",
+      "taxonomyLayer": "metrics",
+      "category": "Metrics",
+      "aliases": [
+        "Hallucination incidence"
+      ],
+      "broaderTerm": "Evaluation metric",
+      "definition": "The proportion of evaluation scenarios in which any hallucination symptom (ungrounded claim, entity mismatch, stale source error, or fabricated tool result) was observed.",
+      "scopeNote": "Aggregate over Hallucination subtypes; report subtype rates separately for diagnosis.",
+      "relatedTerms": [
+        "Evaluation metric",
+        "Ungrounded claim rate"
+      ],
+      "contrastsWith": [],
+      "workgroups": [
+        "Accuracy & Reliability"
+      ],
+      "literatureNote": "Parent symptom rate; evaluation protocols reporting templates require subtype breakdown.",
+      "x-termStatus": "stable",
+      "x-reviewTier": 2,
+      "x-consensus-reached": false
+    },
+    {
+      "term": "Incorrect task outcome rate",
+      "priority": "P1",
+      "taxonomyLayer": "metrics",
+      "category": "Metrics",
+      "aliases": [
+        "Task failure rate"
+      ],
+      "broaderTerm": "Evaluation metric",
+      "definition": "The proportion of scenarios where the final outcome did not meet the evaluation criterion or user intent.",
+      "scopeNote": "1:1 with Incorrect task outcome symptom. Complement of task success rate when criteria align.",
+      "relatedTerms": [
+        "Task success rate"
+      ],
+      "contrastsWith": [
+        "Task success rate"
+      ],
+      "workgroups": [
+        "Accuracy & Reliability"
+      ],
+      "literatureNote": "Quantifiers attached to dimensions — not synonyms for accuracy or reliability. Academic metric names appear in academicTerms only.",
+      "x-termStatus": "stable",
+      "x-reviewTier": 2,
+      "x-consensus-reached": false
+    },
+    {
+      "term": "Infrastructure failure rate",
+      "priority": "P1",
+      "taxonomyLayer": "metrics",
+      "category": "Metrics",
+      "aliases": [],
+      "broaderTerm": "Evaluation metric",
+      "definition": "The proportion of failed or degraded runs attributed to infrastructure failure after failure attribution.",
+      "scopeNote": "1:1 with Infrastructure failure root-cause class (P0). Break down by P1 subclasses in reporting.",
+      "relatedTerms": [
+        "Configuration error rate",
+        "Tool availability failure rate"
+      ],
+      "contrastsWith": [],
+      "workgroups": [
+        "Accuracy & Reliability"
+      ],
+      "literatureNote": "Quantifiers attached to dimensions — not synonyms for accuracy or reliability. Academic metric names appear in academicTerms only.",
+      "x-termStatus": "stable",
+      "x-reviewTier": 2,
+      "x-consensus-reached": false
+    },
+    {
+      "term": "Message delivery failure rate",
+      "priority": "P1",
+      "taxonomyLayer": "metrics",
+      "category": "Metrics",
+      "aliases": [],
+      "broaderTerm": "Evaluation metric",
+      "definition": "The proportion of multi-agent runs where message delivery failure was the attributed root cause.",
+      "scopeNote": "1:1 with Message delivery failure root cause.",
+      "relatedTerms": [
+        "Infrastructure failure rate"
+      ],
+      "contrastsWith": [],
+      "workgroups": [
+        "Accuracy & Reliability"
+      ],
+      "literatureNote": "Quantifiers attached to dimensions — not synonyms for accuracy or reliability. Academic metric names appear in academicTerms only.",
+      "x-termStatus": "stable",
+      "x-reviewTier": 2,
+      "x-consensus-reached": false
+    },
+    {
+      "term": "Planning error rate",
+      "priority": "P1",
+      "taxonomyLayer": "metrics",
+      "category": "Metrics",
+      "aliases": [],
+      "broaderTerm": "Evaluation metric",
+      "definition": "The proportion of runs attributed to planning error after failure attribution.",
+      "scopeNote": "1:1 with Planning error root cause.",
+      "relatedTerms": [
+        "Reasoning failure rate"
+      ],
+      "contrastsWith": [],
+      "workgroups": [
+        "Accuracy & Reliability"
+      ],
+      "literatureNote": "Quantifiers attached to dimensions — not synonyms for accuracy or reliability. Academic metric names appear in academicTerms only.",
+      "x-termStatus": "stable",
+      "x-reviewTier": 2,
+      "x-consensus-reached": false
+    },
+    {
+      "term": "Policy violation rate",
+      "priority": "P1",
+      "taxonomyLayer": "metrics",
+      "category": "Metrics",
+      "aliases": [
+        "Safety violation rate"
+      ],
+      "broaderTerm": "Evaluation metric",
+      "definition": "The frequency of prohibited, unauthorised, or out-of-scope actions in an evaluation or production window.",
+      "scopeNote": "Implements the Safety reliability dimension. 1:1 quantifier for Authorization failure root cause.",
+      "relatedTerms": [],
+      "contrastsWith": [],
+      "workgroups": [
+        "Accuracy & Reliability"
+      ],
+      "literatureNote": "Quantifiers attached to dimensions — not synonyms for accuracy or reliability. Academic metric names appear in academicTerms only.",
+      "x-termStatus": "stable",
+      "x-reviewTier": 2,
+      "x-consensus-reached": false
+    },
+    {
+      "term": "Reasoning failure rate",
+      "priority": "P1",
+      "taxonomyLayer": "metrics",
+      "category": "Metrics",
+      "aliases": [],
+      "broaderTerm": "Evaluation metric",
+      "definition": "The proportion of failed or degraded runs attributed to reasoning failure after failure attribution.",
+      "scopeNote": "1:1 with Reasoning failure root-cause class (P0).",
+      "relatedTerms": [
+        "Goal misalignment rate",
+        "Planning error rate"
+      ],
+      "contrastsWith": [],
+      "workgroups": [
+        "Accuracy & Reliability"
+      ],
+      "literatureNote": "Quantifiers attached to dimensions — not synonyms for accuracy or reliability. Academic metric names appear in academicTerms only.",
+      "x-termStatus": "stable",
+      "x-reviewTier": 2,
+      "x-consensus-reached": false
+    },
+    {
+      "term": "Recovery failure rate",
+      "priority": "P1",
+      "taxonomyLayer": "metrics",
+      "category": "Metrics",
+      "aliases": [],
+      "broaderTerm": "Evaluation metric",
+      "definition": "The proportion of scenarios where correction mechanisms failed to restore an acceptable state within budget.",
+      "scopeNote": "1:1 with Recovery failure root-cause class (P0).",
+      "relatedTerms": [],
+      "contrastsWith": [],
+      "workgroups": [
+        "Accuracy & Reliability"
+      ],
+      "literatureNote": "Quantifiers attached to dimensions — not synonyms for accuracy or reliability. Academic metric names appear in academicTerms only.",
+      "x-termStatus": "stable",
+      "x-reviewTier": 2,
+      "x-consensus-reached": false
+    },
+    {
+      "term": "Repeated-run success rate",
+      "priority": "P1",
+      "taxonomyLayer": "metrics",
+      "category": "Metrics",
+      "aliases": [
+        "All-trials success rate"
+      ],
+      "broaderTerm": "Evaluation metric",
+      "definition": "The proportion of evaluation sets where the system succeeds on every repeat of the same task under equivalent conditions. Used to measure outcome consistency.",
+      "scopeNote": "Stricter than single-run task success rate; exposes luck and instability.",
+      "relatedTerms": [
+        "Evaluation methodology",
+        "Task success rate"
+      ],
+      "contrastsWith": [
+        "Task success rate"
+      ],
+      "workgroups": [
+        "Accuracy & Reliability"
+      ],
+      "literatureNote": "Plain-language metric for outcome consistency. Deliberately not named pass^k in AAIF terminology; link to academic label in related work.",
+      "academicTerms": [
+        "pass@k (best-of-k — different quantity)",
+        "pass^k (Yao et al., 2024)"
+      ],
+      "x-termStatus": "stable",
+      "x-reviewTier": 2,
+      "x-consensus-reached": false
+    },
+    {
+      "term": "Silent wrong action rate",
+      "priority": "P1",
+      "taxonomyLayer": "metrics",
+      "category": "Metrics",
+      "aliases": [],
+      "broaderTerm": "Evaluation metric",
+      "definition": "The proportion of scenarios where the system took a wrong action without signalling error or uncertainty.",
+      "scopeNote": "1:1 with Silent wrong action symptom.",
+      "relatedTerms": [],
+      "contrastsWith": [],
+      "workgroups": [
+        "Accuracy & Reliability"
+      ],
+      "literatureNote": "Quantifiers attached to dimensions — not synonyms for accuracy or reliability. Academic metric names appear in academicTerms only.",
+      "x-termStatus": "stable",
+      "x-reviewTier": 2,
+      "x-consensus-reached": false
+    },
+    {
+      "term": "Stale source error rate",
+      "priority": "P1",
+      "taxonomyLayer": "metrics",
+      "category": "Metrics",
+      "aliases": [],
+      "broaderTerm": "Evaluation metric",
+      "definition": "The proportion of scenarios where a stale source error symptom was observed.",
+      "scopeNote": "1:1 with Stale source error symptom.",
+      "relatedTerms": [
+        "Hallucination rate"
+      ],
+      "contrastsWith": [],
+      "workgroups": [
+        "Accuracy & Reliability"
+      ],
+      "literatureNote": "Quantifiers attached to dimensions — not synonyms for accuracy or reliability. Academic metric names appear in academicTerms only.",
+      "x-termStatus": "stable",
+      "x-reviewTier": 2,
+      "x-consensus-reached": false
+    },
+    {
+      "term": "Task abandonment rate",
+      "priority": "P1",
+      "taxonomyLayer": "metrics",
+      "category": "Metrics",
+      "aliases": [],
+      "broaderTerm": "Evaluation metric",
+      "definition": "The proportion of scenarios where the user or system abandoned the task before completion.",
+      "scopeNote": "1:1 with Task abandonment symptom.",
+      "relatedTerms": [
+        "User re-prompt rate"
+      ],
+      "contrastsWith": [],
+      "workgroups": [
+        "Accuracy & Reliability"
+      ],
+      "literatureNote": "Quantifiers attached to dimensions — not synonyms for accuracy or reliability. Academic metric names appear in academicTerms only.",
+      "x-termStatus": "stable",
+      "x-reviewTier": 2,
+      "x-consensus-reached": false
+    },
+    {
+      "term": "Task success rate",
+      "priority": "P1",
+      "taxonomyLayer": "metrics",
+      "category": "Metrics",
+      "aliases": [
+        "Task pass rate"
+      ],
+      "broaderTerm": "Evaluation metric",
+      "definition": "The proportion of evaluation runs where the system meets predefined task success criteria for a given subject and scenario set.",
+      "scopeNote": "Primary metric for task accuracy and task completion in offline evaluation. Complements symptom-specific `{term} rate` metrics.",
+      "relatedTerms": [
+        "Evaluation methodology"
+      ],
+      "contrastsWith": [],
+      "workgroups": [
+        "Accuracy & Reliability"
+      ],
+      "literatureNote": "Dominant single-run metric in agent benchmarks. AAIF treats it as complementary to, not a substitute for, repeated-run success rate.",
+      "academicTerms": [
+        "pass@1",
+        "success rate",
+        "task completion rate"
+      ],
+      "x-termStatus": "stable",
+      "x-reviewTier": 2,
+      "x-consensus-reached": false
+    },
+    {
+      "term": "Tool availability failure rate",
+      "priority": "P1",
+      "taxonomyLayer": "metrics",
+      "category": "Metrics",
+      "aliases": [],
+      "broaderTerm": "Evaluation metric",
+      "definition": "The proportion of runs attributed to tool availability failure.",
+      "scopeNote": "1:1 with Tool availability failure root cause.",
+      "relatedTerms": [
+        "Infrastructure failure rate"
+      ],
+      "contrastsWith": [],
+      "workgroups": [
+        "Accuracy & Reliability"
+      ],
+      "literatureNote": "Quantifiers attached to dimensions — not synonyms for accuracy or reliability. Academic metric names appear in academicTerms only.",
+      "x-termStatus": "stable",
+      "x-reviewTier": 2,
+      "x-consensus-reached": false
+    },
+    {
+      "term": "Ungrounded claim rate",
+      "priority": "P1",
+      "taxonomyLayer": "metrics",
+      "category": "Metrics",
+      "aliases": [],
+      "broaderTerm": "Evaluation metric",
+      "definition": "The proportion of scenarios where an ungrounded claim symptom was observed.",
+      "scopeNote": "1:1 with Ungrounded claim (P1 refinement under Hallucination).",
+      "relatedTerms": [
+        "Hallucination rate"
+      ],
+      "contrastsWith": [],
+      "workgroups": [
+        "Accuracy & Reliability"
+      ],
+      "literatureNote": "Quantifiers attached to dimensions — not synonyms for accuracy or reliability. Academic metric names appear in academicTerms only.",
+      "x-termStatus": "stable",
+      "x-reviewTier": 2,
+      "x-consensus-reached": false
+    },
+    {
+      "term": "User re-prompt rate",
+      "priority": "P1",
+      "taxonomyLayer": "metrics",
+      "category": "Metrics",
+      "aliases": [
+        "Re-ask rate"
+      ],
+      "broaderTerm": "Evaluation metric",
+      "definition": "How often users repeat, refine, or override a request because the prior agent response failed to satisfy intent. A user-perceived reliability signal in production.",
+      "scopeNote": "Charter: user perspective validation. 1:1 quantifier for User re-prompt symptom.",
+      "relatedTerms": [],
+      "contrastsWith": [],
+      "workgroups": [
+        "Accuracy & Reliability"
+      ],
+      "literatureNote": "Quantifiers attached to dimensions — not synonyms for accuracy or reliability. Academic metric names appear in academicTerms only.",
+      "x-termStatus": "stable",
+      "x-reviewTier": 2,
+      "x-consensus-reached": false
+    }
+  ]
+}

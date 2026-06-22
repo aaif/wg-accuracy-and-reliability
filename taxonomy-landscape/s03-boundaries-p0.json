@@ -1,0 +1,190 @@
+{
+  "schemaVersion": "1.0.0",
+  "title": "System boundaries & evaluation subjects — P0",
+  "sectionGuide": {
+    "why": "Every accuracy or reliability claim must name *what* is being evaluated. Without stable terms for agent, multi-agent system, workflow, and model, the same score can mean “the LLM answered correctly” or “the business process succeeded” — and gap analysis cannot compare like with like.",
+    "wgUse": "Canonical evaluation-object vocabulary for benchmarks, inventories, and evaluation envelopes. Each row should declare subject and scope rings. Candidate for export to Taxonomy WG shared objects. Reviewers comment on JSON in `s03-boundaries-*.json` before citing terms elsewhere.",
+    "enables": "Core properties and reliability dimensions attach to a declared object; grounding and failure attribution require an agent boundary; benchmark coverage maps per evaluation subject. Nothing downstream is well-defined until this section is settled.",
+    "priorities": "**P0** locks the evaluation-object vocabulary the narrative assumes (agent, MAS, workflow, evaluation subject). **P1** adds specification, trajectory, and scope-ring terms needed to reproduce a run but not to choose the object. Sign off P0 before core properties — if agent vs workflow is unsettled, later definitions cannot stabilize.",
+    "categories": [
+      {
+        "category": "Evaluation subjects",
+        "count": 17,
+        "relevance": "Charter scope: name *what* is evaluated (agent, MAS, workflow) before any accuracy or reliability claim. Stops leaderboard model scores from standing in for business outcomes.",
+        "wgUse": "Shared subject column in benchmark inventories · evaluation envelope fields · Taxonomy WG upstream batches"
+      }
+    ]
+  },
+  "anchorPriority": "P0",
+  "prioritiesPresent": [
+    "P0"
+  ],
+  "count": 6,
+  "terms": [
+    {
+      "term": "Agent",
+      "priority": "P0",
+      "taxonomyLayer": "subject",
+      "category": "Evaluation subjects",
+      "aliases": [],
+      "broaderTerm": "Evaluation subject",
+      "definition": "A model together with its instructions, context assembly, tool access, memory use, and decision loop — evaluated as one unit for a task or session, including tool calls made on its behalf.",
+      "scopeNote": "Default evaluation subject for most ARWG work.",
+      "relatedTerms": [
+        "Agent boundary",
+        "Multi-agent system"
+      ],
+      "contrastsWith": [
+        "Model"
+      ],
+      "workgroups": [
+        "Accuracy & Reliability"
+      ],
+      "literatureNote": "Widely used in agent benchmarks (WebArena, tau-bench, SWE-bench) as the scored unit: model plus tools and session logic. Differs from 'model' in leaderboard-only settings.",
+      "academicTerms": [
+        "LLM agent (survey literature)",
+        "tool-using agent"
+      ],
+      "x-termStatus": "stable",
+      "x-reviewTier": 3,
+      "x-consensus-reached": false
+    },
+    {
+      "term": "Agent boundary",
+      "priority": "P0",
+      "taxonomyLayer": "subject",
+      "category": "Evaluation subjects",
+      "aliases": [
+        "Session boundary",
+        "System boundary"
+      ],
+      "broaderTerm": "Agent",
+      "definition": "The interface where external infrastructure meets agent-internal state — including model calls, tool results, retrieved knowledge, and memory. Used to decide whether a failure originated inside the agent or in the environment serving it.",
+      "scopeNote": "Establish infrastructure health before attributing a failure to agent reasoning.",
+      "relatedTerms": [],
+      "contrastsWith": [],
+      "workgroups": [
+        "Accuracy & Reliability"
+      ],
+      "literatureNote": "AAIF-specific attribution construct for separating agent-internal from environmental failures. Not a standard benchmark term; needed so infrastructure vs cognition failures can be separated.",
+      "x-termStatus": "stable",
+      "x-reviewTier": 3,
+      "x-consensus-reached": false
+    },
+    {
+      "term": "Evaluation subject",
+      "priority": "P0",
+      "taxonomyLayer": "subject",
+      "category": "Evaluation subjects",
+      "aliases": [
+        "Object of evaluation",
+        "System under test"
+      ],
+      "broaderTerm": null,
+      "definition": "The part of the system to which an accuracy or reliability claim applies. Every claim must name one subject: model, agent, multi-agent system, or workflow. Unqualified claims are ambiguous.",
+      "scopeNote": "Foundational boundary rule for ARWG evaluation and reporting.",
+      "relatedTerms": [
+        "Agent",
+        "Model",
+        "Multi-agent system",
+        "Workflow"
+      ],
+      "contrastsWith": [],
+      "workgroups": [
+        "Accuracy & Reliability"
+      ],
+      "literatureNote": "AAIF rule: every claim must name model, agent, MAS, or workflow. Benchmark papers often leave this implicit — a common source of gap-analysis error.",
+      "x-termStatus": "stable",
+      "x-reviewTier": 3,
+      "x-consensus-reached": false
+    },
+    {
+      "term": "Model",
+      "priority": "P0",
+      "taxonomyLayer": "subject",
+      "category": "Evaluation subjects",
+      "aliases": [
+        "Language model component"
+      ],
+      "broaderTerm": "Evaluation subject",
+      "definition": "A single language or machine-learning model evaluated at one inference call boundary with fixed inputs, excluding tools, memory assembly, and multi-step agent logic.",
+      "scopeNote": "Smallest evaluation subject. Model metrics do not substitute for agent or system metrics.",
+      "relatedTerms": [
+        "Agent"
+      ],
+      "contrastsWith": [
+        "Agent"
+      ],
+      "workgroups": [
+        "Accuracy & Reliability"
+      ],
+      "literatureNote": "Standard in NLP leaderboards (MMLU, HELM). ARWG treats this as the innermost subject; agent-level scores are not interchangeable.",
+      "academicTerms": [
+        "foundation model",
+        "LLM component"
+      ],
+      "x-termStatus": "stable",
+      "x-reviewTier": 3,
+      "x-consensus-reached": false
+    },
+    {
+      "term": "Multi-agent system",
+      "priority": "P0",
+      "taxonomyLayer": "subject",
+      "category": "Evaluation subjects",
+      "aliases": [
+        "Agent team",
+        "Multi-agent composition"
+      ],
+      "broaderTerm": "Evaluation subject",
+      "definition": "A set of agents that exchange messages and coordinate on a shared task, evaluated at the orchestration boundary for one session or workflow run.",
+      "scopeNote": "Accuracy and reliability claims must state whether they apply to final system output or to individual agent steps.",
+      "relatedTerms": [
+        "Multi-agent system"
+      ],
+      "contrastsWith": [
+        "Agent"
+      ],
+      "workgroups": [
+        "Accuracy & Reliability"
+      ],
+      "literatureNote": "Used in MAS benchmarks (MultiAgentBench, REALM-Bench). Coordination and joint outcome scoring vary; attribution remains weak in literature.",
+      "academicTerms": [
+        "agent roster",
+        "multi-agent LLM system"
+      ],
+      "x-termStatus": "stable",
+      "x-reviewTier": 3,
+      "x-consensus-reached": false
+    },
+    {
+      "term": "Workflow",
+      "priority": "P0",
+      "taxonomyLayer": "subject",
+      "category": "Evaluation subjects",
+      "aliases": [
+        "End-to-end process",
+        "Pipeline"
+      ],
+      "broaderTerm": "Evaluation subject",
+      "definition": "An end-to-end process that may include agents plus non-agent steps such as databases, APIs, rules, and human checkpoints. Judged on final process outputs unless evaluation scope says otherwise.",
+      "scopeNote": "Includes deterministic and semi-deterministic orchestration patterns.",
+      "relatedTerms": [
+        "Agent"
+      ],
+      "contrastsWith": [],
+      "workgroups": [
+        "Accuracy & Reliability",
+        "Workflows & Process Integration"
+      ],
+      "literatureNote": "Divergent: AAIF 'workflow' = evaluation object (full deployed process). Workflows & Process Integration WG uses 'workflow' for durable execution engines — disambiguation required when citing this term alongside Workflows & Process Integration.",
+      "academicTerms": [
+        "business process",
+        "pipeline evaluation object"
+      ],
+      "x-termStatus": "stable",
+      "x-reviewTier": 3,
+      "x-consensus-reached": false
+    }
+  ]
+}

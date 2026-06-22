@@ -1,0 +1,401 @@
+{
+  "schemaVersion": "1.0.0",
+  "title": "Core concepts — accuracy & output quality — P0",
+  "sectionGuide": {
+    "why": "Accuracy and reliability are the two top-level properties ARWG exists to define. Without a crisp split — correct on this run versus stable across repeats and conditions — reliability dimensions, failure classes, and metrics collapse into overloaded “quality” language.",
+    "wgUse": "Canonical definitions for accuracy, reliability, and output quality. Used in gap analysis, enterprise checklists, and evaluation rubrics. Review `s04-core-*.json` before approving dimensions or metrics.",
+    "enables": "Reliability dimensions decompose agent reliability into measurable families; failure vocabulary classifies breaks against accuracy vs reliability; metrics quantify these properties rather than replacing them.",
+    "priorities": "**P0** is the charter-aligned core: accuracy, reliability, annotated vs contextual correctness, and task/process/evidence accuracy. **P1** holds derived terms (realised accuracy, model output reliability) that presuppose P0. Do not approve P1 until P0 distinctions — especially correctness variants — are accepted.",
+    "categories": [
+      {
+        "category": "Accuracy & reliability",
+        "count": 10,
+        "relevance": "Core charter properties — correct on this run (accuracy) vs stable across repeats and conditions (reliability). Parent concepts for every dimension and metric ARWG publishes.",
+        "wgUse": "Gap analysis requirement rows · enterprise SLAs · cited across WG artefacts"
+      },
+      {
+        "category": "Output quality",
+        "count": 7,
+        "relevance": "Bridges bare correctness to user-facing outcomes: task completion, response quality, intent/skill adherence. Covers 'correct but not useful or not relevant to context'.",
+        "wgUse": "Enterprise user-ring checklists · persona-weighted gap analysis · judge rubrics for usefulness"
+      }
+    ]
+  },
+  "anchorPriority": "P0",
+  "prioritiesPresent": [
+    "P0"
+  ],
+  "count": 13,
+  "terms": [
+    {
+      "term": "Accuracy",
+      "priority": "P0",
+      "taxonomyLayer": "dimensions",
+      "category": "Accuracy & reliability",
+      "aliases": [
+        "Correctness"
+      ],
+      "broaderTerm": null,
+      "definition": "The degree to which an agent, multi-agent system, or workflow produces the correct result for a task under a declared evaluation setup — as outcome accuracy (task result), action accuracy (process and functional correctness), or both as declared.",
+      "scopeNote": "Single-run property. Stability across repeated runs is reliability, not accuracy. Claims must name the evaluation subject and correctness criterion.",
+      "relatedTerms": [
+        "Annotated correctness",
+        "Reliability",
+        "Statistical coverage",
+        "Task accuracy"
+      ],
+      "contrastsWith": [
+        "Reliability"
+      ],
+      "workgroups": [
+        "Accuracy & Reliability"
+      ],
+      "literatureNote": "Generally accepted split from reliability in Princeton HAL (Rabanser et al., 2026) and tau-bench-style final-state checks. Classical 'accuracy' in ML = single-run correctness; AAIF keeps that default. Wojciech (running notes): practical grounding from widely used agent benchmarks (HLE, Tau-Bench, SWE-Bench, etc.) — definitions should stay aligned with how those benchmarks declare success.",
+      "academicTerms": [
+        "final-state validation",
+        "task correctness (tau-bench)"
+      ],
+      "x-termStatus": "stable",
+      "x-reviewTier": 2,
+      "x-consensus-reached": false,
+      "x-sources": [
+        "ARWG running notes — Taxonomy (Accuracy; Wojciech — benchmark grounding)"
+      ]
+    },
+    {
+      "term": "Agent reliability",
+      "priority": "P0",
+      "taxonomyLayer": "dimensions",
+      "category": "Accuracy & reliability",
+      "aliases": [
+        "System output reliability"
+      ],
+      "broaderTerm": "Reliability",
+      "definition": "Reliability of an agent or multi-agent system as a whole: whether it keeps producing correct outcomes across repetitions, paraphrased inputs, partial failures, and other conditions in scope for evaluation.",
+      "scopeNote": "Default meaning of reliability in ARWG deliverables.",
+      "relatedTerms": [
+        "Infrastructure reliability"
+      ],
+      "contrastsWith": [
+        "Infrastructure reliability",
+        "Model output reliability"
+      ],
+      "workgroups": [
+        "Accuracy & Reliability"
+      ],
+      "literatureNote": "AAIF default: output stability and policy-safe behaviour of the agent unit. Excludes pure platform uptime unless workflow scope includes infrastructure ring.",
+      "x-termStatus": "stable",
+      "x-reviewTier": 3,
+      "x-consensus-reached": false
+    },
+    {
+      "term": "Annotated correctness",
+      "priority": "P0",
+      "taxonomyLayer": "dimensions",
+      "category": "Accuracy & reliability",
+      "aliases": [
+        "Offline evaluation correctness"
+      ],
+      "broaderTerm": "Accuracy",
+      "definition": "Correctness judged against a pre-specified label, rubric, or expected outcome in an offline evaluation, without access to the user's full live context or intent at run time.",
+      "scopeNote": "A high benchmark score under annotated correctness does not guarantee contextual correctness in production.",
+      "relatedTerms": [
+        "Contextual correctness",
+        "Statistical coverage"
+      ],
+      "contrastsWith": [
+        "Contextual correctness"
+      ],
+      "workgroups": [
+        "Accuracy & Reliability"
+      ],
+      "literatureNote": "Benchmark convention: fixed gold labels (MMLU, SWE-bench tests). Accepted but insufficient alone for enterprise context-dependent tasks.",
+      "academicTerms": [
+        "gold-label accuracy",
+        "reference answer correctness"
+      ],
+      "x-termStatus": "stable",
+      "x-reviewTier": 3,
+      "x-consensus-reached": false
+    },
+    {
+      "term": "Contextual correctness",
+      "priority": "P0",
+      "taxonomyLayer": "dimensions",
+      "category": "Accuracy & reliability",
+      "aliases": [
+        "Production-context correctness"
+      ],
+      "broaderTerm": "Accuracy",
+      "definition": "Correctness given the user's actual context, intent, and job-to-be-done at the time the agent runs — information an offline evaluator may not fully possess.",
+      "scopeNote": "Needed for production claims; harder to measure than annotated correctness.",
+      "relatedTerms": [
+        "Annotated correctness",
+        "Task completion"
+      ],
+      "contrastsWith": [
+        "Annotated correctness"
+      ],
+      "workgroups": [
+        "Accuracy & Reliability"
+      ],
+      "literatureNote": "Less standardised in public benchmarks; enterprise need stated in charter. AAIF-specific emphasis for user- and deployment-specific criteria.",
+      "academicTerms": [
+        "context-dependent evaluation",
+        "live correctness"
+      ],
+      "x-termStatus": "stable",
+      "x-reviewTier": 3,
+      "x-consensus-reached": false
+    },
+    {
+      "term": "Infrastructure reliability",
+      "priority": "P0",
+      "taxonomyLayer": "dimensions",
+      "category": "Accuracy & reliability",
+      "aliases": [
+        "Platform reliability"
+      ],
+      "broaderTerm": "Reliability",
+      "definition": "Whether tools, APIs, orchestration services, and runtime platforms are available and deliver expected inputs and responses to the agent boundary. Measured with operational signals such as uptime, error rate, tail latency, and retry success — not with task correctness alone.",
+      "scopeNote": "Precondition for agent reliability, not a synonym. Infrastructure problems can reduce observed accuracy even when agent reasoning is sound.",
+      "relatedTerms": [
+        "Agent reliability"
+      ],
+      "contrastsWith": [
+        "Agent reliability"
+      ],
+      "workgroups": [
+        "Accuracy & Reliability"
+      ],
+      "literatureNote": "SRE/platform sense — availability, latency, delivery. Kept separate from agent reliability so outages are not misreported as model instability.",
+      "academicTerms": [
+        "platform SLA",
+        "service reliability"
+      ],
+      "x-termStatus": "stable",
+      "x-reviewTier": 3,
+      "x-consensus-reached": false
+    },
+    {
+      "term": "Reliability",
+      "priority": "P0",
+      "taxonomyLayer": "dimensions",
+      "category": "Accuracy & reliability",
+      "aliases": [],
+      "broaderTerm": null,
+      "definition": "The degree to which an agent or multi-agent system preserves correct behaviour across repeated runs and relevant changes in operating conditions within a defined envelope. Reliability answers whether correctness holds when inputs are rephrased, components fail, or the same task is run again — not whether a single run was correct.",
+      "scopeNote": "Unqualified use in ARWG output means agent or system output reliability. Platform uptime and delivery guarantees require the qualifier infrastructure reliability.",
+      "relatedTerms": [
+        "Accuracy",
+        "Agent reliability",
+        "Infrastructure reliability"
+      ],
+      "contrastsWith": [
+        "Accuracy",
+        "Infrastructure reliability"
+      ],
+      "workgroups": [
+        "Accuracy & Reliability"
+      ],
+      "literatureNote": "Divergent: Princeton HAL = variation across repeats and conditions. Classical MAS/distributed systems often mean availability or fault tolerance — AAIF uses 'infrastructure reliability' for that sense.",
+      "academicTerms": [
+        "agent reliability (Rabanser et al., 2026)",
+        "fault tolerance (distributed systems)"
+      ],
+      "x-termStatus": "stable",
+      "x-reviewTier": 3,
+      "x-consensus-reached": false
+    },
+    {
+      "term": "Statistical coverage",
+      "priority": "P0",
+      "taxonomyLayer": "dimensions",
+      "category": "Accuracy & reliability",
+      "aliases": [
+        "Benchmark representativity"
+      ],
+      "broaderTerm": "Accuracy",
+      "definition": "The degree to which an evaluation dataset or benchmark sample represents the tasks, contexts, and time horizons for which an accuracy claim will be interpreted.",
+      "scopeNote": "Required to interpret accuracy claims; benchmark selection bias limits generalisation.",
+      "relatedTerms": [
+        "Annotated correctness"
+      ],
+      "contrastsWith": [],
+      "workgroups": [
+        "Accuracy & Reliability"
+      ],
+      "literatureNote": "Nicolas (running notes): benchmark selection bias and time/point-of-view context limit how far an accuracy score generalises — pair accuracy claims with statistical coverage.",
+      "x-termStatus": "stable",
+      "x-reviewTier": 2,
+      "x-consensus-reached": false,
+      "x-sources": [
+        "ARWG running notes — Taxonomy (Statistical coverage; Nicolas)"
+      ]
+    },
+    {
+      "term": "Trustworthiness",
+      "priority": "P0",
+      "taxonomyLayer": "dimensions",
+      "category": "Accuracy & reliability",
+      "aliases": [
+        "User reliance judgment"
+      ],
+      "broaderTerm": null,
+      "definition": "A stakeholder judgment about whether people should depend on an agent for a given task class — informed by accuracy, reliability, calibration, and governance, but not a single measurable score.",
+      "scopeNote": "P0 from original WG brief. Use for narrative and executive communication; measure narrower properties in evaluation.",
+      "relatedTerms": [
+        "Accuracy",
+        "Reliability",
+        "Task completion"
+      ],
+      "contrastsWith": [
+        "Accuracy"
+      ],
+      "workgroups": [
+        "Accuracy & Reliability"
+      ],
+      "literatureNote": "Governance/responsible-AI composite term — intentionally not a metric in AAIF. Narrative and policy use only. Nicolas (running notes): distinct from accuracy — whether users should *rely* on the agent, including over/under-trust when the model is miscalibrated or context-blind.",
+      "academicTerms": [
+        "trustworthy AI (EU AI Act discourse)"
+      ],
+      "x-termStatus": "qualified",
+      "x-reviewTier": 2,
+      "x-consensus-reached": false,
+      "x-sources": [
+        "ARWG running notes — Taxonomy (Trustworthiness; Nicolas)"
+      ]
+    },
+    {
+      "term": "Functional correctness",
+      "priority": "P0",
+      "taxonomyLayer": "dimensions",
+      "category": "Output quality",
+      "aliases": [
+        "Operational correctness"
+      ],
+      "broaderTerm": null,
+      "definition": "Whether the agent selected the right tools, routes, parameters, and output formats expected by the task protocol. Concerns how the work was done, not the semantic quality of the answer text.",
+      "scopeNote": "Often evaluated with exact matching on expected tool sequences and structured outputs.",
+      "relatedTerms": [
+        "Process accuracy",
+        "Response quality"
+      ],
+      "contrastsWith": [
+        "Response quality"
+      ],
+      "workgroups": [
+        "Accuracy & Reliability"
+      ],
+      "literatureNote": "Task-result vocabulary bridging accuracy to user-visible outcomes. Common in benchmark reporting with varying definitions.",
+      "x-termStatus": "stable",
+      "x-reviewTier": 3,
+      "x-consensus-reached": false
+    },
+    {
+      "term": "Process accuracy",
+      "priority": "P0",
+      "taxonomyLayer": "dimensions",
+      "category": "Output quality",
+      "aliases": [
+        "Procedure accuracy",
+        "Process adherence"
+      ],
+      "broaderTerm": "Accuracy",
+      "definition": "Whether the system invoked the right tools, agents, and steps in an acceptable order to pursue the task — the HOW dimension at step-sequence level.",
+      "scopeNote": "Distinct from task accuracy: a correct outcome can be reached by the wrong process, and a sound process can still fail.",
+      "relatedTerms": [
+        "Functional correctness"
+      ],
+      "contrastsWith": [
+        "Task accuracy"
+      ],
+      "workgroups": [
+        "Accuracy & Reliability"
+      ],
+      "literatureNote": "Task-result vocabulary bridging accuracy to user-visible outcomes. Common in benchmark reporting with varying definitions.",
+      "x-termStatus": "stable",
+      "x-reviewTier": 3,
+      "x-consensus-reached": false
+    },
+    {
+      "term": "Response quality",
+      "priority": "P0",
+      "taxonomyLayer": "dimensions",
+      "category": "Output quality",
+      "aliases": [
+        "Answer quality"
+      ],
+      "broaderTerm": null,
+      "definition": "How well an agent's output serves the user beyond bare correctness — including relevance to the user's context, clarity, completeness, and helpfulness. A response can be task-accurate or annotated-correct yet low quality if it is irrelevant, not actionable, or not useful for the user.",
+      "scopeNote": "Measure sub-aspects separately where possible (faithfulness to sources, relevance, helpfulness, completeness, clarity, conciseness — Jessie, running notes). Conflating correctness and usefulness hides failure modes at the user ring.",
+      "relatedTerms": [
+        "Functional correctness",
+        "Task accuracy",
+        "Task completion"
+      ],
+      "contrastsWith": [
+        "Functional correctness"
+      ],
+      "workgroups": [
+        "Accuracy & Reliability"
+      ],
+      "literatureNote": "Task-result vocabulary bridging accuracy to user-visible outcomes. Common in benchmark reporting with varying definitions.",
+      "x-termStatus": "stable",
+      "x-reviewTier": 2,
+      "x-consensus-reached": false,
+      "x-sources": [
+        "ARWG running notes — Taxonomy (Response quality, Functional correctness, Task completion; Jessie Zhang)"
+      ]
+    },
+    {
+      "term": "Task accuracy",
+      "priority": "P0",
+      "taxonomyLayer": "dimensions",
+      "category": "Output quality",
+      "aliases": [
+        "Decision accuracy",
+        "Outcome accuracy"
+      ],
+      "broaderTerm": "Accuracy",
+      "definition": "Whether the system reached the correct final decision, recommendation, or end state for the task.",
+      "scopeNote": "Most common benchmark view of accuracy.",
+      "relatedTerms": [
+        "Process accuracy",
+        "Task completion"
+      ],
+      "contrastsWith": [],
+      "workgroups": [
+        "Accuracy & Reliability"
+      ],
+      "literatureNote": "Task-result vocabulary bridging accuracy to user-visible outcomes. Common in benchmark reporting with varying definitions.",
+      "x-termStatus": "stable",
+      "x-reviewTier": 3,
+      "x-consensus-reached": false
+    },
+    {
+      "term": "Task completion",
+      "priority": "P0",
+      "taxonomyLayer": "dimensions",
+      "category": "Output quality",
+      "aliases": [
+        "Goal achievement"
+      ],
+      "broaderTerm": null,
+      "definition": "Whether the user's intended goal was actually achieved. Offline evaluation uses predefined success criteria; in production, user feedback and follow-up behaviour provide partial proxies.",
+      "scopeNote": "Charter requires both system and user perspectives on reliability.",
+      "relatedTerms": [
+        "Contextual correctness",
+        "Task accuracy"
+      ],
+      "contrastsWith": [],
+      "workgroups": [
+        "Accuracy & Reliability"
+      ],
+      "literatureNote": "Task-result vocabulary bridging accuracy to user-visible outcomes. Common in benchmark reporting with varying definitions.",
+      "x-termStatus": "stable",
+      "x-reviewTier": 3,
+      "x-consensus-reached": false
+    }
+  ]
+}

@@ -1,0 +1,291 @@
+{
+  "schemaVersion": "1.0.0",
+  "title": "System boundaries & evaluation subjects — P1",
+  "anchorPriority": "P1",
+  "prioritiesPresent": [
+    "P1"
+  ],
+  "count": 11,
+  "terms": [
+    {
+      "term": "Agency",
+      "priority": "P1",
+      "taxonomyLayer": "subject",
+      "category": "Evaluation subjects",
+      "aliases": [
+        "Autonomous action scope",
+        "Delegated authority"
+      ],
+      "broaderTerm": null,
+      "definition": "The scope of actions an agent is permitted to take without human approval — including which tools, data, and downstream agents it may invoke. Agency boundaries determine where policy enforcement and failure attribution apply.",
+      "scopeNote": "Expanding agency increases accuracy and reliability risk surface. Evaluation must state the agency envelope in force for a scenario.",
+      "relatedTerms": [],
+      "contrastsWith": [],
+      "workgroups": [
+        "Accuracy & Reliability",
+        "Security & Privacy"
+      ],
+      "literatureNote": "Used in agent governance literature; AAIF links agency to attribution — errors may be policy/configuration failures rather than model reasoning failures.",
+      "x-termStatus": "stable",
+      "x-reviewTier": 2,
+      "x-consensus-reached": false
+    },
+    {
+      "term": "Agent components",
+      "priority": "P1",
+      "taxonomyLayer": "subject",
+      "category": "Evaluation subjects",
+      "aliases": [
+        "Agent building blocks"
+      ],
+      "broaderTerm": null,
+      "definition": "The functional parts that make up an agent: the model, system prompt, skills, context assembly, tools, memory, planners, and verification steps. Failures may be attributed to a specific component when observability supports it.",
+      "scopeNote": "Supports component-level diagnosis without collapsing the agent into model-only evaluation.",
+      "relatedTerms": [
+        "Agent specification",
+        "Skills",
+        "System prompt",
+        "Trajectory"
+      ],
+      "contrastsWith": [],
+      "workgroups": [
+        "Accuracy & Reliability"
+      ],
+      "literatureNote": "Foundational for Generally accepted in agent evaluation; AAIF adds scope-ring and workflow disambiguation.",
+      "x-termStatus": "stable",
+      "x-reviewTier": 2,
+      "x-consensus-reached": false
+    },
+    {
+      "term": "Agent goal",
+      "priority": "P1",
+      "taxonomyLayer": "subject",
+      "category": "Evaluation subjects",
+      "aliases": [
+        "Agent intent",
+        "Assigned objective"
+      ],
+      "broaderTerm": null,
+      "definition": "The objective the agent is instructed to pursue for a task, which should align with user intent but can diverge through misconfiguration, drift, or hijacking.",
+      "scopeNote": "Goal misalignment is a reasoning failure distinct from a wrong fact in an otherwise aligned task. With user intent, defines WHAT the agent should pursue.",
+      "relatedTerms": [
+        "Multi-agent intent",
+        "Plan",
+        "User intent"
+      ],
+      "contrastsWith": [
+        "User intent"
+      ],
+      "workgroups": [
+        "Accuracy & Reliability"
+      ],
+      "literatureNote": "Foundational for Generally accepted in agent evaluation; AAIF adds scope-ring and workflow disambiguation.",
+      "x-termStatus": "stable",
+      "x-reviewTier": 2,
+      "x-consensus-reached": false
+    },
+    {
+      "term": "Agent specification",
+      "priority": "P1",
+      "taxonomyLayer": "subject",
+      "category": "Evaluation subjects",
+      "aliases": [
+        "Agent configuration",
+        "Frozen agent state"
+      ],
+      "broaderTerm": null,
+      "definition": "The versioned description of an agent under test: model choice, system prompt, skills, tool bindings, memory settings, and policy hooks. Metrics are only comparable across runs that share the same specification version.",
+      "scopeNote": "Charter assumption: reproducible evaluation requires versioned agent specifications.",
+      "relatedTerms": [
+        "Agent components",
+        "Skills",
+        "System prompt"
+      ],
+      "contrastsWith": [],
+      "workgroups": [
+        "Accuracy & Reliability"
+      ],
+      "literatureNote": "Foundational for Generally accepted in agent evaluation; AAIF adds scope-ring and workflow disambiguation.",
+      "x-termStatus": "stable",
+      "x-reviewTier": 2,
+      "x-consensus-reached": false
+    },
+    {
+      "term": "Multi-agent intent",
+      "priority": "P1",
+      "taxonomyLayer": "subject",
+      "category": "Evaluation subjects",
+      "aliases": [
+        "Collective task intent",
+        "MAS objective"
+      ],
+      "broaderTerm": null,
+      "definition": "The shared objective the multi-agent system is configured to pursue — which may differ from any single agent's local goal or from the end user's intent if coordination or delegation is misconfigured.",
+      "scopeNote": "Coordination failures and cross-agent factual misalignment are measured against multi-agent intent and final system output, not only per-agent goals.",
+      "relatedTerms": [
+        "Agent goal",
+        "User intent"
+      ],
+      "contrastsWith": [
+        "Agent goal"
+      ],
+      "workgroups": [
+        "Accuracy & Reliability"
+      ],
+      "literatureNote": "Implicit in MAS benchmarks; AAIF names it so evaluation envelopes can declare what 'success' means at the system boundary.",
+      "x-termStatus": "stable",
+      "x-reviewTier": 2,
+      "x-consensus-reached": false
+    },
+    {
+      "term": "Plan",
+      "priority": "P1",
+      "taxonomyLayer": "subject",
+      "category": "Evaluation subjects",
+      "aliases": [
+        "Action plan",
+        "Task plan"
+      ],
+      "broaderTerm": null,
+      "definition": "The ordered set of steps an agent intends to take to reach a goal, including tool use, delegation, and checkpoints. Evaluated for coherence with the goal and feasibility with available tools and permissions.",
+      "scopeNote": "Planning errors can cause task failure even when individual steps execute correctly.",
+      "relatedTerms": [
+        "Trajectory"
+      ],
+      "contrastsWith": [],
+      "workgroups": [
+        "Accuracy & Reliability"
+      ],
+      "literatureNote": "Foundational for Generally accepted in agent evaluation; AAIF adds scope-ring and workflow disambiguation.",
+      "x-termStatus": "stable",
+      "x-reviewTier": 2,
+      "x-consensus-reached": false
+    },
+    {
+      "term": "Scope ring",
+      "priority": "P1",
+      "taxonomyLayer": "subject",
+      "category": "Evaluation subjects",
+      "aliases": [
+        "Evaluation scope ring"
+      ],
+      "broaderTerm": null,
+      "definition": "An optional extension to the evaluation subject that includes infrastructure delivery, world or authoritative sources, or user and operator behaviour in what is measured and attributed — without changing the named object (agent, MAS, or workflow).",
+      "scopeNote": "Rings: infrastructure (platform, cost, availability), world (grounding, trust anchors), user (context, re-prompt, HITL). Declared in the evaluation envelope.",
+      "relatedTerms": [],
+      "contrastsWith": [],
+      "workgroups": [
+        "Accuracy & Reliability"
+      ],
+      "literatureNote": "Foundational for Generally accepted in agent evaluation; AAIF adds scope-ring and workflow disambiguation.",
+      "x-termStatus": "stable",
+      "x-reviewTier": 2,
+      "x-consensus-reached": false
+    },
+    {
+      "term": "Skills",
+      "priority": "P1",
+      "taxonomyLayer": "subject",
+      "category": "Evaluation subjects",
+      "aliases": [
+        "Agent skill",
+        "Capability module"
+      ],
+      "broaderTerm": "Agent components",
+      "definition": "A packaged unit of instructions, tools, and optional resources that extends what an agent can do — loaded selectively for a task rather than baked into the base system prompt alone.",
+      "scopeNote": "Skill selection errors are agent-side configuration or planning failures. Skill versions belong in the agent specification for attribution and reproducibility. Skill adherence measures HOW well a loaded skill was followed.",
+      "relatedTerms": [
+        "Agent components",
+        "Agent specification",
+        "System prompt"
+      ],
+      "contrastsWith": [],
+      "workgroups": [
+        "Accuracy & Reliability"
+      ],
+      "literatureNote": "Emerging in agent frameworks as modular capability bundles. AAIF treats skills as specification artefacts needed for error attribution, not as a separate quality dimension.",
+      "x-termStatus": "stable",
+      "x-reviewTier": 2,
+      "x-consensus-reached": false
+    },
+    {
+      "term": "System prompt",
+      "priority": "P1",
+      "taxonomyLayer": "subject",
+      "category": "Evaluation subjects",
+      "aliases": [
+        "Instruction prompt",
+        "System instructions"
+      ],
+      "broaderTerm": "Agent specification",
+      "definition": "The fixed or versioned instruction text that defines an agent's role, constraints, and default behaviour before user messages and retrieved context are assembled. Part of the agent specification and a primary input to context assembly.",
+      "scopeNote": "Changes to the system prompt are configuration changes — not user intent. Must be pinned for reproducible evaluation and traceability when attributing reasoning failures.",
+      "relatedTerms": [
+        "Agent components",
+        "Agent specification"
+      ],
+      "contrastsWith": [
+        "User intent"
+      ],
+      "workgroups": [
+        "Accuracy & Reliability"
+      ],
+      "literatureNote": "Universal in tool-using agent deployments; rarely named separately in benchmarks but required for audit and specification validation.",
+      "x-termStatus": "stable",
+      "x-reviewTier": 2,
+      "x-consensus-reached": false
+    },
+    {
+      "term": "Trajectory",
+      "priority": "P1",
+      "taxonomyLayer": "subject",
+      "category": "Evaluation subjects",
+      "aliases": [
+        "Action path",
+        "Execution trace"
+      ],
+      "broaderTerm": null,
+      "definition": "The sequence of reasoning steps, tool calls, messages, and state changes an agent or system follows while handling a task. Used to evaluate process accuracy, trajectory consistency, skill adherence, and failure attribution.",
+      "scopeNote": "In WHAT/HOW framing, trajectory is the primary HOW artefact — the path taken — distinct from intent (WHAT). ARWG defines what trajectory evidence is needed for evaluation; trace emission formats belong to Observability WG.",
+      "relatedTerms": [
+        "Plan"
+      ],
+      "contrastsWith": [],
+      "workgroups": [
+        "Accuracy & Reliability",
+        "Observability & Traceability"
+      ],
+      "literatureNote": "Foundational for Generally accepted in agent evaluation; AAIF adds scope-ring and workflow disambiguation.",
+      "x-termStatus": "stable",
+      "x-reviewTier": 2,
+      "x-consensus-reached": false
+    },
+    {
+      "term": "User intent",
+      "priority": "P1",
+      "taxonomyLayer": "subject",
+      "category": "Evaluation subjects",
+      "aliases": [
+        "Task intent",
+        "User goal"
+      ],
+      "broaderTerm": null,
+      "definition": "What the user wanted accomplished, including constraints and success criteria, which may differ from the literal wording of a prompt. Accuracy and task completion claims must state how intent was inferred or annotated.",
+      "scopeNote": "Central to contextual correctness and user-perceived reliability in the charter. In WHAT/HOW framing, user intent (with agent goal and multi-agent intent) defines WHAT success means; trajectory and process dimensions define HOW work was performed.",
+      "relatedTerms": [
+        "Agent goal",
+        "Plan"
+      ],
+      "contrastsWith": [
+        "Agent goal"
+      ],
+      "workgroups": [
+        "Accuracy & Reliability"
+      ],
+      "literatureNote": "Foundational for Generally accepted in agent evaluation; AAIF adds scope-ring and workflow disambiguation.",
+      "x-termStatus": "stable",
+      "x-reviewTier": 2,
+      "x-consensus-reached": false
+    }
+  ]
+}

@@ -1,0 +1,129 @@
+{
+  "schemaVersion": "1.0.0",
+  "title": "Grounding, evidence & world — P2",
+  "anchorPriority": "P2",
+  "prioritiesPresent": [
+    "P2"
+  ],
+  "count": 5,
+  "terms": [
+    {
+      "term": "Annotation",
+      "priority": "P2",
+      "taxonomyLayer": "world",
+      "category": "Evaluation ecosystem",
+      "aliases": [
+        "Expert rating",
+        "Human label"
+      ],
+      "broaderTerm": null,
+      "definition": "A human- or rule-applied label, rubric score, or note attached to an evaluation scenario to define or refine what counts as correct.",
+      "scopeNote": "Annotations encode evaluator assumptions about intent and may not match live user context.",
+      "relatedTerms": [],
+      "contrastsWith": [],
+      "workgroups": [
+        "Accuracy & Reliability"
+      ],
+      "literatureNote": "Harness and participant vocabulary for gap analysis inventory. Describes how measurement runs, not agent properties.",
+      "x-termStatus": "stable",
+      "x-reviewTier": 3,
+      "x-consensus-reached": false
+    },
+    {
+      "term": "Expected result",
+      "priority": "P2",
+      "taxonomyLayer": "world",
+      "category": "Evaluation ecosystem",
+      "aliases": [
+        "Acceptance criterion",
+        "Success criterion"
+      ],
+      "broaderTerm": null,
+      "definition": "The specific condition an evaluation checks against for a task instance — which may be a full state match, a rubric score threshold, or an allowed set of answers.",
+      "scopeNote": "Task success rate measures conformance to expected results under a declared methodology.",
+      "relatedTerms": [],
+      "contrastsWith": [],
+      "workgroups": [
+        "Accuracy & Reliability"
+      ],
+      "literatureNote": "Harness and participant vocabulary for gap analysis inventory. Describes how measurement runs, not agent properties.",
+      "x-termStatus": "stable",
+      "x-reviewTier": 3,
+      "x-consensus-reached": false
+    },
+    {
+      "term": "Knowledge base",
+      "priority": "P2",
+      "taxonomyLayer": "world",
+      "category": "Evaluation ecosystem",
+      "aliases": [
+        "Corpus",
+        "Reference store"
+      ],
+      "broaderTerm": null,
+      "definition": "A curated or indexed body of documents, records, or facts that agents may query or retrieve from — distinct from live tool APIs and from session memory.",
+      "scopeNote": "Stale or incomplete knowledge bases contribute to stale source errors and evidence accuracy failures.",
+      "relatedTerms": [
+        "Retrieval result"
+      ],
+      "contrastsWith": [
+        "Session memory"
+      ],
+      "workgroups": [
+        "Accuracy & Reliability"
+      ],
+      "literatureNote": "Harness and participant vocabulary for gap analysis inventory. Describes how measurement runs, not agent properties.",
+      "x-termStatus": "stable",
+      "x-reviewTier": 3,
+      "x-consensus-reached": false
+    },
+    {
+      "term": "Retrieval result",
+      "priority": "P2",
+      "taxonomyLayer": "world",
+      "category": "Evaluation ecosystem",
+      "aliases": [
+        "Retrieved passage",
+        "Search hit"
+      ],
+      "broaderTerm": null,
+      "definition": "Material fetched from a knowledge base, search index, or document store and placed into context — often ranked by relevance score.",
+      "scopeNote": "Faithful use of a wrong or outdated retrieval result is a stale source error, not necessarily an ungrounded claim.",
+      "relatedTerms": [
+        "Knowledge base"
+      ],
+      "contrastsWith": [],
+      "workgroups": [
+        "Accuracy & Reliability"
+      ],
+      "literatureNote": "Harness and participant vocabulary for gap analysis inventory. Describes how measurement runs, not agent properties.",
+      "x-termStatus": "stable",
+      "x-reviewTier": 3,
+      "x-consensus-reached": false
+    },
+    {
+      "term": "Session memory",
+      "priority": "P2",
+      "taxonomyLayer": "world",
+      "category": "Evaluation ecosystem",
+      "aliases": [
+        "Conversation memory",
+        "Episodic memory"
+      ],
+      "broaderTerm": null,
+      "definition": "Information persisted across steps or sessions within a task — prior turns, intermediate conclusions, or stored facts the agent may recall later.",
+      "scopeNote": "Distinct from static knowledge bases, shared memory in multi-agent systems, and from one-off tool results. Must be versioned in the agent specification for reproducible evaluation.",
+      "relatedTerms": [],
+      "contrastsWith": [
+        "Knowledge base"
+      ],
+      "workgroups": [
+        "Accuracy & Reliability"
+      ],
+      "literatureNote": "Harness and participant vocabulary for gap analysis inventory. Describes how measurement runs, not agent properties.",
+      "x-termStatus": "stable",
+      "x-reviewTier": 3,
+      "x-consensus-reached": false
+    }
+  ]
+}

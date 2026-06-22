@@ -1,0 +1,231 @@
+{
+  "schemaVersion": "1.0.0",
+  "title": "Response — design & correction — P1",
+  "sectionGuide": {
+    "why": "Realised reliability improves through design patterns (verification loops, proactive grounding) and corrections (retry, HITL, rollback) — not only by selecting a better model. The charter explicitly covers correction mechanisms and human-intervention boundaries.",
+    "wgUse": "Reliability-by-design patterns and operational runbooks. Specifies when human-in-the-loop vs automation is required. Closes the failure → remediation loop. Review after failure P0 and governance P0 are settled.",
+    "enables": "Closes the loop from failures to remediation; evaluation protocols can specify when automation vs HITL is required; connects to governance (recoverability, escalation).",
+    "priorities": "**P0** (self-correction) is the foundational correction concept — may appear in the P1 JSON file when it is the sole P0 term. **P1** = reliability-by-design patterns and primary correction mechanisms. **P2** = operational controls (circuit breakers, policy gates).",
+    "categories": [
+      {
+        "category": "Correction mechanisms",
+        "count": 10,
+        "relevance": "Charter scope: react when failures occur — retry, HITL, rollback, escalation — human-intervention boundaries.",
+        "wgUse": "Operational runbooks · protocol branches · solution landscape comparisons"
+      },
+      {
+        "category": "Reliability by design",
+        "count": 7,
+        "relevance": "Charter scope: prevent failures before they happen (verification loops, proactive grounding, policy gates).",
+        "wgUse": "Reliability-by-design guidance · automation vs HITL requirements · closes loop from failure patterns"
+      }
+    ]
+  },
+  "anchorPriority": "P1",
+  "prioritiesPresent": [
+    "P0",
+    "P1"
+  ],
+  "note": "Includes merged single-term band(s).",
+  "count": 8,
+  "terms": [
+    {
+      "term": "Self-correction",
+      "priority": "P0",
+      "taxonomyLayer": "response",
+      "category": "Correction mechanisms",
+      "aliases": [
+        "Automated revise-and-check"
+      ],
+      "broaderTerm": "Correction mechanism",
+      "definition": "An automated pattern that detects a likely error in a draft output or trajectory and attempts revision — for example re-querying a source, re-running validation, or replanning — before finalising.",
+      "scopeNote": "Reactive correction. Failure of this pattern is recovery failure. Distinct from proactive verification loops.",
+      "relatedTerms": [
+        "Correction mechanism",
+        "Verification loop"
+      ],
+      "contrastsWith": [
+        "Verification loop"
+      ],
+      "workgroups": [
+        "Accuracy & Reliability"
+      ],
+      "literatureNote": "Reactive recovery patterns. SRE names (circuit breaker, rollback) linked in academicTerms where relevant.",
+      "x-termStatus": "stable",
+      "x-reviewTier": 3,
+      "x-consensus-reached": false
+    },
+    {
+      "term": "Correction mechanism",
+      "priority": "P1",
+      "taxonomyLayer": "response",
+      "category": "Correction mechanisms",
+      "aliases": [
+        "Corrective action",
+        "Recovery pattern"
+      ],
+      "broaderTerm": null,
+      "definition": "A defined response applied after a failure is detected or suspected — such as retry, rollback, fallback, escalation, or human review. Charter classifies what can be automated vs what requires human intervention.",
+      "scopeNote": "Distinct from reliability-by-design patterns that prevent failure upstream.",
+      "relatedTerms": [
+        "Human in the loop",
+        "Retry",
+        "Self-correction"
+      ],
+      "contrastsWith": [
+        "Reliability by design"
+      ],
+      "workgroups": [
+        "Accuracy & Reliability"
+      ],
+      "literatureNote": "Reactive recovery patterns. SRE names (circuit breaker, rollback) linked in academicTerms where relevant.",
+      "x-termStatus": "stable",
+      "x-reviewTier": 2,
+      "x-consensus-reached": false
+    },
+    {
+      "term": "Escalation",
+      "priority": "P1",
+      "taxonomyLayer": "response",
+      "category": "Correction mechanisms",
+      "aliases": [
+        "Operator escalation"
+      ],
+      "broaderTerm": "Correction mechanism",
+      "definition": "Handing a task, decision, or exception to a higher authority — another agent tier, an orchestrator rule, or a human operator — when automated recovery is exhausted or policy requires it.",
+      "scopeNote": "Signalling deliverables define handoff formats and triggers.",
+      "relatedTerms": [
+        "Human in the loop"
+      ],
+      "contrastsWith": [],
+      "workgroups": [
+        "Accuracy & Reliability"
+      ],
+      "literatureNote": "Reactive recovery patterns. SRE names (circuit breaker, rollback) linked in academicTerms where relevant.",
+      "x-termStatus": "stable",
+      "x-reviewTier": 2,
+      "x-consensus-reached": false
+    },
+    {
+      "term": "Human in the loop",
+      "priority": "P1",
+      "taxonomyLayer": "response",
+      "category": "Correction mechanisms",
+      "aliases": [
+        "HITL",
+        "Human review"
+      ],
+      "broaderTerm": "Correction mechanism",
+      "definition": "A checkpoint where a human must approve, edit, or reject an agent action or output before the system may proceed. Used when stakes, ambiguity, or policy require human judgment.",
+      "scopeNote": "Charter: human intervention category and escalation trigger. Also a reliability-by-design pattern when placed before sensitive actions.",
+      "relatedTerms": [
+        "Escalation"
+      ],
+      "contrastsWith": [],
+      "workgroups": [
+        "Accuracy & Reliability",
+        "Workflows & Process Integration"
+      ],
+      "literatureNote": "Accepted in HITL and enterprise AI literature. AAIF scopes when human intervention is a correction mechanism vs part of the workflow object.",
+      "academicTerms": [
+        "human-in-the-loop",
+        "human-on-the-loop"
+      ],
+      "x-termStatus": "stable",
+      "x-reviewTier": 2,
+      "x-consensus-reached": false
+    },
+    {
+      "term": "Retry",
+      "priority": "P1",
+      "taxonomyLayer": "response",
+      "category": "Correction mechanisms",
+      "aliases": [
+        "Automatic retry"
+      ],
+      "broaderTerm": "Correction mechanism",
+      "definition": "Re-attempting a failed step — such as a tool call, model generation, or sub-task — within a bounded budget and backoff policy.",
+      "scopeNote": "Can improve operational fault robustness or cause recovery failure if unbounded.",
+      "relatedTerms": [],
+      "contrastsWith": [],
+      "workgroups": [
+        "Accuracy & Reliability"
+      ],
+      "literatureNote": "Reactive recovery patterns. SRE names (circuit breaker, rollback) linked in academicTerms where relevant.",
+      "x-termStatus": "stable",
+      "x-reviewTier": 2,
+      "x-consensus-reached": false
+    },
+    {
+      "term": "Proactive grounding",
+      "priority": "P1",
+      "taxonomyLayer": "response",
+      "category": "Reliability by design",
+      "aliases": [
+        "Authoritative grounding"
+      ],
+      "broaderTerm": "Reliability by design",
+      "definition": "Designing the agent to assemble context from authorised sources, structured tool results, and trust anchors by default — rather than relying on uncited model knowledge for high-stakes facts.",
+      "scopeNote": "Implements charter grounding to authoritative data sources.",
+      "relatedTerms": [],
+      "contrastsWith": [],
+      "workgroups": [
+        "Accuracy & Reliability"
+      ],
+      "literatureNote": "Proactive patterns that improve realised reliability. Less standardised in benchmarks than failure or accuracy terms.",
+      "x-termStatus": "stable",
+      "x-reviewTier": 2,
+      "x-consensus-reached": false
+    },
+    {
+      "term": "Reliability by design",
+      "priority": "P1",
+      "taxonomyLayer": "response",
+      "category": "Reliability by design",
+      "aliases": [
+        "Proactive reliability",
+        "Reliability design pattern"
+      ],
+      "broaderTerm": null,
+      "definition": "Architectural choices made before runtime to improve accuracy and reliability — such as grounding to authoritative sources, verification before action, bounded delegation, and validated specifications — rather than relying on retries after failure.",
+      "scopeNote": "Charter guiding principle. reliability-by-design guidance translates patterns from this taxonomy.",
+      "relatedTerms": [
+        "Proactive grounding",
+        "Verification loop"
+      ],
+      "contrastsWith": [],
+      "workgroups": [
+        "Accuracy & Reliability"
+      ],
+      "literatureNote": "Proactive patterns that improve realised reliability. Less standardised in benchmarks than failure or accuracy terms.",
+      "x-termStatus": "stable",
+      "x-reviewTier": 2,
+      "x-consensus-reached": false
+    },
+    {
+      "term": "Verification loop",
+      "priority": "P1",
+      "taxonomyLayer": "response",
+      "category": "Reliability by design",
+      "aliases": [
+        "Check before commit"
+      ],
+      "broaderTerm": "Reliability by design",
+      "definition": "A deliberate step that validates evidence, policy, or output structure before the agent commits an answer or action — using deterministic checks, secondary review, or trust anchors where stakes are high.",
+      "scopeNote": "Proactive pattern. Distinct from reactive self-correction after a failure is already suspected.",
+      "relatedTerms": [
+        "Self-correction"
+      ],
+      "contrastsWith": [
+        "Self-correction"
+      ],
+      "workgroups": [
+        "Accuracy & Reliability"
+      ],
+      "literatureNote": "Proactive patterns that improve realised reliability. Less standardised in benchmarks than failure or accuracy terms.",
+      "x-termStatus": "stable",
+      "x-reviewTier": 2,
+      "x-consensus-reached": false
+    }
+  ]
+}

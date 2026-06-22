@@ -1,0 +1,56 @@
+{
+  "schemaVersion": "1.0.0",
+  "title": "Evaluation ecosystem — P2",
+  "anchorPriority": "P2",
+  "prioritiesPresent": [
+    "P2"
+  ],
+  "count": 2,
+  "terms": [
+    {
+      "term": "Evaluator",
+      "priority": "P2",
+      "taxonomyLayer": "ecosystem",
+      "category": "Evaluation ecosystem",
+      "aliases": [
+        "Assessment role"
+      ],
+      "broaderTerm": null,
+      "definition": "A person or process that runs an evaluation methodology, applies scoring rules, and reports accuracy or reliability results for a declared evaluation subject.",
+      "scopeNote": "Offline evaluators often rely on annotations and ground truth rather than full user context.",
+      "relatedTerms": [],
+      "contrastsWith": [
+        "User"
+      ],
+      "workgroups": [
+        "Accuracy & Reliability"
+      ],
+      "literatureNote": "Harness and participant vocabulary for gap analysis inventory. Describes how measurement runs, not agent properties.",
+      "x-termStatus": "stable",
+      "x-reviewTier": 3,
+      "x-consensus-reached": false
+    },
+    {
+      "term": "Message bus",
+      "priority": "P2",
+      "taxonomyLayer": "ecosystem",
+      "category": "Evaluation ecosystem",
+      "aliases": [
+        "Communication layer",
+        "Inter-agent channel"
+      ],
+      "broaderTerm": null,
+      "definition": "The path through which agents and orchestration services exchange messages during a task. Loss or corruption on this path is an infrastructure concern.",
+      "scopeNote": "Relevant primarily for multi-agent system evaluation. Specific wire protocols are inventoried in the landscape document, not canonical terms in this glossary.",
+      "relatedTerms": [],
+      "contrastsWith": [],
+      "workgroups": [
+        "Accuracy & Reliability"
+      ],
+      "literatureNote": "Harness and participant vocabulary for gap analysis inventory. Describes how measurement runs, not agent properties.",
+      "x-termStatus": "stable",
+      "x-reviewTier": 3,
+      "x-consensus-reached": false
+    }
+  ]
+}

@@ -1,0 +1,406 @@
+{
+  "schemaVersion": "1.0.0",
+  "title": "Failure vocabulary — P1",
+  "anchorPriority": "P1",
+  "prioritiesPresent": [
+    "P1"
+  ],
+  "count": 17,
+  "terms": [
+    {
+      "term": "Failure attribution",
+      "priority": "P1",
+      "taxonomyLayer": "failure",
+      "category": "Measurement & evaluation",
+      "aliases": [
+        "Root-cause analysis"
+      ],
+      "broaderTerm": null,
+      "definition": "The process of linking an observed symptom to a root cause and evaluation subject, using trajectory evidence, infrastructure health checks, and specification version. Required before blaming agent reasoning for an end-to-end failure.",
+      "scopeNote": "Rule out infrastructure and recovery-layer problems before attributing to reasoning failure.",
+      "relatedTerms": [],
+      "contrastsWith": [],
+      "workgroups": [
+        "Accuracy & Reliability"
+      ],
+      "literatureNote": "Weak automation in literature (Who&When ~53% agent attribution). AAIF defines requirements; Observability WG owns trace formats.",
+      "academicTerms": [
+        "MAST failure modes",
+        "Who&When (2025)"
+      ],
+      "x-termStatus": "stable",
+      "x-reviewTier": 2,
+      "x-consensus-reached": false
+    },
+    {
+      "term": "Authorization failure",
+      "priority": "P1",
+      "taxonomyLayer": "failure",
+      "category": "Root causes",
+      "aliases": [
+        "Out-of-scope action",
+        "Policy violation"
+      ],
+      "broaderTerm": null,
+      "definition": "The agent takes or attempts an action outside delegated permissions or prohibited by policy, including acting on hijacked instructions.",
+      "scopeNote": "Overlaps Security & Privacy WG for adversarial cases. May be evaluated under safety as well as failure attribution.",
+      "relatedTerms": [
+        "Goal misalignment"
+      ],
+      "contrastsWith": [],
+      "workgroups": [
+        "Accuracy & Reliability",
+        "Security & Privacy"
+      ],
+      "literatureNote": "Attribution targets after symptoms are identified. MAST categories partially align; AAIF adds infrastructure and coordination classes.",
+      "x-termStatus": "stable",
+      "x-reviewTier": 2,
+      "x-consensus-reached": false
+    },
+    {
+      "term": "Configuration error",
+      "priority": "P1",
+      "taxonomyLayer": "failure",
+      "category": "Root causes",
+      "aliases": [
+        "Instruction mismatch",
+        "Setup error"
+      ],
+      "broaderTerm": null,
+      "definition": "Agents begin execution with wrong, incomplete, or conflicting instructions, tool definitions, or knowledge bindings. Detectable before or at run start rather than only from model randomness.",
+      "scopeNote": "Static failure class; often fixed through specification review and manifest validation.",
+      "relatedTerms": [],
+      "contrastsWith": [],
+      "workgroups": [
+        "Accuracy & Reliability"
+      ],
+      "literatureNote": "Attribution targets after symptoms are identified. MAST categories partially align; AAIF adds infrastructure and coordination classes.",
+      "x-termStatus": "stable",
+      "x-reviewTier": 2,
+      "x-consensus-reached": false
+    },
+    {
+      "term": "Coordination failure",
+      "priority": "P1",
+      "taxonomyLayer": "failure",
+      "category": "Root causes",
+      "aliases": [
+        "Multi-agent coordination error"
+      ],
+      "broaderTerm": null,
+      "definition": "In a multi-agent system, individually reasonable agent outputs combine into a wrong system outcome — for example conflicting recommendations, missing handoffs, or synthesis that drops critical evidence.",
+      "scopeNote": "Evaluated at the multi-agent system boundary unless scope says otherwise.",
+      "relatedTerms": [
+        "Message delivery failure"
+      ],
+      "contrastsWith": [],
+      "workgroups": [
+        "Accuracy & Reliability"
+      ],
+      "literatureNote": "Attribution targets after symptoms are identified. MAST categories partially align; AAIF adds infrastructure and coordination classes.",
+      "x-termStatus": "stable",
+      "x-reviewTier": 2,
+      "x-consensus-reached": false
+    },
+    {
+      "term": "Goal misalignment",
+      "priority": "P1",
+      "taxonomyLayer": "failure",
+      "category": "Root causes",
+      "aliases": [
+        "Objective drift",
+        "Wrong goal pursuit"
+      ],
+      "broaderTerm": null,
+      "definition": "The agent pursues an objective that does not match the user's intent or the assigned task, even when individual steps appear locally reasonable.",
+      "scopeNote": "Related to security failures when caused by hijacking; distinguish root cause in attribution.",
+      "relatedTerms": [
+        "Authorization failure"
+      ],
+      "contrastsWith": [],
+      "workgroups": [
+        "Accuracy & Reliability",
+        "Security & Privacy"
+      ],
+      "literatureNote": "Attribution targets after symptoms are identified. MAST categories partially align; AAIF adds infrastructure and coordination classes.",
+      "x-termStatus": "stable",
+      "x-reviewTier": 2,
+      "x-consensus-reached": false
+    },
+    {
+      "term": "Message delivery failure",
+      "priority": "P1",
+      "taxonomyLayer": "failure",
+      "category": "Root causes",
+      "aliases": [
+        "Communication failure",
+        "Lost handoff"
+      ],
+      "broaderTerm": null,
+      "definition": "Messages between agents or between an agent and orchestration services are dropped, truncated, reordered, or corrupted so downstream reasoning proceeds on incomplete information.",
+      "scopeNote": "Especially relevant for multi-agent system evaluation.",
+      "relatedTerms": [
+        "Coordination failure"
+      ],
+      "contrastsWith": [],
+      "workgroups": [
+        "Accuracy & Reliability"
+      ],
+      "literatureNote": "Attribution targets after symptoms are identified. MAST categories partially align; AAIF adds infrastructure and coordination classes.",
+      "x-termStatus": "stable",
+      "x-reviewTier": 2,
+      "x-consensus-reached": false
+    },
+    {
+      "term": "Planning error",
+      "priority": "P1",
+      "taxonomyLayer": "failure",
+      "category": "Root causes",
+      "aliases": [
+        "Flawed task decomposition"
+      ],
+      "broaderTerm": null,
+      "definition": "The agent chooses an incoherent, incomplete, or infeasible plan — wrong step order, missing prerequisites, or steps that available tools and permissions cannot execute.",
+      "scopeNote": "Distinct from a single wrong fact inside an otherwise sound plan.",
+      "relatedTerms": [],
+      "contrastsWith": [],
+      "workgroups": [
+        "Accuracy & Reliability"
+      ],
+      "literatureNote": "Attribution targets after symptoms are identified. MAST categories partially align; AAIF adds infrastructure and coordination classes.",
+      "x-termStatus": "stable",
+      "x-reviewTier": 2,
+      "x-consensus-reached": false
+    },
+    {
+      "term": "Tool availability failure",
+      "priority": "P1",
+      "taxonomyLayer": "failure",
+      "category": "Root causes",
+      "aliases": [
+        "Tool outage"
+      ],
+      "broaderTerm": null,
+      "definition": "A required tool, API, or dependency is unavailable, times out, or returns an error that prevents the agent from obtaining needed information or completing an action.",
+      "scopeNote": "Attribute to infrastructure unless the agent chose the wrong tool despite healthy alternatives.",
+      "relatedTerms": [],
+      "contrastsWith": [],
+      "workgroups": [
+        "Accuracy & Reliability"
+      ],
+      "literatureNote": "Attribution targets after symptoms are identified. MAST categories partially align; AAIF adds infrastructure and coordination classes.",
+      "x-termStatus": "stable",
+      "x-reviewTier": 2,
+      "x-consensus-reached": false
+    },
+    {
+      "term": "Entity mismatch",
+      "priority": "P1",
+      "taxonomyLayer": "failure",
+      "category": "Symptoms",
+      "aliases": [
+        "Entity resolution error",
+        "Wrong entity reference"
+      ],
+      "broaderTerm": null,
+      "definition": "The agent treats two distinct real-world entities as one, or one entity as another — for example confusing customers, accounts, or document versions with similar names.",
+      "scopeNote": "Remediation differs from generic fact checking; ties to trust anchors and entity resolution protocols in trust frameworks.",
+      "relatedTerms": [],
+      "contrastsWith": [],
+      "workgroups": [
+        "Accuracy & Reliability"
+      ],
+      "literatureNote": "User- or trace-visible failure indicators. Prefer subtype over generic 'hallucination' for measurement.",
+      "x-termStatus": "stable",
+      "x-reviewTier": 2,
+      "x-consensus-reached": false
+    },
+    {
+      "term": "Fabricated tool result",
+      "priority": "P1",
+      "taxonomyLayer": "failure",
+      "category": "Symptoms",
+      "aliases": [
+        "Invented action outcome"
+      ],
+      "broaderTerm": null,
+      "definition": "The agent reports that a tool ran or an external action succeeded when it did not, or invents values that were never returned by a tool or API.",
+      "scopeNote": "Functional correctness and trajectory evidence help detect this failure mode.",
+      "relatedTerms": [],
+      "contrastsWith": [],
+      "workgroups": [
+        "Accuracy & Reliability"
+      ],
+      "literatureNote": "User- or trace-visible failure indicators. Prefer subtype over generic 'hallucination' for measurement.",
+      "x-termStatus": "stable",
+      "x-reviewTier": 2,
+      "x-consensus-reached": false
+    },
+    {
+      "term": "Incorrect task outcome",
+      "priority": "P1",
+      "taxonomyLayer": "failure",
+      "category": "Symptoms",
+      "aliases": [
+        "Wrong result"
+      ],
+      "broaderTerm": null,
+      "definition": "The system produces a final decision, recommendation, or state that does not meet the evaluation criterion or user intent, regardless of how confident or fluent the output appears.",
+      "scopeNote": "Measured by task success rate in evaluation; may coexist with high response quality on surface reading.",
+      "relatedTerms": [
+        "Failure attribution"
+      ],
+      "contrastsWith": [],
+      "workgroups": [
+        "Accuracy & Reliability"
+      ],
+      "literatureNote": "User- or trace-visible failure indicators. Prefer subtype over generic 'hallucination' for measurement.",
+      "x-termStatus": "stable",
+      "x-reviewTier": 2,
+      "x-consensus-reached": false
+    },
+    {
+      "term": "Overconfident error",
+      "priority": "P1",
+      "taxonomyLayer": "failure",
+      "category": "Symptoms",
+      "aliases": [
+        "Confident wrong answer"
+      ],
+      "broaderTerm": null,
+      "definition": "The system states high confidence or presents an answer assertively while being incorrect or unsupported.",
+      "scopeNote": "Symptom pairing of wrong outcome with miscalibration.",
+      "relatedTerms": [
+        "Incorrect task outcome"
+      ],
+      "contrastsWith": [],
+      "workgroups": [
+        "Accuracy & Reliability"
+      ],
+      "literatureNote": "User- or trace-visible failure indicators. Prefer subtype over generic 'hallucination' for measurement.",
+      "x-termStatus": "stable",
+      "x-reviewTier": 2,
+      "x-consensus-reached": false
+    },
+    {
+      "term": "Silent wrong action",
+      "priority": "P1",
+      "taxonomyLayer": "failure",
+      "category": "Symptoms",
+      "aliases": [
+        "False success",
+        "Undetected failure"
+      ],
+      "broaderTerm": null,
+      "definition": "The system completes without signalling error but the outcome or side effects are wrong — for example approving a bad change or reporting success when a tool failed.",
+      "scopeNote": "Especially dangerous in autonomous workflows; requires verification loops and observability signals.",
+      "relatedTerms": [
+        "Fabricated tool result"
+      ],
+      "contrastsWith": [],
+      "workgroups": [
+        "Accuracy & Reliability"
+      ],
+      "literatureNote": "User- or trace-visible failure indicators. Prefer subtype over generic 'hallucination' for measurement.",
+      "x-termStatus": "stable",
+      "x-reviewTier": 2,
+      "x-consensus-reached": false
+    },
+    {
+      "term": "Stale source error",
+      "priority": "P1",
+      "taxonomyLayer": "failure",
+      "category": "Symptoms",
+      "aliases": [
+        "Outdated evidence error"
+      ],
+      "broaderTerm": null,
+      "definition": "The agent faithfully uses retrieved or cached information that is no longer true, without signalling staleness. Attribution may lie with data freshness or retrieval policy rather than invention.",
+      "scopeNote": "Not the same as inventing facts; often classified separately from classic hallucination.",
+      "relatedTerms": [],
+      "contrastsWith": [
+        "Ungrounded claim"
+      ],
+      "workgroups": [
+        "Accuracy & Reliability"
+      ],
+      "literatureNote": "User- or trace-visible failure indicators. Prefer subtype over generic 'hallucination' for measurement.",
+      "x-termStatus": "stable",
+      "x-reviewTier": 2,
+      "x-consensus-reached": false
+    },
+    {
+      "term": "Task abandonment",
+      "priority": "P1",
+      "taxonomyLayer": "failure",
+      "category": "Symptoms",
+      "aliases": [
+        "User drop-off"
+      ],
+      "broaderTerm": null,
+      "definition": "The user stops pursuing the task without a successful outcome — for example by leaving the session, cancelling the workflow, or accepting failure.",
+      "scopeNote": "Strong user-perceived unreliability signal; requires careful attribution to agent vs UX vs external blockers.",
+      "relatedTerms": [
+        "Incorrect task outcome",
+        "User re-prompt"
+      ],
+      "contrastsWith": [],
+      "workgroups": [
+        "Accuracy & Reliability"
+      ],
+      "literatureNote": "User- or trace-visible failure indicators. Prefer subtype over generic 'hallucination' for measurement.",
+      "x-termStatus": "stable",
+      "x-reviewTier": 2,
+      "x-consensus-reached": false
+    },
+    {
+      "term": "Ungrounded claim",
+      "priority": "P1",
+      "taxonomyLayer": "failure",
+      "category": "Symptoms",
+      "aliases": [
+        "Unsupported assertion"
+      ],
+      "broaderTerm": null,
+      "definition": "A factual or procedural claim with no identifiable supporting evidence, tool result, or authorised source in the agent's context.",
+      "scopeNote": "Common subtype when decomposing hallucination symptoms.",
+      "relatedTerms": [],
+      "contrastsWith": [],
+      "workgroups": [
+        "Accuracy & Reliability"
+      ],
+      "literatureNote": "RAG/faithfulness literature uses 'faithfulness' and 'groundedness' as scalars. AAIF prefers symptom-level subtype under hallucination.",
+      "academicTerms": [
+        "faithfulness (RAGAS)",
+        "ungrounded generation"
+      ],
+      "x-termStatus": "stable",
+      "x-reviewTier": 2,
+      "x-consensus-reached": false
+    },
+    {
+      "term": "User re-prompt",
+      "priority": "P1",
+      "taxonomyLayer": "failure",
+      "category": "Symptoms",
+      "aliases": [
+        "Clarification request",
+        "User override"
+      ],
+      "broaderTerm": null,
+      "definition": "The user repeats, narrows, or corrects a request because the agent's prior response was inadequate, unclear, or wrong.",
+      "scopeNote": "First-class reliability input per charter and signalling deliverables.",
+      "relatedTerms": [
+        "Incorrect task outcome"
+      ],
+      "contrastsWith": [],
+      "workgroups": [
+        "Accuracy & Reliability"
+      ],
+      "literatureNote": "User- or trace-visible failure indicators. Prefer subtype over generic 'hallucination' for measurement.",
+      "x-termStatus": "stable",
+      "x-reviewTier": 2,
+      "x-consensus-reached": false
+    }
+  ]
+}

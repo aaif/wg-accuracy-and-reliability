@@ -1,0 +1,195 @@
+{
+  "schemaVersion": "1.0.0",
+  "title": "Failure vocabulary — P0",
+  "sectionGuide": {
+    "why": "Symptom labels without root-cause classes produce blame without remediation. ARWG separates what the user or operator sees from why it happened — reasoning, grounding, infrastructure, coordination. Each symptom and root-cause class needs a named incidence metric; this section names the objects those metrics count.",
+    "wgUse": "Failure vocabulary for gap analysis, support runbooks, and SLAs. `{term} rate` metrics pair via `x-measuresTerm`. PR review focuses on P0 parents before P1 refinements.",
+    "enables": "Correction patterns target root cause; gap analysis maps failure modes to benchmark coverage; evaluation scenarios use the symptom → attribution → cause chain. Hierarchical `broaderTerm` links avoid a flat list of unrelated failure labels.",
+    "priorities": "**P0** = hierarchy parents (Symptom, Root cause, Hallucination, infrastructure/reasoning/recovery classes). **P1** = observable refinements and operational subclasses; each P1 leaf should eventually pair with a `{term} rate` metric. Sign off P0 before metrics.",
+    "categories": [
+      {
+        "category": "Measurement & evaluation",
+        "count": 1,
+        "relevance": "Failure attribution — linking observable symptoms to root causes using trace and governance context.",
+        "wgUse": "Evaluation requirements · protocol specs · trace requirements for attribution"
+      },
+      {
+        "category": "Root causes",
+        "count": 11,
+        "relevance": "Why a failure happened — reasoning, grounding, infrastructure, coordination, configuration.",
+        "wgUse": "Gap attribution · `{root cause} rate` metrics · correction pattern selection"
+      },
+      {
+        "category": "Symptoms",
+        "count": 11,
+        "relevance": "What users and operators observe — including hallucination subtypes and user-perceived failures.",
+        "wgUse": "Failure-mode coverage in gap analysis · `{symptom} rate` metrics · correction triggers"
+      }
+    ]
+  },
+  "anchorPriority": "P0",
+  "prioritiesPresent": [
+    "P0"
+  ],
+  "count": 6,
+  "terms": [
+    {
+      "term": "Infrastructure failure",
+      "priority": "P0",
+      "taxonomyLayer": "failure",
+      "category": "Root causes",
+      "aliases": [
+        "Platform failure",
+        "Runtime failure"
+      ],
+      "broaderTerm": "Root cause",
+      "definition": "Failures caused by unavailable tools, broken APIs, message loss, rate limits, stale indexes, model version drift, or other runtime conditions outside correct agent reasoning. Addressed with resilience engineering rather than prompt changes alone.",
+      "scopeNote": "Can reduce realised accuracy even when agent logic is correct. Rule out before attributing to reasoning failure.",
+      "relatedTerms": [
+        "Reasoning failure"
+      ],
+      "contrastsWith": [
+        "Reasoning failure"
+      ],
+      "workgroups": [
+        "Accuracy & Reliability"
+      ],
+      "literatureNote": "Attribution targets after symptoms are identified. MAST categories partially align; AAIF adds infrastructure and coordination classes.",
+      "x-termStatus": "stable",
+      "x-reviewTier": 3,
+      "x-consensus-reached": false
+    },
+    {
+      "term": "Reasoning failure",
+      "priority": "P0",
+      "taxonomyLayer": "failure",
+      "category": "Root causes",
+      "aliases": [
+        "Design-improvable failure"
+      ],
+      "broaderTerm": "Root cause",
+      "definition": "Failures in what the agent knows, assumes, plans, or concludes — including wrong facts, missing context, conflicting beliefs across agents, and misaligned goals. Improved primarily through reliability-by-design and better grounding — not through retries alone.",
+      "scopeNote": "Sets the accuracy ceiling under nominal conditions. Specific root causes include goal misalignment, planning errors, and coordination breakdowns.",
+      "relatedTerms": [
+        "Infrastructure failure",
+        "Recovery failure"
+      ],
+      "contrastsWith": [
+        "Infrastructure failure"
+      ],
+      "workgroups": [
+        "Accuracy & Reliability"
+      ],
+      "literatureNote": "Attribution targets after symptoms are identified. MAST categories partially align; AAIF adds infrastructure and coordination classes.",
+      "x-termStatus": "stable",
+      "x-reviewTier": 3,
+      "x-consensus-reached": false
+    },
+    {
+      "term": "Recovery failure",
+      "priority": "P0",
+      "taxonomyLayer": "failure",
+      "category": "Root causes",
+      "aliases": [
+        "Recovery layer failure"
+      ],
+      "broaderTerm": "Root cause",
+      "definition": "The system's recovery layer fails to detect, bound, or correct a reasoning or infrastructure problem — for example through runaway retries, silent fallback, or exhausted escalation budgets.",
+      "scopeNote": "Distinct from the original fault. Charter covers both proactive design and reactive recovery.",
+      "relatedTerms": [
+        "Infrastructure failure",
+        "Reasoning failure"
+      ],
+      "contrastsWith": [],
+      "workgroups": [
+        "Accuracy & Reliability"
+      ],
+      "literatureNote": "Attribution targets after symptoms are identified. MAST categories partially align; AAIF adds infrastructure and coordination classes.",
+      "x-termStatus": "stable",
+      "x-reviewTier": 3,
+      "x-consensus-reached": false
+    },
+    {
+      "term": "Root cause",
+      "priority": "P0",
+      "taxonomyLayer": "failure",
+      "category": "Root causes",
+      "aliases": [
+        "Underlying failure cause"
+      ],
+      "broaderTerm": null,
+      "definition": "The underlying reason a task failed or degraded, as opposed to the observable symptom. Root-cause analysis asks where in the system the fault originated and what engineering lever applies: design, platform resilience, or recovery policy.",
+      "scopeNote": "Charter failure taxonomy: classify what can be controlled, where resilience applies, and where human intervention is required. Each leaf class is a target for evaluation protocols incidence or severity metrics.",
+      "relatedTerms": [
+        "Infrastructure failure",
+        "Reasoning failure",
+        "Recovery failure",
+        "Symptom"
+      ],
+      "contrastsWith": [
+        "Symptom"
+      ],
+      "workgroups": [
+        "Accuracy & Reliability"
+      ],
+      "literatureNote": "Attribution targets after symptoms are identified. MAST categories partially align; AAIF adds infrastructure and coordination classes.",
+      "x-termStatus": "stable",
+      "x-reviewTier": 3,
+      "x-consensus-reached": false
+    },
+    {
+      "term": "Hallucination",
+      "priority": "P0",
+      "taxonomyLayer": "failure",
+      "category": "Symptoms",
+      "aliases": [
+        "Ungrounded output"
+      ],
+      "broaderTerm": "Symptom",
+      "definition": "A broad symptom label for outputs that sound plausible but are not supported by available evidence, authorised sources, or real-world fact. Useful for communication but too coarse for engineering on its own — specify a narrower subtype and underlying root cause when reporting or remediating.",
+      "scopeNote": "Symptom, not a root cause or metric. Map to subtypes and to reasoning, infrastructure, or data freshness causes.",
+      "relatedTerms": [],
+      "contrastsWith": [],
+      "workgroups": [
+        "Accuracy & Reliability"
+      ],
+      "literatureNote": "Overloaded in practice (MAST critique: catch-all symptom). AAIF restricts unqualified use; require a subtype for measurement or attribution (Cemri et al., 2025). Wojciech (running notes): does not cover stale-but-retrieved data cleanly — use Stale source error; Edward: linguistic extension — not yet modelled.",
+      "academicTerms": [
+        "confabulation",
+        "hallucination (MAST FC1)"
+      ],
+      "x-termStatus": "contested",
+      "x-reviewTier": 1,
+      "x-consensus-reached": false,
+      "x-sources": [
+        "ARWG running notes — Taxonomy (Hallucinations; Wojciech, Edward)"
+      ]
+    },
+    {
+      "term": "Symptom",
+      "priority": "P0",
+      "taxonomyLayer": "failure",
+      "category": "Symptoms",
+      "aliases": [
+        "Observable failure sign"
+      ],
+      "broaderTerm": null,
+      "definition": "What operators, users, or evaluators actually observe when something goes wrong — for example a wrong answer, a re-prompt, an abandoned task, or a plausible but unsupported claim. Symptoms must be mapped to root causes before choosing a fix.",
+      "scopeNote": "Outcome metrics often measure symptoms; evaluation protocols will specify incidence rates per symptom class. Remediation targets root causes and uses correction mechanisms.",
+      "relatedTerms": [
+        "Hallucination",
+        "Root cause"
+      ],
+      "contrastsWith": [
+        "Root cause"
+      ],
+      "workgroups": [
+        "Accuracy & Reliability"
+      ],
+      "literatureNote": "User- or trace-visible failure indicators. Prefer subtype over generic 'hallucination' for measurement.",
+      "x-termStatus": "stable",
+      "x-reviewTier": 3,
+      "x-consensus-reached": false
+    }
+  ]
+}

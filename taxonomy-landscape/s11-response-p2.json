@@ -1,0 +1,215 @@
+{
+  "schemaVersion": "1.0.0",
+  "title": "Response — design & correction — P2",
+  "anchorPriority": "P2",
+  "prioritiesPresent": [
+    "P2"
+  ],
+  "count": 9,
+  "terms": [
+    {
+      "term": "Abstention",
+      "priority": "P2",
+      "taxonomyLayer": "response",
+      "category": "Correction mechanisms",
+      "aliases": [
+        "I don't know response",
+        "Refusal to act"
+      ],
+      "broaderTerm": null,
+      "definition": "The agent declines to answer or act when evidence, confidence, or policy thresholds are not met — rather than guessing.",
+      "scopeNote": "Can improve calibration and reduce hallucination symptoms at the cost of task completion rate.",
+      "relatedTerms": [
+        "Policy gate"
+      ],
+      "contrastsWith": [],
+      "workgroups": [
+        "Accuracy & Reliability"
+      ],
+      "literatureNote": "Reactive recovery patterns. SRE names (circuit breaker, rollback) linked in academicTerms where relevant.",
+      "x-termStatus": "stable",
+      "x-reviewTier": 3,
+      "x-consensus-reached": false
+    },
+    {
+      "term": "Circuit breaker",
+      "priority": "P2",
+      "taxonomyLayer": "response",
+      "category": "Correction mechanisms",
+      "aliases": [
+        "Failure cutoff"
+      ],
+      "broaderTerm": null,
+      "definition": "Stopping repeated calls to a failing dependency or halting an agent loop after a threshold of errors, to prevent runaway cost and cascading wrong actions.",
+      "scopeNote": "Prevents recovery failure from unbounded retry.",
+      "relatedTerms": [],
+      "contrastsWith": [
+        "Retry"
+      ],
+      "workgroups": [
+        "Accuracy & Reliability"
+      ],
+      "literatureNote": "Reactive recovery patterns. SRE names (circuit breaker, rollback) linked in academicTerms where relevant.",
+      "x-termStatus": "stable",
+      "x-reviewTier": 3,
+      "x-consensus-reached": false
+    },
+    {
+      "term": "Compensation",
+      "priority": "P2",
+      "taxonomyLayer": "response",
+      "category": "Correction mechanisms",
+      "aliases": [
+        "Compensating action",
+        "Remedial action"
+      ],
+      "broaderTerm": null,
+      "definition": "An automated action that reverses or offsets partial effects of a failed step — for example cancelling a reservation, issuing a credit, or notifying downstream systems.",
+      "scopeNote": "Charter automated compensatory actions scope.",
+      "relatedTerms": [
+        "Rollback"
+      ],
+      "contrastsWith": [],
+      "workgroups": [
+        "Accuracy & Reliability"
+      ],
+      "literatureNote": "Reactive recovery patterns. SRE names (circuit breaker, rollback) linked in academicTerms where relevant.",
+      "x-termStatus": "stable",
+      "x-reviewTier": 3,
+      "x-consensus-reached": false
+    },
+    {
+      "term": "Fallback",
+      "priority": "P2",
+      "taxonomyLayer": "response",
+      "category": "Correction mechanisms",
+      "aliases": [
+        "Degraded mode"
+      ],
+      "broaderTerm": null,
+      "definition": "Switching to an alternate model, tool, data source, or simplified path when the primary path fails — with explicit signalling to operators or users where required.",
+      "scopeNote": "Should declare reduced capability so silent wrong action is not mistaken for full success.",
+      "relatedTerms": [],
+      "contrastsWith": [],
+      "workgroups": [
+        "Accuracy & Reliability"
+      ],
+      "literatureNote": "Reactive recovery patterns. SRE names (circuit breaker, rollback) linked in academicTerms where relevant.",
+      "x-termStatus": "stable",
+      "x-reviewTier": 3,
+      "x-consensus-reached": false
+    },
+    {
+      "term": "Rollback",
+      "priority": "P2",
+      "taxonomyLayer": "response",
+      "category": "Correction mechanisms",
+      "aliases": [
+        "State rollback",
+        "Undo"
+      ],
+      "broaderTerm": null,
+      "definition": "Restoring system or workflow state to a prior safe checkpoint after a failed or harmful step.",
+      "scopeNote": "Charter recovery and corrective actions scope.",
+      "relatedTerms": [
+        "Compensation"
+      ],
+      "contrastsWith": [],
+      "workgroups": [
+        "Accuracy & Reliability"
+      ],
+      "literatureNote": "Reactive recovery patterns. SRE names (circuit breaker, rollback) linked in academicTerms where relevant.",
+      "x-termStatus": "stable",
+      "x-reviewTier": 3,
+      "x-consensus-reached": false
+    },
+    {
+      "term": "Delegation control",
+      "priority": "P2",
+      "taxonomyLayer": "response",
+      "category": "Reliability by design",
+      "aliases": [
+        "Scoped delegation"
+      ],
+      "broaderTerm": null,
+      "definition": "Limits on which tasks, tools, data, and sub-agents an agent may use when handing work to others — including scope, expiry, and evidence requirements on handoffs.",
+      "scopeNote": "Reduces coordination failure and authorization failure in multi-agent systems.",
+      "relatedTerms": [],
+      "contrastsWith": [],
+      "workgroups": [
+        "Accuracy & Reliability",
+        "Identity & Trust"
+      ],
+      "literatureNote": "Proactive patterns that improve realised reliability. Less standardised in benchmarks than failure or accuracy terms.",
+      "x-termStatus": "stable",
+      "x-reviewTier": 3,
+      "x-consensus-reached": false
+    },
+    {
+      "term": "Policy gate",
+      "priority": "P2",
+      "taxonomyLayer": "response",
+      "category": "Reliability by design",
+      "aliases": [
+        "Action approval gate",
+        "Deterministic policy gate"
+      ],
+      "broaderTerm": null,
+      "definition": "A non-bypassable step that enforces allow-lists, budgets, or human approval before sensitive actions execute.",
+      "scopeNote": "Bridges reliability by design and correction mechanisms when the gate triggers escalation.",
+      "relatedTerms": [],
+      "contrastsWith": [],
+      "workgroups": [
+        "Accuracy & Reliability",
+        "Security & Privacy"
+      ],
+      "literatureNote": "Proactive patterns that improve realised reliability. Less standardised in benchmarks than failure or accuracy terms.",
+      "x-termStatus": "stable",
+      "x-reviewTier": 3,
+      "x-consensus-reached": false
+    },
+    {
+      "term": "Specification validation",
+      "priority": "P2",
+      "taxonomyLayer": "response",
+      "category": "Reliability by design",
+      "aliases": [
+        "Manifest validation",
+        "Pre-run configuration check"
+      ],
+      "broaderTerm": null,
+      "definition": "Checking agent specifications, tool bindings, and workflow definitions for conflicts, missing dependencies, or policy violations before execution starts.",
+      "scopeNote": "Targets configuration errors while they are still static and fixable.",
+      "relatedTerms": [],
+      "contrastsWith": [],
+      "workgroups": [
+        "Accuracy & Reliability"
+      ],
+      "literatureNote": "Proactive patterns that improve realised reliability. Less standardised in benchmarks than failure or accuracy terms.",
+      "x-termStatus": "stable",
+      "x-reviewTier": 3,
+      "x-consensus-reached": false
+    },
+    {
+      "term": "Version pinning",
+      "priority": "P2",
+      "taxonomyLayer": "response",
+      "category": "Reliability by design",
+      "aliases": [
+        "Configuration freeze"
+      ],
+      "broaderTerm": null,
+      "definition": "Binding evaluation and production behaviour to explicit versions of models, prompts, tools, and agent specifications so results are reproducible and comparable.",
+      "scopeNote": "Charter assumption for reproducible metrics.",
+      "relatedTerms": [],
+      "contrastsWith": [],
+      "workgroups": [
+        "Accuracy & Reliability"
+      ],
+      "literatureNote": "Proactive patterns that improve realised reliability. Less standardised in benchmarks than failure or accuracy terms.",
+      "x-termStatus": "stable",
+      "x-reviewTier": 3,
+      "x-consensus-reached": false
+    }
+  ]
+}

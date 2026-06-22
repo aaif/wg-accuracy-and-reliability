@@ -1,0 +1,55 @@
+{
+  "schemaVersion": "1.0.0",
+  "title": "Metrics & measurement — P2",
+  "anchorPriority": "P2",
+  "prioritiesPresent": [
+    "P2"
+  ],
+  "count": 2,
+  "terms": [
+    {
+      "term": "Resource cost variance",
+      "priority": "P2",
+      "taxonomyLayer": "metrics",
+      "category": "Metrics",
+      "aliases": [
+        "Cost variance"
+      ],
+      "broaderTerm": null,
+      "definition": "Variation in latency, token use, API spend, or duration across repeated identical requests.",
+      "scopeNote": "Implements resource consistency as a measurable quantity.",
+      "relatedTerms": [
+        "Retry budget utilisation"
+      ],
+      "contrastsWith": [],
+      "workgroups": [
+        "Accuracy & Reliability"
+      ],
+      "literatureNote": "Quantifiers attached to dimensions — not synonyms for accuracy or reliability. Academic metric names appear in academicTerms only.",
+      "x-termStatus": "stable",
+      "x-reviewTier": 3,
+      "x-consensus-reached": false
+    },
+    {
+      "term": "Retry budget utilisation",
+      "priority": "P2",
+      "taxonomyLayer": "metrics",
+      "category": "Metrics",
+      "aliases": [
+        "Recovery attempt count"
+      ],
+      "broaderTerm": null,
+      "definition": "How much of an allowed retry, re-query, or re-plan budget a task consumes before success, escalation, or failure.",
+      "scopeNote": "Links correction mechanisms to cost and recovery failure risk.",
+      "relatedTerms": [],
+      "contrastsWith": [],
+      "workgroups": [
+        "Accuracy & Reliability"
+      ],
+      "literatureNote": "Quantifiers attached to dimensions — not synonyms for accuracy or reliability. Academic metric names appear in academicTerms only.",
+      "x-termStatus": "stable",
+      "x-reviewTier": 3,
+      "x-consensus-reached": false
+    }
+  ]
+}

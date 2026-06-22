@@ -1,0 +1,106 @@
+{
+  "schemaVersion": "1.0.0",
+  "title": "Grounding, evidence & world — P0",
+  "sectionGuide": {
+    "why": "Many apparent reasoning errors are grounding failures — stale sources, wrong entities, ungrounded claims. This section names how outputs relate to authoritative world state: trust anchors, evidence, tool results, and external context.",
+    "wgUse": "World-ring vocabulary for gap analysis — separate model error from stale API or wrong entity. Hallucination subtypes in failure vocabulary refine these failures. Identity & Trust WG owns trust frameworks; ARWG owns measurement-facing definitions.",
+    "enables": "Hallucination subtypes refine grounding failures; evidence accuracy in core properties becomes operational; gap analysis can separate “model wrong” from “world or API wrong”.",
+    "priorities": "**P0** = grounding, trust anchor, evidence accuracy — minimum to classify a claim as grounded or not. **P1** = operational evidence types (tool result, provenance, ground truth). **P2** = evaluation infrastructure (knowledge base, annotations, session memory). Review P0 before hallucination subtypes.",
+    "categories": [
+      {
+        "category": "Evaluation ecosystem",
+        "count": 15,
+        "relevance": "Evidence sources, memory, and retrieval artefacts that connect agent outputs to authoritative world state.",
+        "wgUse": "Benchmark harness rows · tool and orchestrator integration · inventory columns"
+      },
+      {
+        "category": "Output quality",
+        "count": 1,
+        "relevance": "Evidence accuracy as a measurable output-quality property tied to grounding.",
+        "wgUse": "Enterprise checklists · judge rubrics where evidence must be verified"
+      }
+    ]
+  },
+  "anchorPriority": "P0",
+  "prioritiesPresent": [
+    "P0"
+  ],
+  "count": 3,
+  "terms": [
+    {
+      "term": "Grounding",
+      "priority": "P0",
+      "taxonomyLayer": "world",
+      "category": "Evaluation ecosystem",
+      "aliases": [
+        "Evidence anchoring"
+      ],
+      "broaderTerm": null,
+      "definition": "The degree to which claims, decisions, and recommended actions are tied to identifiable evidence, tool results, or authorised data sources rather than model parametric guesswork alone.",
+      "scopeNote": "Central to evidence accuracy and hallucination subtyping. Trust requirements and anchors defined further in trust frameworks.",
+      "relatedTerms": [
+        "Trust anchor"
+      ],
+      "contrastsWith": [],
+      "workgroups": [
+        "Accuracy & Reliability"
+      ],
+      "literatureNote": "Generally accepted in RAG evaluation; AAIF extends to tool results and trust anchors, not only retrieved passages.",
+      "academicTerms": [
+        "attribution to source",
+        "faithfulness",
+        "groundedness"
+      ],
+      "x-termStatus": "stable",
+      "x-reviewTier": 3,
+      "x-consensus-reached": false
+    },
+    {
+      "term": "Trust anchor",
+      "priority": "P0",
+      "taxonomyLayer": "world",
+      "category": "Evaluation ecosystem",
+      "aliases": [
+        "Authoritative source",
+        "System of record"
+      ],
+      "broaderTerm": null,
+      "definition": "An authoritative data source, service, or verification rule against which an agent output can be checked for high-stakes tasks.",
+      "scopeNote": "Charter assumption for enterprise verification. Detailed protocols are a Phase 3 deliverable.",
+      "relatedTerms": [
+        "Grounding"
+      ],
+      "contrastsWith": [],
+      "workgroups": [
+        "Accuracy & Reliability"
+      ],
+      "literatureNote": "Harness and participant vocabulary for gap analysis inventory. Describes how measurement runs, not agent properties.",
+      "x-termStatus": "stable",
+      "x-reviewTier": 3,
+      "x-consensus-reached": false
+    },
+    {
+      "term": "Evidence accuracy",
+      "priority": "P0",
+      "taxonomyLayer": "world",
+      "category": "Output quality",
+      "aliases": [
+        "Evidence quality"
+      ],
+      "broaderTerm": null,
+      "definition": "Whether the facts, citations, and observations cited in support of a conclusion are complete, relevant, and faithful to available sources.",
+      "scopeNote": "Supports audit and grounding checks. High evidence accuracy does not guarantee the final decision is right.",
+      "relatedTerms": [
+        "Grounding"
+      ],
+      "contrastsWith": [],
+      "workgroups": [
+        "Accuracy & Reliability"
+      ],
+      "literatureNote": "Task-result vocabulary bridging accuracy to user-visible outcomes. Common in benchmark reporting with varying definitions.",
+      "x-termStatus": "stable",
+      "x-reviewTier": 3,
+      "x-consensus-reached": false
+    }
+  ]
+}

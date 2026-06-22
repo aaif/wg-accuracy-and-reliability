@@ -1,0 +1,152 @@
+{
+  "schemaVersion": "1.0.0",
+  "title": "Operational & governance terms — P0",
+  "sectionGuide": {
+    "why": "Attribution, reproducibility, and audit need governance vocabulary that is *not* a quality dimension — agent identity, traceability, recoverability, deterministic validation. Without these, failure attribution and correction patterns have nothing to attach to.",
+    "wgUse": "Governance prose and cross-WG liaison touchpoints (Observability, Identity & Trust, Security). Gap analysis for governance and observability gaps. Evaluation protocols require declared agent identity and envelope. Prerequisites before deep failure attribution review.",
+    "enables": "Failure attribution and Observability WG interfaces; response patterns (HITL, rollback) assume recoverability and traceability; evaluation protocols need declared agent identity and evaluation envelopes.",
+    "priorities": "**P0** = production prerequisites (identity, recoverability, explainability hooks). **P1** = observability signals and traceability (shared with Observability WG). **P2** = security boundary (Security WG touchpoint). Governance P0 should be reviewed before deep failure attribution work.",
+    "categories": [
+      {
+        "category": "Correction mechanisms",
+        "count": 1,
+        "relevance": "Charter scope: react when failures occur — retry, HITL, rollback, escalation — human-intervention boundaries.",
+        "wgUse": "Operational runbooks · protocol branches · solution landscape comparisons"
+      },
+      {
+        "category": "Measurement & evaluation",
+        "count": 2,
+        "relevance": "Cross-cutting evaluation mechanics: envelopes, methodology, deterministic validation, failure attribution — how a measurement claim is bounded and reproduced.",
+        "wgUse": "Evaluation requirements · protocol specs · benchmark vs production envelope disputes"
+      },
+      {
+        "category": "Observability & attribution",
+        "count": 7,
+        "relevance": "Trace, telemetry, guardrails, and policy enforcement — vocabulary shared with Observability, Identity & Trust, and Security working groups.",
+        "wgUse": "Trace requirements · agent identity · guardrails and policy enforcement"
+      }
+    ]
+  },
+  "anchorPriority": "P0",
+  "prioritiesPresent": [
+    "P0"
+  ],
+  "count": 5,
+  "terms": [
+    {
+      "term": "Recoverability",
+      "priority": "P0",
+      "taxonomyLayer": "governance",
+      "category": "Correction mechanisms",
+      "aliases": [
+        "Failure recovery capability"
+      ],
+      "broaderTerm": null,
+      "definition": "The system's overall ability to detect problems, limit blast radius, and return to an acceptable state using correction mechanisms within defined budgets.",
+      "scopeNote": "Capability umbrella; not a peer concept to accuracy.",
+      "relatedTerms": [],
+      "contrastsWith": [],
+      "workgroups": [
+        "Accuracy & Reliability"
+      ],
+      "literatureNote": "Matt (running notes): detect, contain, restore with bounded impact. Reactive recovery patterns. SRE names (circuit breaker, rollback) linked in academicTerms where relevant.",
+      "x-sources": [
+        "ARWG running notes — Taxonomy (Recoverability; Matt)"
+      ],
+      "x-termStatus": "stable",
+      "x-reviewTier": 3,
+      "x-consensus-reached": false
+    },
+    {
+      "term": "Deterministic operation",
+      "priority": "P0",
+      "taxonomyLayer": "governance",
+      "category": "Measurement & evaluation",
+      "aliases": [
+        "Deterministic process"
+      ],
+      "broaderTerm": null,
+      "definition": "A procedure that repeats the same steps and yields the same result for the same inputs. Applies to validators, policy gates, and workflow steps — not to open-ended language-model agent behaviour as a whole.",
+      "scopeNote": "P0 from original WG brief. Do not use as a synonym for reliable or accurate.",
+      "relatedTerms": [
+        "Deterministic validation"
+      ],
+      "contrastsWith": [
+        "Agent"
+      ],
+      "workgroups": [
+        "Accuracy & Reliability",
+        "Workflows & Process Integration"
+      ],
+      "literatureNote": "Protocol and envelope vocabulary for reproducible evaluation (evaluation protocols input).",
+      "x-termStatus": "stable",
+      "x-reviewTier": 3,
+      "x-consensus-reached": false
+    },
+    {
+      "term": "Deterministic validation",
+      "priority": "P0",
+      "taxonomyLayer": "governance",
+      "category": "Measurement & evaluation",
+      "aliases": [
+        "Exact-match checking"
+      ],
+      "broaderTerm": null,
+      "definition": "A check or procedure that yields the same result for the same inputs every time — used for final-state checks, expected tool sequences, schema validation, and policy gates.",
+      "scopeNote": "Applies to validators and workflow steps, not to the open-ended behaviour of a language model agent as a whole.",
+      "relatedTerms": [],
+      "contrastsWith": [],
+      "workgroups": [
+        "Accuracy & Reliability"
+      ],
+      "literatureNote": "Protocol and envelope vocabulary for reproducible evaluation (evaluation protocols input).",
+      "x-termStatus": "stable",
+      "x-reviewTier": 3,
+      "x-consensus-reached": false
+    },
+    {
+      "term": "Agent identity",
+      "priority": "P0",
+      "taxonomyLayer": "governance",
+      "category": "Observability & attribution",
+      "aliases": [
+        "Agent identifier"
+      ],
+      "broaderTerm": null,
+      "definition": "A stable identifier for an agent instance or deployed artifact used for authentication, audit, and tying evaluation results to a specific specification version and runtime participant.",
+      "scopeNote": "Prerequisite for reproducible evaluation and cross-run comparison. Detailed identity standards are owned with Identity & Trust WG.",
+      "relatedTerms": [],
+      "contrastsWith": [],
+      "workgroups": [
+        "Accuracy & Reliability",
+        "Identity & Trust"
+      ],
+      "literatureNote": "Governance prerequisites, not quality dimensions. Boundary terms shared with Observability, Security, or Identity WGs as tagged.",
+      "x-termStatus": "stable",
+      "x-reviewTier": 3,
+      "x-consensus-reached": false
+    },
+    {
+      "term": "Explainability",
+      "priority": "P0",
+      "taxonomyLayer": "governance",
+      "category": "Observability & attribution",
+      "aliases": [
+        "Operator interpretability"
+      ],
+      "broaderTerm": null,
+      "definition": "The degree to which operators and auditors can understand why an agent acted as it did, using trajectories, cited evidence, and decision records. Supports investigation but is not the same as being correct or reliable.",
+      "scopeNote": "Governance and audit property; not a substitute for accuracy metrics.",
+      "relatedTerms": [],
+      "contrastsWith": [],
+      "workgroups": [
+        "Accuracy & Reliability",
+        "Observability & Traceability"
+      ],
+      "literatureNote": "Governance prerequisites, not quality dimensions. Boundary terms shared with Observability, Security, or Identity WGs as tagged.",
+      "x-termStatus": "stable",
+      "x-reviewTier": 3,
+      "x-consensus-reached": false
+    }
+  ]
+}

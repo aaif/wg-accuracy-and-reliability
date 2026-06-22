@@ -2,6 +2,8 @@
 
 For more information, review the [Working Group Charter](https://github.com/aaif/wg-accuracy-and-reliability/blob/main/wg-charter/charter.md).
 
+**Active work:** see [CURRENT-WORKSTREAMS.md](CURRENT-WORKSTREAMS.md) (running notes, taxonomy review, D1, D3, and how to contribute via PR).
+
 ## Mission
 
 The Accuracy & Reliability Working Group advances the Agentic AI Foundation's mission by establishing the standards, benchmarks, and engineering practices required for AI agents to operate accurately and reliably under real-world enterprise conditions.

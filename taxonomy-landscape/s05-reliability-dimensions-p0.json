@@ -1,0 +1,323 @@
+{
+  "schemaVersion": "1.0.0",
+  "title": "Reliability dimensions — P0",
+  "sectionGuide": {
+    "why": "“Reliability” alone is too vague for benchmarks or enterprise SLAs. This section names the sub-dimensions — consistency, robustness, calibration, safety — so coverage analysis and protocol design can be granular instead of a single pass/fail label.",
+    "wgUse": "Dimension definitions for coverage matrices, protocol families, and enterprise SLAs — use these names instead of generic “reliable”. Review before citing dimension names in failure vocabulary or metrics.",
+    "enables": "Metrics such as repeated-run success rate and calibration error quantify these families; failure vocabulary maps which dimension broke; coverage matrices use this decomposition when rating benchmarks.",
+    "priorities": "**P0** holds the Princeton-aligned families and outcome consistency — required for any reliability claim. **P2** (cross-agent agreement) is MAS-specific refinement. There is no P1 band here; review P0 before metrics and before deep failure work that cites dimension names.",
+    "categories": [
+      {
+        "category": "Reliability dimensions",
+        "count": 11,
+        "relevance": "Decomposes vague 'reliable' into consistency, robustness, calibration, safety — required for SLAs and benchmark coverage matrices.",
+        "wgUse": "Coverage matrix columns · protocol families · running-notes coverage rows"
+      }
+    ]
+  },
+  "anchorPriority": "P0",
+  "prioritiesPresent": [
+    "P0",
+    "P2"
+  ],
+  "note": "Includes merged single-term band(s).",
+  "count": 11,
+  "terms": [
+    {
+      "term": "Calibration",
+      "priority": "P0",
+      "taxonomyLayer": "dimensions",
+      "category": "Reliability dimensions",
+      "aliases": [
+        "Confidence alignment"
+      ],
+      "broaderTerm": null,
+      "definition": "The degree to which stated confidence or expressed uncertainty matches how often the system is actually correct. A well-calibrated system that says it is 80% confident should be right about 80% of the time in that class of cases.",
+      "scopeNote": "Primarily a model-level property; architecture can expose but not fully fix miscalibration.",
+      "relatedTerms": [
+        "Safety"
+      ],
+      "contrastsWith": [],
+      "workgroups": [
+        "Accuracy & Reliability"
+      ],
+      "literatureNote": "Well established for models (ECE in HELM, LM-Polygraph). Agent-level calibration benchmarks are early and heterogeneous (2025–2026 preprints).",
+      "academicTerms": [
+        "confidence–accuracy alignment",
+        "expected calibration error (ECE)"
+      ],
+      "x-termStatus": "stable",
+      "x-reviewTier": 3,
+      "x-consensus-reached": false
+    },
+    {
+      "term": "Consistency",
+      "priority": "P0",
+      "taxonomyLayer": "dimensions",
+      "category": "Reliability dimensions",
+      "aliases": [],
+      "broaderTerm": null,
+      "definition": "Stability of correct outcomes when the same task is evaluated repeatedly under equivalent conditions. Unqualified use means outcome consistency across repeated runs.",
+      "scopeNote": "Differs from robustness: stable wrong answers are consistent but not robust to paraphrase.",
+      "relatedTerms": [
+        "Outcome consistency",
+        "Resource consistency",
+        "Robustness",
+        "Trajectory consistency"
+      ],
+      "contrastsWith": [
+        "Robustness"
+      ],
+      "workgroups": [
+        "Accuracy & Reliability"
+      ],
+      "literatureNote": "Divergent: default AAIF/princeton sense = same correct outcome on every repeat. Wojciech (running notes): Princeton HAL distinguishes outcome, trajectory, and resource consistency — see child terms. BFT 'consistency' = valid agreement (may be wrong) — use 'cross-agent agreement' with qualifier only.",
+      "academicTerms": [
+        "Byzantine consistency (Berdoz et al., 2026)",
+        "pass@k (single-run best-of-k — not an AAIF term)",
+        "pass^k (Yao et al., 2024; tau-bench)"
+      ],
+      "x-termStatus": "stable",
+      "x-reviewTier": 3,
+      "x-consensus-reached": false
+    },
+    {
+      "term": "Cross-agent factual alignment",
+      "priority": "P0",
+      "taxonomyLayer": "dimensions",
+      "category": "Reliability dimensions",
+      "aliases": [
+        "Multi-agent factual consistency"
+      ],
+      "broaderTerm": "Consistency",
+      "definition": "Within a multi-agent system, agents do not hold conflicting values for the same fact or entity at the same point in a task. A spatial property across agents, not repeated-run variance.",
+      "scopeNote": "Not the default meaning of consistency. Differs from cross-agent agreement, which does not require correctness.",
+      "relatedTerms": [],
+      "contrastsWith": [
+        "Cross-agent agreement"
+      ],
+      "workgroups": [
+        "Accuracy & Reliability"
+      ],
+      "literatureNote": "AAIF-specific: mutual factual consistency plus correctness requirement. Distinct from agreement and from single-agent repeat consistency.",
+      "x-termStatus": "stable",
+      "x-reviewTier": 3,
+      "x-consensus-reached": false
+    },
+    {
+      "term": "Input paraphrase robustness",
+      "priority": "P0",
+      "taxonomyLayer": "dimensions",
+      "category": "Reliability dimensions",
+      "aliases": [
+        "Prompt robustness",
+        "Wording invariance"
+      ],
+      "broaderTerm": "Robustness",
+      "definition": "Whether semantically equivalent instructions produce the same reliable outcome — for example, \"cancel my subscription\" and \"end my plan\".",
+      "scopeNote": "Important for enterprise deployments with varied user phrasing and locales.",
+      "relatedTerms": [
+        "Operational fault robustness",
+        "Robustness"
+      ],
+      "contrastsWith": [
+        "Operational fault robustness"
+      ],
+      "workgroups": [
+        "Accuracy & Reliability"
+      ],
+      "literatureNote": "Sub-dimensions under agent reliability. Princeton HAL is the primary academic anchor; see bibliography in x-sources where listed.",
+      "x-termStatus": "stable",
+      "x-reviewTier": 3,
+      "x-consensus-reached": false
+    },
+    {
+      "term": "Operational fault robustness",
+      "priority": "P0",
+      "taxonomyLayer": "dimensions",
+      "category": "Reliability dimensions",
+      "aliases": [
+        "Fault robustness"
+      ],
+      "broaderTerm": "Robustness",
+      "definition": "Whether the system remains acceptably correct when tools fail, data is missing, messages are delayed, or other runtime faults occur within scope.",
+      "scopeNote": "Closely related to recoverability and graceful degradation.",
+      "relatedTerms": [
+        "Input paraphrase robustness"
+      ],
+      "contrastsWith": [
+        "Input paraphrase robustness"
+      ],
+      "workgroups": [
+        "Accuracy & Reliability"
+      ],
+      "literatureNote": "Sub-dimensions under agent reliability. Princeton HAL is the primary academic anchor; see bibliography in x-sources where listed.",
+      "x-termStatus": "stable",
+      "x-reviewTier": 3,
+      "x-consensus-reached": false
+    },
+    {
+      "term": "Outcome consistency",
+      "priority": "P0",
+      "taxonomyLayer": "dimensions",
+      "category": "Reliability dimensions",
+      "aliases": [
+        "Repeated-run consistency"
+      ],
+      "broaderTerm": "Consistency",
+      "definition": "Whether repeated runs on the same task produce the same success or failure result. Default meaning of unqualified consistency.",
+      "scopeNote": "Measured with repeated trials and repeated-run success rate.",
+      "relatedTerms": [
+        "Resource consistency",
+        "Trajectory consistency"
+      ],
+      "contrastsWith": [],
+      "workgroups": [
+        "Accuracy & Reliability"
+      ],
+      "literatureNote": "Aligns with tau-bench pass^k and Princeton outcome-consistency sub-dimension. Preferred plain name; 'pass^k' appears only in academicTerms and gap analysis evidence.",
+      "academicTerms": [
+        "all-trial success",
+        "pass^k (tau-bench)"
+      ],
+      "x-termStatus": "stable",
+      "x-reviewTier": 3,
+      "x-consensus-reached": false
+    },
+    {
+      "term": "Resource consistency",
+      "priority": "P0",
+      "taxonomyLayer": "dimensions",
+      "category": "Reliability dimensions",
+      "aliases": [
+        "Cost stability"
+      ],
+      "broaderTerm": "Consistency",
+      "definition": "Low variation in latency, token use, API cost, and duration across repeated identical requests.",
+      "scopeNote": "Requires explicit qualifier. Same correct answer with wildly varying cost is a resource consistency failure.",
+      "relatedTerms": [],
+      "contrastsWith": [],
+      "workgroups": [
+        "Accuracy & Reliability"
+      ],
+      "literatureNote": "Thin benchmark coverage; Rabanser et al. (2026) define C_res from coefficient of variation across repeats. AAIF treats cost/latency variance as a first-class reliability concern.",
+      "academicTerms": [
+        "C_res (Princeton HAL reliability dashboard)"
+      ],
+      "x-termStatus": "stable",
+      "x-reviewTier": 3,
+      "x-consensus-reached": false
+    },
+    {
+      "term": "Robustness",
+      "priority": "P0",
+      "taxonomyLayer": "dimensions",
+      "category": "Reliability dimensions",
+      "aliases": [],
+      "broaderTerm": null,
+      "definition": "Stability of correct outcomes when inputs are rephrased, conditions shift, or faults are injected within the evaluation envelope.",
+      "scopeNote": "Covers both wording changes and operational perturbations; name the perturbation type when reporting results.",
+      "relatedTerms": [
+        "Consistency",
+        "Input paraphrase robustness",
+        "Operational fault robustness"
+      ],
+      "contrastsWith": [
+        "Consistency"
+      ],
+      "workgroups": [
+        "Accuracy & Reliability"
+      ],
+      "literatureNote": "Broad term in ML (prompt robustness, adversarial robustness). AAIF splits into input paraphrase vs operational fault robustness for measurement clarity.",
+      "academicTerms": [
+        "fault injection robustness",
+        "prompt robustness (PromptBench)"
+      ],
+      "x-termStatus": "stable",
+      "x-reviewTier": 3,
+      "x-consensus-reached": false
+    },
+    {
+      "term": "Safety",
+      "priority": "P0",
+      "taxonomyLayer": "dimensions",
+      "category": "Reliability dimensions",
+      "aliases": [
+        "Policy compliance"
+      ],
+      "broaderTerm": null,
+      "definition": "The degree to which a system avoids prohibited, harmful, or unauthorised actions under the task and control policies in force. Measured by violation rate, not by general answer correctness.",
+      "scopeNote": "Boundary with Security & Privacy WG for adversarial and abuse cases. A system can be reliable yet unsafe if it consistently violates policy.",
+      "relatedTerms": [],
+      "contrastsWith": [],
+      "workgroups": [
+        "Accuracy & Reliability",
+        "Security & Privacy"
+      ],
+      "literatureNote": "Divergent: Princeton HAL = policy/harm violation rate. Lamport/BFT 'safety' = no bad state — not the default AAIF meaning. Coordinate with Security & Privacy WG on adversarial cases.",
+      "academicTerms": [
+        "Lamport safety (requires qualifier)",
+        "utility-while-safe (AgentDojo, AgentHarm)"
+      ],
+      "x-termStatus": "stable",
+      "x-reviewTier": 3,
+      "x-consensus-reached": false
+    },
+    {
+      "term": "Trajectory consistency",
+      "priority": "P0",
+      "taxonomyLayer": "dimensions",
+      "category": "Reliability dimensions",
+      "aliases": [
+        "Process consistency"
+      ],
+      "broaderTerm": "Consistency",
+      "definition": "Whether repeated runs follow similar action paths — tool choices, message order, and step structure — not only similar final answers.",
+      "scopeNote": "Requires explicit qualifier. Independent from outcome consistency.",
+      "relatedTerms": [
+        "Outcome consistency"
+      ],
+      "contrastsWith": [],
+      "workgroups": [
+        "Accuracy & Reliability"
+      ],
+      "literatureNote": "Emerging in agent reliability studies; rarely scored in mainstream harnesses (WebArena, SWE-bench score end-state only). Named in Rabanser et al. (2026) sub-dimension analysis.",
+      "academicTerms": [
+        "path stability (When Agents Disagree With Themselves, 2026)",
+        "trajectory edit distance (study-specific)"
+      ],
+      "x-termStatus": "stable",
+      "x-reviewTier": 3,
+      "x-consensus-reached": false
+    },
+    {
+      "term": "Cross-agent agreement",
+      "priority": "P2",
+      "taxonomyLayer": "dimensions",
+      "category": "Reliability dimensions",
+      "aliases": [
+        "Distributed convergence"
+      ],
+      "broaderTerm": "Consistency",
+      "definition": "Agents converge on the same stated value or decision, regardless of whether that value is correct. Used only when explicitly discussing distributed consensus literature.",
+      "scopeNote": "Requires explicit qualifier; not the default meaning of consistency.",
+      "relatedTerms": [
+        "Cross-agent factual alignment"
+      ],
+      "contrastsWith": [
+        "Cross-agent factual alignment"
+      ],
+      "workgroups": [
+        "Accuracy & Reliability"
+      ],
+      "literatureNote": "BFT/consensus sense — agents converge to the same value, not necessarily the correct one. P2 refinement; do not confuse with outcome consistency or factual alignment.",
+      "academicTerms": [
+        "Byzantine agreement (Berdoz et al., 2026)",
+        "valid consensus"
+      ],
+      "x-termStatus": "stable",
+      "x-reviewTier": 3,
+      "x-consensus-reached": false
+    }
+  ]
+}

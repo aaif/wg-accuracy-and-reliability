@@ -1,0 +1,207 @@
+{
+  "schemaVersion": "1.0.0",
+  "title": "Grounding, evidence & world — P1",
+  "anchorPriority": "P1",
+  "prioritiesPresent": [
+    "P1"
+  ],
+  "count": 8,
+  "terms": [
+    {
+      "term": "Agent memory",
+      "priority": "P1",
+      "taxonomyLayer": "world",
+      "category": "Evaluation ecosystem",
+      "aliases": [
+        "Agent memories",
+        "Persistent agent state"
+      ],
+      "broaderTerm": null,
+      "definition": "Any information an agent retains beyond the current context window — including session memory, long-term stores, and learned summaries — that can influence later decisions. Memory content and retention policy must be observable for provenance and failure attribution.",
+      "scopeNote": "ARWG includes memory because stale or cross-agent inconsistent memory is a common root cause of accuracy errors. Emission of memory read/write events supports traceability.",
+      "relatedTerms": [
+        "Provenance",
+        "Shared memory"
+      ],
+      "contrastsWith": [
+        "Knowledge base"
+      ],
+      "workgroups": [
+        "Accuracy & Reliability"
+      ],
+      "literatureNote": "Memory is increasingly standard in agent products; benchmarks often omit explicit memory versioning — a reproducibility gap AAIF addresses via agent specification.",
+      "x-termStatus": "stable",
+      "x-reviewTier": 2,
+      "x-consensus-reached": false
+    },
+    {
+      "term": "Evidence",
+      "priority": "P1",
+      "taxonomyLayer": "world",
+      "category": "Evaluation ecosystem",
+      "aliases": [
+        "Cited observation",
+        "Supporting fact"
+      ],
+      "broaderTerm": null,
+      "definition": "A specific fact, measurement, or observation used to support a conclusion or recommended action — with an identifiable origin in context sources.",
+      "scopeNote": "Evidence accuracy and grounding evaluate whether evidence is complete, relevant, and faithful.",
+      "relatedTerms": [
+        "Provenance",
+        "Tool result"
+      ],
+      "contrastsWith": [],
+      "workgroups": [
+        "Accuracy & Reliability"
+      ],
+      "literatureNote": "Harness and participant vocabulary for gap analysis inventory. Describes how measurement runs, not agent properties.",
+      "x-termStatus": "stable",
+      "x-reviewTier": 2,
+      "x-consensus-reached": false
+    },
+    {
+      "term": "Ground truth",
+      "priority": "P1",
+      "taxonomyLayer": "world",
+      "category": "Evaluation ecosystem",
+      "aliases": [
+        "Gold label",
+        "Reference outcome"
+      ],
+      "broaderTerm": null,
+      "definition": "The accepted correct outcome, state, or answer for an evaluation scenario — established by authoritative rules, expert annotation, or deterministic checks before the agent runs.",
+      "scopeNote": "Ground truth may be incomplete relative to full user context in production; state scope and time validity.",
+      "relatedTerms": [],
+      "contrastsWith": [
+        "User intent"
+      ],
+      "workgroups": [
+        "Accuracy & Reliability"
+      ],
+      "literatureNote": "Harness and participant vocabulary for gap analysis inventory. Describes how measurement runs, not agent properties.",
+      "x-termStatus": "stable",
+      "x-reviewTier": 2,
+      "x-consensus-reached": false
+    },
+    {
+      "term": "Provenance",
+      "priority": "P1",
+      "taxonomyLayer": "world",
+      "category": "Evaluation ecosystem",
+      "aliases": [
+        "Data pedigree",
+        "Source lineage"
+      ],
+      "broaderTerm": "Evidence",
+      "definition": "The recorded origin and transformation history of a piece of evidence — which tool, document, timestamp, and processing step produced it.",
+      "scopeNote": "Distinct from traceability, which covers the full agent action path. Detailed formats owned with Observability WG.",
+      "relatedTerms": [
+        "Evidence"
+      ],
+      "contrastsWith": [
+        "Traceability"
+      ],
+      "workgroups": [
+        "Accuracy & Reliability",
+        "Observability & Traceability"
+      ],
+      "literatureNote": "Harness and participant vocabulary for gap analysis inventory. Describes how measurement runs, not agent properties.",
+      "x-termStatus": "stable",
+      "x-reviewTier": 2,
+      "x-consensus-reached": false
+    },
+    {
+      "term": "Shared memory",
+      "priority": "P1",
+      "taxonomyLayer": "world",
+      "category": "Evaluation ecosystem",
+      "aliases": [
+        "MAS memory",
+        "Shared agent memory"
+      ],
+      "broaderTerm": "Agent memory",
+      "definition": "Memory or state that multiple agents in a multi-agent system can read or write during a task — such as a shared scratchpad, blackboard, or session store.",
+      "scopeNote": "Cross-agent factual alignment and coordination failures often trace to shared memory conflicts. Must be declared in the evaluation envelope for MAS scenarios.",
+      "relatedTerms": [
+        "Agent memory"
+      ],
+      "contrastsWith": [
+        "Session memory"
+      ],
+      "workgroups": [
+        "Accuracy & Reliability"
+      ],
+      "literatureNote": "Common in MAS orchestration patterns; under-specified in public benchmarks.",
+      "x-termStatus": "stable",
+      "x-reviewTier": 2,
+      "x-consensus-reached": false
+    },
+    {
+      "term": "Tool result",
+      "priority": "P1",
+      "taxonomyLayer": "world",
+      "category": "Evaluation ecosystem",
+      "aliases": [
+        "API response",
+        "Tool output"
+      ],
+      "broaderTerm": null,
+      "definition": "Data returned from a tool or API call that enters the agent's working context and may become cited evidence.",
+      "scopeNote": "Corrupted, truncated, or misinterpreted tool results drive observation and reasoning failures.",
+      "relatedTerms": [
+        "Evidence"
+      ],
+      "contrastsWith": [],
+      "workgroups": [
+        "Accuracy & Reliability"
+      ],
+      "literatureNote": "Harness and participant vocabulary for gap analysis inventory. Describes how measurement runs, not agent properties.",
+      "x-termStatus": "stable",
+      "x-reviewTier": 2,
+      "x-consensus-reached": false
+    },
+    {
+      "term": "Trust requirement",
+      "priority": "P1",
+      "taxonomyLayer": "world",
+      "category": "Evaluation ecosystem",
+      "aliases": [
+        "Verification requirement"
+      ],
+      "broaderTerm": null,
+      "definition": "A declared rule for what evidence, anchors, checks, or approvals a task class requires before an output or action is accepted — for example mandatory source citation or human approval above a risk threshold.",
+      "scopeNote": "trust frameworks deliverable expands trust anchors and entity resolution protocols from trust requirements.",
+      "relatedTerms": [],
+      "contrastsWith": [],
+      "workgroups": [
+        "Accuracy & Reliability"
+      ],
+      "literatureNote": "Harness and participant vocabulary for gap analysis inventory. Describes how measurement runs, not agent properties.",
+      "x-termStatus": "stable",
+      "x-reviewTier": 2,
+      "x-consensus-reached": false
+    },
+    {
+      "term": "User-provided context",
+      "priority": "P1",
+      "taxonomyLayer": "world",
+      "category": "Evaluation ecosystem",
+      "aliases": [
+        "Prompt content",
+        "User input"
+      ],
+      "broaderTerm": null,
+      "definition": "Information supplied directly by the user or calling system — instructions, attachments, parameters, and constraints for the task.",
+      "scopeNote": "Paraphrase robustness tests vary wording while preserving user intent.",
+      "relatedTerms": [],
+      "contrastsWith": [],
+      "workgroups": [
+        "Accuracy & Reliability"
+      ],
+      "literatureNote": "Harness and participant vocabulary for gap analysis inventory. Describes how measurement runs, not agent properties.",
+      "x-termStatus": "stable",
+      "x-reviewTier": 2,
+      "x-consensus-reached": false
+    }
+  ]
+}

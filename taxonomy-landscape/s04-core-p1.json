@@ -1,0 +1,104 @@
+{
+  "schemaVersion": "1.0.0",
+  "title": "Core concepts — accuracy & output quality — P1",
+  "anchorPriority": "P1",
+  "prioritiesPresent": [
+    "P1"
+  ],
+  "count": 4,
+  "terms": [
+    {
+      "term": "Model output reliability",
+      "priority": "P1",
+      "taxonomyLayer": "dimensions",
+      "category": "Accuracy & reliability",
+      "aliases": [
+        "Model-level reliability",
+        "Reliability of LLM"
+      ],
+      "broaderTerm": null,
+      "definition": "Reliability of a language or machine-learning model evaluated in isolation on fixed inputs, without tools, memory, or session context. Covers repeated-run variance, paraphrase sensitivity, and confidence alignment at the inference boundary only.",
+      "scopeNote": "Use when the evaluation subject is the model component, not the full agent or system.",
+      "relatedTerms": [],
+      "contrastsWith": [
+        "Agent reliability"
+      ],
+      "workgroups": [
+        "Accuracy & Reliability"
+      ],
+      "literatureNote": "Core charter vocabulary. Aligns with Princeton HAL where noted in Princeton HAL and related literature; qualifiers apply for infrastructure and BFT senses.",
+      "x-termStatus": "stable",
+      "x-reviewTier": 2,
+      "x-consensus-reached": false
+    },
+    {
+      "term": "Realised accuracy",
+      "priority": "P1",
+      "taxonomyLayer": "dimensions",
+      "category": "Accuracy & reliability",
+      "aliases": [
+        "Observed accuracy"
+      ],
+      "broaderTerm": null,
+      "definition": "The accuracy observed in deployment after infrastructure faults, stale data, retries, and recovery mechanisms have acted on the system. Can be lower than design-time or benchmark accuracy even when agent logic is correct.",
+      "scopeNote": "Links outcome measurement to operational conditions. Separate from the analytical definition of accuracy on a clean run.",
+      "relatedTerms": [],
+      "contrastsWith": [],
+      "workgroups": [
+        "Accuracy & Reliability"
+      ],
+      "literatureNote": "AAIF term for accuracy after corrections and retries in production. Not widely standardised; captures enterprise 'did we eventually get it right'.",
+      "x-termStatus": "stable",
+      "x-reviewTier": 2,
+      "x-consensus-reached": false
+    },
+    {
+      "term": "Intent adherence",
+      "priority": "P1",
+      "taxonomyLayer": "dimensions",
+      "category": "Output quality",
+      "aliases": [
+        "Goal adherence",
+        "Intent alignment"
+      ],
+      "broaderTerm": null,
+      "definition": "The degree to which an agent's outcome, side effects, and stated understanding align with the declared user intent, agent goal, or multi-agent intent for the scenario — including constraints and success criteria not repeated in the last user message.",
+      "scopeNote": "WHAT dimension: measures alignment to objective, not whether the procedure was acceptable (see process accuracy and skill adherence). Distinct from task accuracy when rubrics are narrow but user intent was broader.",
+      "relatedTerms": [],
+      "contrastsWith": [
+        "Process accuracy"
+      ],
+      "workgroups": [
+        "Accuracy & Reliability"
+      ],
+      "literatureNote": "Implicit in contextual correctness and task completion literature; AAIF names it explicitly for WHAT/HOW evaluation design.",
+      "x-termStatus": "stable",
+      "x-reviewTier": 2,
+      "x-consensus-reached": false
+    },
+    {
+      "term": "Skill adherence",
+      "priority": "P1",
+      "taxonomyLayer": "dimensions",
+      "category": "Output quality",
+      "aliases": [
+        "Capability adherence",
+        "Skill compliance"
+      ],
+      "broaderTerm": null,
+      "definition": "The degree to which an agent's trajectory and outputs follow the instructions, tool allow-lists, and success criteria of the skill package declared in scope for the task.",
+      "scopeNote": "HOW dimension when evaluation pins a specific skill. Only meaningful when the evaluation envelope names which skill was loaded; otherwise use process accuracy or functional correctness.",
+      "relatedTerms": [],
+      "contrastsWith": [
+        "Intent adherence"
+      ],
+      "workgroups": [
+        "Accuracy & Reliability"
+      ],
+      "literatureNote": "Emerges from modular skill frameworks; AAIF links skill artefacts to measurable HOW adherence for audit and attribution.",
+      "x-termStatus": "stable",
+      "x-reviewTier": 2,
+      "x-consensus-reached": false
+    }
+  ]
+}

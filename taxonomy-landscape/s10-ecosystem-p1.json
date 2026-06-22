@@ -1,0 +1,511 @@
+{
+  "schemaVersion": "1.0.0",
+  "title": "Evaluation ecosystem — P1",
+  "sectionGuide": {
+    "why": "Benchmarks, scenarios, traces, and participants describe *how* measurement runs — distinct from properties of the agent. Benchmark inventories live in this vocabulary; treating a benchmark name as a dimension breaks gap analysis.",
+    "wgUse": "Benchmark landscape and coverage inventories. Benchmark vs leaderboard distinction. Each inventory row uses these nouns for harness, user, infrastructure, and tool participants. Less blocking for core property sign-off — review when inventory schema is agreed.",
+    "enables": "Benchmark landscape and external coverage matrices; evaluation envelopes; clean separation of agent properties from harness and dataset furniture.",
+    "priorities": "**P1** = core ecosystem nouns every inventory row needs (benchmark, scenario, trace, tool). **P2** = secondary participants (evaluator, message bus). Can track inventory schema as it matures.",
+    "categories": [
+      {
+        "category": "Evaluation ecosystem",
+        "count": 21,
+        "relevance": "Names harness participants and artefacts (benchmark, scenario, trace, tool, user, infrastructure) — evaluation scope must declare which rings are in scope.",
+        "wgUse": "Benchmark landscape · external coverage spreadsheets · not agent properties"
+      }
+    ]
+  },
+  "anchorPriority": "P1",
+  "prioritiesPresent": [
+    "P1"
+  ],
+  "count": 19,
+  "terms": [
+    {
+      "term": "Benchmark",
+      "priority": "P1",
+      "taxonomyLayer": "ecosystem",
+      "category": "Evaluation ecosystem",
+      "aliases": [
+        "Benchmark suite",
+        "Standard test set"
+      ],
+      "broaderTerm": null,
+      "definition": "A published or organisation-standard collection of evaluation scenarios, scoring rules, and reporting conventions used to compare systems on accuracy or reliability dimensions.",
+      "scopeNote": "Statistical coverage assesses how well a benchmark represents production tasks. Distinct from a leaderboard, which may publish only best-of-k or single-run scores.",
+      "relatedTerms": [
+        "Evaluation scenario",
+        "Leaderboard"
+      ],
+      "contrastsWith": [
+        "Leaderboard"
+      ],
+      "workgroups": [
+        "Accuracy & Reliability"
+      ],
+      "literatureNote": "Inventory and coverage analysis in gap analysis (see running notes matrix). AAIF term for the evaluation artefact, not a quality dimension.",
+      "x-termStatus": "stable",
+      "x-reviewTier": 2,
+      "x-consensus-reached": false
+    },
+    {
+      "term": "Context",
+      "priority": "P1",
+      "taxonomyLayer": "ecosystem",
+      "category": "Evaluation ecosystem",
+      "aliases": [
+        "Agent context",
+        "Working context"
+      ],
+      "broaderTerm": null,
+      "definition": "The information available to an agent when making a decision — including user messages, tool results, retrieved documents, memory, and system instructions assembled for the current step.",
+      "scopeNote": "Incomplete or wrong context is a common root cause of reasoning failure; distinct from the context sources it is built from.",
+      "relatedTerms": [
+        "Context assembly",
+        "Context source"
+      ],
+      "contrastsWith": [],
+      "workgroups": [
+        "Accuracy & Reliability"
+      ],
+      "literatureNote": "Harness and participant vocabulary for gap analysis inventory. Describes how measurement runs, not agent properties.",
+      "x-termStatus": "stable",
+      "x-reviewTier": 2,
+      "x-consensus-reached": false
+    },
+    {
+      "term": "Context assembly",
+      "priority": "P1",
+      "taxonomyLayer": "ecosystem",
+      "category": "Evaluation ecosystem",
+      "aliases": [
+        "Context construction",
+        "Context manager",
+        "Prompt assembly"
+      ],
+      "broaderTerm": "Context",
+      "definition": "The process by which an agent or runtime selects, orders, trims, and formats material from context sources into the working context for a decision step.",
+      "scopeNote": "Errors here are agent-side even when individual sources are correct.",
+      "relatedTerms": [
+        "Context source"
+      ],
+      "contrastsWith": [],
+      "workgroups": [
+        "Accuracy & Reliability"
+      ],
+      "literatureNote": "Harness and participant vocabulary for gap analysis inventory. Describes how measurement runs, not agent properties.",
+      "x-termStatus": "stable",
+      "x-reviewTier": 2,
+      "x-consensus-reached": false
+    },
+    {
+      "term": "Context source",
+      "priority": "P1",
+      "taxonomyLayer": "ecosystem",
+      "category": "Evaluation ecosystem",
+      "aliases": [
+        "Information source"
+      ],
+      "broaderTerm": "Context",
+      "definition": "Any origin from which context is drawn: user input, tool output, retrieval hit, memory record, or another agent's message.",
+      "scopeNote": "Evaluation should record which sources contributed to a decision for attribution and grounding checks.",
+      "relatedTerms": [],
+      "contrastsWith": [],
+      "workgroups": [
+        "Accuracy & Reliability"
+      ],
+      "literatureNote": "Harness and participant vocabulary for gap analysis inventory. Describes how measurement runs, not agent properties.",
+      "x-termStatus": "stable",
+      "x-reviewTier": 2,
+      "x-consensus-reached": false
+    },
+    {
+      "term": "Entry point",
+      "priority": "P1",
+      "taxonomyLayer": "ecosystem",
+      "category": "Evaluation ecosystem",
+      "aliases": [
+        "Agent entry point",
+        "Invocation surface",
+        "MAS entry point"
+      ],
+      "broaderTerm": "Infrastructure",
+      "definition": "The interface where an external request, message, or event first enters an agent or multi-agent system — for example an API route, queue consumer, or orchestrator trigger. Defines the outer boundary for traceability and infrastructure failure attribution.",
+      "scopeNote": "Errors before the entry point are infrastructure; errors after are candidates for agent or coordination attribution.",
+      "relatedTerms": [
+        "Orchestrator",
+        "Runtime platform"
+      ],
+      "contrastsWith": [],
+      "workgroups": [
+        "Accuracy & Reliability"
+      ],
+      "literatureNote": "Operational concept from distributed systems; needed so evaluation scenarios declare where measurement begins.",
+      "x-termStatus": "stable",
+      "x-reviewTier": 2,
+      "x-consensus-reached": false
+    },
+    {
+      "term": "Evaluation participant",
+      "priority": "P1",
+      "taxonomyLayer": "ecosystem",
+      "category": "Evaluation ecosystem",
+      "aliases": [
+        "Stakeholder"
+      ],
+      "broaderTerm": null,
+      "definition": "A person or system role involved in requesting, operating, evaluating, or governing an agentic system. Participant type determines which signals and success criteria apply.",
+      "scopeNote": "Separates user-perceived reliability from operator and evaluator views in charter validation.",
+      "relatedTerms": [
+        "Operator",
+        "User"
+      ],
+      "contrastsWith": [],
+      "workgroups": [
+        "Accuracy & Reliability"
+      ],
+      "literatureNote": "Harness and participant vocabulary for gap analysis inventory. Describes how measurement runs, not agent properties.",
+      "x-termStatus": "stable",
+      "x-reviewTier": 2,
+      "x-consensus-reached": false
+    },
+    {
+      "term": "Evaluation scenario",
+      "priority": "P1",
+      "taxonomyLayer": "ecosystem",
+      "category": "Evaluation ecosystem",
+      "aliases": [
+        "Eval instance",
+        "Test case"
+      ],
+      "broaderTerm": null,
+      "definition": "A single task instance within an evaluation — including inputs, environment setup, perturbations, and expected results. The atomic unit of an evaluation run.",
+      "scopeNote": "Reliability evaluation repeats the same scenario; robustness evaluation varies it. Scenarios may belong to a benchmark or stand alone.",
+      "relatedTerms": [
+        "Benchmark"
+      ],
+      "contrastsWith": [],
+      "workgroups": [
+        "Accuracy & Reliability"
+      ],
+      "literatureNote": "Harness and participant vocabulary for gap analysis inventory. Describes how measurement runs, not agent properties.",
+      "x-termStatus": "stable",
+      "x-reviewTier": 2,
+      "x-consensus-reached": false
+    },
+    {
+      "term": "Infrastructure",
+      "priority": "P1",
+      "taxonomyLayer": "ecosystem",
+      "category": "Evaluation ecosystem",
+      "aliases": [
+        "Platform layer"
+      ],
+      "broaderTerm": null,
+      "definition": "The runtime environment, orchestration services, tools, APIs, data services, and message paths that surround an agent and deliver inputs and outputs at the agent boundary. As an entity, infrastructure is what infrastructure reliability and infrastructure failure refer to.",
+      "scopeNote": "Not the agent itself. Health of infrastructure must be established before attributing failures to agent reasoning.",
+      "relatedTerms": [
+        "Model access",
+        "Orchestrator",
+        "Runtime platform",
+        "Telemetry path",
+        "Tool",
+        "Tool access"
+      ],
+      "contrastsWith": [
+        "Agent"
+      ],
+      "workgroups": [
+        "Accuracy & Reliability"
+      ],
+      "literatureNote": "Harness and participant vocabulary for gap analysis inventory. Describes how measurement runs, not agent properties.",
+      "x-termStatus": "stable",
+      "x-reviewTier": 2,
+      "x-consensus-reached": false
+    },
+    {
+      "term": "Leaderboard",
+      "priority": "P1",
+      "taxonomyLayer": "ecosystem",
+      "category": "Evaluation ecosystem",
+      "aliases": [
+        "Model leaderboard",
+        "Public ranking"
+      ],
+      "broaderTerm": null,
+      "definition": "A ranked comparison surface that publishes scores from one or more evaluation runs — often emphasising a single best attempt (pass@1 or best-of-k) rather than a full benchmark protocol, repeat-run reliability, or a declared evaluation envelope.",
+      "scopeNote": "Not interchangeable with Benchmark. Leaderboard rank alone does not establish workflow-level, user-ring, or governance-qualified claims.",
+      "relatedTerms": [
+        "Benchmark"
+      ],
+      "contrastsWith": [
+        "Benchmark"
+      ],
+      "workgroups": [
+        "Accuracy & Reliability"
+      ],
+      "literatureNote": "Common in NLP and agent marketing (MMLU, HELM tables). gap analysis flags procurement risk when leaderboard scores stand in for deployment guarantees.",
+      "academicTerms": [
+        "best-of-k reporting",
+        "pass@1 ranking"
+      ],
+      "x-termStatus": "stable",
+      "x-reviewTier": 2,
+      "x-consensus-reached": false
+    },
+    {
+      "term": "Model access",
+      "priority": "P1",
+      "taxonomyLayer": "ecosystem",
+      "category": "Evaluation ecosystem",
+      "aliases": [
+        "Inference access",
+        "Model endpoint"
+      ],
+      "broaderTerm": "Infrastructure",
+      "definition": "The configured path, credentials, and routing rules an agent runtime uses to invoke language or multimodal models — including provider APIs, private endpoints, and fallback models.",
+      "scopeNote": "Model access failures are infrastructure failures until proven otherwise. Access configuration is part of reproducible agent specification.",
+      "relatedTerms": [
+        "Runtime platform"
+      ],
+      "contrastsWith": [],
+      "workgroups": [
+        "Accuracy & Reliability"
+      ],
+      "literatureNote": "Vendor-neutral term for deployment slides that name specific provider APIs. Provider names belong in academicTerms or scenario metadata only.",
+      "x-termStatus": "stable",
+      "x-reviewTier": 2,
+      "x-consensus-reached": false
+    },
+    {
+      "term": "Operator",
+      "priority": "P1",
+      "taxonomyLayer": "ecosystem",
+      "category": "Evaluation ecosystem",
+      "aliases": [
+        "Human operator",
+        "Site reliability owner"
+      ],
+      "broaderTerm": "Evaluation participant",
+      "definition": "A person responsible for running, monitoring, or approving agentic systems in production — including escalation, policy gates, and incident response.",
+      "scopeNote": "Receives observability signals and correction escalations; distinct from the end user.",
+      "relatedTerms": [],
+      "contrastsWith": [
+        "User"
+      ],
+      "workgroups": [
+        "Accuracy & Reliability",
+        "Observability & Traceability"
+      ],
+      "literatureNote": "Harness and participant vocabulary for gap analysis inventory. Describes how measurement runs, not agent properties.",
+      "x-termStatus": "stable",
+      "x-reviewTier": 2,
+      "x-consensus-reached": false
+    },
+    {
+      "term": "Orchestrator",
+      "priority": "P1",
+      "taxonomyLayer": "ecosystem",
+      "category": "Evaluation ecosystem",
+      "aliases": [
+        "Agent coordinator",
+        "Workflow engine"
+      ],
+      "broaderTerm": "Infrastructure",
+      "definition": "A service that routes tasks among agents, manages workflow state, and coordinates handoffs in a multi-agent system or pipeline.",
+      "scopeNote": "Failures may originate in orchestration topology rather than in a single agent.",
+      "relatedTerms": [],
+      "contrastsWith": [],
+      "workgroups": [
+        "Accuracy & Reliability",
+        "Workflows & Process Integration"
+      ],
+      "literatureNote": "Harness and participant vocabulary for gap analysis inventory. Describes how measurement runs, not agent properties.",
+      "x-termStatus": "stable",
+      "x-reviewTier": 2,
+      "x-consensus-reached": false
+    },
+    {
+      "term": "Runtime platform",
+      "priority": "P1",
+      "taxonomyLayer": "ecosystem",
+      "category": "Evaluation ecosystem",
+      "aliases": [
+        "Agent runtime",
+        "Execution environment"
+      ],
+      "broaderTerm": "Infrastructure",
+      "definition": "The software environment that loads agent specifications, executes decision loops, invokes tools, enforces policy hooks, and emits telemetry.",
+      "scopeNote": "ARWG defines required behaviour at this boundary; specific products are out of scope.",
+      "relatedTerms": [
+        "Model access",
+        "Orchestrator",
+        "Telemetry",
+        "Tool access"
+      ],
+      "contrastsWith": [],
+      "workgroups": [
+        "Accuracy & Reliability"
+      ],
+      "literatureNote": "Harness and participant vocabulary for gap analysis inventory. Describes how measurement runs, not agent properties.",
+      "x-termStatus": "stable",
+      "x-reviewTier": 2,
+      "x-consensus-reached": false
+    },
+    {
+      "term": "Telemetry",
+      "priority": "P1",
+      "taxonomyLayer": "ecosystem",
+      "category": "Evaluation ecosystem",
+      "aliases": [
+        "Runtime telemetry"
+      ],
+      "broaderTerm": null,
+      "definition": "Measurements and events emitted during execution — latency, errors, tool calls, retries, resource use, and structured logs — used to assess infrastructure health and support failure attribution.",
+      "scopeNote": "ARWG defines what telemetry categories matter for accuracy and reliability; emission standards belong to Observability WG.",
+      "relatedTerms": [
+        "Runtime platform",
+        "Telemetry path",
+        "Trace"
+      ],
+      "contrastsWith": [],
+      "workgroups": [
+        "Accuracy & Reliability",
+        "Observability & Traceability"
+      ],
+      "literatureNote": "Harness and participant vocabulary for gap analysis inventory. Describes how measurement runs, not agent properties.",
+      "x-termStatus": "stable",
+      "x-reviewTier": 2,
+      "x-consensus-reached": false
+    },
+    {
+      "term": "Telemetry path",
+      "priority": "P1",
+      "taxonomyLayer": "ecosystem",
+      "category": "Evaluation ecosystem",
+      "aliases": [
+        "Log path",
+        "Observability destination",
+        "Trace sink"
+      ],
+      "broaderTerm": "Infrastructure",
+      "definition": "The configured destination where runtime telemetry, traces, and audit logs are emitted — files, collectors, or observability backends. Required so accuracy and reliability claims can be verified post hoc.",
+      "scopeNote": "ARWG defines what signals must reach the telemetry path; Observability WG defines formats and pipelines.",
+      "relatedTerms": [
+        "Runtime platform",
+        "Telemetry",
+        "Trace"
+      ],
+      "contrastsWith": [],
+      "workgroups": [
+        "Accuracy & Reliability",
+        "Observability & Traceability"
+      ],
+      "literatureNote": "Infrastructure term from deployment architecture; links specification properties to audit requirements.",
+      "x-termStatus": "stable",
+      "x-reviewTier": 2,
+      "x-consensus-reached": false
+    },
+    {
+      "term": "Tool",
+      "priority": "P1",
+      "taxonomyLayer": "ecosystem",
+      "category": "Evaluation ecosystem",
+      "aliases": [
+        "API action",
+        "External capability"
+      ],
+      "broaderTerm": "Infrastructure",
+      "definition": "An external function, API, or service an agent may call to retrieve data or perform an action. Tool results are primary context sources and evidence inputs.",
+      "scopeNote": "Tool availability and result quality are common infrastructure failure points.",
+      "relatedTerms": [
+        "Tool access"
+      ],
+      "contrastsWith": [],
+      "workgroups": [
+        "Accuracy & Reliability",
+        "Workflows & Process Integration"
+      ],
+      "literatureNote": "Harness and participant vocabulary for gap analysis inventory. Describes how measurement runs, not agent properties.",
+      "x-termStatus": "stable",
+      "x-reviewTier": 2,
+      "x-consensus-reached": false
+    },
+    {
+      "term": "Tool access",
+      "priority": "P1",
+      "taxonomyLayer": "ecosystem",
+      "category": "Evaluation ecosystem",
+      "aliases": [
+        "Tool binding",
+        "Tool permission"
+      ],
+      "broaderTerm": "Infrastructure",
+      "definition": "The set of tools an agent is allowed to invoke, including authentication, network paths, and schema bindings declared in the agent specification.",
+      "scopeNote": "Tool access misconfiguration causes authorization failures and fabricated tool results. Must be pinned for evaluation reproducibility.",
+      "relatedTerms": [
+        "Tool"
+      ],
+      "contrastsWith": [],
+      "workgroups": [
+        "Accuracy & Reliability"
+      ],
+      "literatureNote": "Standard in agent harness design; AAIF separates access (infrastructure) from tool result quality (world layer).",
+      "x-termStatus": "stable",
+      "x-reviewTier": 2,
+      "x-consensus-reached": false
+    },
+    {
+      "term": "Trace",
+      "priority": "P1",
+      "taxonomyLayer": "ecosystem",
+      "category": "Evaluation ecosystem",
+      "aliases": [
+        "Execution record",
+        "Run record"
+      ],
+      "broaderTerm": "Telemetry",
+      "definition": "A time-ordered record of steps taken during a task — model calls, tool invocations, messages, policy decisions, and outcomes — used for trajectory analysis and audit.",
+      "scopeNote": "Conceptual counterpart to trajectory; trace is the recorded artifact, trajectory is the path taken.",
+      "relatedTerms": [],
+      "contrastsWith": [
+        "Trajectory"
+      ],
+      "workgroups": [
+        "Accuracy & Reliability",
+        "Observability & Traceability"
+      ],
+      "literatureNote": "Harness and participant vocabulary for gap analysis inventory. Describes how measurement runs, not agent properties.",
+      "x-termStatus": "stable",
+      "x-reviewTier": 2,
+      "x-consensus-reached": false
+    },
+    {
+      "term": "User",
+      "priority": "P1",
+      "taxonomyLayer": "ecosystem",
+      "category": "Evaluation ecosystem",
+      "aliases": [
+        "End user",
+        "Requester"
+      ],
+      "broaderTerm": "Evaluation participant",
+      "definition": "The person or client system that submits a task, receives outputs, and judges whether the agent met their intent. User behaviour — re-prompts, overrides, abandonment — is a first-class reliability input.",
+      "scopeNote": "Distinct from operator and evaluator roles.",
+      "relatedTerms": [
+        "Context"
+      ],
+      "contrastsWith": [
+        "Evaluator",
+        "Operator"
+      ],
+      "workgroups": [
+        "Accuracy & Reliability"
+      ],
+      "literatureNote": "Harness and participant vocabulary for gap analysis inventory. Describes how measurement runs, not agent properties.",
+      "x-termStatus": "stable",
+      "x-reviewTier": 2,
+      "x-consensus-reached": false
+    }
+  ]
+}
