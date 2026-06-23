@@ -28,7 +28,8 @@
       "literatureNote": "Harness and participant vocabulary for gap analysis inventory. Describes how measurement runs, not agent properties.",
       "x-termStatus": "stable",
       "x-reviewTier": 3,
-      "x-consensus-reached": false
+      "x-consensus-reached": false,
+      "x-milestone": "M3"
     },
     {
       "term": "Message bus",
@@ -50,7 +51,8 @@
       "literatureNote": "Harness and participant vocabulary for gap analysis inventory. Describes how measurement runs, not agent properties.",
       "x-termStatus": "stable",
       "x-reviewTier": 3,
-      "x-consensus-reached": false
+      "x-consensus-reached": false,
+      "x-milestone": "M3"
     }
   ]
 }

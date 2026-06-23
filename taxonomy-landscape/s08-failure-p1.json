@@ -28,9 +28,10 @@
         "MAST failure modes",
         "Who&When (2025)"
       ],
-      "x-termStatus": "stable",
-      "x-reviewTier": 2,
-      "x-consensus-reached": false
+      "x-termStatus": "aaif-new",
+      "x-reviewTier": 1,
+      "x-consensus-reached": false,
+      "x-milestone": "M2"
     },
     {
       "term": "Authorization failure",
@@ -55,7 +56,8 @@
       "literatureNote": "Attribution targets after symptoms are identified. MAST categories partially align; AAIF adds infrastructure and coordination classes.",
       "x-termStatus": "stable",
       "x-reviewTier": 2,
-      "x-consensus-reached": false
+      "x-consensus-reached": false,
+      "x-milestone": "M3"
     },
     {
       "term": "Configuration error",
@@ -77,7 +79,8 @@
       "literatureNote": "Attribution targets after symptoms are identified. MAST categories partially align; AAIF adds infrastructure and coordination classes.",
       "x-termStatus": "stable",
       "x-reviewTier": 2,
-      "x-consensus-reached": false
+      "x-consensus-reached": false,
+      "x-milestone": "M3"
     },
     {
       "term": "Coordination failure",
@@ -100,7 +103,8 @@
       "literatureNote": "Attribution targets after symptoms are identified. MAST categories partially align; AAIF adds infrastructure and coordination classes.",
       "x-termStatus": "stable",
       "x-reviewTier": 2,
-      "x-consensus-reached": false
+      "x-consensus-reached": false,
+      "x-milestone": "M3"
     },
     {
       "term": "Goal misalignment",
@@ -125,7 +129,8 @@
       "literatureNote": "Attribution targets after symptoms are identified. MAST categories partially align; AAIF adds infrastructure and coordination classes.",
       "x-termStatus": "stable",
       "x-reviewTier": 2,
-      "x-consensus-reached": false
+      "x-consensus-reached": false,
+      "x-milestone": "M3"
     },
     {
       "term": "Message delivery failure",
@@ -149,7 +154,8 @@
       "literatureNote": "Attribution targets after symptoms are identified. MAST categories partially align; AAIF adds infrastructure and coordination classes.",
       "x-termStatus": "stable",
       "x-reviewTier": 2,
-      "x-consensus-reached": false
+      "x-consensus-reached": false,
+      "x-milestone": "M3"
     },
     {
       "term": "Planning error",
@@ -170,7 +176,8 @@
       "literatureNote": "Attribution targets after symptoms are identified. MAST categories partially align; AAIF adds infrastructure and coordination classes.",
       "x-termStatus": "stable",
       "x-reviewTier": 2,
-      "x-consensus-reached": false
+      "x-consensus-reached": false,
+      "x-milestone": "M3"
     },
     {
       "term": "Tool availability failure",
@@ -191,7 +198,8 @@
       "literatureNote": "Attribution targets after symptoms are identified. MAST categories partially align; AAIF adds infrastructure and coordination classes.",
       "x-termStatus": "stable",
       "x-reviewTier": 2,
-      "x-consensus-reached": false
+      "x-consensus-reached": false,
+      "x-milestone": "M3"
     },
     {
       "term": "Entity mismatch",
@@ -213,7 +221,8 @@
       "literatureNote": "User- or trace-visible failure indicators. Prefer subtype over generic 'hallucination' for measurement.",
       "x-termStatus": "stable",
       "x-reviewTier": 2,
-      "x-consensus-reached": false
+      "x-consensus-reached": false,
+      "x-milestone": "M3"
     },
     {
       "term": "Fabricated tool result",
@@ -234,7 +243,8 @@
       "literatureNote": "User- or trace-visible failure indicators. Prefer subtype over generic 'hallucination' for measurement.",
       "x-termStatus": "stable",
       "x-reviewTier": 2,
-      "x-consensus-reached": false
+      "x-consensus-reached": false,
+      "x-milestone": "M3"
     },
     {
       "term": "Incorrect task outcome",
@@ -257,7 +267,8 @@
       "literatureNote": "User- or trace-visible failure indicators. Prefer subtype over generic 'hallucination' for measurement.",
       "x-termStatus": "stable",
       "x-reviewTier": 2,
-      "x-consensus-reached": false
+      "x-consensus-reached": false,
+      "x-milestone": "M3"
     },
     {
       "term": "Overconfident error",
@@ -280,7 +291,8 @@
       "literatureNote": "User- or trace-visible failure indicators. Prefer subtype over generic 'hallucination' for measurement.",
       "x-termStatus": "stable",
       "x-reviewTier": 2,
-      "x-consensus-reached": false
+      "x-consensus-reached": false,
+      "x-milestone": "M3"
     },
     {
       "term": "Silent wrong action",
@@ -304,7 +316,8 @@
       "literatureNote": "User- or trace-visible failure indicators. Prefer subtype over generic 'hallucination' for measurement.",
       "x-termStatus": "stable",
       "x-reviewTier": 2,
-      "x-consensus-reached": false
+      "x-consensus-reached": false,
+      "x-milestone": "M3"
     },
     {
       "term": "Stale source error",
@@ -327,7 +340,8 @@
       "literatureNote": "User- or trace-visible failure indicators. Prefer subtype over generic 'hallucination' for measurement.",
       "x-termStatus": "stable",
       "x-reviewTier": 2,
-      "x-consensus-reached": false
+      "x-consensus-reached": false,
+      "x-milestone": "M3"
     },
     {
       "term": "Task abandonment",
@@ -351,7 +365,8 @@
       "literatureNote": "User- or trace-visible failure indicators. Prefer subtype over generic 'hallucination' for measurement.",
       "x-termStatus": "stable",
       "x-reviewTier": 2,
-      "x-consensus-reached": false
+      "x-consensus-reached": false,
+      "x-milestone": "M3"
     },
     {
       "term": "Ungrounded claim",
@@ -376,7 +391,8 @@
       ],
       "x-termStatus": "stable",
       "x-reviewTier": 2,
-      "x-consensus-reached": false
+      "x-consensus-reached": false,
+      "x-milestone": "M3"
     },
     {
       "term": "User re-prompt",
@@ -400,7 +416,8 @@
       "literatureNote": "User- or trace-visible failure indicators. Prefer subtype over generic 'hallucination' for measurement.",
       "x-termStatus": "stable",
       "x-reviewTier": 2,
-      "x-consensus-reached": false
+      "x-consensus-reached": false,
+      "x-milestone": "M3"
     }
   ]
 }

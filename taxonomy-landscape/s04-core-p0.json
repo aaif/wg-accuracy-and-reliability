@@ -2,10 +2,10 @@
   "schemaVersion": "1.0.0",
   "title": "Core concepts — accuracy & output quality — P0",
   "sectionGuide": {
-    "why": "Accuracy and reliability are the two top-level properties ARWG exists to define. Without a crisp split — correct on this run versus stable across repeats and conditions — reliability dimensions, failure classes, and metrics collapse into overloaded “quality” language.",
+    "why": "Accuracy and reliability are the two top-level properties ARWG exists to define. First position them: accuracy = correct on one run, reliability = stable across N runs under an envelope (see README §4 and D1 §4.0.1). Only then decompose accuracy (outcome/action, qualifiers) and point to §5 reliability dimensions — without that split, dimensions, failure classes, and metrics collapse into overloaded “quality” language.",
     "wgUse": "Canonical definitions for accuracy, reliability, and output quality. Used in gap analysis, enterprise checklists, and evaluation rubrics. Review `s04-core-*.json` before approving dimensions or metrics.",
     "enables": "Reliability dimensions decompose agent reliability into measurable families; failure vocabulary classifies breaks against accuracy vs reliability; metrics quantify these properties rather than replacing them.",
-    "priorities": "**P0** is the charter-aligned core: accuracy, reliability, annotated vs contextual correctness, and task/process/evidence accuracy. **P1** holds derived terms (realised accuracy, model output reliability) that presuppose P0. Do not approve P1 until P0 distinctions — especially correctness variants — are accepted.",
+    "priorities": "**P0** is the charter-aligned core: position one run vs N runs via parent terms [Accuracy], [Reliability], [Agent reliability], then annotated vs contextual correctness and task/process/evidence accuracy. **P1** holds derived terms (realised accuracy, model output reliability) that presuppose P0. Do not approve P1 or §5 dimension families until P0 positioning and correctness variants are accepted.",
     "categories": [
       {
         "category": "Accuracy & reliability",
@@ -55,12 +55,13 @@
         "final-state validation",
         "task correctness (tau-bench)"
       ],
-      "x-termStatus": "stable",
-      "x-reviewTier": 2,
+      "x-termStatus": "contested",
+      "x-reviewTier": 1,
       "x-consensus-reached": false,
       "x-sources": [
         "ARWG running notes — Taxonomy (Accuracy; Wojciech — benchmark grounding)"
-      ]
+      ],
+      "x-milestone": "M1"
     },
     {
       "term": "Agent reliability",
@@ -84,9 +85,10 @@
         "Accuracy & Reliability"
       ],
       "literatureNote": "AAIF default: output stability and policy-safe behaviour of the agent unit. Excludes pure platform uptime unless workflow scope includes infrastructure ring.",
-      "x-termStatus": "stable",
-      "x-reviewTier": 3,
-      "x-consensus-reached": false
+      "x-termStatus": "qualified",
+      "x-reviewTier": 1,
+      "x-consensus-reached": false,
+      "x-milestone": "M1"
     },
     {
       "term": "Annotated correctness",
@@ -116,7 +118,8 @@
       ],
       "x-termStatus": "stable",
       "x-reviewTier": 3,
-      "x-consensus-reached": false
+      "x-consensus-reached": false,
+      "x-milestone": "M2"
     },
     {
       "term": "Contextual correctness",
@@ -144,9 +147,10 @@
         "context-dependent evaluation",
         "live correctness"
       ],
-      "x-termStatus": "stable",
-      "x-reviewTier": 3,
-      "x-consensus-reached": false
+      "x-termStatus": "contested",
+      "x-reviewTier": 1,
+      "x-consensus-reached": false,
+      "x-milestone": "M1"
     },
     {
       "term": "Infrastructure reliability",
@@ -173,9 +177,10 @@
         "platform SLA",
         "service reliability"
       ],
-      "x-termStatus": "stable",
-      "x-reviewTier": 3,
-      "x-consensus-reached": false
+      "x-termStatus": "qualified",
+      "x-reviewTier": 1,
+      "x-consensus-reached": false,
+      "x-milestone": "M2"
     },
     {
       "term": "Reliability",
@@ -203,9 +208,10 @@
         "agent reliability (Rabanser et al., 2026)",
         "fault tolerance (distributed systems)"
       ],
-      "x-termStatus": "stable",
-      "x-reviewTier": 3,
-      "x-consensus-reached": false
+      "x-termStatus": "contested",
+      "x-reviewTier": 1,
+      "x-consensus-reached": false,
+      "x-milestone": "M1"
     },
     {
       "term": "Statistical coverage",
@@ -226,12 +232,13 @@
         "Accuracy & Reliability"
       ],
       "literatureNote": "Nicolas (running notes): benchmark selection bias and time/point-of-view context limit how far an accuracy score generalises — pair accuracy claims with statistical coverage.",
-      "x-termStatus": "stable",
-      "x-reviewTier": 2,
+      "x-termStatus": "aaif-new",
+      "x-reviewTier": 1,
       "x-consensus-reached": false,
       "x-sources": [
         "ARWG running notes — Taxonomy (Statistical coverage; Nicolas)"
-      ]
+      ],
+      "x-milestone": "M2"
     },
     {
       "term": "Trustworthiness",
@@ -260,11 +267,13 @@
         "trustworthy AI (EU AI Act discourse)"
       ],
       "x-termStatus": "qualified",
-      "x-reviewTier": 2,
+      "x-discouraged-for-technical": true,
+      "x-reviewTier": 1,
       "x-consensus-reached": false,
       "x-sources": [
         "ARWG running notes — Taxonomy (Trustworthiness; Nicolas)"
-      ]
+      ],
+      "x-milestone": "M2"
     },
     {
       "term": "Functional correctness",
@@ -288,9 +297,10 @@
         "Accuracy & Reliability"
       ],
       "literatureNote": "Task-result vocabulary bridging accuracy to user-visible outcomes. Common in benchmark reporting with varying definitions.",
-      "x-termStatus": "stable",
-      "x-reviewTier": 3,
-      "x-consensus-reached": false
+      "x-termStatus": "qualified",
+      "x-reviewTier": 1,
+      "x-consensus-reached": false,
+      "x-milestone": "M2"
     },
     {
       "term": "Process accuracy",
@@ -316,7 +326,8 @@
       "literatureNote": "Task-result vocabulary bridging accuracy to user-visible outcomes. Common in benchmark reporting with varying definitions.",
       "x-termStatus": "stable",
       "x-reviewTier": 3,
-      "x-consensus-reached": false
+      "x-consensus-reached": false,
+      "x-milestone": "M2"
     },
     {
       "term": "Response quality",
@@ -342,11 +353,12 @@
       ],
       "literatureNote": "Task-result vocabulary bridging accuracy to user-visible outcomes. Common in benchmark reporting with varying definitions.",
       "x-termStatus": "stable",
-      "x-reviewTier": 2,
+      "x-reviewTier": 3,
       "x-consensus-reached": false,
       "x-sources": [
         "ARWG running notes — Taxonomy (Response quality, Functional correctness, Task completion; Jessie Zhang)"
-      ]
+      ],
+      "x-milestone": "M1"
     },
     {
       "term": "Task accuracy",
@@ -371,7 +383,8 @@
       "literatureNote": "Task-result vocabulary bridging accuracy to user-visible outcomes. Common in benchmark reporting with varying definitions.",
       "x-termStatus": "stable",
       "x-reviewTier": 3,
-      "x-consensus-reached": false
+      "x-consensus-reached": false,
+      "x-milestone": "M2"
     },
     {
       "term": "Task completion",
@@ -395,7 +408,8 @@
       "literatureNote": "Task-result vocabulary bridging accuracy to user-visible outcomes. Common in benchmark reporting with varying definitions.",
       "x-termStatus": "stable",
       "x-reviewTier": 3,
-      "x-consensus-reached": false
+      "x-consensus-reached": false,
+      "x-milestone": "M1"
     }
   ]
 }

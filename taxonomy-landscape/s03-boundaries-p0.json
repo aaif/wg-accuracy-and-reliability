@@ -47,7 +47,8 @@
       ],
       "x-termStatus": "stable",
       "x-reviewTier": 3,
-      "x-consensus-reached": false
+      "x-consensus-reached": false,
+      "x-milestone": "M1"
     },
     {
       "term": "Agent boundary",
@@ -67,9 +68,10 @@
         "Accuracy & Reliability"
       ],
       "literatureNote": "AAIF-specific attribution construct for separating agent-internal from environmental failures. Not a standard benchmark term; needed so infrastructure vs cognition failures can be separated.",
-      "x-termStatus": "stable",
-      "x-reviewTier": 3,
-      "x-consensus-reached": false
+      "x-termStatus": "aaif-new",
+      "x-reviewTier": 1,
+      "x-consensus-reached": false,
+      "x-milestone": "M1"
     },
     {
       "term": "Evaluation subject",
@@ -94,9 +96,10 @@
         "Accuracy & Reliability"
       ],
       "literatureNote": "AAIF rule: every claim must name model, agent, MAS, or workflow. Benchmark papers often leave this implicit — a common source of gap-analysis error.",
-      "x-termStatus": "stable",
-      "x-reviewTier": 3,
-      "x-consensus-reached": false
+      "x-termStatus": "aaif-new",
+      "x-reviewTier": 1,
+      "x-consensus-reached": false,
+      "x-milestone": "M1"
     },
     {
       "term": "Model",
@@ -123,9 +126,10 @@
         "foundation model",
         "LLM component"
       ],
-      "x-termStatus": "stable",
-      "x-reviewTier": 3,
-      "x-consensus-reached": false
+      "x-termStatus": "qualified",
+      "x-reviewTier": 1,
+      "x-consensus-reached": false,
+      "x-milestone": "M1"
     },
     {
       "term": "Multi-agent system",
@@ -155,7 +159,8 @@
       ],
       "x-termStatus": "stable",
       "x-reviewTier": 3,
-      "x-consensus-reached": false
+      "x-consensus-reached": false,
+      "x-milestone": "M1"
     },
     {
       "term": "Workflow",
@@ -168,7 +173,7 @@
       ],
       "broaderTerm": "Evaluation subject",
       "definition": "An end-to-end process that may include agents plus non-agent steps such as databases, APIs, rules, and human checkpoints. Judged on final process outputs unless evaluation scope says otherwise.",
-      "scopeNote": "Includes deterministic and semi-deterministic orchestration patterns.",
+      "scopeNote": "ARWG evaluation subject: agents plus scored non-agent steps. Not the same as durable-execution or orchestration 'workflow' in Workflows & Process Integration — disambiguate in cross-WG text (see README Community vocabulary census).",
       "relatedTerms": [
         "Agent"
       ],
@@ -182,9 +187,11 @@
         "business process",
         "pipeline evaluation object"
       ],
-      "x-termStatus": "stable",
-      "x-reviewTier": 3,
-      "x-consensus-reached": false
+      "x-termStatus": "contested",
+      "x-discouraged-for-technical": true,
+      "x-reviewTier": 1,
+      "x-consensus-reached": false,
+      "x-milestone": "M1"
     }
   ]
 }

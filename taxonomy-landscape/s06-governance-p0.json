@@ -55,7 +55,8 @@
       ],
       "x-termStatus": "stable",
       "x-reviewTier": 3,
-      "x-consensus-reached": false
+      "x-consensus-reached": false,
+      "x-milestone": "M1"
     },
     {
       "term": "Deterministic operation",
@@ -79,9 +80,10 @@
         "Workflows & Process Integration"
       ],
       "literatureNote": "Protocol and envelope vocabulary for reproducible evaluation (evaluation protocols input).",
-      "x-termStatus": "stable",
-      "x-reviewTier": 3,
-      "x-consensus-reached": false
+      "x-termStatus": "qualified",
+      "x-reviewTier": 1,
+      "x-consensus-reached": false,
+      "x-milestone": "M2"
     },
     {
       "term": "Deterministic validation",
@@ -102,7 +104,8 @@
       "literatureNote": "Protocol and envelope vocabulary for reproducible evaluation (evaluation protocols input).",
       "x-termStatus": "stable",
       "x-reviewTier": 3,
-      "x-consensus-reached": false
+      "x-consensus-reached": false,
+      "x-milestone": "M2"
     },
     {
       "term": "Agent identity",
@@ -124,7 +127,8 @@
       "literatureNote": "Governance prerequisites, not quality dimensions. Boundary terms shared with Observability, Security, or Identity WGs as tagged.",
       "x-termStatus": "stable",
       "x-reviewTier": 3,
-      "x-consensus-reached": false
+      "x-consensus-reached": false,
+      "x-milestone": "M1"
     },
     {
       "term": "Explainability",
@@ -144,9 +148,10 @@
         "Observability & Traceability"
       ],
       "literatureNote": "Governance prerequisites, not quality dimensions. Boundary terms shared with Observability, Security, or Identity WGs as tagged.",
-      "x-termStatus": "stable",
-      "x-reviewTier": 3,
-      "x-consensus-reached": false
+      "x-termStatus": "qualified",
+      "x-reviewTier": 1,
+      "x-consensus-reached": false,
+      "x-milestone": "M2"
     }
   ]
 }

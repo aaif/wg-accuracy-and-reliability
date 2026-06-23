@@ -46,7 +46,8 @@
       "literatureNote": "Inventory and coverage analysis in gap analysis (see running notes matrix). AAIF term for the evaluation artefact, not a quality dimension.",
       "x-termStatus": "stable",
       "x-reviewTier": 2,
-      "x-consensus-reached": false
+      "x-consensus-reached": false,
+      "x-milestone": "M1"
     },
     {
       "term": "Context",
@@ -71,7 +72,8 @@
       "literatureNote": "Harness and participant vocabulary for gap analysis inventory. Describes how measurement runs, not agent properties.",
       "x-termStatus": "stable",
       "x-reviewTier": 2,
-      "x-consensus-reached": false
+      "x-consensus-reached": false,
+      "x-milestone": "M3"
     },
     {
       "term": "Context assembly",
@@ -96,7 +98,8 @@
       "literatureNote": "Harness and participant vocabulary for gap analysis inventory. Describes how measurement runs, not agent properties.",
       "x-termStatus": "stable",
       "x-reviewTier": 2,
-      "x-consensus-reached": false
+      "x-consensus-reached": false,
+      "x-milestone": "M3"
     },
     {
       "term": "Context source",
@@ -117,7 +120,8 @@
       "literatureNote": "Harness and participant vocabulary for gap analysis inventory. Describes how measurement runs, not agent properties.",
       "x-termStatus": "stable",
       "x-reviewTier": 2,
-      "x-consensus-reached": false
+      "x-consensus-reached": false,
+      "x-milestone": "M3"
     },
     {
       "term": "Entry point",
@@ -143,7 +147,8 @@
       "literatureNote": "Operational concept from distributed systems; needed so evaluation scenarios declare where measurement begins.",
       "x-termStatus": "stable",
       "x-reviewTier": 2,
-      "x-consensus-reached": false
+      "x-consensus-reached": false,
+      "x-milestone": "M3"
     },
     {
       "term": "Evaluation participant",
@@ -167,7 +172,8 @@
       "literatureNote": "Harness and participant vocabulary for gap analysis inventory. Describes how measurement runs, not agent properties.",
       "x-termStatus": "stable",
       "x-reviewTier": 2,
-      "x-consensus-reached": false
+      "x-consensus-reached": false,
+      "x-milestone": "M1"
     },
     {
       "term": "Evaluation scenario",
@@ -191,7 +197,8 @@
       "literatureNote": "Harness and participant vocabulary for gap analysis inventory. Describes how measurement runs, not agent properties.",
       "x-termStatus": "stable",
       "x-reviewTier": 2,
-      "x-consensus-reached": false
+      "x-consensus-reached": false,
+      "x-milestone": "M1"
     },
     {
       "term": "Infrastructure",
@@ -221,7 +228,8 @@
       "literatureNote": "Harness and participant vocabulary for gap analysis inventory. Describes how measurement runs, not agent properties.",
       "x-termStatus": "stable",
       "x-reviewTier": 2,
-      "x-consensus-reached": false
+      "x-consensus-reached": false,
+      "x-milestone": "M1"
     },
     {
       "term": "Leaderboard",
@@ -244,14 +252,15 @@
       "workgroups": [
         "Accuracy & Reliability"
       ],
-      "literatureNote": "Common in NLP and agent marketing (MMLU, HELM tables). gap analysis flags procurement risk when leaderboard scores stand in for deployment guarantees.",
+      "literatureNote": "Common in NLP benchmarks and public leaderboard tables (MMLU, HELM). gap analysis flags procurement risk when leaderboard scores stand in for deployment guarantees.",
       "academicTerms": [
         "best-of-k reporting",
         "pass@1 ranking"
       ],
       "x-termStatus": "stable",
       "x-reviewTier": 2,
-      "x-consensus-reached": false
+      "x-consensus-reached": false,
+      "x-milestone": "M1"
     },
     {
       "term": "Model access",
@@ -275,7 +284,8 @@
       "literatureNote": "Vendor-neutral term for deployment slides that name specific provider APIs. Provider names belong in academicTerms or scenario metadata only.",
       "x-termStatus": "stable",
       "x-reviewTier": 2,
-      "x-consensus-reached": false
+      "x-consensus-reached": false,
+      "x-milestone": "M3"
     },
     {
       "term": "Operator",
@@ -300,7 +310,8 @@
       "literatureNote": "Harness and participant vocabulary for gap analysis inventory. Describes how measurement runs, not agent properties.",
       "x-termStatus": "stable",
       "x-reviewTier": 2,
-      "x-consensus-reached": false
+      "x-consensus-reached": false,
+      "x-milestone": "M1"
     },
     {
       "term": "Orchestrator",
@@ -323,7 +334,8 @@
       "literatureNote": "Harness and participant vocabulary for gap analysis inventory. Describes how measurement runs, not agent properties.",
       "x-termStatus": "stable",
       "x-reviewTier": 2,
-      "x-consensus-reached": false
+      "x-consensus-reached": false,
+      "x-milestone": "M1"
     },
     {
       "term": "Runtime platform",
@@ -350,7 +362,8 @@
       "literatureNote": "Harness and participant vocabulary for gap analysis inventory. Describes how measurement runs, not agent properties.",
       "x-termStatus": "stable",
       "x-reviewTier": 2,
-      "x-consensus-reached": false
+      "x-consensus-reached": false,
+      "x-milestone": "M3"
     },
     {
       "term": "Telemetry",
@@ -376,7 +389,8 @@
       "literatureNote": "Harness and participant vocabulary for gap analysis inventory. Describes how measurement runs, not agent properties.",
       "x-termStatus": "stable",
       "x-reviewTier": 2,
-      "x-consensus-reached": false
+      "x-consensus-reached": false,
+      "x-milestone": "M2"
     },
     {
       "term": "Telemetry path",
@@ -404,7 +418,8 @@
       "literatureNote": "Infrastructure term from deployment architecture; links specification properties to audit requirements.",
       "x-termStatus": "stable",
       "x-reviewTier": 2,
-      "x-consensus-reached": false
+      "x-consensus-reached": false,
+      "x-milestone": "M3"
     },
     {
       "term": "Tool",
@@ -429,7 +444,8 @@
       "literatureNote": "Harness and participant vocabulary for gap analysis inventory. Describes how measurement runs, not agent properties.",
       "x-termStatus": "stable",
       "x-reviewTier": 2,
-      "x-consensus-reached": false
+      "x-consensus-reached": false,
+      "x-milestone": "M1"
     },
     {
       "term": "Tool access",
@@ -453,7 +469,8 @@
       "literatureNote": "Standard in agent harness design; AAIF separates access (infrastructure) from tool result quality (world layer).",
       "x-termStatus": "stable",
       "x-reviewTier": 2,
-      "x-consensus-reached": false
+      "x-consensus-reached": false,
+      "x-milestone": "M3"
     },
     {
       "term": "Trace",
@@ -478,7 +495,8 @@
       "literatureNote": "Harness and participant vocabulary for gap analysis inventory. Describes how measurement runs, not agent properties.",
       "x-termStatus": "stable",
       "x-reviewTier": 2,
-      "x-consensus-reached": false
+      "x-consensus-reached": false,
+      "x-milestone": "M2"
     },
     {
       "term": "User",
@@ -505,7 +523,8 @@
       "literatureNote": "Harness and participant vocabulary for gap analysis inventory. Describes how measurement runs, not agent properties.",
       "x-termStatus": "stable",
       "x-reviewTier": 2,
-      "x-consensus-reached": false
+      "x-consensus-reached": false,
+      "x-milestone": "M1"
     }
   ]
 }

@@ -28,7 +28,8 @@
       "literatureNote": "Quantifiers attached to dimensions — not synonyms for accuracy or reliability. Academic metric names appear in academicTerms only.",
       "x-termStatus": "stable",
       "x-reviewTier": 3,
-      "x-consensus-reached": false
+      "x-consensus-reached": false,
+      "x-milestone": "M3"
     },
     {
       "term": "Retry budget utilisation",
@@ -49,7 +50,8 @@
       "literatureNote": "Quantifiers attached to dimensions — not synonyms for accuracy or reliability. Academic metric names appear in academicTerms only.",
       "x-termStatus": "stable",
       "x-reviewTier": 3,
-      "x-consensus-reached": false
+      "x-consensus-reached": false,
+      "x-milestone": "M3"
     }
   ]
 }

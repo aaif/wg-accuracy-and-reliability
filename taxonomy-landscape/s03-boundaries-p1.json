@@ -28,7 +28,8 @@
       "literatureNote": "Used in agent governance literature; AAIF links agency to attribution — errors may be policy/configuration failures rather than model reasoning failures.",
       "x-termStatus": "stable",
       "x-reviewTier": 2,
-      "x-consensus-reached": false
+      "x-consensus-reached": false,
+      "x-milestone": "M3"
     },
     {
       "term": "Agent components",
@@ -54,7 +55,8 @@
       "literatureNote": "Foundational for Generally accepted in agent evaluation; AAIF adds scope-ring and workflow disambiguation.",
       "x-termStatus": "stable",
       "x-reviewTier": 2,
-      "x-consensus-reached": false
+      "x-consensus-reached": false,
+      "x-milestone": "M3"
     },
     {
       "term": "Agent goal",
@@ -82,7 +84,8 @@
       "literatureNote": "Foundational for Generally accepted in agent evaluation; AAIF adds scope-ring and workflow disambiguation.",
       "x-termStatus": "stable",
       "x-reviewTier": 2,
-      "x-consensus-reached": false
+      "x-consensus-reached": false,
+      "x-milestone": "M3"
     },
     {
       "term": "Agent specification",
@@ -106,9 +109,10 @@
         "Accuracy & Reliability"
       ],
       "literatureNote": "Foundational for Generally accepted in agent evaluation; AAIF adds scope-ring and workflow disambiguation.",
-      "x-termStatus": "stable",
-      "x-reviewTier": 2,
-      "x-consensus-reached": false
+      "x-termStatus": "aaif-new",
+      "x-reviewTier": 1,
+      "x-consensus-reached": false,
+      "x-milestone": "M2"
     },
     {
       "term": "Multi-agent intent",
@@ -135,7 +139,8 @@
       "literatureNote": "Implicit in MAS benchmarks; AAIF names it so evaluation envelopes can declare what 'success' means at the system boundary.",
       "x-termStatus": "stable",
       "x-reviewTier": 2,
-      "x-consensus-reached": false
+      "x-consensus-reached": false,
+      "x-milestone": "M3"
     },
     {
       "term": "Plan",
@@ -159,7 +164,8 @@
       "literatureNote": "Foundational for Generally accepted in agent evaluation; AAIF adds scope-ring and workflow disambiguation.",
       "x-termStatus": "stable",
       "x-reviewTier": 2,
-      "x-consensus-reached": false
+      "x-consensus-reached": false,
+      "x-milestone": "M3"
     },
     {
       "term": "Scope ring",
@@ -178,9 +184,10 @@
         "Accuracy & Reliability"
       ],
       "literatureNote": "Foundational for Generally accepted in agent evaluation; AAIF adds scope-ring and workflow disambiguation.",
-      "x-termStatus": "stable",
-      "x-reviewTier": 2,
-      "x-consensus-reached": false
+      "x-termStatus": "aaif-new",
+      "x-reviewTier": 1,
+      "x-consensus-reached": false,
+      "x-milestone": "M2"
     },
     {
       "term": "Skills",
@@ -206,7 +213,8 @@
       "literatureNote": "Emerging in agent frameworks as modular capability bundles. AAIF treats skills as specification artefacts needed for error attribution, not as a separate quality dimension.",
       "x-termStatus": "stable",
       "x-reviewTier": 2,
-      "x-consensus-reached": false
+      "x-consensus-reached": false,
+      "x-milestone": "M3"
     },
     {
       "term": "System prompt",
@@ -233,7 +241,8 @@
       "literatureNote": "Universal in tool-using agent deployments; rarely named separately in benchmarks but required for audit and specification validation.",
       "x-termStatus": "stable",
       "x-reviewTier": 2,
-      "x-consensus-reached": false
+      "x-consensus-reached": false,
+      "x-milestone": "M3"
     },
     {
       "term": "Trajectory",
@@ -258,7 +267,8 @@
       "literatureNote": "Foundational for Generally accepted in agent evaluation; AAIF adds scope-ring and workflow disambiguation.",
       "x-termStatus": "stable",
       "x-reviewTier": 2,
-      "x-consensus-reached": false
+      "x-consensus-reached": false,
+      "x-milestone": "M2"
     },
     {
       "term": "User intent",
@@ -285,7 +295,8 @@
       "literatureNote": "Foundational for Generally accepted in agent evaluation; AAIF adds scope-ring and workflow disambiguation.",
       "x-termStatus": "stable",
       "x-reviewTier": 2,
-      "x-consensus-reached": false
+      "x-consensus-reached": false,
+      "x-milestone": "M3"
     }
   ]
 }

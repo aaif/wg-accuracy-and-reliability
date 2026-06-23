@@ -20,20 +20,24 @@
       ],
       "broaderTerm": null,
       "definition": "Runtime checks — deterministic rules, classifiers, or policy hooks — that block, modify, or escalate agent outputs and actions before or after execution. Guardrails produce observability signals when they fire.",
-      "scopeNote": "Distinct from safety as a reliability dimension: guardrails are mechanisms; safety is measured by violation rate. Security threat taxonomy owned by Security & Privacy WG.",
+      "scopeNote": "Distinct from safety as a reliability dimension: guardrails are mechanisms; safety is measured by violation rate. For normative ARWG text prefer Policy enforcement. Security threat taxonomy owned by Security & Privacy WG.",
       "relatedTerms": [
         "Observability signal",
         "Policy enforcement"
       ],
-      "contrastsWith": [],
+      "contrastsWith": [
+        "Policy enforcement"
+      ],
       "workgroups": [
         "Accuracy & Reliability",
         "Security & Privacy"
       ],
-      "literatureNote": "Common product term; AAIF includes it because guardrail triggers are first-class evidence for failure attribution and audit.",
-      "x-termStatus": "stable",
+      "literatureNote": "Widely used in product documentation and runtime implementations; AAIF indexes the label because guardrail triggers are audit evidence. Cross-link Policy enforcement for technical definitions.",
+      "x-termStatus": "qualified",
+      "x-discouraged-for-technical": true,
       "x-reviewTier": 2,
-      "x-consensus-reached": false
+      "x-consensus-reached": false,
+      "x-milestone": "M3"
     },
     {
       "term": "Observability signal",
@@ -58,7 +62,8 @@
       "literatureNote": "AAIF defines what must be observable for accuracy/reliability claims. Emission formats owned by Observability & Traceability WG.",
       "x-termStatus": "stable",
       "x-reviewTier": 2,
-      "x-consensus-reached": false
+      "x-consensus-reached": false,
+      "x-milestone": "M3"
     },
     {
       "term": "Policy enforcement",
@@ -84,7 +89,8 @@
       "literatureNote": "Bridges governance slides to ARWG failure vocabulary; detailed threat models delegated to Security WG.",
       "x-termStatus": "stable",
       "x-reviewTier": 2,
-      "x-consensus-reached": false
+      "x-consensus-reached": false,
+      "x-milestone": "M3"
     },
     {
       "term": "Traceability",
@@ -106,7 +112,8 @@
       "literatureNote": "Shared boundary with Observability WG. AAIF needs audit reconstruction; OT WG defines how traces are emitted.",
       "x-termStatus": "stable",
       "x-reviewTier": 2,
-      "x-consensus-reached": false
+      "x-consensus-reached": false,
+      "x-milestone": "M2"
     },
     {
       "term": "Security boundary",
@@ -128,7 +135,8 @@
       "literatureNote": "Governance prerequisites, not quality dimensions. Boundary terms shared with Observability, Security, or Identity WGs as tagged.",
       "x-termStatus": "stable",
       "x-reviewTier": 3,
-      "x-consensus-reached": false
+      "x-consensus-reached": false,
+      "x-milestone": "M3"
     }
   ]
 }

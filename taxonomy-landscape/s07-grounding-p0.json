@@ -51,9 +51,10 @@
         "faithfulness",
         "groundedness"
       ],
-      "x-termStatus": "stable",
-      "x-reviewTier": 3,
-      "x-consensus-reached": false
+      "x-termStatus": "qualified",
+      "x-reviewTier": 1,
+      "x-consensus-reached": false,
+      "x-milestone": "M1"
     },
     {
       "term": "Trust anchor",
@@ -77,7 +78,8 @@
       "literatureNote": "Harness and participant vocabulary for gap analysis inventory. Describes how measurement runs, not agent properties.",
       "x-termStatus": "stable",
       "x-reviewTier": 3,
-      "x-consensus-reached": false
+      "x-consensus-reached": false,
+      "x-milestone": "M1"
     },
     {
       "term": "Evidence accuracy",
@@ -98,9 +100,10 @@
         "Accuracy & Reliability"
       ],
       "literatureNote": "Task-result vocabulary bridging accuracy to user-visible outcomes. Common in benchmark reporting with varying definitions.",
-      "x-termStatus": "stable",
-      "x-reviewTier": 3,
-      "x-consensus-reached": false
+      "x-termStatus": "aaif-new",
+      "x-reviewTier": 1,
+      "x-consensus-reached": false,
+      "x-milestone": "M1"
     }
   ]
 }

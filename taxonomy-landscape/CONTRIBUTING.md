@@ -16,8 +16,10 @@ ARWG adds **`x-*` fields** on top for **review and export tracking only** — th
 
 | Field | Purpose |
 |-------|---------|
-| `x-termStatus` | Literature symbol — ○ literature aligned, † qualifier required, △ sources disagree, ★ no prior source (see README [Term symbols](./README.md#term-symbols)) |
+| `x-termStatus` | Primary literature symbol — ○ `stable`, † `qualified`, △ `contested`, ★ `aaif-new` (see README [Term symbols](./README.md#term-symbols)) |
+| `x-discouraged-for-technical` | Optional **`true`** — adds **×** in the index when the label is too imprecise or ambiguous for technical ARWG output; stacks with `x-termStatus` (see README [Community vocabulary census](./README.md#community-vocabulary-census)) |
 | `x-reviewTier` | How much active WG debate the term needs (1 = discuss first, 2 = confirm, 3 = reference) |
+| `x-milestone` | Review batch — `M1`, `M2`, or `M3` (see README [Suggested milestones](./README.md#suggested-milestones)) |
 | `x-consensus-reached` | Set `true` only after a resolved PR thread records WG agreement |
 | `x-sources` | Short pointers (e.g. running notes Taxonomy thread) — not duplicate definitions |
 | `x-measuresTerm` | Metrics only: 1:1 link to the symptom or root-cause term quantified |
@@ -51,7 +53,8 @@ Each JSON file then holds a **`terms`** array for that band.
 | `workgroups` | AAIF working groups that own or use this sense (usually Accuracy & Reliability). |
 | `literatureNote` | How the literature uses the label; where AAIF narrows or diverges. |
 | `academicTerms` | Academic or vendor labels **not** adopted as AAIF terms. |
-| `x-termStatus` | Review symbol: **`stable`** (○ widely used), **`qualified`** († needs qualifier), **`contested`** (△ debatable), **`aaif-new`** (★ coined for ARWG). |
+| `x-termStatus` | Review symbol: **`stable`** (○), **`qualified`** (†), **`contested`** (△), **`aaif-new`** (★) |
+| `x-discouraged-for-technical` | Optional **`true`** — show additional **×** when the familiar label is discouraged for technical precision; document alternate senses and recommended terms in `scopeNote` / `relatedTerms` |
 | `x-reviewTier` | How much active WG debate this term needs: **`1`** = focus (contested or AAIF-new — discuss first), **`2`** = confirm definition, **`3`** = reference vocabulary (stable shared terms — read for consistency, rarely debated). Used for review planning; not surfaced in the README index. |
 | `x-consensus-reached` | **`false`** until the WG agrees in a resolved PR thread; set **`true`** when consensus is recorded (README shows agreed terms in **bold**). |
 | `x-sources` | Pointers to charter, running notes, or external refs — not duplicate definitions. |
@@ -87,4 +90,4 @@ Sign off **P0** parent terms in a section before large **P1** refinement passes 
 
 ## README in this folder
 
-[`README.md`](./README.md) is a navigation index (tables, diagrams, `#L` links into JSON). **JSON is authoritative**; anchors are best effort. Liaison/chairs may refresh the README when the JSON changes.
+[`README.md`](./README.md) is a navigation index (section tables, milestone table, `#L` links into JSON). **Slice JSON is authoritative**; anchors are best effort.

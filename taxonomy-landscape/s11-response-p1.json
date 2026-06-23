@@ -51,9 +51,10 @@
         "Accuracy & Reliability"
       ],
       "literatureNote": "Reactive recovery patterns. SRE names (circuit breaker, rollback) linked in academicTerms where relevant.",
-      "x-termStatus": "stable",
-      "x-reviewTier": 3,
-      "x-consensus-reached": false
+      "x-termStatus": "qualified",
+      "x-reviewTier": 1,
+      "x-consensus-reached": false,
+      "x-milestone": "M3"
     },
     {
       "term": "Correction mechanism",
@@ -79,9 +80,10 @@
         "Accuracy & Reliability"
       ],
       "literatureNote": "Reactive recovery patterns. SRE names (circuit breaker, rollback) linked in academicTerms where relevant.",
-      "x-termStatus": "stable",
-      "x-reviewTier": 2,
-      "x-consensus-reached": false
+      "x-termStatus": "aaif-new",
+      "x-reviewTier": 1,
+      "x-consensus-reached": false,
+      "x-milestone": "M2"
     },
     {
       "term": "Escalation",
@@ -104,7 +106,8 @@
       "literatureNote": "Reactive recovery patterns. SRE names (circuit breaker, rollback) linked in academicTerms where relevant.",
       "x-termStatus": "stable",
       "x-reviewTier": 2,
-      "x-consensus-reached": false
+      "x-consensus-reached": false,
+      "x-milestone": "M2"
     },
     {
       "term": "Human in the loop",
@@ -131,9 +134,10 @@
         "human-in-the-loop",
         "human-on-the-loop"
       ],
-      "x-termStatus": "stable",
-      "x-reviewTier": 2,
-      "x-consensus-reached": false
+      "x-termStatus": "qualified",
+      "x-reviewTier": 1,
+      "x-consensus-reached": false,
+      "x-milestone": "M1"
     },
     {
       "term": "Retry",
@@ -154,7 +158,8 @@
       "literatureNote": "Reactive recovery patterns. SRE names (circuit breaker, rollback) linked in academicTerms where relevant.",
       "x-termStatus": "stable",
       "x-reviewTier": 2,
-      "x-consensus-reached": false
+      "x-consensus-reached": false,
+      "x-milestone": "M3"
     },
     {
       "term": "Proactive grounding",
@@ -173,9 +178,10 @@
         "Accuracy & Reliability"
       ],
       "literatureNote": "Proactive patterns that improve realised reliability. Less standardised in benchmarks than failure or accuracy terms.",
-      "x-termStatus": "stable",
-      "x-reviewTier": 2,
-      "x-consensus-reached": false
+      "x-termStatus": "qualified",
+      "x-reviewTier": 1,
+      "x-consensus-reached": false,
+      "x-milestone": "M3"
     },
     {
       "term": "Reliability by design",
@@ -200,7 +206,8 @@
       "literatureNote": "Proactive patterns that improve realised reliability. Less standardised in benchmarks than failure or accuracy terms.",
       "x-termStatus": "stable",
       "x-reviewTier": 2,
-      "x-consensus-reached": false
+      "x-consensus-reached": false,
+      "x-milestone": "M3"
     },
     {
       "term": "Verification loop",
@@ -225,7 +232,8 @@
       "literatureNote": "Proactive patterns that improve realised reliability. Less standardised in benchmarks than failure or accuracy terms.",
       "x-termStatus": "stable",
       "x-reviewTier": 2,
-      "x-consensus-reached": false
+      "x-consensus-reached": false,
+      "x-milestone": "M2"
     }
   ]
 }

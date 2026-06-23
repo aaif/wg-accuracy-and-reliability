@@ -29,7 +29,8 @@
       "literatureNote": "Core charter vocabulary. Aligns with Princeton HAL where noted in Princeton HAL and related literature; qualifiers apply for infrastructure and BFT senses.",
       "x-termStatus": "stable",
       "x-reviewTier": 2,
-      "x-consensus-reached": false
+      "x-consensus-reached": false,
+      "x-milestone": "M2"
     },
     {
       "term": "Realised accuracy",
@@ -48,9 +49,10 @@
         "Accuracy & Reliability"
       ],
       "literatureNote": "AAIF term for accuracy after corrections and retries in production. Not widely standardised; captures enterprise 'did we eventually get it right'.",
-      "x-termStatus": "stable",
-      "x-reviewTier": 2,
-      "x-consensus-reached": false
+      "x-termStatus": "aaif-new",
+      "x-reviewTier": 1,
+      "x-consensus-reached": false,
+      "x-milestone": "M2"
     },
     {
       "term": "Intent adherence",
@@ -74,7 +76,8 @@
       "literatureNote": "Implicit in contextual correctness and task completion literature; AAIF names it explicitly for WHAT/HOW evaluation design.",
       "x-termStatus": "stable",
       "x-reviewTier": 2,
-      "x-consensus-reached": false
+      "x-consensus-reached": false,
+      "x-milestone": "M2"
     },
     {
       "term": "Skill adherence",
@@ -98,7 +101,8 @@
       "literatureNote": "Emerges from modular skill frameworks; AAIF links skill artefacts to measurable HOW adherence for audit and attribution.",
       "x-termStatus": "stable",
       "x-reviewTier": 2,
-      "x-consensus-reached": false
+      "x-consensus-reached": false,
+      "x-milestone": "M2"
     }
   ]
 }

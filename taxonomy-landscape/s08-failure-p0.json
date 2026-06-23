@@ -57,7 +57,8 @@
       "literatureNote": "Attribution targets after symptoms are identified. MAST categories partially align; AAIF adds infrastructure and coordination classes.",
       "x-termStatus": "stable",
       "x-reviewTier": 3,
-      "x-consensus-reached": false
+      "x-consensus-reached": false,
+      "x-milestone": "M2"
     },
     {
       "term": "Reasoning failure",
@@ -83,7 +84,8 @@
       "literatureNote": "Attribution targets after symptoms are identified. MAST categories partially align; AAIF adds infrastructure and coordination classes.",
       "x-termStatus": "stable",
       "x-reviewTier": 3,
-      "x-consensus-reached": false
+      "x-consensus-reached": false,
+      "x-milestone": "M2"
     },
     {
       "term": "Recovery failure",
@@ -107,7 +109,8 @@
       "literatureNote": "Attribution targets after symptoms are identified. MAST categories partially align; AAIF adds infrastructure and coordination classes.",
       "x-termStatus": "stable",
       "x-reviewTier": 3,
-      "x-consensus-reached": false
+      "x-consensus-reached": false,
+      "x-milestone": "M2"
     },
     {
       "term": "Root cause",
@@ -135,7 +138,8 @@
       "literatureNote": "Attribution targets after symptoms are identified. MAST categories partially align; AAIF adds infrastructure and coordination classes.",
       "x-termStatus": "stable",
       "x-reviewTier": 3,
-      "x-consensus-reached": false
+      "x-consensus-reached": false,
+      "x-milestone": "M1"
     },
     {
       "term": "Hallucination",
@@ -159,11 +163,13 @@
         "hallucination (MAST FC1)"
       ],
       "x-termStatus": "contested",
+      "x-discouraged-for-technical": true,
       "x-reviewTier": 1,
       "x-consensus-reached": false,
       "x-sources": [
         "ARWG running notes — Taxonomy (Hallucinations; Wojciech, Edward)"
-      ]
+      ],
+      "x-milestone": "M1"
     },
     {
       "term": "Symptom",
@@ -189,7 +195,8 @@
       "literatureNote": "User- or trace-visible failure indicators. Prefer subtype over generic 'hallucination' for measurement.",
       "x-termStatus": "stable",
       "x-reviewTier": 3,
-      "x-consensus-reached": false
+      "x-consensus-reached": false,
+      "x-milestone": "M1"
     }
   ]
 }

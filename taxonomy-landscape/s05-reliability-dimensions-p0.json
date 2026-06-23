@@ -46,9 +46,10 @@
         "confidence–accuracy alignment",
         "expected calibration error (ECE)"
       ],
-      "x-termStatus": "stable",
-      "x-reviewTier": 3,
-      "x-consensus-reached": false
+      "x-termStatus": "qualified",
+      "x-reviewTier": 1,
+      "x-consensus-reached": false,
+      "x-milestone": "M1"
     },
     {
       "term": "Consistency",
@@ -77,9 +78,10 @@
         "pass@k (single-run best-of-k — not an AAIF term)",
         "pass^k (Yao et al., 2024; tau-bench)"
       ],
-      "x-termStatus": "stable",
-      "x-reviewTier": 3,
-      "x-consensus-reached": false
+      "x-termStatus": "contested",
+      "x-reviewTier": 1,
+      "x-consensus-reached": false,
+      "x-milestone": "M1"
     },
     {
       "term": "Cross-agent factual alignment",
@@ -100,9 +102,10 @@
         "Accuracy & Reliability"
       ],
       "literatureNote": "AAIF-specific: mutual factual consistency plus correctness requirement. Distinct from agreement and from single-agent repeat consistency.",
-      "x-termStatus": "stable",
-      "x-reviewTier": 3,
-      "x-consensus-reached": false
+      "x-termStatus": "aaif-new",
+      "x-reviewTier": 1,
+      "x-consensus-reached": false,
+      "x-milestone": "M1"
     },
     {
       "term": "Input paraphrase robustness",
@@ -127,9 +130,10 @@
         "Accuracy & Reliability"
       ],
       "literatureNote": "Sub-dimensions under agent reliability. Princeton HAL is the primary academic anchor; see bibliography in x-sources where listed.",
-      "x-termStatus": "stable",
-      "x-reviewTier": 3,
-      "x-consensus-reached": false
+      "x-termStatus": "aaif-new",
+      "x-reviewTier": 1,
+      "x-consensus-reached": false,
+      "x-milestone": "M1"
     },
     {
       "term": "Operational fault robustness",
@@ -152,9 +156,10 @@
         "Accuracy & Reliability"
       ],
       "literatureNote": "Sub-dimensions under agent reliability. Princeton HAL is the primary academic anchor; see bibliography in x-sources where listed.",
-      "x-termStatus": "stable",
-      "x-reviewTier": 3,
-      "x-consensus-reached": false
+      "x-termStatus": "aaif-new",
+      "x-reviewTier": 1,
+      "x-consensus-reached": false,
+      "x-milestone": "M1"
     },
     {
       "term": "Outcome consistency",
@@ -180,9 +185,10 @@
         "all-trial success",
         "pass^k (tau-bench)"
       ],
-      "x-termStatus": "stable",
-      "x-reviewTier": 3,
-      "x-consensus-reached": false
+      "x-termStatus": "aaif-new",
+      "x-reviewTier": 1,
+      "x-consensus-reached": false,
+      "x-milestone": "M1"
     },
     {
       "term": "Resource consistency",
@@ -204,9 +210,10 @@
       "academicTerms": [
         "C_res (Princeton HAL reliability dashboard)"
       ],
-      "x-termStatus": "stable",
-      "x-reviewTier": 3,
-      "x-consensus-reached": false
+      "x-termStatus": "aaif-new",
+      "x-reviewTier": 1,
+      "x-consensus-reached": false,
+      "x-milestone": "M1"
     },
     {
       "term": "Robustness",
@@ -233,9 +240,10 @@
         "fault injection robustness",
         "prompt robustness (PromptBench)"
       ],
-      "x-termStatus": "stable",
-      "x-reviewTier": 3,
-      "x-consensus-reached": false
+      "x-termStatus": "qualified",
+      "x-reviewTier": 1,
+      "x-consensus-reached": false,
+      "x-milestone": "M1"
     },
     {
       "term": "Safety",
@@ -259,9 +267,10 @@
         "Lamport safety (requires qualifier)",
         "utility-while-safe (AgentDojo, AgentHarm)"
       ],
-      "x-termStatus": "stable",
-      "x-reviewTier": 3,
-      "x-consensus-reached": false
+      "x-termStatus": "contested",
+      "x-reviewTier": 1,
+      "x-consensus-reached": false,
+      "x-milestone": "M1"
     },
     {
       "term": "Trajectory consistency",
@@ -286,9 +295,10 @@
         "path stability (When Agents Disagree With Themselves, 2026)",
         "trajectory edit distance (study-specific)"
       ],
-      "x-termStatus": "stable",
-      "x-reviewTier": 3,
-      "x-consensus-reached": false
+      "x-termStatus": "aaif-new",
+      "x-reviewTier": 1,
+      "x-consensus-reached": false,
+      "x-milestone": "M1"
     },
     {
       "term": "Cross-agent agreement",
@@ -315,9 +325,10 @@
         "Byzantine agreement (Berdoz et al., 2026)",
         "valid consensus"
       ],
-      "x-termStatus": "stable",
-      "x-reviewTier": 3,
-      "x-consensus-reached": false
+      "x-termStatus": "qualified",
+      "x-reviewTier": 1,
+      "x-consensus-reached": false,
+      "x-milestone": "M1"
     }
   ]
 }

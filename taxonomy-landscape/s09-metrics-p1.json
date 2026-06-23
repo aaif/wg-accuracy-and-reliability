@@ -53,7 +53,8 @@
       "literatureNote": "Quantifiers attached to dimensions — not synonyms for accuracy or reliability. Academic metric names appear in academicTerms only.",
       "x-termStatus": "stable",
       "x-reviewTier": 3,
-      "x-consensus-reached": false
+      "x-consensus-reached": false,
+      "x-milestone": "M2"
     },
     {
       "term": "Evaluation envelope",
@@ -73,9 +74,10 @@
         "Accuracy & Reliability"
       ],
       "literatureNote": "Protocol and envelope vocabulary for reproducible evaluation (evaluation protocols input).",
-      "x-termStatus": "stable",
-      "x-reviewTier": 2,
-      "x-consensus-reached": false
+      "x-termStatus": "aaif-new",
+      "x-reviewTier": 1,
+      "x-consensus-reached": false,
+      "x-milestone": "M2"
     },
     {
       "term": "Evaluation methodology",
@@ -98,7 +100,8 @@
       "literatureNote": "Protocol and envelope vocabulary for reproducible evaluation (evaluation protocols input).",
       "x-termStatus": "stable",
       "x-reviewTier": 2,
-      "x-consensus-reached": false
+      "x-consensus-reached": false,
+      "x-milestone": "M2"
     },
     {
       "term": "Calibration error",
@@ -123,7 +126,8 @@
       ],
       "x-termStatus": "stable",
       "x-reviewTier": 2,
-      "x-consensus-reached": false
+      "x-consensus-reached": false,
+      "x-milestone": "M3"
     },
     {
       "term": "Configuration error rate",
@@ -144,7 +148,8 @@
       "literatureNote": "Quantifiers attached to dimensions — not synonyms for accuracy or reliability. Academic metric names appear in academicTerms only.",
       "x-termStatus": "stable",
       "x-reviewTier": 2,
-      "x-consensus-reached": false
+      "x-consensus-reached": false,
+      "x-milestone": "M3"
     },
     {
       "term": "Coordination failure rate",
@@ -165,7 +170,8 @@
       "literatureNote": "Quantifiers attached to dimensions — not synonyms for accuracy or reliability. Academic metric names appear in academicTerms only.",
       "x-termStatus": "stable",
       "x-reviewTier": 2,
-      "x-consensus-reached": false
+      "x-consensus-reached": false,
+      "x-milestone": "M3"
     },
     {
       "term": "Entity mismatch rate",
@@ -186,7 +192,8 @@
       "literatureNote": "Quantifiers attached to dimensions — not synonyms for accuracy or reliability. Academic metric names appear in academicTerms only.",
       "x-termStatus": "stable",
       "x-reviewTier": 2,
-      "x-consensus-reached": false
+      "x-consensus-reached": false,
+      "x-milestone": "M3"
     },
     {
       "term": "Fabricated tool result rate",
@@ -207,7 +214,8 @@
       "literatureNote": "Quantifiers attached to dimensions — not synonyms for accuracy or reliability. Academic metric names appear in academicTerms only.",
       "x-termStatus": "stable",
       "x-reviewTier": 2,
-      "x-consensus-reached": false
+      "x-consensus-reached": false,
+      "x-milestone": "M3"
     },
     {
       "term": "Goal misalignment rate",
@@ -228,7 +236,8 @@
       "literatureNote": "Quantifiers attached to dimensions — not synonyms for accuracy or reliability. Academic metric names appear in academicTerms only.",
       "x-termStatus": "stable",
       "x-reviewTier": 2,
-      "x-consensus-reached": false
+      "x-consensus-reached": false,
+      "x-milestone": "M3"
     },
     {
       "term": "Hallucination rate",
@@ -252,7 +261,8 @@
       "literatureNote": "Parent symptom rate; evaluation protocols reporting templates require subtype breakdown.",
       "x-termStatus": "stable",
       "x-reviewTier": 2,
-      "x-consensus-reached": false
+      "x-consensus-reached": false,
+      "x-milestone": "M3"
     },
     {
       "term": "Incorrect task outcome rate",
@@ -277,7 +287,8 @@
       "literatureNote": "Quantifiers attached to dimensions — not synonyms for accuracy or reliability. Academic metric names appear in academicTerms only.",
       "x-termStatus": "stable",
       "x-reviewTier": 2,
-      "x-consensus-reached": false
+      "x-consensus-reached": false,
+      "x-milestone": "M3"
     },
     {
       "term": "Infrastructure failure rate",
@@ -299,7 +310,8 @@
       "literatureNote": "Quantifiers attached to dimensions — not synonyms for accuracy or reliability. Academic metric names appear in academicTerms only.",
       "x-termStatus": "stable",
       "x-reviewTier": 2,
-      "x-consensus-reached": false
+      "x-consensus-reached": false,
+      "x-milestone": "M3"
     },
     {
       "term": "Message delivery failure rate",
@@ -320,7 +332,8 @@
       "literatureNote": "Quantifiers attached to dimensions — not synonyms for accuracy or reliability. Academic metric names appear in academicTerms only.",
       "x-termStatus": "stable",
       "x-reviewTier": 2,
-      "x-consensus-reached": false
+      "x-consensus-reached": false,
+      "x-milestone": "M3"
     },
     {
       "term": "Planning error rate",
@@ -341,7 +354,8 @@
       "literatureNote": "Quantifiers attached to dimensions — not synonyms for accuracy or reliability. Academic metric names appear in academicTerms only.",
       "x-termStatus": "stable",
       "x-reviewTier": 2,
-      "x-consensus-reached": false
+      "x-consensus-reached": false,
+      "x-milestone": "M3"
     },
     {
       "term": "Policy violation rate",
@@ -360,9 +374,10 @@
         "Accuracy & Reliability"
       ],
       "literatureNote": "Quantifiers attached to dimensions — not synonyms for accuracy or reliability. Academic metric names appear in academicTerms only.",
-      "x-termStatus": "stable",
-      "x-reviewTier": 2,
-      "x-consensus-reached": false
+      "x-termStatus": "aaif-new",
+      "x-reviewTier": 1,
+      "x-consensus-reached": false,
+      "x-milestone": "M3"
     },
     {
       "term": "Reasoning failure rate",
@@ -384,7 +399,8 @@
       "literatureNote": "Quantifiers attached to dimensions — not synonyms for accuracy or reliability. Academic metric names appear in academicTerms only.",
       "x-termStatus": "stable",
       "x-reviewTier": 2,
-      "x-consensus-reached": false
+      "x-consensus-reached": false,
+      "x-milestone": "M3"
     },
     {
       "term": "Recovery failure rate",
@@ -403,7 +419,8 @@
       "literatureNote": "Quantifiers attached to dimensions — not synonyms for accuracy or reliability. Academic metric names appear in academicTerms only.",
       "x-termStatus": "stable",
       "x-reviewTier": 2,
-      "x-consensus-reached": false
+      "x-consensus-reached": false,
+      "x-milestone": "M3"
     },
     {
       "term": "Repeated-run success rate",
@@ -431,9 +448,10 @@
         "pass@k (best-of-k — different quantity)",
         "pass^k (Yao et al., 2024)"
       ],
-      "x-termStatus": "stable",
-      "x-reviewTier": 2,
-      "x-consensus-reached": false
+      "x-termStatus": "aaif-new",
+      "x-reviewTier": 1,
+      "x-consensus-reached": false,
+      "x-milestone": "M3"
     },
     {
       "term": "Silent wrong action rate",
@@ -452,7 +470,8 @@
       "literatureNote": "Quantifiers attached to dimensions — not synonyms for accuracy or reliability. Academic metric names appear in academicTerms only.",
       "x-termStatus": "stable",
       "x-reviewTier": 2,
-      "x-consensus-reached": false
+      "x-consensus-reached": false,
+      "x-milestone": "M3"
     },
     {
       "term": "Stale source error rate",
@@ -473,7 +492,8 @@
       "literatureNote": "Quantifiers attached to dimensions — not synonyms for accuracy or reliability. Academic metric names appear in academicTerms only.",
       "x-termStatus": "stable",
       "x-reviewTier": 2,
-      "x-consensus-reached": false
+      "x-consensus-reached": false,
+      "x-milestone": "M3"
     },
     {
       "term": "Task abandonment rate",
@@ -494,7 +514,8 @@
       "literatureNote": "Quantifiers attached to dimensions — not synonyms for accuracy or reliability. Academic metric names appear in academicTerms only.",
       "x-termStatus": "stable",
       "x-reviewTier": 2,
-      "x-consensus-reached": false
+      "x-consensus-reached": false,
+      "x-milestone": "M3"
     },
     {
       "term": "Task success rate",
@@ -522,7 +543,8 @@
       ],
       "x-termStatus": "stable",
       "x-reviewTier": 2,
-      "x-consensus-reached": false
+      "x-consensus-reached": false,
+      "x-milestone": "M3"
     },
     {
       "term": "Tool availability failure rate",
@@ -543,7 +565,8 @@
       "literatureNote": "Quantifiers attached to dimensions — not synonyms for accuracy or reliability. Academic metric names appear in academicTerms only.",
       "x-termStatus": "stable",
       "x-reviewTier": 2,
-      "x-consensus-reached": false
+      "x-consensus-reached": false,
+      "x-milestone": "M3"
     },
     {
       "term": "Ungrounded claim rate",
@@ -564,7 +587,8 @@
       "literatureNote": "Quantifiers attached to dimensions — not synonyms for accuracy or reliability. Academic metric names appear in academicTerms only.",
       "x-termStatus": "stable",
       "x-reviewTier": 2,
-      "x-consensus-reached": false
+      "x-consensus-reached": false,
+      "x-milestone": "M3"
     },
     {
       "term": "User re-prompt rate",
@@ -583,9 +607,10 @@
         "Accuracy & Reliability"
       ],
       "literatureNote": "Quantifiers attached to dimensions — not synonyms for accuracy or reliability. Academic metric names appear in academicTerms only.",
-      "x-termStatus": "stable",
-      "x-reviewTier": 2,
-      "x-consensus-reached": false
+      "x-termStatus": "aaif-new",
+      "x-reviewTier": 1,
+      "x-consensus-reached": false,
+      "x-milestone": "M3"
     }
   ]
 }
