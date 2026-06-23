@@ -16,7 +16,7 @@ ARWG adds **`x-*` fields** on top for **review and export tracking only** — th
 
 | Field | Purpose |
 |-------|---------|
-| `x-termStatus` | Review symbol: stable / qualified / contested / aaif-new (shown as ○ † △ ★ in the README) |
+| `x-termStatus` | Literature symbol — ○ literature aligned, † qualifier required, △ sources disagree, ★ no prior source (see README [Term symbols](./README.md#term-symbols)) |
 | `x-reviewTier` | How much active WG debate the term needs (1 = discuss first, 2 = confirm, 3 = reference) |
 | `x-consensus-reached` | Set `true` only after a resolved PR thread records WG agreement |
 | `x-sources` | Short pointers (e.g. running notes Taxonomy thread) — not duplicate definitions |

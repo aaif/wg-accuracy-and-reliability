@@ -12,7 +12,7 @@ This index is a **living document**: sections, term sets, and prose will be **ex
 
 ## Outline and rationale
 
-Section numbers follow D1 terminology: (§3) through (§8), plus (§0.5), (§0.7), and **Response** (D1 layer 5). Each block introduces concepts later blocks depend on — for example, you cannot name a failure symptom consistently until evaluation subjects and grounding terms exist.
+Section labels mirror **D1 numbering** (terminology deliverable, work in progress). **(§3)–(§8)** are the core property and failure narrative. **(§9)** metrics, **(§10)** evaluation ecosystem, and **(§11)** response are transversal layers in the model but numbered after §8 so the architecture can grow without renumbering failures. This index lists §3→§8 first, then §9–§11 — **review dependency order**, not D1 file order.
 
 | Section | What it covers | Why it appears here |
 |---------|----------------|---------------------|
@@ -22,25 +22,23 @@ Section numbers follow D1 terminology: (§3) through (§8), plus (§0.5), (§0.7
 | (§6) | Operational and governance terms | Identity, traceability, recoverability — not quality dimensions |
 | (§7) | Grounding, evidence, and world | How outputs relate to authoritative state |
 | (§8) | Failure vocabulary | Symptoms and root causes for remediation |
-| (§0.5) | Metrics and measurement | Quantifiers linked to (§4)–(§8) via `x-measuresTerm` |
-| (§0.7) | Evaluation ecosystem | Benchmarks, scenarios, traces, participants |
-| Response | Reliability by design; correction and control (retry, HITL, circuit breaker, …) | **Preliminary** — how systems prevent or recover from (§8) failures; see **review phases** below |
+| (§9) | Metrics and measurement | Quantifiers linked to (§4)–(§8) via `x-measuresTerm` |
+| (§10) | Evaluation ecosystem | Benchmarks, scenarios, traces, participants |
+| (§11) | Reliability by design; correction and control | Prevent and react to failures (D1 layer 5) |
 
 Each section below adds a short **P0 / P1 / P2** note: parent terms in **P0** are what refinements in **P1** and **P2** presuppose. That ordering helps end-to-end review; it is not a gate for contributors.
 
-### Review phases
+## Cross-cutting topics
 
-**Phase 1 — basis.** Prioritise (§3) through (§8): evaluation subjects, accuracy and reliability, dimensions, governance touchpoints, grounding, and failure vocabulary, plus the metrics and ecosystem terms needed for gap analysis.
+Transversal concerns are **split across numbered sections** but each has a primary home in this index. Use this table to find vocabulary by topic; full definitions stay in the section tables below.
 
-**Phase 2 — response (preliminary).** The **Response** slice lists design-time patterns (**reliability by design**, verification loops, proactive grounding) and runtime mechanisms (**retry**, escalation, rollback, **circuit breaker**, fallback, policy gates). Content and D1 placement are not settled; terms are indexed for cross-links until phase 1 vocabulary is stable and deliverables catch up.
-
-### D1 alignment
-
-| In this index | In D1 (work in progress) |
-|---------------|----------------------------|
-| (§3)–(§8) | Numbered D1 sections with matching titles |
-| (§0.5), (§0.7) | Architecture layers 3 and 6 (metrics; evaluation ecosystem) |
-| **Response** | **Layer 5** — canonical glossary §10.11; not yet a top-level numbered D1 section (today tied to (§6) and charter scope). A dedicated D1 § for response patterns is under discussion. |
+| Topic | Primary index section | Also touches |
+|-------|----------------------|--------------|
+| **Metrics & quantifiers** | [(§9)](#9--metrics--measurement) | (§4)–(§8) via `x-measuresTerm` on rate terms |
+| **Evaluation ecosystem** | [(§10)](#10--evaluation-ecosystem) | (§3) evaluation subjects; (§6) evaluation envelope |
+| **Governance & identity** | [(§6)](#6--operational--governance-terms) | Charter assumptions; (§10) operators and infrastructure |
+| **Grounding & world** | [(§7)](#7--grounding-evidence--world) | (§4) evidence accuracy; (§8) hallucination subtypes |
+| **Response & correction** | [(§11)](#11--response--design--correction) | (§6) recoverability |
 
 ## How to contribute
 
@@ -48,11 +46,23 @@ Before editing terms, read [`CONTRIBUTING.md`](./CONTRIBUTING.md) for JSON field
 
 Contributors work in different ways — all are valid:
 
-- **By domain.** Jump to the section that matches your expertise (for example (§8) failures, (§0.5) metrics, (§6) governance) and open a PR on the linked `s*.json` file. **Response** (reliability by design, retry, circuit breaker, …) is **phase 2** — see [Review phases](#review-phases) above.
+- **By domain.** Jump to the section that matches your expertise (for example (§8) failures, (§9) metrics, (§6) governance) and open a PR on the linked `s*.json` file.
 - **By dependency.** If you prefer a full pass, reading (§3) through (§8) in order shows how terms chain together; settle **P0** in a section before debating **P1** leaves in the same section. Open a PR on the JSON file for the terms you change.
 - **By source label.** If you arrive with a term from running notes or an earlier draft, use [**Source document lookup**](#source-document-lookup) at the end of this file to find the canonical JSON entry.
 
-Term symbols in the tables: ○ stable, † qualified, △ contested, ★ AAIF-new; **bold** means `x-consensus-reached: true` after a resolved PR thread.
+**Section and document editors.** We welcome volunteers to **lead review** for one or more sections (for example (§8) failures or (§9) metrics) or for the **README and JSON index as a whole**. An editor helps keep section prose and term records coherent, triages PR comments in their slice, and surfaces open questions to the working group. You do not need to own every term — ad hoc contributions remain welcome. To volunteer, say so in a PR comment, on the [running notes](../CURRENT-WORKSTREAMS.md) Taxonomy thread, or at a WG meeting.
+
+## Term symbols
+
+Literature and source-review symbols on each term — **orthogonal to WG consensus** (`x-consensus-reached`).
+
+| Symbol | JSON `x-termStatus` | Meaning |
+|--------|---------------------|---------|
+| ○ | `stable` | **Literature aligned** — shared sense in papers or benchmarks; details in `literatureNote` |
+| † | `qualified` | **Qualifier required** — overloaded label; narrow in `definition` / `scopeNote` |
+| △ | `contested` | **Sources disagree** — incompatible definitions or placement across sources |
+| ★ | `aaif-new` | **No prior source** — ARWG coinage without an established external label |
+| **bold** term name | `x-consensus-reached: true` | **WG consensus** after a resolved PR thread — formatting only, not a fifth literature symbol |
 
 ---
 
@@ -122,7 +132,7 @@ Many apparent reasoning errors are **grounding** failures — stale sources, wro
 
 ## §8 — Failure vocabulary
 
-With subjects, properties, dimensions, governance, and grounding in place, this section names **what failed** (symptoms users and operators observe) and **why** (root causes for remediation). Symptom labels without cause classes produce blame without fix paths — re-prompts, abandonment, silent wrong actions, planning errors, coordination breakdowns, authorization violations, recovery failures. D1 will need separate subsections for **symptoms** (often user-research and ops led) versus **root causes** (often platform and MAS led), plus shared parent terms so metrics in §0.5 can attach `{term} rate` pairs.
+With subjects, properties, dimensions, governance, and grounding in place, this section names **what failed** (symptoms users and operators observe) and **why** (root causes for remediation). Symptom labels without cause classes produce blame without fix paths — re-prompts, abandonment, silent wrong actions, planning errors, coordination breakdowns, authorization violations, recovery failures. D1 will need separate subsections for **symptoms** (often user-research and ops led) versus **root causes** (often platform and MAS led), plus shared parent terms so metrics in §9 can attach `{term} rate` pairs.
 
 **P0** establishes hierarchy parents: Symptom, Root cause, Hallucination, and the infrastructure, reasoning, and recovery failure classes. **P1** adds observable refinements and operational subclasses; each **P1** leaf should eventually pair with a `{term} rate` metric. Sign off **P0** parents before **P1** leaves and before the metrics section.
 
@@ -134,7 +144,7 @@ With subjects, properties, dimensions, governance, and grounding in place, this 
 |  | Root causes (7) | [○ Authorization failure](./s08-failure-p1.json#L36)<br>[○ Configuration error](./s08-failure-p1.json#L61)<br>[○ Coordination failure](./s08-failure-p1.json#L83)<br>[○ Goal misalignment](./s08-failure-p1.json#L106)<br>[○ Message delivery failure](./s08-failure-p1.json#L131)<br>[○ Planning error](./s08-failure-p1.json#L155)<br>[○ Tool availability failure](./s08-failure-p1.json#L176) | - Security & Privacy (authorization, policy)<br>- Workflows & Process Integration (coordination)<br>- ARWG attribution target |
 |  | Symptoms (9) | [○ Entity mismatch](./s08-failure-p1.json#L197)<br>[○ Fabricated tool result](./s08-failure-p1.json#L219)<br>[○ Incorrect task outcome](./s08-failure-p1.json#L240)<br>[○ Overconfident error](./s08-failure-p1.json#L263)<br>[○ Silent wrong action](./s08-failure-p1.json#L286)<br>[○ Stale source error](./s08-failure-p1.json#L310)<br>[○ Task abandonment](./s08-failure-p1.json#L333)<br>[○ Ungrounded claim](./s08-failure-p1.json#L357)<br>[○ User re-prompt](./s08-failure-p1.json#L382) | - ARWG primary (user-visible and operator-visible failure labels) |
 
-## §0.5 — Metrics & measurement
+## §9 — Metrics & measurement
 
 Dimensions and failure classes are **not** numbers. This section names quantifiers — task success rate, repeated-run success rate, calibration error, and `{symptom} rate` / `{root cause} rate` pairs — that attach to §4–§8 concepts through `x-measuresTerm`. Conflating a property name with its metric blocks protocol design; each §8 leaf should eventually pair with a named rate. Metric authors and benchmark curators may own different slices; all presuppose agreed parents in §4 and §8.
 
@@ -147,7 +157,7 @@ Dimensions and failure classes are **not** numbers. This section names quantifie
 |  | Metrics (22) | [○ Calibration error](./s09-metrics-p1.json#L104)<br>[○ Configuration error rate](./s09-metrics-p1.json#L129)<br>[○ Coordination failure rate](./s09-metrics-p1.json#L150)<br>[○ Entity mismatch rate](./s09-metrics-p1.json#L171)<br>[○ Fabricated tool result rate](./s09-metrics-p1.json#L192)<br>[○ Goal misalignment rate](./s09-metrics-p1.json#L213)<br>[○ Hallucination rate](./s09-metrics-p1.json#L234)<br>[○ Incorrect task outcome rate](./s09-metrics-p1.json#L258)<br>[○ Infrastructure failure rate](./s09-metrics-p1.json#L283)<br>[○ Message delivery failure rate](./s09-metrics-p1.json#L305)<br>[○ Planning error rate](./s09-metrics-p1.json#L326)<br>[○ Policy violation rate](./s09-metrics-p1.json#L347)<br>[○ Reasoning failure rate](./s09-metrics-p1.json#L368)<br>[○ Recovery failure rate](./s09-metrics-p1.json#L390)<br>[○ Repeated-run success rate](./s09-metrics-p1.json#L409)<br>[○ Silent wrong action rate](./s09-metrics-p1.json#L439)<br>[○ Stale source error rate](./s09-metrics-p1.json#L458)<br>[○ Task abandonment rate](./s09-metrics-p1.json#L479)<br>[○ Task success rate](./s09-metrics-p1.json#L500)<br>[○ Tool availability failure rate](./s09-metrics-p1.json#L528)<br>[○ Ungrounded claim rate](./s09-metrics-p1.json#L549)<br>[○ User re-prompt rate](./s09-metrics-p1.json#L570) | - ARWG primary (quantifiers for properties and failure classes) |
 | **P2** (2)<br>`s09-metrics-p2.json` | Metrics (2) | [○ Resource cost variance](./s09-metrics-p2.json#L11)<br>[○ Retry budget utilisation](./s09-metrics-p2.json#L34) | - ARWG primary (quantifiers for properties and failure classes) |
 
-## §0.7 — Evaluation ecosystem
+## §10 — Evaluation ecosystem
 
 Benchmarks, scenarios, traces, tools, users, operators, and infrastructure describe *how* measurement runs — distinct from agent **properties** in §3–§5. A **benchmark** is a protocol with scenarios, envelope, and methodology that can support a qualified claim; a **leaderboard** is often a ranked snapshot (for example pass@1) useful as a headline but not a substitute for a declared benchmark. Inventory and gap analysis depend on this vocabulary once evaluation subjects from §3 are understood; benchmark maintainers and harness engineers can own D1 subsections here without editing core property definitions.
 
@@ -158,13 +168,9 @@ Benchmarks, scenarios, traces, tools, users, operators, and infrastructure descr
 | **P1** (19)<br>`s10-ecosystem-p1.json` | Evaluation ecosystem (19) | [○ Benchmark](./s10-ecosystem-p1.json#L25)<br>[○ Context](./s10-ecosystem-p1.json#L52)<br>[○ Context assembly](./s10-ecosystem-p1.json#L77)<br>[○ Context source](./s10-ecosystem-p1.json#L102)<br>[○ Entry point](./s10-ecosystem-p1.json#L123)<br>[○ Evaluation participant](./s10-ecosystem-p1.json#L149)<br>[○ Evaluation scenario](./s10-ecosystem-p1.json#L173)<br>[○ Infrastructure](./s10-ecosystem-p1.json#L197)<br>[○ Leaderboard](./s10-ecosystem-p1.json#L227)<br>[○ Model access](./s10-ecosystem-p1.json#L257)<br>[○ Operator](./s10-ecosystem-p1.json#L281)<br>[○ Orchestrator](./s10-ecosystem-p1.json#L306)<br>[○ Runtime platform](./s10-ecosystem-p1.json#L329)<br>[○ Telemetry](./s10-ecosystem-p1.json#L356)<br>[○ Telemetry path](./s10-ecosystem-p1.json#L382)<br>[○ Tool](./s10-ecosystem-p1.json#L410)<br>[○ Tool access](./s10-ecosystem-p1.json#L435)<br>[○ Trace](./s10-ecosystem-p1.json#L459)<br>[○ User](./s10-ecosystem-p1.json#L484) | - Workflows & Process Integration (orchestrator, tool)<br>- Observability & Traceability (telemetry, trace)<br>- ARWG gap inventory |
 | **P2** (2)<br>`s10-ecosystem-p2.json` | Evaluation ecosystem (2) | [○ Evaluator](./s10-ecosystem-p2.json#L11)<br>[○ Message bus](./s10-ecosystem-p2.json#L34) | - Workflows & Process Integration (orchestrator, tool)<br>- Observability & Traceability (telemetry, trace)<br>- ARWG gap inventory |
 
-## Response — design & correction (D1 layer 5, preliminary)
-
-**Preliminary.** This section is a placeholder index for response vocabulary — not yet on the same footing as (§3)–(§8). Definitions and D1 structure may change substantially as deliverables progress.
+## §11 — Response — design & correction
 
 Production reliability depends on **preventing** failures (verification loops, proactive grounding, delegation control) and **recovering** when they occur (retry, human-in-the-loop, rollback, escalation, circuit breaker, fallback). This slice closes the loop from (§8) symptoms and root causes to remediation.
-
-It is **D1 layer 5** (canonical glossary §10.11) but does not yet have its own numbered D1 section like (§3)–(§8); structurally it overlaps (§6) recoverability and charter correction scope. **Phase 2** review (see [Review phases](#review-phases)) is expected after (§3)–(§8) and core metrics are agreed.
 
 **P0** — self-correction only (stored in `s11-response-p1.json`). **P1** — reliability by design patterns and primary correction mechanisms (retry, escalation, HITL). **P2** — operational controls (circuit breaker, rollback, fallback, policy gates, version pinning).
 
