@@ -70,98 +70,49 @@ This Working Group was formed to address the gap in understanding, measuring, an
 
 ### Planned Deliverables
 
-For each deliverable, define owner, format, and target date.
-Deliverable types, versioning schemes, and review processes are defined in §11.
+Six public deliverables (D1–D6) and one internal coordination document (I1). Deliverable types, versioning schemes, and review processes are defined in §11. Internal documents (I-series) are working artifacts not intended for public publication.
 
-#### Phase 1: Foundation (0–3 Months)
-
-**D1. Reliability & Accuracy Taxonomy**
-Formal classification of terminology and boundaries, including failure term taxonomy and shared vocabulary for consistency and robustness.  
-Living document - Owner: TODO - Format: TODO - Target date: TODO
-Participants:
-- Casper Nielsen (Diagrid)
-
-**D2. Liaison & Dependency Map [Inter-WG]**
-Identification of cross-WG touchpoints and assigned liaison roles to ensure interoperability and prevent technical overlap.  
-Living document - Owner: TODO - Format: TODO - Target date: TODO
-
-#### Phase 2: Strategy & Best Practices (3–6 Months)
-
-**D3. Gap Analysis and Accuracy Benchmark Survey**  
-Research report mapping enterprise requirements against existing industry benchmarks to identify coverage gaps — specifically which accuracy dimensions and reliability scenarios are underserved by current benchmarks. The findings of D3 directly inform the scope of D6.  
-Report/Whitepaper - Owner: TODO - Format: TODO - Target date: TODO
-Participants:  
-- Brian Malone (BrightQuery)
-- Sanjeev Suresh (Uber)
-
-**D4. Canonical Whitepaper: Accuracy & Reliability in Agentic Systems**  
-The foundational positioning paper, covering evaluation dimensions, measurement techniques, quality threshold frameworks, and test dataset design principles alongside proactive reliability patterns.  
-Report/Whitepaper - Owner: TODO - Format: TODO - Target date: TODO
-- Sanjeev Suresh (Uber)
-- Casper Nielsen (Diagrid)
-- Prachi Manchanda (Stripe)
-
-**D5. Reliability-by-Design Best Practices Guide**  
-Practical translation of taxonomy into architectural patterns, focusing on verification loops, proactive grounding, and delegation controls.  
-Report/Whitepaper - Owner: TODO - Format: TODO - Target date: TODO
-
-
-#### Phase 3: Implementation & Validation (6 Months+)
-
-**D6. Agent Output Quality Standard: Evaluation Protocol and Metric Specification**  
-Normative standard produced in response to the gaps identified in D3 — directly addressing the absence of an industry standard for measuring agent output quality identified in §2. Defines measurement techniques for both accuracy and reliability dimensions, with baseline quality thresholds required for enterprise deployment.  
-Agent Evaluation Playbook: step-by-step guidance on running an evaluation campaign, selecting fault scenarios, interpreting accuracy and reliability results across dimensions, and reporting findings in a format compatible with D6 thresholds. Covers both automated benchmark scoring and user-perceived reliability signals.  
-Specification - Owner: TODO - Format: TODO - Target date: TODO
-
-**D7. Trust Anchors and Grounding Guide [Inter-WG]**  
-Defining evidence requirements and entity resolution protocols that interface with observability and data standards.  
-Expose canonical benchmark dataset to validate grounding and trust.
-Specification - Owner: TODO - Format: TODO - Target date: TODO
-
-**D8. Agent SLA and Failure Signaling Specification**  
-Standardized framework for reporting quality-of-service claims, reliability signals, and failure alerts to orchestrators and human operators — including HITL escalation triggers, state-handoff formats, and human feedback signals (task completion validation, re-prompt events) as first-class reliability inputs.  
-Specification - Owner: TODO - Format: TODO - Target date: TODO  
-
-**D9. Recovery Reference Implementation**  
-Code-based reference implementation demonstrating standardized recovery hooks, state restoration, and automated compensation patterns.  
-Reference Implementation - Owner: TODO - Format: TODO - Target date: TODO  
-
-**D10. Conformance Test Suite**  
-Validation artifacts to test whether systems meet the defined protocol and signaling requirements, and the technical foundation for the ARWG Reliability Conformance Mark — including pass/fail criteria, coverage requirements across accuracy and reliability dimensions, and self-certification guidance.  
-Specification - Owner: TODO - Format: TODO - Target date: TODO  
-
-**D11. Benchmark and Leaderboard**  
-Ecosystem artifact for comparing systems consistently across defined tasks and reliability dimensions.  
-Deliverable types, versioning schemes, and review processes are defined in §11. Internal documents (I-series) are working artifacts not intended for public publication.
+**Dependency chain:** D1 → D2 → D4; D3 in parallel; D4 → D5 → D6.
 
 #### Phase 1 — Foundation (0–3 months)
 
-- **D1. Terminology, Taxonomy & Failure Mode Classification** *(Living Document)*
-  Shared vocabulary for accuracy and reliability in agentic systems. Includes a structured classification of agent-specific failure modes — distinguishing what can be controlled, where resilience applies, and where human intervention is required — and explicit boundaries defining what is and is not within scope of evaluation.
+- **D1. Reliability & Accuracy Taxonomy** *(Living Document)*  
+  Formal classification of terminology and boundaries, including failure term taxonomy and shared vocabulary for consistency and robustness.  
+  Owner: TODO — Format: TODO — Target date: TODO  
+  Participants:
+  - Casper Nielsen (Diagrid)
 
-- **D2. Gap Analysis and Benchmark Survey** *(Report)*
-  Survey of existing benchmarks and state of the art, identifying which accuracy and reliability dimensions are underserved. Directly informs D4.
+- **D2. Gap Analysis and Benchmark Survey** *(Report)*  
+  Survey of existing benchmarks, leaderboards, and state of the art, identifying which accuracy and reliability dimensions are underserved. Directly informs D4.  
+  Owner: TODO — Format: TODO — Target date: TODO  
+  Participants:
+  - Brian Malone (BrightQuery)
+  - Sanjeev Suresh (Uber)
 
-- **I1. Inter-WG Coordination Specification** *(Internal Living Document)*
-  ARWG requirements on adjacent WGs (Identity & Trust, Observability, Security & Privacy), liaison assignments, shared interface contracts, and boundary decisions on failure modes that span multiple WGs.
+- **I1. Inter-WG Coordination Specification** *(Internal Living Document)*  
+  ARWG requirements on adjacent WGs (Identity & Trust, Observability, Security & Privacy), liaison assignments, shared interface contracts, boundary decisions on failure modes that span multiple WGs, and trust-anchor interface requirements for grounding and evidence.
 
 #### Phase 2 — Best Practices (3–6 months)
 
-- **D3. Reliability-by-Design Best Practices Guide** *(Report)*
-  Practical architectural patterns for building agents and multi-agent systems where reliability and accuracy are first-class properties, including verification loops and grounding practices.
+- **D3. Reliability-by-Design Best Practices Guide** *(Report)*  
+  Practical architectural patterns for building agents and multi-agent systems where reliability and accuracy are first-class properties, including verification loops and grounding practices.  
+  Owner: TODO — Format: TODO — Target date: TODO
 
-- **D4. Agent Output Quality Standard** *(Specification)*
-  Normative specification defining evaluation dimensions, measurement techniques, and quality thresholds for assessing the accuracy and reliability of agents and multi-agent systems.
+- **D4. Agent Output Quality Standard** *(Specification)*  
+  Normative specification defining evaluation dimensions, measurement techniques, and quality thresholds for assessing the accuracy and reliability of agents and multi-agent systems.  
+  Owner: TODO — Format: TODO — Target date: TODO
 
 #### Phase 3 — Normative Standards (6 months+, speculative)
 
 > The following deliverables represent the WG's longer-term ambitions. Scope, format, and priority will be refined based on progress in Phases 1 and 2.
 
-- **D5. Corrective Action Framework** *(Specification)*
-  Categories of response to accuracy and reliability failures — what can be addressed autonomously, where resilience patterns apply, and when human intervention is required — with handoff and signaling requirements for each.
+- **D5. Corrective Action Framework** *(Specification)*  
+  Categories of response to accuracy and reliability failures — what can be addressed autonomously, where resilience patterns apply, and when human intervention is required — with handoff and signaling requirements for each. Includes failure signaling, SLA and QoS reporting, HITL escalation triggers, state-handoff formats, and recovery patterns such as state restoration and automated compensation.  
+  Owner: TODO — Format: TODO — Target date: TODO
 
-- **D6. Evaluation and Conformance Guidance** *(Specification)*
-  Criteria and methodology for assessing whether agents or multi-agent systems meet the quality thresholds defined in D4, including self-assessment guidance.
+- **D6. Evaluation and Conformance Guidance** *(Specification)*  
+  Criteria and methodology for assessing whether agents or multi-agent systems meet the quality thresholds defined in D4, including self-assessment guidance, conformance validation artifacts, and pass/fail tests across accuracy and reliability dimensions.  
+  Owner: TODO — Format: TODO — Target date: TODO
 
 ### Definition of Done (DoD)
 
