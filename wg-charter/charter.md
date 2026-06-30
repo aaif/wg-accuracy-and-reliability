@@ -5,7 +5,7 @@
 **Working Group Name:** Accuracy & Reliability  
 **Short Name / Acronym:** ARWG  
 **Date Approved:**  2026-05-15  
-**Last Updated:** 2026-04-14  
+**Last Updated:** 2026-06-30  
 **Homepage / Repo (if applicable):** https://github.com/aaif/wg-accuracy-and-reliability  
 **Primary Contact (Chair/Lead):** Jordan Augé (Cisco) <augjorda@cisco.com>
 
@@ -71,8 +71,6 @@ This Working Group was formed to address the gap in understanding, measuring, an
 ### Planned Deliverables
 
 Six public deliverables (D1–D6) and one internal coordination document (I1). Deliverable types, versioning schemes, and review processes are defined in §11. Internal documents (I-series) are working artifacts not intended for public publication.
-
-**Dependency chain:** D1 → D2 → D4; D3 in parallel; D4 → D5 → D6.
 
 #### Phase 1 — Foundation (0–3 months)
 
