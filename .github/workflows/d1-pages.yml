@@ -1,0 +1,64 @@
+name: Publish D1 to GitHub Pages
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'D1-terminology-taxonomy/**'
+      - 'scripts/build_d1_site.sh'
+      - 'Taskfile.yml'
+      - '.github/workflows/d1-pages.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v5
+
+      - name: Setup Task
+        uses: arduino/setup-task@v2
+
+      - name: Setup Pandoc
+        uses: r-lib/actions/setup-pandoc@v2
+
+      - name: Setup TeX Live
+        uses: teatimeguest/setup-texlive-action@v3
+        with:
+          cache: true
+          packages: >-
+            scheme-small
+            collection-latexrecommended
+            collection-fontsrecommended
+
+      - name: Build D1 deliverable site
+        run: task d1:pages
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: ./docs
+
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

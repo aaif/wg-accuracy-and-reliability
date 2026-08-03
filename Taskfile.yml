@@ -1,0 +1,44 @@
+version: '3'
+
+tasks:
+  d1:glossary:
+    desc: Generate D1 glossary appendices from taxonomy CSV
+    cmds:
+      - python3 scripts/generate_d1_glossary.py
+
+  d1:clean:
+    desc: Remove generated D1 website artifacts
+    cmds:
+      - rm -rf docs/d1
+
+  d1:build-html:
+    desc: Build D1 HTML artifacts only (no PDF)
+    cmds:
+      - SKIP_PDF=1 bash scripts/build_d1_site.sh
+
+  d1:build:
+    desc: Build D1 single-page HTML, chapter HTML pages, ToC, and PDF under docs/d1
+    cmds:
+      - task d1:glossary
+      - bash scripts/build_d1_site.sh
+
+  d1:serve:
+    desc: Serve docs locally on http://localhost:8000
+    cmds:
+      - task d1:build-html
+      - python3 -m http.server 8000 --directory docs
+
+  d1:check:
+    desc: Validate that required output files exist
+    deps: [d1:build]
+    cmds:
+      - test -f docs/d1/index.html
+      - test -f docs/d1/toc.html
+      - test -f docs/d1/d1-single-page.html
+      - test -f docs/d1/d1-deliverable.pdf
+
+  d1:pages:
+    desc: Build D1 artifacts for GitHub Pages publication
+    cmds:
+      - task d1:build
+      - echo "GitHub Pages content ready in docs/ (D1 under docs/d1/)"
