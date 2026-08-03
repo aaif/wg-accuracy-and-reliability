@@ -19,7 +19,6 @@ tasks:
   d1:build:
     desc: Build D1 single-page HTML, chapter HTML pages, ToC, and PDF under docs/d1
     cmds:
-      - task d1:glossary
       - bash scripts/build_d1_site.sh
 
   d1:serve:
