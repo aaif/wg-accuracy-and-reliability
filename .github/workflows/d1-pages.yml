@@ -8,6 +8,13 @@ on:
       - 'scripts/build_d1_site.sh'
       - 'Taskfile.yml'
       - '.github/workflows/d1-pages.yml'
+  pull_request:
+    branches: [main]
+    paths:
+      - 'D1-terminology-taxonomy/**'
+      - 'scripts/build_d1_site.sh'
+      - 'Taskfile.yml'
+      - '.github/workflows/d1-pages.yml'
   workflow_dispatch:
 
 permissions:
@@ -53,6 +60,7 @@ jobs:
           path: ./docs
 
   deploy:
+    if: github.event_name != 'pull_request'
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
