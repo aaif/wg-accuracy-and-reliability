@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Terminology and Boundaries for Accuracy and Reliability</title>
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+  <link rel="stylesheet" href="../assets/d1.css" />
+</head>
+<body>
+<header id="title-block-header">
+<h1 class="title">Terminology and Boundaries for Accuracy and
+Reliability</h1>
+</header>
+<p><a href="../index.html">Back to D1 index</a> | <a
+href="../toc.html">ToC</a> | <a href="../d1-single-page.html">Single
+page</a></p>
+<h1
+id="terminology-and-boundaries-for-accuracy-and-reliability">Terminology
+and Boundaries for Accuracy and Reliability</h1>
+<h2 id="executive-summary">Executive summary</h2>
+<p>This document establishes a stable, vendor-neutral vocabulary for
+accuracy and reliability claims about agents and multi-agent systems
+operating under enterprise conditions.</p>
+<p>The approach taken is conceptual rather than procedural. Before any
+claim is made, the evaluation subject must be identified: a model, an
+agent, a multi-agent system, or a workflow/pipeline. Properties — what
+is being claimed — are kept separate from evaluation artefacts — how a
+claim is tested. Metrics are treated as quantifiers attached to explicit
+concepts rather than as substitutes for those concepts, and observed
+symptoms are separated from attributed root causes before any preventive
+or corrective mechanism is chosen. One consequence of this approach is a
+strict interpretation rule: a leaderboard score or an isolated benchmark
+result is not sufficient grounds for a broad reliability claim unless
+the evaluation subject, its operating envelope, and its methodology are
+all declared.</p>
+<p>The chapters that follow build this vocabulary in a fixed order,
+because each layer depends on the one before it. Purpose and scope fixes
+why the vocabulary is needed and what it deliberately leaves out. Design
+principles set the admission criteria and layering rules used to decide
+whether a candidate term earns a place in the vocabulary. System
+boundaries then declares the evaluation subject and the attribution
+boundary that any later claim must respect, and immediately
+distinguishes failures that originate outside the evaluated subject from
+failures that originate inside it, so that symptoms can be mapped before
+root causes are reconstructed. Core concepts positions accuracy against
+reliability and introduces the correctness variants needed to avoid
+category errors between the two. Reliability dimensions decomposes
+reliability itself into consistency, robustness, predictability, and
+safety. Operational and governance terms adds the identity,
+traceability, and recoverability constraints that attribution and audit
+require. Grounding and evidence terms defines how claims are anchored to
+world evidence and to trust anchors. Failure vocabulary formalises the
+progression from symptom to attribution to root cause so that
+remediation is actionable rather than generic. Metrics and measurement
+links dimensions and failures to explicit quantifiers under a declared
+envelope, including non-failure performance characteristics such as
+cost, variance, and consistency under load. Evaluation ecosystem
+separates properties from the benchmark, scenario, trace, and harness
+artefacts used to measure them. Response and correction closes the loop
+by defining reliability-by-design patterns and correction
+mechanisms.</p>
+<p>Read in this order, the vocabulary gives practitioners a common
+dashboard language for accuracy and reliability across deployment
+profiles, a shared way to declare boundaries for security and production
+exposure, and a release-claim structure that reduces ambiguity across
+teams.</p>
+</body>
+</html>

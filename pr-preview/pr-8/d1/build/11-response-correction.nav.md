@@ -1,0 +1,177 @@
+[Back to D1 index](../index.html) | [ToC](../toc.html) | [Single page](../d1-single-page.html)
+
+# Response (Design and Correction)
+
+This chapter closes the methodology by defining preventive and corrective
+response terms that operationalise reliability by design and complete the
+failure-to-remediation loop. Teams often detect failures but lack a shared
+lifecycle for containment, safe degradation, attribution, and iterative
+correction across design-time and runtime layers: when an external policy
+service fails during an autonomous run, a robust response is not to
+"continue normally," but to contain the situation first — abstain, fall
+back, or hand off to a human — and only then attribute the cause and retry
+under control.
+
+## 11.1 What this chapter covers
+
+Response vocabulary names how systems prevent failures, through reliability
+by design, and how they react after detection, through correction
+mechanisms; together these form the response layer of the taxonomy.
+Reliability-by-design patterns are upstream measures that reduce failure
+before commit, such as a verification loop, proactive grounding, a policy
+gate, or specification validation. Correction mechanisms are defined
+reactions after failure or suspicion, such as retry, escalation,
+human-in-the-loop, rollback, compensation, or a circuit breaker.
+
+Recoverability (§6) is an operational property, not a fifth reliability
+dimension: it describes whether the system can detect, bound, and exit fault
+states, while correction mechanisms are how recoverability is exercised in
+practice.
+
+---
+
+## 11.2 Boundary of this chapter
+
+This chapter defines what correction terms mean and how they relate to
+reliability and recoverability. It does not prescribe implementation-specific
+event schemas, transport formats, or orchestration protocol details.
+
+---
+
+## 11.3 Canonical terms
+
+Normative definitions for this publication scope are maintained in this
+chapter set. Admission follows the same criteria set out in §2.
+
+---
+
+## 11.4 Closing the loop
+
+The preceding chapters fix a usable boundary between definition and
+implementation: what is meant by evaluation subject, accuracy, reliability,
+its dimensions, governance terms, failure classes, metrics, ecosystem
+artefacts, and correction mechanisms. Taken together, they provide a shared
+vocabulary that can be cited consistently across ARWG work, the terminology
+needed for measurement and drift or degradation detection claims, correction
+and reliability-by-design language for proactive and reactive practices, and
+a vendor-neutral terminology base that can be adopted across toolchains.
+
+This vocabulary does not prescribe implementation platforms or compliance
+policy. Its role is to provide the common language required to make later
+guidance and specifications precise, comparable, and auditable.
+
+## 11.5 Action points by persona (usable now)
+
+Several actions can be taken immediately by partners using this taxonomy.
+Evaluation and benchmark teams can attach the full reporting field set —
+subject, deployment profile, rings, dimension, metric, envelope, and
+identity/version reference — to every published benchmark result, so that
+readers can compare like with like across frameworks, and can reject any
+result line that omits subject or envelope metadata, flagging it as
+non-comparable rather than low quality.
+
+Agent and platform engineering teams can require stable agent identity and
+version tagging for every evaluated release, then apply the attribution
+order — infra, then agent, then world, then recovery — before selecting
+remediation, treating attribution as a mandatory gate in incident triage so
+that retry or fallback changes are not used to mask upstream boundary
+failures.
+
+Release and operations teams can include a release accuracy-and-reliability
+card in change approval, declaring the deployment profile (autonomous,
+copilot, or CI/CD automation), the action authority (read, constrained
+write, or privileged write), the trust-anchor mode, and the profile-specific
+metric family, and can block promotion when profile or boundary declarations
+are missing, even when headline accuracy looks strong.
+
+Security and governance teams can require evidence-linked claims, explicit
+user-exposure classification, and traceability to the evaluated
+identity/version before production sign-off, classifying sign-off exceptions
+as governance exceptions rather than model exceptions whenever provenance,
+exposure scope, or trust-anchor declarations are incomplete.
+
+Product and workflow owners can select indicators by deployment profile and
+business workflow stage, then monitor drift or degradation using consistent
+semantics over time rather than swapping metric meanings across releases,
+keeping one stable metric dictionary per profile so that product reviews
+track real performance movement rather than taxonomy drift.
+
+Together, these actions reduce ambiguity immediately, while detailed
+thresholds, conformance suites, and platform-specific implementation
+guidance are left for later work.
+
+## 11.6 What comes next
+
+This chapter set provides the taxonomy contract; subsequent work
+operationalises it. Reliability-by-design implementation guidance,
+a quality standard with thresholds and formal criteria, a corrective action
+framework with escalation semantics, and an evaluation and conformance
+methodology are all planned as follow-on deliverables. This sequencing keeps
+the present scope focused while still giving partners concrete day-one
+value: a minimal adoption pack limited to four artifacts — an
+accuracy-and-reliability claim field card, a deployment profile sheet, a
+release boundary declaration checklist, and a dashboard semantic mapping.
+Everything beyond this pack — thresholds, conformance suites, implementation
+playbooks, and runtime-level recovery specifications — is intentionally
+deferred to that later work.
+
+## 11.7 Failure lifecycle and response lifecycle
+
+Chapter 8 already defines failure vocabulary and attribution evidence
+requirements. Operationally, those definitions map onto a practical
+lifecycle. The first step is to observe symptoms: collect user-visible and
+system-visible signals — quality drops, safety alerts, retries, anomalies —
+without forcing a premature root-cause label. The second is to classify and
+scope: label symptoms with the vocabulary defined here and declare subject,
+profile, rings, and envelope, so that events are comparable and
+attributable. The third is to reconstruct root cause: apply the attribution
+order — infra, then agent, then world, then recovery — using evidence
+fields, deriving root cause from evidence rather than logging a guessed
+cause string. The fourth is to contain and degrade safely: when immediate
+full repair is not possible, apply bounded-risk actions such as abstaining,
+gating, falling back, rolling back, or handing off to a human, in order to
+prevent uncontrolled impact. The fifth is to correct and iterate: push fixes
+at the right layer — a design-time pattern, a runtime policy, an external
+control — then re-measure with the same semantics to confirm improvement.
+
+This lifecycle is broader than "debugging failures": it supports safe
+degradation and controlled operation whenever uncertainty or external
+dependency risk remains.
+
+## 11.8 Accuracy-and-reliability design space and landscape framing
+
+Accuracy and reliability work is not only failure handling. It is the
+combined coverage of failure-mode span — how well reasoning, infrastructure,
+grounding, coordination, and recovery failures are detected, attributed, and
+mitigated; non-failure performance characterization — how well cost, latency
+and resource variance, calibration quality, and consistency under load are
+measured and tracked; control timing — which controls are applied at design
+time, at runtime, and during post-incident iteration; and control locus —
+which controls live inside agents, in orchestration and runtime layers, or
+in external governance and human processes.
+
+Together, these four axes give a grounding for a solution landscape map:
+solution families can be positioned by which part of the failure or
+performance span they cover, which layer they operate on, and whether they
+prevent, detect, contain, or recover. In this framing, observability is the
+bridge between symptoms and root-cause reconstruction: it enables
+attribution and iterative improvement, including cases where immediate
+in-agent correction is impossible and external containment is required.
+
+Read end to end, the operational schema runs as follows. Once boundaries are
+declared, failures are split into an external failure surface and an
+internal failure surface; symptom observability captures what manifests;
+root-cause reconstruction applies the attribution order; containment and
+safe degradation bound the impact; remediation is applied at design time, at
+runtime, or through external controls; and the same claim is re-measured to
+confirm the fix held. Running in parallel at every step is non-failure
+performance characterization — accuracy baseline, cost, latency, variance,
+and calibration — so that a system is never assessed on failure handling
+alone. The resulting coverage is the sum of three things: failure-mode span
+coverage, performance-characterization coverage, and control coverage across
+every stage of this lifecycle.
+
+The cross-WG handoff that follows from this framing stays fixed: ARWG
+defines what is named and measured, Observability defines trace mechanics,
+Identity and Trust defines identity and trust-anchor standards, and Security
+and Privacy defines controls for exposed or privileged contexts.
