@@ -1,0 +1,45 @@
+name: D1 PR preview
+
+on:
+  pull_request:
+    types: [opened, reopened, synchronize, closed]
+    branches: [main]
+    paths:
+      - 'D1-terminology-taxonomy/**'
+      - 'scripts/build_d1_site.sh'
+      - 'Taskfile.yml'
+      - '.github/workflows/d1-pr-preview.yml'
+
+permissions:
+  contents: write
+  pull-requests: write
+
+concurrency:
+  group: pr-preview-${{ github.event.number }}
+  cancel-in-progress: true
+
+jobs:
+  preview:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        if: github.event.action != 'closed'
+        uses: actions/checkout@v4
+
+      - name: Setup Task
+        if: github.event.action != 'closed'
+        uses: arduino/setup-task@v2
+
+      - name: Setup Pandoc
+        if: github.event.action != 'closed'
+        uses: r-lib/actions/setup-pandoc@v2
+
+      - name: Build D1 deliverable site (HTML only, no PDF)
+        if: github.event.action != 'closed'
+        run: task d1:build-html
+
+      - name: Deploy PR preview
+        uses: rossjrw/pr-preview-action@v1
+        with:
+          source-dir: ./docs
+          preview-branch: gh-pages
