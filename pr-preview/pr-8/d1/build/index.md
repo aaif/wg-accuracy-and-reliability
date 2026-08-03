@@ -14,7 +14,6 @@ This publication is a supporting document to the ARWG taxonomy effort.
 
 - [Single-page HTML](d1-single-page.html)
 - [Table of contents](toc.html)
-- [PDF](d1-deliverable.pdf)
 
 ## Chapter pages
 - [0 - Terminology and Boundaries for Accuracy and Reliability](chapters/00-taxonomy-architecture.html)

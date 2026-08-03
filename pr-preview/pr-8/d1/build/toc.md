@@ -3,7 +3,6 @@
 Navigation:
 - [Back to D1 index](index.html)
 - [Single-page HTML](d1-single-page.html)
-- [PDF](d1-deliverable.pdf)
 
 ## Chapters
 - [0 - Terminology and Boundaries for Accuracy and Reliability](chapters/00-taxonomy-architecture.html)
