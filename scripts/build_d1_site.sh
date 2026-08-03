@@ -183,10 +183,13 @@ cat > "$TOC_MD" <<'MD'
 Navigation:
 - [Back to D1 index](index.html)
 - [Single-page HTML](d1-single-page.html)
-- [PDF](d1-deliverable.pdf)
-
-## Chapters
 MD
+
+if [[ "$SKIP_PDF" != "1" ]]; then
+  printf -- "- [PDF](d1-deliverable.pdf)\n" >> "$TOC_MD"
+fi
+
+printf "\n## Chapters\n" >> "$TOC_MD"
 
 for file in "${CHAPTER_FILES[@]}"; do
   stem="${file%.md}"
@@ -227,10 +230,13 @@ This publication is a supporting document to the ARWG taxonomy effort.
 
 - [Single-page HTML](d1-single-page.html)
 - [Table of contents](toc.html)
-- [PDF](d1-deliverable.pdf)
-
-## Chapter pages
 MD
+
+if [[ "$SKIP_PDF" != "1" ]]; then
+  printf -- "- [PDF](d1-deliverable.pdf)\n" >> "$INDEX_MD"
+fi
+
+printf "\n## Chapter pages\n" >> "$INDEX_MD"
 
 for file in "${CHAPTER_FILES[@]}"; do
   stem="${file%.md}"
@@ -347,6 +353,20 @@ if [[ -f "$INPUT_DIR/$REFERENCE_FILE" ]]; then
     --css "../assets/d1.css" \
     --output "$CHAPTERS_DIR/$ref_stem.html"
 fi
+
+cat > "$OUTPUT_ROOT/index.html" <<'HTML'
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="refresh" content="0; url=d1/index.html">
+  <title>ARWG deliverables</title>
+</head>
+<body>
+  <p>Redirecting to the <a href="d1/index.html">D1 deliverable</a>.</p>
+</body>
+</html>
+HTML
 
 if [[ "$SKIP_PDF" == "1" ]]; then
   echo "D1 site built (HTML only) in: $OUTPUT_DIR"
