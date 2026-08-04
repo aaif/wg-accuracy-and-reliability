@@ -1,4 +1,4 @@
-# ARWG Agent Adoption, Accuracy & Reliability Survey — Review Draft
+# ARWG Agent Adoption, Accuracy & Reliability Survey
 
 This is the platform-neutral review source for the Accuracy & Reliability Working Group survey. It records the agreed 15-question survey and the behavior a fielded survey must preserve, independent of implementation platform.
 
@@ -14,7 +14,7 @@ This is the platform-neutral review source for the Accuracy & Reliability Workin
 - **Multi-select:** one or more listed answers may be selected unless an exclusive choice is specified.
 - **Single-response matrix:** exactly one scale answer is selected for each factor row.
 - **Inline text:** a short text field appears beside the answer choice and is required only when that choice is selected.
-- **Display order:** fixed as listed in this review draft. Any later randomization must preserve ordered scales and the placement of terminal choices such as “None,” “Something else,” and “Not sure.”
+- **Display order:** fixed as listed in this survey. Any later randomization must preserve ordered scales and the placement of terminal choices such as “None,” “Something else,” and “Not sure.”
 
 ## Focal-system instruction
 
