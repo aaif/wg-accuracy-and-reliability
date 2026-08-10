@@ -13,7 +13,7 @@ system can be accurate on one run and still unreliable under repetition, and
 the distinction below is what keeps that from being summarised as a single,
 undifferentiated score.
 
-## 4.0 Evaluation subjects
+## 3.0 Evaluation subjects
 
 The concepts in this chapter apply to two classes of evaluation subject, both
 introduced here with their exact boundaries fixed in Chapter 3. An agent is a
@@ -32,7 +32,7 @@ subjects.
 
 ---
 
-## 4.1 Accuracy
+## 3.1 Accuracy
 
 Accuracy is the degree to which an agent or MAS produces the correct result
 for a task instance under a specified evaluation setup. It is an outcome
@@ -55,7 +55,7 @@ judgments; those concerns belong elsewhere in this vocabulary. The benchmarks
 most relevant for grounding the definition are Tau-Bench, Terminal-Bench, and
 SWE-Bench.
 
-### 4.1.1 Grounding accuracy in benchmark practice
+### 3.1.1 Grounding accuracy in benchmark practice
 
 The most principled way to operationalise accuracy is to examine how it is
 defined across widely used benchmarks: Tau-Bench, Terminal-Bench, and
@@ -68,7 +68,7 @@ the evaluation checks whether the final state is correct [Yao et al., 2024].
 This operationalisation makes accuracy concrete and reproducible without
 relying on an LLM acting as judge.
 
-### 4.1.2 A-priori correctness and offline evaluation
+### 3.1.2 A-priori correctness and offline evaluation
 
 For offline evaluation settings, the concept of a-priori correctness deserves
 consideration. An offline evaluator does not have access to the totality of
@@ -89,7 +89,7 @@ contextually wrong for the specific user in production.
 
 ---
 
-## 4.2 Reliability
+## 3.2 Reliability
 
 Reliability — agent reliability, the working default in this vocabulary — is
 the degree to which an agent or MAS preserves correct behaviour across
@@ -148,7 +148,7 @@ silently into an existing dimension.
 
 ---
 
-## 4.3 Accuracy and reliability as orthogonal concepts
+## 3.3 Accuracy and reliability as orthogonal concepts
 
 Accuracy and reliability are orthogonal: each answers a different evaluation
 question and can fail independently of the other. A system can have high
@@ -165,7 +165,7 @@ raising pass^k, a reliability measure, at the same rate.
 
 ---
 
-## 4.4 Operational dependency
+## 3.4 Operational dependency
 
 While orthogonal as concepts, accuracy and reliability are not operationally
 independent in a deployed system. Realised accuracy depends on a reliability
@@ -184,7 +184,7 @@ while still modelling the operational properties that affect them.
 
 ---
 
-## 4.5 A three-class taxonomy of failures
+## 3.5 A three-class taxonomy of failures
 
 Failures across all taxonomies — MAST, Rabanser et al.'s reliability study,
 and BFT literature — organise naturally into three classes that differ in

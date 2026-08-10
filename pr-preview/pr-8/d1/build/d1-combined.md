@@ -391,7 +391,7 @@ This chapter fixes the declared evaluation subject and boundary rules that
 must precede any score interpretation, so that claims can distinguish model,
 agent, MAS, and workflow outcomes without ambiguity.
 
-## 3.1 Objects of evaluation
+## 4.1 Objects of evaluation
 
 Accuracy and reliability claims can apply to four distinct objects, and a
 claim must state which object is being evaluated — an unqualified claim is
@@ -414,7 +414,7 @@ uninterpretable.
 
 ---
 
-## 3.2 Agent boundary definition
+## 4.2 Agent boundary definition
 
 The agent boundary is the point at which external infrastructure interacts
 with agent-internal state. This boundary is necessary to separate failures
@@ -435,7 +435,7 @@ important requirements on the infrastructure it runs on.
 
 ---
 
-## 3.3 Agent reliability vs infrastructure reliability
+## 4.3 Agent reliability vs infrastructure reliability
 
 Agent reliability and infrastructure reliability are distinct properties at
 different layers of the system, and conflating them produces misleading
@@ -457,7 +457,7 @@ be used.
 
 ---
 
-## 3.4 Why infrastructure failures affect agent accuracy
+## 4.4 Why infrastructure failures affect agent accuracy
 
 Infrastructure failures can cause agent accuracy to degrade even when the
 agent's cognitive logic is correct, which is why establishing and excluding
@@ -472,7 +472,7 @@ cognitive quality.
 
 ---
 
-## 3.5 Deployment boundary declaration (minimum)
+## 4.5 Deployment boundary declaration (minimum)
 
 For production-relevant accuracy and reliability reporting, each claim should
 also declare whether agents are directly exposed to end users, whether
@@ -484,7 +484,7 @@ interpretable.
 
 ---
 
-## 3.6 Failure surface immediately after boundary declaration
+## 4.6 Failure surface immediately after boundary declaration
 
 Once boundaries are declared, the next step is to classify what can fail on
 the external surface versus the internal surface. The external failure
@@ -519,7 +519,7 @@ system can be accurate on one run and still unreliable under repetition, and
 the distinction below is what keeps that from being summarised as a single,
 undifferentiated score.
 
-## 4.0 Evaluation subjects
+## 3.0 Evaluation subjects
 
 The concepts in this chapter apply to two classes of evaluation subject, both
 introduced here with their exact boundaries fixed in Chapter 3. An agent is a
@@ -538,7 +538,7 @@ subjects.
 
 ---
 
-## 4.1 Accuracy
+## 3.1 Accuracy
 
 Accuracy is the degree to which an agent or MAS produces the correct result
 for a task instance under a specified evaluation setup. It is an outcome
@@ -561,7 +561,7 @@ judgments; those concerns belong elsewhere in this vocabulary. The benchmarks
 most relevant for grounding the definition are Tau-Bench, Terminal-Bench, and
 SWE-Bench.
 
-### 4.1.1 Grounding accuracy in benchmark practice
+### 3.1.1 Grounding accuracy in benchmark practice
 
 The most principled way to operationalise accuracy is to examine how it is
 defined across widely used benchmarks: Tau-Bench, Terminal-Bench, and
@@ -574,7 +574,7 @@ the evaluation checks whether the final state is correct [Yao et al., 2024].
 This operationalisation makes accuracy concrete and reproducible without
 relying on an LLM acting as judge.
 
-### 4.1.2 A-priori correctness and offline evaluation
+### 3.1.2 A-priori correctness and offline evaluation
 
 For offline evaluation settings, the concept of a-priori correctness deserves
 consideration. An offline evaluator does not have access to the totality of
@@ -595,7 +595,7 @@ contextually wrong for the specific user in production.
 
 ---
 
-## 4.2 Reliability
+## 3.2 Reliability
 
 Reliability — agent reliability, the working default in this vocabulary — is
 the degree to which an agent or MAS preserves correct behaviour across
@@ -654,7 +654,7 @@ silently into an existing dimension.
 
 ---
 
-## 4.3 Accuracy and reliability as orthogonal concepts
+## 3.3 Accuracy and reliability as orthogonal concepts
 
 Accuracy and reliability are orthogonal: each answers a different evaluation
 question and can fail independently of the other. A system can have high
@@ -671,7 +671,7 @@ raising pass^k, a reliability measure, at the same rate.
 
 ---
 
-## 4.4 Operational dependency
+## 3.4 Operational dependency
 
 While orthogonal as concepts, accuracy and reliability are not operationally
 independent in a deployed system. Realised accuracy depends on a reliability
@@ -690,7 +690,7 @@ while still modelling the operational properties that affect them.
 
 ---
 
-## 4.5 A three-class taxonomy of failures
+## 3.5 A three-class taxonomy of failures
 
 Failures across all taxonomies — MAST, Rabanser et al.'s reliability study,
 and BFT literature — organise naturally into three classes that differ in

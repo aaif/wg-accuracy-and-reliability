@@ -40,7 +40,7 @@ and Object of Evaluation</h1>
 that must precede any score interpretation, so that claims can
 distinguish model, agent, MAS, and workflow outcomes without
 ambiguity.</p>
-<h2 id="31-objects-of-evaluation">3.1 Objects of evaluation</h2>
+<h2 id="41-objects-of-evaluation">4.1 Objects of evaluation</h2>
 <p>Accuracy and reliability claims can apply to four distinct objects,
 and a claim must state which object is being evaluated — an unqualified
 claim is ambiguous. A model is a single LLM or ML model component,
@@ -60,7 +60,7 @@ outputs.</p>
 is stated. A claim that "the system has 95% accuracy" with no declared
 object is uninterpretable.</p>
 <hr />
-<h2 id="32-agent-boundary-definition">3.2 Agent boundary definition</h2>
+<h2 id="42-agent-boundary-definition">4.2 Agent boundary definition</h2>
 <p>The agent boundary is the point at which external infrastructure
 interacts with agent-internal state. This boundary is necessary to
 separate failures that occur because the agent's context assembly or
@@ -79,7 +79,7 @@ instrumental to its operation, such as communication and coordination
 systems. As a consequence, an agent carries important requirements on
 the infrastructure it runs on.</p>
 <hr />
-<h2 id="33-agent-reliability-vs-infrastructure-reliability">3.3 Agent
+<h2 id="43-agent-reliability-vs-infrastructure-reliability">4.3 Agent
 reliability vs infrastructure reliability</h2>
 <p>Agent reliability and infrastructure reliability are distinct
 properties at different layers of the system, and conflating them
@@ -98,7 +98,7 @@ Princeton-style definition covering four dimensions of output quality.
 When infrastructure availability or platform uptime is meant instead,
 the term infrastructure reliability must be used.</p>
 <hr />
-<h2 id="34-why-infrastructure-failures-affect-agent-accuracy">3.4 Why
+<h2 id="44-why-infrastructure-failures-affect-agent-accuracy">4.4 Why
 infrastructure failures affect agent accuracy</h2>
 <p>Infrastructure failures can cause agent accuracy to degrade even when
 the agent's cognitive logic is correct, which is why establishing and
@@ -112,7 +112,7 @@ failure, not cognitive failure — infrastructure health must be
 established before a failure is attributed to agent reliability or
 cognitive quality.</p>
 <hr />
-<h2 id="35-deployment-boundary-declaration-minimum">3.5 Deployment
+<h2 id="45-deployment-boundary-declaration-minimum">4.5 Deployment
 boundary declaration (minimum)</h2>
 <p>For production-relevant accuracy and reliability reporting, each
 claim should also declare whether agents are directly exposed to end
@@ -122,7 +122,7 @@ and whether actions are read-only, constrained write, or privileged
 write. These declarations do not replace metrics; they define the
 boundary conditions under which metrics are interpretable.</p>
 <hr />
-<h2 id="36-failure-surface-immediately-after-boundary-declaration">3.6
+<h2 id="46-failure-surface-immediately-after-boundary-declaration">4.6
 Failure surface immediately after boundary declaration</h2>
 <p>Once boundaries are declared, the next step is to classify what can
 fail on the external surface versus the internal surface. The external

@@ -94,58 +94,58 @@ id="toc-system-boundaries-and-object-of-evaluation"><span
 class="toc-section-number">4</span> System Boundaries and Object of
 Evaluation</a>
 <ul>
-<li><a href="#31-objects-of-evaluation"
-id="toc-31-objects-of-evaluation"><span
+<li><a href="#41-objects-of-evaluation"
+id="toc-41-objects-of-evaluation"><span
 class="toc-section-number">4.1</span> Objects of evaluation</a></li>
-<li><a href="#32-agent-boundary-definition"
-id="toc-32-agent-boundary-definition"><span
+<li><a href="#42-agent-boundary-definition"
+id="toc-42-agent-boundary-definition"><span
 class="toc-section-number">4.2</span> Agent boundary definition</a></li>
-<li><a href="#33-agent-reliability-vs-infrastructure-reliability"
-id="toc-33-agent-reliability-vs-infrastructure-reliability"><span
+<li><a href="#43-agent-reliability-vs-infrastructure-reliability"
+id="toc-43-agent-reliability-vs-infrastructure-reliability"><span
 class="toc-section-number">4.3</span> Agent reliability vs
 infrastructure reliability</a></li>
-<li><a href="#34-why-infrastructure-failures-affect-agent-accuracy"
-id="toc-34-why-infrastructure-failures-affect-agent-accuracy"><span
+<li><a href="#44-why-infrastructure-failures-affect-agent-accuracy"
+id="toc-44-why-infrastructure-failures-affect-agent-accuracy"><span
 class="toc-section-number">4.4</span> Why infrastructure failures affect
 agent accuracy</a></li>
-<li><a href="#35-deployment-boundary-declaration-minimum"
-id="toc-35-deployment-boundary-declaration-minimum"><span
+<li><a href="#45-deployment-boundary-declaration-minimum"
+id="toc-45-deployment-boundary-declaration-minimum"><span
 class="toc-section-number">4.5</span> Deployment boundary declaration
 (minimum)</a></li>
-<li><a href="#36-failure-surface-immediately-after-boundary-declaration"
-id="toc-36-failure-surface-immediately-after-boundary-declaration"><span
+<li><a href="#46-failure-surface-immediately-after-boundary-declaration"
+id="toc-46-failure-surface-immediately-after-boundary-declaration"><span
 class="toc-section-number">4.6</span> Failure surface immediately after
 boundary declaration</a></li>
 </ul></li>
 <li><a href="#core-concepts" id="toc-core-concepts"><span
 class="toc-section-number">5</span> Core Concepts</a>
 <ul>
-<li><a href="#40-evaluation-subjects"
-id="toc-40-evaluation-subjects"><span
+<li><a href="#30-evaluation-subjects"
+id="toc-30-evaluation-subjects"><span
 class="toc-section-number">5.1</span> Evaluation subjects</a></li>
-<li><a href="#41-accuracy" id="toc-41-accuracy"><span
+<li><a href="#31-accuracy" id="toc-31-accuracy"><span
 class="toc-section-number">5.2</span> Accuracy</a>
 <ul>
-<li><a href="#411-grounding-accuracy-in-benchmark-practice"
-id="toc-411-grounding-accuracy-in-benchmark-practice"><span
+<li><a href="#311-grounding-accuracy-in-benchmark-practice"
+id="toc-311-grounding-accuracy-in-benchmark-practice"><span
 class="toc-section-number">5.2.1</span> Grounding accuracy in benchmark
 practice</a></li>
-<li><a href="#412-a-priori-correctness-and-offline-evaluation"
-id="toc-412-a-priori-correctness-and-offline-evaluation"><span
+<li><a href="#312-a-priori-correctness-and-offline-evaluation"
+id="toc-312-a-priori-correctness-and-offline-evaluation"><span
 class="toc-section-number">5.2.2</span> A-priori correctness and offline
 evaluation</a></li>
 </ul></li>
-<li><a href="#42-reliability" id="toc-42-reliability"><span
+<li><a href="#32-reliability" id="toc-32-reliability"><span
 class="toc-section-number">5.3</span> Reliability</a></li>
-<li><a href="#43-accuracy-and-reliability-as-orthogonal-concepts"
-id="toc-43-accuracy-and-reliability-as-orthogonal-concepts"><span
+<li><a href="#33-accuracy-and-reliability-as-orthogonal-concepts"
+id="toc-33-accuracy-and-reliability-as-orthogonal-concepts"><span
 class="toc-section-number">5.4</span> Accuracy and reliability as
 orthogonal concepts</a></li>
-<li><a href="#44-operational-dependency"
-id="toc-44-operational-dependency"><span
+<li><a href="#34-operational-dependency"
+id="toc-34-operational-dependency"><span
 class="toc-section-number">5.5</span> Operational dependency</a></li>
-<li><a href="#45-a-three-class-taxonomy-of-failures"
-id="toc-45-a-three-class-taxonomy-of-failures"><span
+<li><a href="#35-a-three-class-taxonomy-of-failures"
+id="toc-35-a-three-class-taxonomy-of-failures"><span
 class="toc-section-number">5.6</span> A three-class taxonomy of
 failures</a></li>
 </ul></li>
@@ -733,7 +733,7 @@ Evaluation</h1>
 that must precede any score interpretation, so that claims can
 distinguish model, agent, MAS, and workflow outcomes without
 ambiguity.</p>
-<h2 data-number="4.1" id="31-objects-of-evaluation"><span
+<h2 data-number="4.1" id="41-objects-of-evaluation"><span
 class="header-section-number">4.1</span> Objects of evaluation</h2>
 <p>Accuracy and reliability claims can apply to four distinct objects,
 and a claim must state which object is being evaluated — an unqualified
@@ -754,7 +754,7 @@ outputs.</p>
 is stated. A claim that "the system has 95% accuracy" with no declared
 object is uninterpretable.</p>
 <hr />
-<h2 data-number="4.2" id="32-agent-boundary-definition"><span
+<h2 data-number="4.2" id="42-agent-boundary-definition"><span
 class="header-section-number">4.2</span> Agent boundary definition</h2>
 <p>The agent boundary is the point at which external infrastructure
 interacts with agent-internal state. This boundary is necessary to
@@ -775,7 +775,7 @@ systems. As a consequence, an agent carries important requirements on
 the infrastructure it runs on.</p>
 <hr />
 <h2 data-number="4.3"
-id="33-agent-reliability-vs-infrastructure-reliability"><span
+id="43-agent-reliability-vs-infrastructure-reliability"><span
 class="header-section-number">4.3</span> Agent reliability vs
 infrastructure reliability</h2>
 <p>Agent reliability and infrastructure reliability are distinct
@@ -796,7 +796,7 @@ When infrastructure availability or platform uptime is meant instead,
 the term infrastructure reliability must be used.</p>
 <hr />
 <h2 data-number="4.4"
-id="34-why-infrastructure-failures-affect-agent-accuracy"><span
+id="44-why-infrastructure-failures-affect-agent-accuracy"><span
 class="header-section-number">4.4</span> Why infrastructure failures
 affect agent accuracy</h2>
 <p>Infrastructure failures can cause agent accuracy to degrade even when
@@ -812,7 +812,7 @@ established before a failure is attributed to agent reliability or
 cognitive quality.</p>
 <hr />
 <h2 data-number="4.5"
-id="35-deployment-boundary-declaration-minimum"><span
+id="45-deployment-boundary-declaration-minimum"><span
 class="header-section-number">4.5</span> Deployment boundary declaration
 (minimum)</h2>
 <p>For production-relevant accuracy and reliability reporting, each
@@ -824,7 +824,7 @@ write. These declarations do not replace metrics; they define the
 boundary conditions under which metrics are interpretable.</p>
 <hr />
 <h2 data-number="4.6"
-id="36-failure-surface-immediately-after-boundary-declaration"><span
+id="46-failure-surface-immediately-after-boundary-declaration"><span
 class="header-section-number">4.6</span> Failure surface immediately
 after boundary declaration</h2>
 <p>Once boundaries are declared, the next step is to classify what can
@@ -853,7 +853,7 @@ with multi-condition stability, which makes release decisions
 inconsistent — a system can be accurate on one run and still unreliable
 under repetition, and the distinction below is what keeps that from
 being summarised as a single, undifferentiated score.</p>
-<h2 data-number="5.1" id="40-evaluation-subjects"><span
+<h2 data-number="5.1" id="30-evaluation-subjects"><span
 class="header-section-number">5.1</span> Evaluation subjects</h2>
 <p>The concepts in this chapter apply to two classes of evaluation
 subject, both introduced here with their exact boundaries fixed in
@@ -869,7 +869,7 @@ subjects — agent or MAS — is being evaluated. §3.1 gives the full
 object-of-evaluation taxonomy, which also covers the model and the
 workflow/pipeline as evaluation subjects.</p>
 <hr />
-<h2 data-number="5.2" id="41-accuracy"><span
+<h2 data-number="5.2" id="31-accuracy"><span
 class="header-section-number">5.2</span> Accuracy</h2>
 <p>Accuracy is the degree to which an agent or MAS produces the correct
 result for a task instance under a specified evaluation setup. It is an
@@ -891,7 +891,7 @@ trust judgments; those concerns belong elsewhere in this vocabulary. The
 benchmarks most relevant for grounding the definition are Tau-Bench,
 Terminal-Bench, and SWE-Bench.</p>
 <h3 data-number="5.2.1"
-id="411-grounding-accuracy-in-benchmark-practice"><span
+id="311-grounding-accuracy-in-benchmark-practice"><span
 class="header-section-number">5.2.1</span> Grounding accuracy in
 benchmark practice</h3>
 <p>The most principled way to operationalise accuracy is to examine how
@@ -904,7 +904,7 @@ actions, and the evaluation checks whether the final state is correct
 [Yao et al., 2024]. This operationalisation makes accuracy concrete and
 reproducible without relying on an LLM acting as judge.</p>
 <h3 data-number="5.2.2"
-id="412-a-priori-correctness-and-offline-evaluation"><span
+id="312-a-priori-correctness-and-offline-evaluation"><span
 class="header-section-number">5.2.2</span> A-priori correctness and
 offline evaluation</h3>
 <p>For offline evaluation settings, the concept of a-priori correctness
@@ -923,7 +923,7 @@ correct (correct given the user's full context at inference time).</p>
 can score 95% accuracy on an offline benchmark while producing outputs
 that are contextually wrong for the specific user in production.</p>
 <hr />
-<h2 data-number="5.3" id="42-reliability"><span
+<h2 data-number="5.3" id="32-reliability"><span
 class="header-section-number">5.3</span> Reliability</h2>
 <p>Reliability — agent reliability, the working default in this
 vocabulary — is the degree to which an agent or MAS preserves correct
@@ -980,7 +980,7 @@ right remains an open question rather than a settled sub-property, left
 as such rather than folded silently into an existing dimension.</p>
 <hr />
 <h2 data-number="5.4"
-id="43-accuracy-and-reliability-as-orthogonal-concepts"><span
+id="33-accuracy-and-reliability-as-orthogonal-concepts"><span
 class="header-section-number">5.4</span> Accuracy and reliability as
 orthogonal concepts</h2>
 <p>Accuracy and reliability are orthogonal: each answers a different
@@ -996,7 +996,7 @@ and often wrong at once.</p>
 months of capability improvements raised pass@k, an accuracy measure,
 without raising pass^k, a reliability measure, at the same rate.</p>
 <hr />
-<h2 data-number="5.5" id="44-operational-dependency"><span
+<h2 data-number="5.5" id="34-operational-dependency"><span
 class="header-section-number">5.5</span> Operational dependency</h2>
 <p>While orthogonal as concepts, accuracy and reliability are not
 operationally independent in a deployed system. Realised accuracy
@@ -1013,7 +1013,7 @@ and accuracy. The practical rule is to keep accuracy and reliability
 distinct as evaluation concepts while still modelling the operational
 properties that affect them.</p>
 <hr />
-<h2 data-number="5.6" id="45-a-three-class-taxonomy-of-failures"><span
+<h2 data-number="5.6" id="35-a-three-class-taxonomy-of-failures"><span
 class="header-section-number">5.6</span> A three-class taxonomy of
 failures</h2>
 <p>Failures across all taxonomies — MAST, Rabanser et al.'s reliability

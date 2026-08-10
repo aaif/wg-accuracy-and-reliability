@@ -44,7 +44,7 @@ with multi-condition stability, which makes release decisions
 inconsistent — a system can be accurate on one run and still unreliable
 under repetition, and the distinction below is what keeps that from
 being summarised as a single, undifferentiated score.</p>
-<h2 id="40-evaluation-subjects">4.0 Evaluation subjects</h2>
+<h2 id="30-evaluation-subjects">3.0 Evaluation subjects</h2>
 <p>The concepts in this chapter apply to two classes of evaluation
 subject, both introduced here with their exact boundaries fixed in
 Chapter 3. An agent is a model together with its context assembly logic,
@@ -59,7 +59,7 @@ subjects — agent or MAS — is being evaluated. §3.1 gives the full
 object-of-evaluation taxonomy, which also covers the model and the
 workflow/pipeline as evaluation subjects.</p>
 <hr />
-<h2 id="41-accuracy">4.1 Accuracy</h2>
+<h2 id="31-accuracy">3.1 Accuracy</h2>
 <p>Accuracy is the degree to which an agent or MAS produces the correct
 result for a task instance under a specified evaluation setup. It is an
 outcome concept: it answers whether the agent or MAS produced the
@@ -79,7 +79,7 @@ is stated.</p>
 trust judgments; those concerns belong elsewhere in this vocabulary. The
 benchmarks most relevant for grounding the definition are Tau-Bench,
 Terminal-Bench, and SWE-Bench.</p>
-<h3 id="411-grounding-accuracy-in-benchmark-practice">4.1.1 Grounding
+<h3 id="311-grounding-accuracy-in-benchmark-practice">3.1.1 Grounding
 accuracy in benchmark practice</h3>
 <p>The most principled way to operationalise accuracy is to examine how
 it is defined across widely used benchmarks: Tau-Bench, Terminal-Bench,
@@ -90,7 +90,7 @@ and SWE-Bench [Yao et al., 2024; Jimenez et al., 2024; Merrill et al.,
 actions, and the evaluation checks whether the final state is correct
 [Yao et al., 2024]. This operationalisation makes accuracy concrete and
 reproducible without relying on an LLM acting as judge.</p>
-<h3 id="412-a-priori-correctness-and-offline-evaluation">4.1.2 A-priori
+<h3 id="312-a-priori-correctness-and-offline-evaluation">3.1.2 A-priori
 correctness and offline evaluation</h3>
 <p>For offline evaluation settings, the concept of a-priori correctness
 deserves consideration. An offline evaluator does not have access to the
@@ -108,7 +108,7 @@ correct (correct given the user's full context at inference time).</p>
 can score 95% accuracy on an offline benchmark while producing outputs
 that are contextually wrong for the specific user in production.</p>
 <hr />
-<h2 id="42-reliability">4.2 Reliability</h2>
+<h2 id="32-reliability">3.2 Reliability</h2>
 <p>Reliability — agent reliability, the working default in this
 vocabulary — is the degree to which an agent or MAS preserves correct
 behaviour across repeated runs and relevant condition changes within a
@@ -163,7 +163,7 @@ treating behavioural conformance as a first-class property in its own
 right remains an open question rather than a settled sub-property, left
 as such rather than folded silently into an existing dimension.</p>
 <hr />
-<h2 id="43-accuracy-and-reliability-as-orthogonal-concepts">4.3 Accuracy
+<h2 id="33-accuracy-and-reliability-as-orthogonal-concepts">3.3 Accuracy
 and reliability as orthogonal concepts</h2>
 <p>Accuracy and reliability are orthogonal: each answers a different
 evaluation question and can fail independently of the other. A system
@@ -178,7 +178,7 @@ and often wrong at once.</p>
 months of capability improvements raised pass@k, an accuracy measure,
 without raising pass^k, a reliability measure, at the same rate.</p>
 <hr />
-<h2 id="44-operational-dependency">4.4 Operational dependency</h2>
+<h2 id="34-operational-dependency">3.4 Operational dependency</h2>
 <p>While orthogonal as concepts, accuracy and reliability are not
 operationally independent in a deployed system. Realised accuracy
 depends on a reliability substrate: if tools fail intermittently, if
@@ -194,7 +194,7 @@ and accuracy. The practical rule is to keep accuracy and reliability
 distinct as evaluation concepts while still modelling the operational
 properties that affect them.</p>
 <hr />
-<h2 id="45-a-three-class-taxonomy-of-failures">4.5 A three-class
+<h2 id="35-a-three-class-taxonomy-of-failures">3.5 A three-class
 taxonomy of failures</h2>
 <p>Failures across all taxonomies — MAST, Rabanser et al.'s reliability
 study, and BFT literature — organise naturally into three classes that
