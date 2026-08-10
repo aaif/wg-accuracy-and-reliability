@@ -4,7 +4,7 @@ This chapter fixes the declared evaluation subject and boundary rules that
 must precede any score interpretation, so that claims can distinguish model,
 agent, MAS, and workflow outcomes without ambiguity.
 
-## 3.1 Objects of evaluation
+## 4.1 Objects of evaluation
 
 Accuracy and reliability claims can apply to four distinct objects, and a
 claim must state which object is being evaluated — an unqualified claim is
@@ -27,7 +27,7 @@ uninterpretable.
 
 ---
 
-## 3.2 Agent boundary definition
+## 4.2 Agent boundary definition
 
 The agent boundary is the point at which external infrastructure interacts
 with agent-internal state. This boundary is necessary to separate failures
@@ -48,7 +48,7 @@ important requirements on the infrastructure it runs on.
 
 ---
 
-## 3.3 Agent reliability vs infrastructure reliability
+## 4.3 Agent reliability vs infrastructure reliability
 
 Agent reliability and infrastructure reliability are distinct properties at
 different layers of the system, and conflating them produces misleading
@@ -70,7 +70,7 @@ be used.
 
 ---
 
-## 3.4 Why infrastructure failures affect agent accuracy
+## 4.4 Why infrastructure failures affect agent accuracy
 
 Infrastructure failures can cause agent accuracy to degrade even when the
 agent's cognitive logic is correct, which is why establishing and excluding
@@ -85,7 +85,7 @@ cognitive quality.
 
 ---
 
-## 3.5 Deployment boundary declaration (minimum)
+## 4.5 Deployment boundary declaration (minimum)
 
 For production-relevant accuracy and reliability reporting, each claim should
 also declare whether agents are directly exposed to end users, whether
@@ -97,7 +97,7 @@ interpretable.
 
 ---
 
-## 3.6 Failure surface immediately after boundary declaration
+## 4.6 Failure surface immediately after boundary declaration
 
 Once boundaries are declared, the next step is to classify what can fail on
 the external surface versus the internal surface. The external failure
