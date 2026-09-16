@@ -104,6 +104,24 @@ intervention rate, and change-failure-related correction latency. These
 profile stacks are a starting point for interoperable dashboard language;
 thresholds and conformance bars are left to later ARWG deliverables.
 
+Coverage and defect-detection claims need a few more fields, because a
+single percentage does not show its own denominator. This applies where a
+panel or report claims coverage (of scenarios, failure modes, or tests) or
+states how well an evaluation detects seeded defects, as in mutation testing.
+Such a claim should state the counting unit and the declared inventory, the
+subset selected for evaluation, what was actually exercised, and anything
+excluded or unable to complete, with the reason. Items that were not
+exercised are reported as such rather than folded silently into another
+count. Seeded-defect results should at least keep apart the defects that
+were detected, those exercised without being detected, and those never
+exercised. Timeouts, errors, and seeded changes judged equivalent should be
+named separately, with the basis for that judgement, because tools count them
+differently, and each detection should be traceable to the expected result
+(§10) it was checked against. For example, "one of one selected defect
+detected, three further inventoried defects not selected" states its
+denominator, while "100% of defects detected" describes the same run and
+hides what was left unmeasured.
+
 This minimum contract is designed to solve immediate operational pain
 points: incomparable dashboard claims across teams, hidden boundary changes
 between deployments, and release decisions made from headline scores without
