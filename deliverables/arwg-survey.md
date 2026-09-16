@@ -23,7 +23,7 @@ Please avoid including identifying or confidential information in your responses
 
 - **Response:** Single select
 - **Required:** Yes
-- **Behavior:** The first five choices continue to the rest of the survey. The final three choices end the survey and record the response as screened out.
+- **Behavior:** The first five choices continue to the rest of the survey. The final three choices go to the early-exit thank-you section, with no further questions. Their Q1 answer is saved when they click Submit.
 
 **During the past six months, which best describes your experience with AI systems?**
 
@@ -48,6 +48,7 @@ For the rest of this survey, answer about the same system you had in mind for Q1
 
 - **Response:** Multi-select
 - **Required:** Yes
+- **Inline text:** Required when “Something else (describe briefly)” is selected.
 
 **Which activities have you personally performed with this system? Select all that apply.**
 
@@ -57,6 +58,7 @@ For the rest of this survey, answer about the same system you had in mind for Q1
 - Reviewed, corrected, or approved its outputs or actions
 - Used its outputs or relied on its actions in my work
 - Made decisions about its development, deployment, or continued use
+- Something else (describe briefly)
 
 ### Q3. Primary area of work
 
@@ -307,6 +309,16 @@ Scale:
 - **Required:** No
 
 **Optional: What important accuracy or reliability problem or experience did this survey miss?**
+
+## Early-exit thank-you
+
+- **Behavior:** Display before submission only for respondents who select one of the final three Q1 choices. Respondents who reach the end of the main survey skip this section and submit directly.
+
+**Thank you for your interest!**
+
+This survey focuses on firsthand experience with AI systems used for real work. There are no further questions for you.
+
+Please click Submit to finish.
 
 ## Thank-you
 
