@@ -1,0 +1,51 @@
+name: Publish D1 to GitHub Pages
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'D1-terminology-taxonomy/**'
+      - 'scripts/build_d1_site.sh'
+      - 'Taskfile.yml'
+      - '.github/workflows/d1-pages.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: pages-production
+  cancel-in-progress: true
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Task
+        uses: arduino/setup-task@v2
+
+      - name: Setup Pandoc
+        uses: r-lib/actions/setup-pandoc@v2
+
+      - name: Setup TeX Live
+        uses: teatimeguest/setup-texlive-action@v3
+        with:
+          cache: true
+          packages: >-
+            scheme-small
+            collection-latexrecommended
+            collection-fontsrecommended
+
+      - name: Build D1 deliverable site
+        run: task d1:pages
+
+      - name: Deploy to gh-pages
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          branch: gh-pages
+          folder: docs
+          # Never wipe live PR previews when publishing production content.
+          clean-exclude: pr-preview/
