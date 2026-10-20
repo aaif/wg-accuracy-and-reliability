@@ -19,6 +19,8 @@ The Agentic AI Foundation (AAIF), part of the Linux Foundation, supports the dev
 
 Please avoid including identifying or confidential information in your responses.
 
+This survey takes about 20 minutes. We do not ask for your name or contact details. Please do not include names, company names, customer details, or confidential information in any text field. Responses will be combined and reported in aggregate by the Accuracy & Reliability Working Group. Short text answers may be quoted after identifying details are removed. Responses are stored by AAIF. Submitting the survey means you agree to this use. Questions: support@aaif.io.
+
 ### Q1. Eligibility and real-world use
 
 - **Response:** Single select
@@ -94,7 +96,23 @@ For the rest of this survey, answer about the same system you had in mind for Q1
 - Something else (describe briefly)
 - Not sure
 
-### Q5. Organization size
+### Q5. Human checking
+
+- **Response:** Single select
+- **Required:** Yes
+- **Display order:** Fixed as listed
+
+**Which best describes how human review was usually used to check whether this system’s outputs or actions were acceptable? Choose the closest answer.**
+
+- No routine human review
+- Occasional spot checks
+- Review mainly when the system flagged uncertainty or requested help
+- Review mainly for high-risk cases
+- Review of most or all outputs or actions
+- A mix of approaches, with no main pattern
+- Not sure
+
+### Q6. Organization size
 
 - **Response:** Single select
 - **Required:** No
@@ -109,7 +127,24 @@ For the rest of this survey, answer about the same system you had in mind for Q1
 
 ## Benefits and challenges
 
-### Q6. Constraints
+### Q7. Most significant benefit
+
+- **Response:** Single select
+- **Required:** Yes
+- **Inline text:** Required when “Something else (describe briefly)” is selected.
+
+**What was the most significant benefit this system delivered in real work?**
+
+- Completed roughly the same work faster or with less effort
+- Handled more work, cases, or users
+- Improved the quality or consistency of work
+- Improved responsiveness or availability
+- Enabled work that was previously impractical or impossible
+- Produced no meaningful additional benefit
+- Something else (describe briefly)
+- Not sure
+
+### Q8. Constraints
 
 - **Response:** Single-response matrix
 - **Required:** Yes; one response for every factor row
@@ -136,39 +171,6 @@ Scale:
 3. Limited progress substantially
 4. Stopped or reversed progress
 5. Not sure
-
-### Q7. Human checking
-
-- **Response:** Single select
-- **Required:** Yes
-- **Display order:** Fixed as listed
-
-**Which best describes how human review was usually used to check whether this system’s outputs or actions were acceptable? Choose the closest answer.**
-
-- No routine human review
-- Occasional spot checks
-- Review mainly when the system flagged uncertainty or requested help
-- Review mainly for high-risk cases
-- Review of most or all outputs or actions
-- A mix of approaches, with no main pattern
-- Not sure
-
-### Q8. Most significant benefit
-
-- **Response:** Single select
-- **Required:** Yes
-- **Inline text:** Required when “Something else (describe briefly)” is selected.
-
-**What was the most significant benefit this system delivered in real work?**
-
-- Completed roughly the same work faster or with less effort
-- Handled more work, cases, or users
-- Improved the quality or consistency of work
-- Improved responsiveness or availability
-- Enabled work that was previously impractical or impossible
-- Produced no meaningful additional benefit
-- Something else (describe briefly)
-- Not sure
 
 ## Accuracy and reliability
 
@@ -202,9 +204,10 @@ Factors:
 - Incorrect, misleading, or unusable results or actions
 - Inconsistent quality or behavior on repeated or similar tasks
 - Failure to follow an instruction, requirement, or limit
-- Failure when inputs, context, or operating conditions changed
-- Failure when a tool, data source, or dependency changed or broke
+- Failure when inputs, context, operating conditions, tools, data sources, or dependencies changed or broke
+- Decline in quality after the system itself changed, such as a model, prompt, or version update
 - Failure to express uncertainty or request human help when needed
+- Failure to recover safely after an error, such as leaving partial actions behind
 
 Scale:
 
