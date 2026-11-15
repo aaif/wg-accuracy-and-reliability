@@ -12,7 +12,7 @@ Illustration (small, n=3 per mode, Google ADK + Gemini, one `issue_refund` tool)
 - **Protocol:** MCP `ToolAnnotations` (`idempotentHint`, `destructiveHint`). They are hints only, and the defaults assume a tool is non-idempotent and destructive.
 - **Practice:** idempotency keys and checking status before retrying, common in payment APIs.
 - **Runtime:** durable execution engines; retry semantics differ per engine (see Q-PRD-01).
-- **Evaluation:** fault injection in agent eval frameworks (for example ADK environment simulation, which injects faults *before* the tool runs); trajectory assertions (promptfoo, DeepEval); state-based benchmarks (τ²-bench database state checks, AgentDojo).
+- **Evaluation:** fault injection in agent eval frameworks (for example ADK environment simulation, which injects faults *before* the tool runs); trajectory assertions that can check which tools were called and how often (for example promptfoo `trajectory:tool-sequence` and `trace-span-count`, DeepEval); state-based benchmarks (τ²-bench database state checks, AgentDojo).
 - **Guidance:** OWASP Top 10 for Agentic Applications 2026 mentions repeated actions only as cascade or cost symptoms.
 
 ## Today
@@ -24,7 +24,7 @@ Complementary: protocol hints declare intent, durable engines decide when to ret
 ## Gaps
 | Gap | Type (§8) | Layer |
 |---|---|---|
-| No eval tooling surveyed can inject a failure *after* the side effect or assert "this happened exactly once" | Coverage | Evaluation |
+| Eval tooling can count tool *calls*, but none surveyed can inject a failure *after* the tool commits, or assert on the committed *effect* (for example "one refund in the ledger") rather than the call count | Coverage | Evaluation |
 | `idempotentHint` exists, but client and framework retry behaviour is not specified or testable | Standardization / Adoption | Protocol |
 | Idempotency conventions for agent tools are ad hoc per backend | Standardization | Practice |
 | Whether the outcome the agent *reports* matches the *actual* outcome is not a standard metric | Observability | Evaluation |
