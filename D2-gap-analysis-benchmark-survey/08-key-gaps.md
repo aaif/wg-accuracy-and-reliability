@@ -6,15 +6,15 @@ Synthesize the coverage matrix into the gaps that matter most for enterprise dep
 
 ## Gap categories
 
-| Gap | Meaning |
-|---|---|
-| Coverage | No suitable evaluation exists |
-| Depth | Only simplified or nominal cases are tested |
-| Transfer | Component results do not predict system or production behavior |
-| Continuity | Evidence cannot be carried between lifecycle stages |
-| Observability | The required outcome cannot be measured in production |
-| Feedback | Production failures do not become regression tests |
-| Standardization | Existing methods are not comparable |
-| Adoption | A method exists but is impractical for enterprises |
+| Gap | Meaning | 10 Nov slides type |
+|---|---|---|
+| Coverage | No suitable evaluation exists | missing |
+| Depth | Only simplified or nominal cases are tested | partial |
+| Transfer | Component results do not predict system or production behavior | fragmented |
+| Continuity | Evidence cannot be carried between lifecycle stages | discontinuous |
+| Observability | The required outcome cannot be measured in production | unmeasurable |
+| Feedback | Production failures do not become regression tests | discontinuous (production to test) |
+| Standardization | Existing methods are not comparable | fragmented |
+| Adoption | A method exists but is impractical for enterprises | unadopted |
 
-> **Open question:** the 10 Nov slides use a second gap vocabulary (missing, partial, fragmented, unmeasurable, unadopted). Merge the two into one list, ideally defined in D1.
+> **Open question:** the 10 Nov slides use a second gap vocabulary (missing, partial, fragmented, discontinuous, unmeasurable, unadopted); the third column maps the categories above onto it. Merge the two into one list, ideally defined in D1.

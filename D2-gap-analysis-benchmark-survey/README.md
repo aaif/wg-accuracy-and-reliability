@@ -5,6 +5,8 @@
 **Charter:** "Survey of existing benchmarks, leaderboards, and state of the art, identifying which accuracy and reliability dimensions are underserved. Directly informs D4."
 **Participants (charter):** Brian Malone, Sanjeev Suresh · **First iteration:** before 20 Dec 2026
 
+D2 is a living document: it covers a few key subjects contributed by WG members and is extended through community contributions. It starts with the methodology.
+
 ## Narrative
 
 Use-case patterns → Requirements across the lifecycle → Benchmark coverage → Gaps → Actions
@@ -13,6 +15,7 @@ Use-case patterns → Requirements across the lifecycle → Benchmark coverage �
 
 | # | File | Status |
 |---|---|---|
+| 0 | [Methodology](00-methodology.md) | proposal |
 | 1 | [Executive Summary](01-executive-summary.md) | outline |
 | 2 | [Purpose and Audience](02-purpose-and-audience.md) | outline |
 | 3 | [Analysis Scope and Evaluation Subjects](03-analysis-scope-and-evaluation-subjects.md) | outline |
