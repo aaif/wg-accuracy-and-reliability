@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>2. Purpose and Audience</title>
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+  <link rel="stylesheet" href="../../assets/site.css" />
+</head>
+<body>
+<div class="wip"><strong>Work in progress.</strong> Nightly build of 2026-11-24, not reviewed or released. Preview of pull request.</div>
+<div class="nav"><a href="../../index.html">All deliverables</a> | <a href="../../d2/index.html">D2 versions</a> | <a href="../../d2/nightly/index.html">Nightly</a> | <a href="../../d2/nightly/d2-single-page.html">Single page</a> | <a href="../../d2/nightly/d2-deliverable.pdf">PDF</a></div>
+<h1 id="2-purpose-and-audience">2. Purpose and Audience</h1>
+<blockquote>
+<p>Status: outline (carried over from the running notes)</p>
+</blockquote>
+<p><strong>Primary audience:</strong> enterprise practitioners
+responsible for evaluating, deploying, operating, governing, or adopting
+agentic systems, who need to translate current benchmark research into
+practical reliability and accuracy decisions inside their
+organizations.</p>
+<p>One style could be reader personas (builders, evaluators/data
+scientists, product owners, operators/SREs, governance/risk teams,
+buyers/adopters) and the questions they need answered.</p>
+<h2 id="charter-objectives">Charter objectives</h2>
+<p>The charter asks D2 to survey the state of the art, identify which
+accuracy and reliability dimensions are underserved, and directly inform
+D4. This breaks down into four objectives:</p>
+<ol type="1">
+<li><strong>Assemble the landscape.</strong> Map what enterprises can
+build on today, with emphasis on open source: agent frameworks and
+harnesses, protocols, runtimes and orchestrators, evaluation and
+observability tooling, standards, and benchmarks and leaderboards.
+Benchmarks are one lens on this landscape, not the whole survey.</li>
+<li><strong>Identify underserved dimensions.</strong> For each accuracy
+and reliability dimension (terms from D1), show what the landscape
+covers and where it does not, including gaps in how the pieces fit
+together (see §8 for gap categories).</li>
+<li><strong>Prioritize for enterprise deployment.</strong> Rank gaps by
+their impact on the enterprise use-case patterns (§4) and requirements
+(§5), and on whether open-source options can close them.</li>
+<li><strong>Inform D4 and hand off the rest.</strong> Give D4 the
+evidence it needs on evaluation dimensions and measurement, and route
+remaining gaps to D1, D3, D5, D6 and inter-WG liaison, or mark them out
+of scope (§9).</li>
+</ol>
+<h2 id="objectives">Objectives</h2>
+<table>
+<thead>
+<tr>
+<th>Persona</th>
+<th>Question</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Builders</td>
+<td>What should we test during design and integration?</td>
+</tr>
+<tr>
+<td>Evaluators</td>
+<td>Which benchmarks represent our use cases and evaluation
+subjects?</td>
+</tr>
+<tr>
+<td>Product owners</td>
+<td>What evidence demonstrates useful and reliable task completion?</td>
+</tr>
+<tr>
+<td>Operators/SREs</td>
+<td>How do we detect, verify, and recover from failures?</td>
+</tr>
+<tr>
+<td>Governance teams</td>
+<td>What evidence supports oversight and assurance?</td>
+</tr>
+<tr>
+<td>Buyers/adopters</td>
+<td>Which benchmark claims are relevant to our deployment?</td>
+</tr>
+</tbody>
+</table>
+</body>
+</html>

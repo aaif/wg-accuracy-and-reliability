@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>7. Benchmark Coverage</title>
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+  <link rel="stylesheet" href="../../assets/site.css" />
+</head>
+<body>
+<div class="wip"><strong>Work in progress.</strong> Nightly build of 2026-11-24, not reviewed or released. Preview of pull request.</div>
+<div class="nav"><a href="../../index.html">All deliverables</a> | <a href="../../d2/index.html">D2 versions</a> | <a href="../../d2/nightly/index.html">Nightly</a> | <a href="../../d2/nightly/d2-single-page.html">Single page</a> | <a href="../../d2/nightly/d2-deliverable.pdf">PDF</a></div>
+<h1 id="7-benchmark-coverage">7. Benchmark Coverage</h1>
+<blockquote>
+<p>Status: outline (carried over from the running notes)</p>
+</blockquote>
+<p>Benchmarks are one lens on the landscape, not the whole of it (see <a
+href="00-methodology.html">§0</a>). This section looks at what
+benchmarks and leaderboards measure and why their results are hard to
+use for enterprise decisions. It condenses the benchmark material from
+the running notes.</p>
+<h2 id="evaluation-dimensions">Evaluation dimensions</h2>
+<ul>
+<li>Map terms to D1: accuracy, reliability, robustness, recoverability,
+calibration, etc.</li>
+<li>Any unclear or contested terminology should be fed back into
+D1.</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Dimension</th>
+<th>Enterprise meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Task accuracy</td>
+<td>Final state matches the success criteria</td>
+</tr>
+<tr>
+<td>Process accuracy</td>
+<td>Steps and tool order are acceptable</td>
+</tr>
+<tr>
+<td>Functional correctness</td>
+<td>Right tool, valid arguments</td>
+</tr>
+<tr>
+<td>Evidence accuracy</td>
+<td>Claims are faithful to sources and tool output</td>
+</tr>
+<tr>
+<td>Contextual correctness</td>
+<td>Fit for the live user, tenant and policy</td>
+</tr>
+<tr>
+<td>Repeated-run success rate</td>
+<td>Same pass/fail over declared repeats</td>
+</tr>
+<tr>
+<td>Trajectory and resource consistency</td>
+<td>Stable action path, latency, tokens and cost across repeats</td>
+</tr>
+<tr>
+<td>Operational fault robustness</td>
+<td>Behaviour under tool, API and infrastructure faults</td>
+</tr>
+<tr>
+<td>Recoverability</td>
+<td>Retry, fallback and human handoff work without further failure</td>
+</tr>
+<tr>
+<td>Calibration</td>
+<td>Stated confidence matches the empirical error rate</td>
+</tr>
+<tr>
+<td>Failure attribution</td>
+<td>Reasoning vs infrastructure vs tool/world vs user</td>
+</tr>
+</tbody>
+</table>
+<p>Benchmarks use overlapping names ("success", "pass", "win rate").
+Scores are only comparable once the evaluation envelope is declared:
+subject, number of repeats, injected faults and agent specification
+version.</p>
+<h2 id="coverage-matrix">Coverage matrix</h2>
+<ul>
+<li>Summarize current academic and industry benchmark coverage, then use
+the coverage/gap matrix as the main evidence.</li>
+<li>For each dimension, compare coverage across model/component, agent,
+multi-agent system, and workflow. Keep benchmark catalog detail in the
+appendix.</li>
+</ul>
+<h2 id="why-benchmark-results-do-not-transfer">Why benchmark results do
+not transfer</h2>
+<p>Typical public harnesses assume the happy path: an agent (or model)
+as subject, clean infrastructure, annotated correctness and a single-run
+success rate.</p>
+<table>
+<thead>
+<tr>
+<th>Gap</th>
+<th>Enterprise need</th>
+<th>Benchmark habit</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Subject</td>
+<td>Certify a workflow or multi-agent system</td>
+<td>Score an agent on isolated tasks</td>
+</tr>
+<tr>
+<td>Runs</td>
+<td>Repeated-run success rate</td>
+<td>Single-run success as the default</td>
+</tr>
+<tr>
+<td>Context</td>
+<td>User, infrastructure and world evidence</td>
+<td>User symptoms and faults left out</td>
+</tr>
+<tr>
+<td>Governance</td>
+<td>Declared envelope and failure attribution</td>
+<td>Leaderboard without a frozen specification</td>
+</tr>
+</tbody>
+</table>
+<p>Four lenses explain why academic results are hard to use: requirement
+coverage (an agent score used to certify a workflow), consumability (no
+runnable or comparable harness), terminology ("success" without an
+envelope), and systematic analysis (a single run reported as operational
+readiness).</p>
+<p>Scores should only be compared at the same level of the claim
+hierarchy: application context, scenario, test, run.</p>
+<p>Evidence strength also varies: a declared envelope and identity
+first, then deterministic oracles (state checks, unit tests), then
+faults and repeats, then judges and rubrics. Claims at the higher tiers
+without the first are governance gaps.</p>
+<h2 id="examples-public-not-endorsements">Examples (public, not
+endorsements)</h2>
+<ul>
+<li><strong>tau-bench</strong> (arXiv 2406.12045): agent subject, strong
+repeated-run signal, workflow coverage minimal, envelope often
+implicit.</li>
+<li><strong>WebArena</strong> (arXiv 2307.13854): agent subject,
+substantial single-run outcome, weak on reliability and on the
+user.</li>
+<li><strong>SWE-bench Pro</strong> (arXiv 2509.16941): agent subject,
+tests functional correctness, no faults and no repeat-run
+reporting.</li>
+</ul>
+</body>
+</html>

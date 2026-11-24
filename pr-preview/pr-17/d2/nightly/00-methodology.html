@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>0. Methodology</title>
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+  <link rel="stylesheet" href="../../assets/site.css" />
+</head>
+<body>
+<div class="wip"><strong>Work in progress.</strong> Nightly build of 2026-11-24, not reviewed or released. Preview of pull request.</div>
+<div class="nav"><a href="../../index.html">All deliverables</a> | <a href="../../d2/index.html">D2 versions</a> | <a href="../../d2/nightly/index.html">Nightly</a> | <a href="../../d2/nightly/d2-single-page.html">Single page</a> | <a href="../../d2/nightly/d2-deliverable.pdf">PDF</a></div>
+<h1 id="0-methodology">0. Methodology</h1>
+<blockquote>
+<p>Status: proposal (for discussion)</p>
+</blockquote>
+<p>D2 is a living document. It does not try to survey everything at
+once. It covers a small number of key subjects, each answered in the
+same way, and grows as members contribute more subjects.</p>
+<h2 id="subjects">Subjects</h2>
+<p>A subject is a question an enterprise practitioner has to answer to
+run agentic systems reliably, for example "How do I keep a long-running
+agent task alive across pod loss and rolling updates?" Each subject is
+written up as one <a href="cards/TEMPLATE.html">question card</a>.</p>
+<p>A subject belongs in D2 when it:</p>
+<ul>
+<li>threatens the outcome of an enterprise use-case pattern (§4) or a
+requirement (§5);</li>
+<li>is about evaluating, detecting, verifying or recovering from
+failures of accuracy or reliability;</li>
+<li>stays within the charter scope: not model training, not vendor
+selection, not building a platform.</li>
+</ul>
+<p>The first iteration starts with durable execution (Q-PRD-01) and
+side-effect safety (Q-PRD-02). Further subjects are contributed by WG
+members (see Contributing in the README).</p>
+<h2 id="lifecycle">Lifecycle</h2>
+<p>Every subject is placed on the lifecycle of an agentic system, so
+that evidence can be followed from one stage to the next:</p>
+<table>
+<thead>
+<tr>
+<th>Stage</th>
+<th>Question it answers</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Research and selection</td>
+<td>Is this model, framework or approach fit for the task?</td>
+</tr>
+<tr>
+<td>Development and integration</td>
+<td>Is it built and wired so that it can be reliable?</td>
+</tr>
+<tr>
+<td>Pre-production validation</td>
+<td>Does it hold up under test, perturbation and failure?</td>
+</tr>
+<tr>
+<td>Deployment and operations</td>
+<td>Can we see and verify that it works in production?</td>
+</tr>
+<tr>
+<td>Recovery and improvement</td>
+<td>Can it recover, and do incidents become tests?</td>
+</tr>
+</tbody>
+</table>
+<p><a href="06-evaluation-across-the-lifecycle.html">§6</a> gives the
+detail for each stage. A recurring gap is that evidence does not carry
+from one stage to the next.</p>
+<h2 id="method-for-each-subject">Method for each subject</h2>
+<ol type="1">
+<li><strong>Ask.</strong> State the question, the use-case pattern and
+the requirement behind it, and the lifecycle stage (above).</li>
+<li><strong>Map.</strong> Assemble what exists today, open source first:
+frameworks and harnesses, protocols, runtimes and orchestrators,
+evaluation and observability tooling, standards, practices, and
+benchmarks and leaderboards where they exist. Benchmarks are one input
+among these.</li>
+<li><strong>Name the gaps.</strong> Compare the landscape against the
+requirement and record each gap using the categories in §8, with the
+layer it sits in.</li>
+<li><strong>Hands on.</strong> Where feasible, check a key claim with a
+small experiment or test rather than documentation alone, and record the
+result, or why it was not possible.</li>
+</ol>
+<h2 id="evidence-rules">Evidence rules</h2>
+<ul>
+<li>Every statement about what exists links to a source (documentation,
+specification, repository, paper) and notes the version or date
+consulted.</li>
+<li>A statement that nothing exists says how and when it was searched,
+and is worded as "none found", not "none".</li>
+<li>Experiments state the setup, the version tested and the number of
+runs; small runs are labelled illustrative.</li>
+<li>Terms come from D1; unclear terms are fed back to D1.</li>
+</ul>
+<h2 id="keeping-it-alive">Keeping it alive</h2>
+<ul>
+<li>One subject or one card per pull request, with a named owner.</li>
+<li>Cards carry a status (draft, reviewed) and the date of their last
+landscape check.</li>
+<li>§7 and §8 are syntheses across cards. They are updated as cards are
+added or refreshed, not written separately.</li>
+<li>The WG reviews the card list periodically to add subjects, retire
+stale ones and refresh landscape entries.</li>
+</ul>
+</body>
+</html>

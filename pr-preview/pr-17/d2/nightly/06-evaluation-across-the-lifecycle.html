@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>6. Evaluation Across the Lifecycle</title>
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+  <link rel="stylesheet" href="../../assets/site.css" />
+</head>
+<body>
+<div class="wip"><strong>Work in progress.</strong> Nightly build of 2026-11-24, not reviewed or released. Preview of pull request.</div>
+<div class="nav"><a href="../../index.html">All deliverables</a> | <a href="../../d2/index.html">D2 versions</a> | <a href="../../d2/nightly/index.html">Nightly</a> | <a href="../../d2/nightly/d2-single-page.html">Single page</a> | <a href="../../d2/nightly/d2-deliverable.pdf">PDF</a></div>
+<h1 id="6-evaluation-across-the-lifecycle">6. Evaluation Across the
+Lifecycle</h1>
+<blockquote>
+<p>Status: outline (carried over from the running notes)</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>Stage</th>
+<th>Focus</th>
+<th>10 Nov slides step(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Research and selection</td>
+<td>Model/task fit, benchmark relevance, quality–cost trade-offs</td>
+<td>Research</td>
+</tr>
+<tr>
+<td>Development and integration</td>
+<td>Grounding, tools, routing, agent communication, state
+management</td>
+<td>Design, Develop</td>
+</tr>
+<tr>
+<td>Pre-production validation</td>
+<td>End-to-end testing, perturbation, concurrency, recovery</td>
+<td>Test, Pre-prod</td>
+</tr>
+<tr>
+<td>Deployment and operations</td>
+<td>Release traceability, drift, failure detection, outcome
+verification</td>
+<td>Prod, Operate</td>
+</tr>
+<tr>
+<td>Recovery and improvement</td>
+<td>Retry, resume, compensate, escalate, and convert incidents into
+tests</td>
+<td>Operate (spans Prod)</td>
+</tr>
+</tbody>
+</table>
+<h2 id="four-main-questions">Four main questions</h2>
+<ol type="1">
+<li>What decisions are practitioners making?</li>
+<li>What reliability evidence do they need?</li>
+<li>What benchmarks or methods currently provide that evidence?</li>
+<li>What remains missing or does not transfer to the next stage?</li>
+</ol>
+<blockquote>
+<p><strong>Proposal (for discussion):</strong> answer these four
+questions as <a href="cards/index.html">question cards</a>, grouped by
+the stages above. Each card links a use-case pattern (§4) and
+requirement (§5) to what exists today, typed gaps (§8) and the next
+deliverable (§9).</p>
+</blockquote>
+</body>
+</html>

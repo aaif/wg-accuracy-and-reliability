@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>D2 — Gap Analysis and Benchmark Survey</title>
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+  <link rel="stylesheet" href="../../assets/site.css" />
+</head>
+<body>
+<div class="wip"><strong>Work in progress.</strong> Nightly build of 2026-11-24, not reviewed or released. Preview of pull request.</div>
+<div class="nav"><a href="../../index.html">All deliverables</a> | <a href="../../d2/index.html">D2 versions</a> | <a href="../../d2/nightly/index.html">Nightly</a> | <a href="../../d2/nightly/d2-single-page.html">Single page</a> | <a href="../../d2/nightly/d2-deliverable.pdf">PDF</a></div>
+<h1 id="d2--gap-analysis-and-benchmark-survey">D2 — Gap Analysis and
+Benchmark Survey</h1>
+<blockquote>
+<p><strong>Status: draft scaffold.</strong> This folder starts D2 in
+GitHub so the WG can review it line by line. The section text is carried
+over from the D2 outline in the WG running notes (section "High level
+narrative"); it is lightly edited for Markdown, and the
+consumer/producer trust discussion in §4 is slightly condensed. Check it
+against the notes. The question-card format follows the 10 Nov 2026 WG
+slides.</p>
+</blockquote>
+<p><strong>Charter:</strong> "Survey of existing benchmarks,
+leaderboards, and state of the art, identifying which accuracy and
+reliability dimensions are underserved. Directly informs D4."
+<strong>Participants (charter):</strong> Brian Malone, Sanjeev Suresh ·
+<strong>First iteration:</strong> before 20 Dec 2026</p>
+<p>D2 is a living document: it covers a few key subjects contributed by
+WG members and is extended through community contributions. It starts
+with the methodology.</p>
+<h2 id="narrative">Narrative</h2>
+<p>Use-case patterns → Requirements across the lifecycle → Benchmark
+coverage → Gaps → Actions</p>
+<h2 id="sections">Sections</h2>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>File</th>
+<th>Status</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0</td>
+<td><a href="00-methodology.html">Methodology</a></td>
+<td>proposal</td>
+</tr>
+<tr>
+<td>1</td>
+<td><a href="01-executive-summary.html">Executive Summary</a></td>
+<td>outline</td>
+</tr>
+<tr>
+<td>2</td>
+<td><a href="02-purpose-and-audience.html">Purpose and Audience</a></td>
+<td>outline</td>
+</tr>
+<tr>
+<td>3</td>
+<td><a href="03-analysis-scope-and-evaluation-subjects.html">Analysis
+Scope and Evaluation Subjects</a></td>
+<td>outline</td>
+</tr>
+<tr>
+<td>4</td>
+<td><a href="04-enterprise-use-case-patterns.html">Enterprise Use Cases
+→ Patterns</a></td>
+<td>outline</td>
+</tr>
+<tr>
+<td>5</td>
+<td><a href="05-enterprise-requirements.html">Enterprise
+Requirements</a></td>
+<td>outline</td>
+</tr>
+<tr>
+<td>6</td>
+<td><a href="06-evaluation-across-the-lifecycle.html">Evaluation Across
+the Lifecycle</a></td>
+<td>outline</td>
+</tr>
+<tr>
+<td>7</td>
+<td><a href="07-benchmark-coverage.html">Benchmark Coverage</a></td>
+<td>outline</td>
+</tr>
+<tr>
+<td>8</td>
+<td><a href="08-key-gaps.html">Key Gaps for Enterprise
+Deployment</a></td>
+<td>outline</td>
+</tr>
+<tr>
+<td>9</td>
+<td><a href="09-recommendations-and-next-steps.html">Recommendations and
+Next Steps</a></td>
+<td>outline</td>
+</tr>
+<tr>
+<td>10</td>
+<td><a href="10-appendices.html">Appendices</a></td>
+<td>outline</td>
+</tr>
+</tbody>
+</table>
+<h2 id="question-cards-proposal">Question cards (proposal)</h2>
+<p>Sections 6–8 can be answered as question cards grouped by lifecycle
+stage: each card links a use-case pattern and requirement to what exists
+today (benchmarks, standards, open source, practices), typed gaps, and
+the next deliverable. Template: <a
+href="cards/TEMPLATE.html">cards/TEMPLATE.md</a>.</p>
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Stage</th>
+<th>Question</th>
+<th>Owner</th>
+<th>Status</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Q-PRD-01</td>
+<td>Production</td>
+<td>Durable execution (see 10 Nov slides)</td>
+<td>Jordan Augé</td>
+<td>to add</td>
+</tr>
+<tr>
+<td><a href="cards/Q-PRD-02-side-effect-safety.html">Q-PRD-02</a></td>
+<td>Production</td>
+<td>How do I make sure an agent's side effects happen exactly once when
+tools fail or time out?</td>
+<td>Jay Prajapat</td>
+<td>draft</td>
+</tr>
+</tbody>
+</table>
+<h2 id="contributing">Contributing</h2>
+<p>Open a PR against this folder; one section or one card per PR keeps
+reviews small. Terms should come from D1; feed unclear terms back to D1.
+Commits need a DCO sign-off (<code>git commit -s</code>).</p>
+</body>
+</html>

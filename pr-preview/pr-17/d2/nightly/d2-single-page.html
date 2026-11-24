@@ -1,0 +1,1086 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>D2 — Gap Analysis and Benchmark Survey</title>
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+  <link rel="stylesheet" href="../../assets/site.css" />
+</head>
+<body>
+<div class="wip"><strong>Work in progress.</strong> Nightly build of 2026-11-24, not reviewed or released. Preview of pull request.</div>
+<div class="nav"><a href="../../index.html">All deliverables</a> | <a href="../../d2/index.html">D2 versions</a> | <a href="../../d2/nightly/index.html">Nightly</a> | <a href="../../d2/nightly/d2-single-page.html">Single page</a> | <a href="../../d2/nightly/d2-deliverable.pdf">PDF</a></div>
+<header id="title-block-header">
+<h1 class="title">D2 — Gap Analysis and Benchmark Survey</h1>
+<p class="subtitle">Work in progress. Nightly build of 2026-11-24, not
+reviewed or released.</p>
+</header>
+<nav id="TOC" role="doc-toc">
+<ul>
+<li><a href="#d2--gap-analysis-and-benchmark-survey"
+id="toc-d2--gap-analysis-and-benchmark-survey">D2 — Gap Analysis and
+Benchmark Survey</a>
+<ul>
+<li><a href="#narrative" id="toc-narrative">Narrative</a></li>
+<li><a href="#sections" id="toc-sections">Sections</a></li>
+<li><a href="#question-cards-proposal"
+id="toc-question-cards-proposal">Question cards (proposal)</a></li>
+<li><a href="#contributing" id="toc-contributing">Contributing</a></li>
+</ul></li>
+<li><a href="#0-methodology" id="toc-0-methodology">0. Methodology</a>
+<ul>
+<li><a href="#subjects" id="toc-subjects">Subjects</a></li>
+<li><a href="#lifecycle" id="toc-lifecycle">Lifecycle</a></li>
+<li><a href="#method-for-each-subject"
+id="toc-method-for-each-subject">Method for each subject</a></li>
+<li><a href="#evidence-rules" id="toc-evidence-rules">Evidence
+rules</a></li>
+<li><a href="#keeping-it-alive" id="toc-keeping-it-alive">Keeping it
+alive</a></li>
+</ul></li>
+<li><a href="#1-executive-summary" id="toc-1-executive-summary">1.
+Executive Summary</a></li>
+<li><a href="#2-purpose-and-audience" id="toc-2-purpose-and-audience">2.
+Purpose and Audience</a>
+<ul>
+<li><a href="#charter-objectives" id="toc-charter-objectives">Charter
+objectives</a></li>
+<li><a href="#objectives" id="toc-objectives">Objectives</a></li>
+</ul></li>
+<li><a href="#3-analysis-scope-and-evaluation-subjects"
+id="toc-3-analysis-scope-and-evaluation-subjects">3. Analysis Scope and
+Evaluation Subjects</a>
+<ul>
+<li><a href="#focus" id="toc-focus">Focus</a></li>
+<li><a href="#template" id="toc-template">Template</a></li>
+</ul></li>
+<li><a href="#4-enterprise-use-cases--patterns"
+id="toc-4-enterprise-use-cases--patterns">4. Enterprise Use Cases →
+Patterns</a>
+<ul>
+<li><a href="#patterns" id="toc-patterns">Patterns</a></li>
+<li><a href="#pattern-template" id="toc-pattern-template">Pattern
+template</a></li>
+<li><a href="#gaps-impacting-enterprise-use-cases"
+id="toc-gaps-impacting-enterprise-use-cases">Gaps impacting enterprise
+use cases</a></li>
+</ul></li>
+<li><a href="#5-enterprise-requirements"
+id="toc-5-enterprise-requirements">5. Enterprise Requirements</a>
+<ul>
+<li><a href="#categories" id="toc-categories">Categories</a></li>
+</ul></li>
+<li><a href="#6-evaluation-across-the-lifecycle"
+id="toc-6-evaluation-across-the-lifecycle">6. Evaluation Across the
+Lifecycle</a>
+<ul>
+<li><a href="#four-main-questions" id="toc-four-main-questions">Four
+main questions</a></li>
+</ul></li>
+<li><a href="#7-benchmark-coverage" id="toc-7-benchmark-coverage">7.
+Benchmark Coverage</a>
+<ul>
+<li><a href="#evaluation-dimensions"
+id="toc-evaluation-dimensions">Evaluation dimensions</a></li>
+<li><a href="#coverage-matrix" id="toc-coverage-matrix">Coverage
+matrix</a></li>
+<li><a href="#why-benchmark-results-do-not-transfer"
+id="toc-why-benchmark-results-do-not-transfer">Why benchmark results do
+not transfer</a></li>
+<li><a href="#examples-public-not-endorsements"
+id="toc-examples-public-not-endorsements">Examples (public, not
+endorsements)</a></li>
+</ul></li>
+<li><a href="#8-key-gaps-for-enterprise-deployment"
+id="toc-8-key-gaps-for-enterprise-deployment">8. Key Gaps for Enterprise
+Deployment</a>
+<ul>
+<li><a href="#gap-categories" id="toc-gap-categories">Gap
+categories</a></li>
+</ul></li>
+<li><a href="#9-recommendations-and-next-steps"
+id="toc-9-recommendations-and-next-steps">9. Recommendations and Next
+Steps</a></li>
+<li><a href="#10-appendices" id="toc-10-appendices">10.
+Appendices</a></li>
+<li><a
+href="#q-prd-02--how-do-i-make-sure-an-agents-side-effects-happen-exactly-once-when-tools-fail-or-time-out"
+id="toc-q-prd-02--how-do-i-make-sure-an-agents-side-effects-happen-exactly-once-when-tools-fail-or-time-out">Q-PRD-02
+· How do I make sure an agent's side effects happen exactly once when
+tools fail or time out?</a>
+<ul>
+<li><a href="#challenge" id="toc-challenge">Challenge</a></li>
+<li><a href="#landscape" id="toc-landscape">Landscape</a></li>
+<li><a href="#today" id="toc-today">Today</a></li>
+<li><a href="#comparison" id="toc-comparison">Comparison</a></li>
+<li><a href="#gaps" id="toc-gaps">Gaps</a></li>
+<li><a href="#next" id="toc-next">Next</a></li>
+<li><a href="#requirements-and-checks"
+id="toc-requirements-and-checks">Requirements and checks</a></li>
+<li><a href="#sources" id="toc-sources">Sources</a></li>
+</ul></li>
+</ul>
+</nav>
+<h1 id="d2--gap-analysis-and-benchmark-survey">D2 — Gap Analysis and
+Benchmark Survey</h1>
+<blockquote>
+<p><strong>Status: draft scaffold.</strong> This folder starts D2 in
+GitHub so the WG can review it line by line. The section text is carried
+over from the D2 outline in the WG running notes (section "High level
+narrative"); it is lightly edited for Markdown, and the
+consumer/producer trust discussion in §4 is slightly condensed. Check it
+against the notes. The question-card format follows the 10 Nov 2026 WG
+slides.</p>
+</blockquote>
+<p><strong>Charter:</strong> "Survey of existing benchmarks,
+leaderboards, and state of the art, identifying which accuracy and
+reliability dimensions are underserved. Directly informs D4."
+<strong>Participants (charter):</strong> Brian Malone, Sanjeev Suresh ·
+<strong>First iteration:</strong> before 20 Dec 2026</p>
+<p>D2 is a living document: it covers a few key subjects contributed by
+WG members and is extended through community contributions. It starts
+with the methodology.</p>
+<h2 id="narrative">Narrative</h2>
+<p>Use-case patterns → Requirements across the lifecycle → Benchmark
+coverage → Gaps → Actions</p>
+<h2 id="sections">Sections</h2>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>File</th>
+<th>Status</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0</td>
+<td>Methodology</td>
+<td>proposal</td>
+</tr>
+<tr>
+<td>1</td>
+<td>Executive Summary</td>
+<td>outline</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Purpose and Audience</td>
+<td>outline</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Analysis Scope and Evaluation Subjects</td>
+<td>outline</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Enterprise Use Cases → Patterns</td>
+<td>outline</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Enterprise Requirements</td>
+<td>outline</td>
+</tr>
+<tr>
+<td>6</td>
+<td>Evaluation Across the Lifecycle</td>
+<td>outline</td>
+</tr>
+<tr>
+<td>7</td>
+<td>Benchmark Coverage</td>
+<td>outline</td>
+</tr>
+<tr>
+<td>8</td>
+<td>Key Gaps for Enterprise Deployment</td>
+<td>outline</td>
+</tr>
+<tr>
+<td>9</td>
+<td>Recommendations and Next Steps</td>
+<td>outline</td>
+</tr>
+<tr>
+<td>10</td>
+<td>Appendices</td>
+<td>outline</td>
+</tr>
+</tbody>
+</table>
+<h2 id="question-cards-proposal">Question cards (proposal)</h2>
+<p>Sections 6–8 can be answered as question cards grouped by lifecycle
+stage: each card links a use-case pattern and requirement to what exists
+today (benchmarks, standards, open source, practices), typed gaps, and
+the next deliverable. Template: cards/TEMPLATE.md.</p>
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Stage</th>
+<th>Question</th>
+<th>Owner</th>
+<th>Status</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Q-PRD-01</td>
+<td>Production</td>
+<td>Durable execution (see 10 Nov slides)</td>
+<td>Jordan Augé</td>
+<td>to add</td>
+</tr>
+<tr>
+<td>Q-PRD-02</td>
+<td>Production</td>
+<td>How do I make sure an agent's side effects happen exactly once when
+tools fail or time out?</td>
+<td>Jay Prajapat</td>
+<td>draft</td>
+</tr>
+</tbody>
+</table>
+<h2 id="contributing">Contributing</h2>
+<p>Open a PR against this folder; one section or one card per PR keeps
+reviews small. Terms should come from D1; feed unclear terms back to D1.
+Commits need a DCO sign-off (<code>git commit -s</code>).</p>
+<p>\newpage</p>
+<h1 id="0-methodology">0. Methodology</h1>
+<blockquote>
+<p>Status: proposal (for discussion)</p>
+</blockquote>
+<p>D2 is a living document. It does not try to survey everything at
+once. It covers a small number of key subjects, each answered in the
+same way, and grows as members contribute more subjects.</p>
+<h2 id="subjects">Subjects</h2>
+<p>A subject is a question an enterprise practitioner has to answer to
+run agentic systems reliably, for example "How do I keep a long-running
+agent task alive across pod loss and rolling updates?" Each subject is
+written up as one question card.</p>
+<p>A subject belongs in D2 when it:</p>
+<ul>
+<li>threatens the outcome of an enterprise use-case pattern (§4) or a
+requirement (§5);</li>
+<li>is about evaluating, detecting, verifying or recovering from
+failures of accuracy or reliability;</li>
+<li>stays within the charter scope: not model training, not vendor
+selection, not building a platform.</li>
+</ul>
+<p>The first iteration starts with durable execution (Q-PRD-01) and
+side-effect safety (Q-PRD-02). Further subjects are contributed by WG
+members (see Contributing in the README).</p>
+<h2 id="lifecycle">Lifecycle</h2>
+<p>Every subject is placed on the lifecycle of an agentic system, so
+that evidence can be followed from one stage to the next:</p>
+<table>
+<thead>
+<tr>
+<th>Stage</th>
+<th>Question it answers</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Research and selection</td>
+<td>Is this model, framework or approach fit for the task?</td>
+</tr>
+<tr>
+<td>Development and integration</td>
+<td>Is it built and wired so that it can be reliable?</td>
+</tr>
+<tr>
+<td>Pre-production validation</td>
+<td>Does it hold up under test, perturbation and failure?</td>
+</tr>
+<tr>
+<td>Deployment and operations</td>
+<td>Can we see and verify that it works in production?</td>
+</tr>
+<tr>
+<td>Recovery and improvement</td>
+<td>Can it recover, and do incidents become tests?</td>
+</tr>
+</tbody>
+</table>
+<p>§6 gives the detail for each stage. A recurring gap is that evidence
+does not carry from one stage to the next.</p>
+<h2 id="method-for-each-subject">Method for each subject</h2>
+<ol type="1">
+<li><strong>Ask.</strong> State the question, the use-case pattern and
+the requirement behind it, and the lifecycle stage (above).</li>
+<li><strong>Map.</strong> Assemble what exists today, open source first:
+frameworks and harnesses, protocols, runtimes and orchestrators,
+evaluation and observability tooling, standards, practices, and
+benchmarks and leaderboards where they exist. Benchmarks are one input
+among these.</li>
+<li><strong>Name the gaps.</strong> Compare the landscape against the
+requirement and record each gap using the categories in §8, with the
+layer it sits in.</li>
+<li><strong>Hands on.</strong> Where feasible, check a key claim with a
+small experiment or test rather than documentation alone, and record the
+result, or why it was not possible.</li>
+</ol>
+<h2 id="evidence-rules">Evidence rules</h2>
+<ul>
+<li>Every statement about what exists links to a source (documentation,
+specification, repository, paper) and notes the version or date
+consulted.</li>
+<li>A statement that nothing exists says how and when it was searched,
+and is worded as "none found", not "none".</li>
+<li>Experiments state the setup, the version tested and the number of
+runs; small runs are labelled illustrative.</li>
+<li>Terms come from D1; unclear terms are fed back to D1.</li>
+</ul>
+<h2 id="keeping-it-alive">Keeping it alive</h2>
+<ul>
+<li>One subject or one card per pull request, with a named owner.</li>
+<li>Cards carry a status (draft, reviewed) and the date of their last
+landscape check.</li>
+<li>§7 and §8 are syntheses across cards. They are updated as cards are
+added or refreshed, not written separately.</li>
+<li>The WG reviews the card list periodically to add subjects, retire
+stale ones and refresh landscape entries.</li>
+</ul>
+<p>\newpage</p>
+<h1 id="1-executive-summary">1. Executive Summary</h1>
+<blockquote>
+<p>Status: outline (carried over from the running notes)</p>
+</blockquote>
+<p>One-page answer: what gaps exist, why enterprises should care, and
+what the WG should do next.</p>
+<p><em>To be written last, once sections 7–9 have content.</em></p>
+<p>\newpage</p>
+<h1 id="2-purpose-and-audience">2. Purpose and Audience</h1>
+<blockquote>
+<p>Status: outline (carried over from the running notes)</p>
+</blockquote>
+<p><strong>Primary audience:</strong> enterprise practitioners
+responsible for evaluating, deploying, operating, governing, or adopting
+agentic systems, who need to translate current benchmark research into
+practical reliability and accuracy decisions inside their
+organizations.</p>
+<p>One style could be reader personas (builders, evaluators/data
+scientists, product owners, operators/SREs, governance/risk teams,
+buyers/adopters) and the questions they need answered.</p>
+<h2 id="charter-objectives">Charter objectives</h2>
+<p>The charter asks D2 to survey the state of the art, identify which
+accuracy and reliability dimensions are underserved, and directly inform
+D4. This breaks down into four objectives:</p>
+<ol type="1">
+<li><strong>Assemble the landscape.</strong> Map what enterprises can
+build on today, with emphasis on open source: agent frameworks and
+harnesses, protocols, runtimes and orchestrators, evaluation and
+observability tooling, standards, and benchmarks and leaderboards.
+Benchmarks are one lens on this landscape, not the whole survey.</li>
+<li><strong>Identify underserved dimensions.</strong> For each accuracy
+and reliability dimension (terms from D1), show what the landscape
+covers and where it does not, including gaps in how the pieces fit
+together (see §8 for gap categories).</li>
+<li><strong>Prioritize for enterprise deployment.</strong> Rank gaps by
+their impact on the enterprise use-case patterns (§4) and requirements
+(§5), and on whether open-source options can close them.</li>
+<li><strong>Inform D4 and hand off the rest.</strong> Give D4 the
+evidence it needs on evaluation dimensions and measurement, and route
+remaining gaps to D1, D3, D5, D6 and inter-WG liaison, or mark them out
+of scope (§9).</li>
+</ol>
+<h2 id="objectives">Objectives</h2>
+<table>
+<thead>
+<tr>
+<th>Persona</th>
+<th>Question</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Builders</td>
+<td>What should we test during design and integration?</td>
+</tr>
+<tr>
+<td>Evaluators</td>
+<td>Which benchmarks represent our use cases and evaluation
+subjects?</td>
+</tr>
+<tr>
+<td>Product owners</td>
+<td>What evidence demonstrates useful and reliable task completion?</td>
+</tr>
+<tr>
+<td>Operators/SREs</td>
+<td>How do we detect, verify, and recover from failures?</td>
+</tr>
+<tr>
+<td>Governance teams</td>
+<td>What evidence supports oversight and assurance?</td>
+</tr>
+<tr>
+<td>Buyers/adopters</td>
+<td>Which benchmark claims are relevant to our deployment?</td>
+</tr>
+</tbody>
+</table>
+<p>\newpage</p>
+<h1 id="3-analysis-scope-and-evaluation-subjects">3. Analysis Scope and
+Evaluation Subjects</h1>
+<blockquote>
+<p>Status: outline (carried over from the running notes)</p>
+</blockquote>
+<ul>
+<li>Covers a small set of key subjects (starting with durable execution
+and side-effect safety) contributed by WG members, selected and analysed
+as described in §0 Methodology. New subjects are added over time.</li>
+<li>Analyzes benchmark and evaluation method coverage for enterprise
+agentic systems.</li>
+<li>Adopts D1 terminology for evaluation subjects: model/component,
+agent, multi-agent system, and workflow for a given evaluation
+context/envelope. Does not redefine D1 taxonomy, evaluate model
+internals, or prescribe vendor-specific tooling.</li>
+</ul>
+<h2 id="focus">Focus</h2>
+<p>The landscape of agent frameworks, harnesses, protocols, runtimes and
+tooling is too broad to survey end to end. D2 addresses a few elements
+of it, chosen because they decide whether an agentic system keeps
+working under real conditions, and because the charter's later
+deliverables (D3 design guidance, D4 quality standard, D5 corrective
+actions) need evidence on them:</p>
+<ul>
+<li><strong>Resilience by design.</strong> Properties built in before
+failure happens: durable execution, idempotent side effects, state
+recovery, retries and timeouts. Starting subjects: durable execution
+(Q-PRD-01) and side-effect safety (Q-PRD-02).</li>
+<li><strong>Resilience after the fact.</strong> Detecting and recovering
+from failures during operations, using telemetry: failure detection,
+escalation, rollback or compensation, and turning incidents into
+tests.</li>
+<li><strong>Monitoring.</strong> What must be observed to support both
+of the above. Consistent with the charter, D2 looks at which signals and
+outcomes need to be observable, not how traces and logs are emitted
+(Observability WG).</li>
+</ul>
+<p>Monitoring differs by aspect, so each subject states what is
+monitored and how:</p>
+<table>
+<thead>
+<tr>
+<th>Aspect</th>
+<th>Example signals</th>
+<th>Typical source</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Task outcome</td>
+<td>Result correct against a trust anchor, task completed</td>
+<td>Online evaluation, sampled checks</td>
+</tr>
+<tr>
+<td>Agent behaviour</td>
+<td>Tool calls, retries, loops, trajectory deviations</td>
+<td>Traces</td>
+</tr>
+<tr>
+<td>State and side effects</td>
+<td>Duplicate or partial effects, unrecovered state</td>
+<td>Application and system-of-record checks</td>
+</tr>
+<tr>
+<td>System health</td>
+<td>Latency, errors, cost, resource pressure</td>
+<td>Metrics</td>
+</tr>
+<tr>
+<td>Drift and degradation</td>
+<td>Quality change across versions or over time</td>
+<td>Repeated evaluation, trend analysis</td>
+</tr>
+<tr>
+<td>User experience</td>
+<td>Re-prompts, overrides, abandoned tasks</td>
+<td>Product telemetry, feedback</td>
+</tr>
+</tbody>
+</table>
+<p>Other elements are in scope only when a member contributes a subject
+that meets the criteria in §0.</p>
+<h2 id="template">Template</h2>
+<ul>
+<li>Use-case pattern and task</li>
+<li>Evaluation subject</li>
+<li>Agent/model/configuration version</li>
+<li>Tools and evidence sources</li>
+<li>Runtime and policy conditions</li>
+<li>Human involvement</li>
+<li>Lifecycle stage</li>
+<li>Cost and latency constraints, where relevant</li>
+</ul>
+<p>\newpage</p>
+<h1 id="4-enterprise-use-cases--patterns">4. Enterprise Use Cases →
+Patterns</h1>
+<blockquote>
+<p>Status: outline (carried over from the running notes)</p>
+</blockquote>
+<p>Group use cases by enterprise business task, not industry. Candidate
+families: knowledge retrieval and synthesis, document processing and
+review, customer or employee support, software engineering and CI/CD,
+business operations workflows, risk/compliance/audit, incident response
+and remediation, and procurement/vendor/entity review.</p>
+<h2 id="patterns">Patterns</h2>
+<ul>
+<li><strong>Knowledge and Evidence:</strong> retrieving, synthesizing,
+and citing information for business tasks like research, support, and
+procurement review.</li>
+<li><strong>Artifact Generation and Review:</strong> creating or
+assessing documents, code changes, or structured outputs for tasks such
+as document processing, compliance review, and CI/CD.</li>
+<li><strong>Decision Support:</strong> analyzing evidence to recommend
+actions to humans during risk assessments, audits, and entity
+reviews.</li>
+<li><strong>Tool-Mediated Action:</strong> executing actions that alter
+external states for business operations, remediation, and software
+operations.</li>
+<li><strong>Delegated Multi-Agent Workflow:</strong> transferring work,
+context, and responsibility between agents for complex support,
+investigations, and multi-step automation.</li>
+<li><strong>Long-Running Recoverable Workflow:</strong> maintaining
+state, verifying outcomes, and recovering from interruptions during
+incident responses, approval workflows, and remediation.</li>
+</ul>
+<h2 id="pattern-template">Pattern template</h2>
+<p>Intended outcome · Evaluation subject(s) · Tools, data, and actors ·
+Acceptance criteria or trust anchor · Main failure conditions ·
+User-visible consequences</p>
+<p>Examples so far: lost context, incorrect delegation, duplicate
+actions, concurrent writes, partial effects, and unverified
+outcomes.</p>
+<h2 id="gaps-impacting-enterprise-use-cases">Gaps impacting enterprise
+use cases</h2>
+<p>One of the gaps companies must tackle to properly test the accuracy
+and reliability of their agentic solutions is reconciling the consumer
+and producer points of view on those concepts. With today's testing
+environments, there is no way to unify the viewpoints of consumers
+(typically users prompting agents, or agents interacting with other
+agents) and producers (the AI system) on accuracy and reliability of
+generated content. Developers of agentic solutions have all faced agents
+confidently claiming outcomes that they could easily show to be
+inaccurate.</p>
+<p>Since the business objective of agentic providers is to improve trust
+between consumers and producers, companies must develop frameworks to
+reduce this gap. Based on experience with conversational agents for
+professional software users in a B2B setting, user trust in AI is
+task/topic specific and built or lost over time. While it depends on the
+accuracy and reliability of the underlying solution, it also heavily
+depends on:</p>
+<ol type="1">
+<li><strong>Use-case type:</strong> assessment depends on how the
+produced content will be used: <em>explain this to me</em>, <em>show
+this to me</em>, or <em>do this for me</em>.</li>
+<li><strong>Task risk profile:</strong> what is the business implication
+of poor advice if the user acts on it?</li>
+<li><strong>User profile:</strong> is the user a novice or an expert on
+the topic?</li>
+<li><strong>History of consumer-producer interactions</strong> on this
+topic and use-case type: is there evidence the user trusted the AI on
+it?</li>
+<li>The ability to reconcile the different data and tool contexts with
+which consumer and producer measure the validity of accuracy and
+reliability claims.</li>
+</ol>
+<p>Companies therefore need analytics frameworks that quantify gaps
+between consumer and producer quality measures. Users are less likely to
+engage with AI when the gap between the two perspectives is high,
+regardless of the producer's scores. Testing therefore needs both
+benchmarks against set quality metrics and measurement of content
+delivery in the context of the user's environment.</p>
+<p>\newpage</p>
+<h1 id="5-enterprise-requirements">5. Enterprise Requirements</h1>
+<blockquote>
+<p>Status: outline (carried over from the running notes)</p>
+</blockquote>
+<p>What "good" means in practice across those use cases: correctness,
+task completion, action correctness, response usefulness,
+grounding/evidence quality, recoverability, safety, calibration,
+observability signals, user-perceived reliability, dataset coverage, and
+operational readiness for deployment.</p>
+<h2 id="categories">Categories</h2>
+<table>
+<thead>
+<tr>
+<th>Category</th>
+<th>Requirements</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Output quality</td>
+<td>Correctness; relevance and usefulness; grounding and evidence
+quality; calibration</td>
+</tr>
+<tr>
+<td>Task and action quality</td>
+<td>Task completion; acceptance-criteria satisfaction; correct tool and
+action selection; correct target and resulting state</td>
+</tr>
+<tr>
+<td>Workflow reliability</td>
+<td>Context and handoff integrity; explicit ownership and closure; state
+continuity; concurrency and retry safety</td>
+</tr>
+<tr>
+<td>Recovery and operations</td>
+<td>Failure detection; recoverability; safe retry, resume, rollback, or
+compensation; outcome verification; observability requirements</td>
+</tr>
+<tr>
+<td>User experience</td>
+<td>Clear completion and uncertainty status; re-prompt, override, and
+abandonment behavior; trust after failure or recovery; appropriate human
+escalation</td>
+</tr>
+</tbody>
+</table>
+<p>\newpage</p>
+<h1 id="6-evaluation-across-the-lifecycle">6. Evaluation Across the
+Lifecycle</h1>
+<blockquote>
+<p>Status: outline (carried over from the running notes)</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>Stage</th>
+<th>Focus</th>
+<th>10 Nov slides step(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Research and selection</td>
+<td>Model/task fit, benchmark relevance, quality–cost trade-offs</td>
+<td>Research</td>
+</tr>
+<tr>
+<td>Development and integration</td>
+<td>Grounding, tools, routing, agent communication, state
+management</td>
+<td>Design, Develop</td>
+</tr>
+<tr>
+<td>Pre-production validation</td>
+<td>End-to-end testing, perturbation, concurrency, recovery</td>
+<td>Test, Pre-prod</td>
+</tr>
+<tr>
+<td>Deployment and operations</td>
+<td>Release traceability, drift, failure detection, outcome
+verification</td>
+<td>Prod, Operate</td>
+</tr>
+<tr>
+<td>Recovery and improvement</td>
+<td>Retry, resume, compensate, escalate, and convert incidents into
+tests</td>
+<td>Operate (spans Prod)</td>
+</tr>
+</tbody>
+</table>
+<h2 id="four-main-questions">Four main questions</h2>
+<ol type="1">
+<li>What decisions are practitioners making?</li>
+<li>What reliability evidence do they need?</li>
+<li>What benchmarks or methods currently provide that evidence?</li>
+<li>What remains missing or does not transfer to the next stage?</li>
+</ol>
+<blockquote>
+<p><strong>Proposal (for discussion):</strong> answer these four
+questions as question cards, grouped by the stages above. Each card
+links a use-case pattern (§4) and requirement (§5) to what exists today,
+typed gaps (§8) and the next deliverable (§9).</p>
+</blockquote>
+<p>\newpage</p>
+<h1 id="7-benchmark-coverage">7. Benchmark Coverage</h1>
+<blockquote>
+<p>Status: outline (carried over from the running notes)</p>
+</blockquote>
+<p>Benchmarks are one lens on the landscape, not the whole of it (see
+§0). This section looks at what benchmarks and leaderboards measure and
+why their results are hard to use for enterprise decisions. It condenses
+the benchmark material from the running notes.</p>
+<h2 id="evaluation-dimensions">Evaluation dimensions</h2>
+<ul>
+<li>Map terms to D1: accuracy, reliability, robustness, recoverability,
+calibration, etc.</li>
+<li>Any unclear or contested terminology should be fed back into
+D1.</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Dimension</th>
+<th>Enterprise meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Task accuracy</td>
+<td>Final state matches the success criteria</td>
+</tr>
+<tr>
+<td>Process accuracy</td>
+<td>Steps and tool order are acceptable</td>
+</tr>
+<tr>
+<td>Functional correctness</td>
+<td>Right tool, valid arguments</td>
+</tr>
+<tr>
+<td>Evidence accuracy</td>
+<td>Claims are faithful to sources and tool output</td>
+</tr>
+<tr>
+<td>Contextual correctness</td>
+<td>Fit for the live user, tenant and policy</td>
+</tr>
+<tr>
+<td>Repeated-run success rate</td>
+<td>Same pass/fail over declared repeats</td>
+</tr>
+<tr>
+<td>Trajectory and resource consistency</td>
+<td>Stable action path, latency, tokens and cost across repeats</td>
+</tr>
+<tr>
+<td>Operational fault robustness</td>
+<td>Behaviour under tool, API and infrastructure faults</td>
+</tr>
+<tr>
+<td>Recoverability</td>
+<td>Retry, fallback and human handoff work without further failure</td>
+</tr>
+<tr>
+<td>Calibration</td>
+<td>Stated confidence matches the empirical error rate</td>
+</tr>
+<tr>
+<td>Failure attribution</td>
+<td>Reasoning vs infrastructure vs tool/world vs user</td>
+</tr>
+</tbody>
+</table>
+<p>Benchmarks use overlapping names ("success", "pass", "win rate").
+Scores are only comparable once the evaluation envelope is declared:
+subject, number of repeats, injected faults and agent specification
+version.</p>
+<h2 id="coverage-matrix">Coverage matrix</h2>
+<ul>
+<li>Summarize current academic and industry benchmark coverage, then use
+the coverage/gap matrix as the main evidence.</li>
+<li>For each dimension, compare coverage across model/component, agent,
+multi-agent system, and workflow. Keep benchmark catalog detail in the
+appendix.</li>
+</ul>
+<h2 id="why-benchmark-results-do-not-transfer">Why benchmark results do
+not transfer</h2>
+<p>Typical public harnesses assume the happy path: an agent (or model)
+as subject, clean infrastructure, annotated correctness and a single-run
+success rate.</p>
+<table>
+<thead>
+<tr>
+<th>Gap</th>
+<th>Enterprise need</th>
+<th>Benchmark habit</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Subject</td>
+<td>Certify a workflow or multi-agent system</td>
+<td>Score an agent on isolated tasks</td>
+</tr>
+<tr>
+<td>Runs</td>
+<td>Repeated-run success rate</td>
+<td>Single-run success as the default</td>
+</tr>
+<tr>
+<td>Context</td>
+<td>User, infrastructure and world evidence</td>
+<td>User symptoms and faults left out</td>
+</tr>
+<tr>
+<td>Governance</td>
+<td>Declared envelope and failure attribution</td>
+<td>Leaderboard without a frozen specification</td>
+</tr>
+</tbody>
+</table>
+<p>Four lenses explain why academic results are hard to use: requirement
+coverage (an agent score used to certify a workflow), consumability (no
+runnable or comparable harness), terminology ("success" without an
+envelope), and systematic analysis (a single run reported as operational
+readiness).</p>
+<p>Scores should only be compared at the same level of the claim
+hierarchy: application context, scenario, test, run.</p>
+<p>Evidence strength also varies: a declared envelope and identity
+first, then deterministic oracles (state checks, unit tests), then
+faults and repeats, then judges and rubrics. Claims at the higher tiers
+without the first are governance gaps.</p>
+<h2 id="examples-public-not-endorsements">Examples (public, not
+endorsements)</h2>
+<ul>
+<li><strong>tau-bench</strong> (arXiv 2406.12045): agent subject, strong
+repeated-run signal, workflow coverage minimal, envelope often
+implicit.</li>
+<li><strong>WebArena</strong> (arXiv 2307.13854): agent subject,
+substantial single-run outcome, weak on reliability and on the
+user.</li>
+<li><strong>SWE-bench Pro</strong> (arXiv 2509.16941): agent subject,
+tests functional correctness, no faults and no repeat-run
+reporting.</li>
+</ul>
+<p>\newpage</p>
+<h1 id="8-key-gaps-for-enterprise-deployment">8. Key Gaps for Enterprise
+Deployment</h1>
+<blockquote>
+<p>Status: outline (carried over from the running notes)</p>
+</blockquote>
+<p>Synthesize the coverage matrix into the gaps that matter most for
+enterprise deployment. Rank gaps by enterprise impact, coverage
+weakness, likelihood in real deployments, feasibility of measurement,
+and ARWG actionability.</p>
+<h2 id="gap-categories">Gap categories</h2>
+<table>
+<thead>
+<tr>
+<th>Gap</th>
+<th>Meaning</th>
+<th>10 Nov slides type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Coverage</td>
+<td>No suitable evaluation exists</td>
+<td>missing</td>
+</tr>
+<tr>
+<td>Depth</td>
+<td>Only simplified or nominal cases are tested</td>
+<td>partial</td>
+</tr>
+<tr>
+<td>Transfer</td>
+<td>Component results do not predict system or production behavior</td>
+<td>fragmented</td>
+</tr>
+<tr>
+<td>Continuity</td>
+<td>Evidence cannot be carried between lifecycle stages</td>
+<td>discontinuous</td>
+</tr>
+<tr>
+<td>Observability</td>
+<td>The required outcome cannot be measured in production</td>
+<td>unmeasurable</td>
+</tr>
+<tr>
+<td>Feedback</td>
+<td>Production failures do not become regression tests</td>
+<td>discontinuous (production to test)</td>
+</tr>
+<tr>
+<td>Standardization</td>
+<td>Existing methods are not comparable</td>
+<td>fragmented</td>
+</tr>
+<tr>
+<td>Adoption</td>
+<td>A method exists but is impractical for enterprises</td>
+<td>unadopted</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>Open question:</strong> the 10 Nov slides use a second gap
+vocabulary (missing, partial, fragmented, discontinuous, unmeasurable,
+unadopted); the third column maps the categories above onto it. Merge
+the two into one list, ideally defined in D1.</p>
+</blockquote>
+<p>\newpage</p>
+<h1 id="9-recommendations-and-next-steps">9. Recommendations and Next
+Steps</h1>
+<blockquote>
+<p>Status: outline (carried over from the running notes)</p>
+</blockquote>
+<ul>
+<li>Translate the key gaps into actionable guidance.</li>
+<li>Separate "important but outside ARWG scope" from gaps ARWG can
+address through taxonomy, benchmark guidance, best practices, or future
+specifications.</li>
+<li>Summarize what enterprise practitioners should do now, what ARWG
+should standardize or clarify next, which gaps map to D1/D4/D5/D6 and
+liaison work, and which questions remain open or out of scope.</li>
+</ul>
+<p>\newpage</p>
+<h1 id="10-appendices">10. Appendices</h1>
+<blockquote>
+<p>Status: outline (carried over from the running notes)</p>
+</blockquote>
+<ul>
+<li>Full benchmark inventory</li>
+<li>Meeting notes</li>
+<li>Reference list</li>
+<li>Taxonomy candidates</li>
+<li>Open questions</li>
+</ul>
+<p>\newpage</p>
+<h1
+id="q-prd-02--how-do-i-make-sure-an-agents-side-effects-happen-exactly-once-when-tools-fail-or-time-out">Q-PRD-02
+· How do I make sure an agent's side effects happen exactly once when
+tools fail or time out?</h1>
+<p><strong>Stage:</strong> Production · <strong>Status:</strong> partly
+· <strong>Use cases:</strong> UC-2 customer refund assistant (also UC-1)
+· <strong>Patterns (§4):</strong> Tool-Mediated Action, Long-Running
+Recoverable Workflow · <strong>Requirements (§5):</strong> concurrency
+and retry safety; safe retry/resume/rollback/compensation; outcome
+verification <strong>Pairs with:</strong> Q-PRD-01 (durable execution) ·
+<strong>Author:</strong> Jay Prajapat</p>
+<h2 id="challenge">Challenge</h2>
+<p>A refund, cancellation or deployment can succeed while its response
+is lost (timeout, crash, pod loss). The agent then retries, so the
+action happens twice, or it reports failure for something that
+succeeded. The trajectory and the final answer look plausible; only the
+system of record shows the error.</p>
+<p>Illustration (small, n=3 per mode, Google ADK + Gemini, one
+<code>issue_refund</code> tool): a failure <em>before</em> the refund
+was handled correctly in 3/3 runs. When the refund succeeded but its
+response was lost, the reply did not match reality in 3/3 runs and the
+refund was issued twice in 2/3. This is an illustration, not a
+benchmark.</p>
+<h2 id="landscape">Landscape</h2>
+<ul>
+<li><strong>Protocol:</strong> MCP <code>ToolAnnotations</code>
+(<code>idempotentHint</code>, <code>destructiveHint</code>). They are
+hints only, and the defaults assume a tool is non-idempotent and
+destructive.</li>
+<li><strong>Practice:</strong> idempotency keys and checking status
+before retrying, common in payment APIs.</li>
+<li><strong>Runtime:</strong> durable execution engines; retry semantics
+differ per engine (see Q-PRD-01).</li>
+<li><strong>Evaluation:</strong> fault injection in agent eval
+frameworks (for example ADK environment simulation, which injects faults
+<em>before</em> the tool runs); trajectory assertions that can check
+which tools were called and how often (for example promptfoo
+<code>trajectory:tool-sequence</code> and <code>trace-span-count</code>,
+DeepEval); state-based benchmarks (τ²-bench database state checks,
+AgentDojo).</li>
+<li><strong>Guidance:</strong> OWASP Top 10 for Agentic Applications
+2026 mentions repeated actions only as cascade or cost symptoms.</li>
+</ul>
+<h2 id="today">Today</h2>
+<p>Teams rely on tool-level idempotency where the backend offers it, and
+on manual review otherwise. Agent frameworks warn about repeated side
+effects on resume (for example LangGraph's interrupts docs) but leave
+handling to developers.</p>
+<h2 id="comparison">Comparison</h2>
+<p>Complementary: protocol hints declare intent, durable engines decide
+when to retry, idempotency keys make retries safe, state-based
+evaluation verifies the outcome. No single layer covers the problem.</p>
+<h2 id="gaps">Gaps</h2>
+<table>
+<thead>
+<tr>
+<th>Gap</th>
+<th>Type (§8)</th>
+<th>Layer</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Eval tooling can count tool <em>calls</em>, but none surveyed can
+inject a failure <em>after</em> the tool commits, or assert on the
+committed <em>effect</em> (for example "one refund in the ledger")
+rather than the call count</td>
+<td>Coverage</td>
+<td>Evaluation</td>
+</tr>
+<tr>
+<td><code>idempotentHint</code> exists, but client and framework retry
+behaviour is not specified or testable</td>
+<td>Standardization / Adoption</td>
+<td>Protocol</td>
+</tr>
+<tr>
+<td>Idempotency conventions for agent tools are ad hoc per backend</td>
+<td>Standardization</td>
+<td>Practice</td>
+</tr>
+<tr>
+<td>Whether the outcome the agent <em>reports</em> matches the
+<em>actual</em> outcome is not a standard metric</td>
+<td>Observability</td>
+<td>Evaluation</td>
+</tr>
+</tbody>
+</table>
+<h2 id="next">Next</h2>
+<ul>
+<li><strong>D3:</strong> a "side-effect-safe tools" pattern (idempotency
+keys, status check before retry, compensation).</li>
+<li><strong>D4:</strong> outcome-consistency and exactly-once
+metrics.</li>
+<li><strong>D5:</strong> compensation and escalation when duplicates
+occur.</li>
+<li><strong>External:</strong> input to the MCP Tool Annotations
+interest group. Possible link with the Attestation &amp; Evidence group
+on reported vs actual outcomes.</li>
+</ul>
+<h2 id="requirements-and-checks">Requirements and checks</h2>
+<ul>
+<li><strong>REQ-A:</strong> at most one side effect per user intent
+under retries and resumes.</li>
+<li><strong>REQ-B:</strong> the outcome reported to the user matches the
+system of record.</li>
+<li><strong>TEST-A:</strong> inject a failure <em>after</em> the tool
+commits; assert side-effect count = 1.</li>
+<li><strong>TEST-B:</strong> compare the agent's final message with the
+ledger; flag mismatches.</li>
+<li><strong>TEST-C</strong> (with Q-PRD-01): kill the worker
+mid-tool-call, resume, assert no duplicate.</li>
+</ul>
+<h2 id="sources">Sources</h2>
+<ul>
+<li>MCP specification 2026-07-28, <code>ToolAnnotations</code> schema;
+MCP blog, "Tool Annotations as Risk Vocabulary" (Mar 2026)</li>
+<li>OWASP Top 10 for Agentic Applications 2026</li>
+<li>LangGraph documentation, interrupts</li>
+<li>τ²-bench evaluation documentation</li>
+<li>Retry experiment write-up (author; available on request)</li>
+</ul>
+<p>\newpage</p>
+</body>
+</html>

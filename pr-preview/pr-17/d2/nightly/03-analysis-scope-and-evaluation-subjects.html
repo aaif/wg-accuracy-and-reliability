@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>3. Analysis Scope and Evaluation Subjects</title>
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+  <link rel="stylesheet" href="../../assets/site.css" />
+</head>
+<body>
+<div class="wip"><strong>Work in progress.</strong> Nightly build of 2026-11-24, not reviewed or released. Preview of pull request.</div>
+<div class="nav"><a href="../../index.html">All deliverables</a> | <a href="../../d2/index.html">D2 versions</a> | <a href="../../d2/nightly/index.html">Nightly</a> | <a href="../../d2/nightly/d2-single-page.html">Single page</a> | <a href="../../d2/nightly/d2-deliverable.pdf">PDF</a></div>
+<h1 id="3-analysis-scope-and-evaluation-subjects">3. Analysis Scope and
+Evaluation Subjects</h1>
+<blockquote>
+<p>Status: outline (carried over from the running notes)</p>
+</blockquote>
+<ul>
+<li>Covers a small set of key subjects (starting with durable execution
+and side-effect safety) contributed by WG members, selected and analysed
+as described in <a href="00-methodology.html">§0 Methodology</a>. New
+subjects are added over time.</li>
+<li>Analyzes benchmark and evaluation method coverage for enterprise
+agentic systems.</li>
+<li>Adopts D1 terminology for evaluation subjects: model/component,
+agent, multi-agent system, and workflow for a given evaluation
+context/envelope. Does not redefine D1 taxonomy, evaluate model
+internals, or prescribe vendor-specific tooling.</li>
+</ul>
+<h2 id="focus">Focus</h2>
+<p>The landscape of agent frameworks, harnesses, protocols, runtimes and
+tooling is too broad to survey end to end. D2 addresses a few elements
+of it, chosen because they decide whether an agentic system keeps
+working under real conditions, and because the charter's later
+deliverables (D3 design guidance, D4 quality standard, D5 corrective
+actions) need evidence on them:</p>
+<ul>
+<li><strong>Resilience by design.</strong> Properties built in before
+failure happens: durable execution, idempotent side effects, state
+recovery, retries and timeouts. Starting subjects: durable execution
+(Q-PRD-01) and side-effect safety (Q-PRD-02).</li>
+<li><strong>Resilience after the fact.</strong> Detecting and recovering
+from failures during operations, using telemetry: failure detection,
+escalation, rollback or compensation, and turning incidents into
+tests.</li>
+<li><strong>Monitoring.</strong> What must be observed to support both
+of the above. Consistent with the charter, D2 looks at which signals and
+outcomes need to be observable, not how traces and logs are emitted
+(Observability WG).</li>
+</ul>
+<p>Monitoring differs by aspect, so each subject states what is
+monitored and how:</p>
+<table>
+<thead>
+<tr>
+<th>Aspect</th>
+<th>Example signals</th>
+<th>Typical source</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Task outcome</td>
+<td>Result correct against a trust anchor, task completed</td>
+<td>Online evaluation, sampled checks</td>
+</tr>
+<tr>
+<td>Agent behaviour</td>
+<td>Tool calls, retries, loops, trajectory deviations</td>
+<td>Traces</td>
+</tr>
+<tr>
+<td>State and side effects</td>
+<td>Duplicate or partial effects, unrecovered state</td>
+<td>Application and system-of-record checks</td>
+</tr>
+<tr>
+<td>System health</td>
+<td>Latency, errors, cost, resource pressure</td>
+<td>Metrics</td>
+</tr>
+<tr>
+<td>Drift and degradation</td>
+<td>Quality change across versions or over time</td>
+<td>Repeated evaluation, trend analysis</td>
+</tr>
+<tr>
+<td>User experience</td>
+<td>Re-prompts, overrides, abandoned tasks</td>
+<td>Product telemetry, feedback</td>
+</tr>
+</tbody>
+</table>
+<p>Other elements are in scope only when a member contributes a subject
+that meets the criteria in <a href="00-methodology.html">§0</a>.</p>
+<h2 id="template">Template</h2>
+<ul>
+<li>Use-case pattern and task</li>
+<li>Evaluation subject</li>
+<li>Agent/model/configuration version</li>
+<li>Tools and evidence sources</li>
+<li>Runtime and policy conditions</li>
+<li>Human involvement</li>
+<li>Lifecycle stage</li>
+<li>Cost and latency constraints, where relevant</li>
+</ul>
+</body>
+</html>
