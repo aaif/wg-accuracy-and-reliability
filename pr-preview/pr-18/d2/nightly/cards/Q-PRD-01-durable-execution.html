@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Q-PRD-01 · How do I keep a long-running agent run going when
+the process running it crashes, restarts or is moved?</title>
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+  <link rel="stylesheet" href="../../../assets/site.css" />
+</head>
+<body>
+<div class="wip"><strong>Work in progress.</strong> Nightly build of 2026-11-24, not reviewed or released. Preview of pull request.</div>
+<div class="nav"><a href="../../../index.html">All deliverables</a> | <a href="../../../d2/index.html">D2 versions</a> | <a href="../../../d2/nightly/index.html">Nightly</a> | <a href="../../../d2/nightly/d2-single-page.html">Single page</a> | <a href="../../../d2/nightly/d2-deliverable.pdf">PDF</a></div>
+<h1
+id="q-prd-01--how-do-i-keep-a-long-running-agent-run-going-when-the-process-running-it-crashes-restarts-or-is-moved">Q-PRD-01
+· How do I keep a long-running agent run going when the process running
+it crashes, restarts or is moved?</h1>
+<p><strong>Stage:</strong> Production · <strong>Status:</strong> partly
+· <strong>Use cases:</strong> long-running incident, approval and
+remediation workflows · <strong>Patterns (§4):</strong> Long-Running
+Recoverable Workflow · <strong>Requirements (§5):</strong> state
+continuity; concurrency and retry safety; safe retry, resume, rollback
+or compensation <strong>Dimensions (§7):</strong> Recoverability,
+operational fault robustness, repeated-run success rate · <strong>Pairs
+with:</strong> Q-PRD-02 (side-effect safety) · <strong>Author:</strong>
+Jordan Augé</p>
+<h2 id="challenge">Challenge</h2>
+<p>An agent run can last minutes or days. Meanwhile the process running
+it (the worker) can be interrupted: a crash, a lost machine, a
+deployment, a scale-down, a timeout. Example: an agent is issuing a
+refund when its worker dies.</p>
+<p>Durable execution records the run's progress as it goes, so a new
+worker resumes where the old one stopped instead of starting over or
+repeating work. The software doing this is an engine.</p>
+<p><strong>Why this is about accuracy and reliability.</strong> A run
+that restarts from zero may take a different path. A run that repeats a
+step may charge twice. A run that is silently lost never reports
+failure. In each case the final answer can look fine while the outcome
+is wrong, so recovery is a reliability property (can the system get back
+to a correct state?) and a correctness one (is the outcome still
+right?).</p>
+<p>Agents make this harder than ordinary workflows. A model call is
+non-deterministic: when an engine replays a step (re-runs it to rebuild
+where the run was), the answer may change. And a tool call in flight at
+the crash may or may not have taken effect: the refund may already be
+done. Its outcome is unknown.</p>
+<p>Kubernetes is the main example of a platform that interrupts workers:
+pod loss, rolling updates, scale-in, eviction. It restarts lost pods but
+manages pods, not runs: nothing on it saves or restores run state
+[16][17]. An engine must.</p>
+<h2 id="landscape">Landscape</h2>
+<p>Everything below is taken from the cited documentation, read on
+2026-11-12. Where we infer something, it says so.</p>
+<p><strong>In the AAIF landscape</strong> (landscape file of 10 Nov 2026
+[24]; the label is the one used there):</p>
+<ul>
+<li><strong>Google ADK</strong> (member): not an engine itself; the ADK
+integrations page lists a Dapr integration [27] and Temporal documents
+an ADK integration [26].</li>
+<li><strong>Diagrid Dapr Runtimes</strong> (member): a runtime that
+includes a workflow engine (durable timers, external events,
+at-least-once activities) [6].</li>
+<li><strong>LangGraph</strong> (external): checkpointers save graph
+state so a thread can resume from its last checkpoint [10].</li>
+<li><strong>MCP</strong> (member): the protocol through which agents
+call tools. It matters here because a tool call is the step whose
+outcome can be unknown; see Q-PRD-02.</li>
+<li><strong>OpenTelemetry GenAI SIG</strong> (external), <strong>Datadog
+AI Observability</strong> (member), <strong>Arize AI</strong>
+(external): relevant to monitoring (see below).</li>
+<li><strong>Microsoft AutoGen</strong> (member),
+<strong>CrewAI</strong>, <strong>LangChain</strong>,
+<strong>LlamaIndex</strong> (external): agent frameworks and
+orchestration runtimes. Their behaviour on interruption has not been
+examined yet.</li>
+<li><strong>Agent evaluation harnesses</strong> (Promptfoo, Braintrust,
+LangSmith Evaluation): none is known to inject worker interruptions; not
+checked in detail.</li>
+</ul>
+<p><strong>Outside the AAIF landscape:</strong></p>
+<ul>
+<li><strong>Engines:</strong> Temporal, Restate, Dapr Workflow, DBOS
+Transact and Argo Workflows record progress and resume it, by replaying
+history or from a journal of completed steps [1][4][6][7][8]. Dapr and
+Argo are CNCF graduated projects; Temporal, Restate and DBOS are vendor
+projects [23].</li>
+<li><strong>Agent frameworks that bring their own persistence or sit on
+an engine:</strong> Dapr Agents (runs model calls as workflow activities
+[15]), Pydantic AI (supports several engines [14]), kagent
+[12][13].</li>
+<li><strong>Platform</strong> (where workers run): Kubernetes gives a
+worker a warning period before it stops and limits how many pods are
+taken down at once; autoscalers (KEDA) and batch admission (Kueue) add
+scaling and preemption [16][17][19]. None of them knows about runs.</li>
+<li><strong>Standards and guidance:</strong> the CNCF cloud native
+agentic standards post and Certified Kubernetes AI Conformance mention
+agentic workloads; we found no requirement on checkpointing, resume or
+graceful termination in them [25][28].</li>
+<li><strong>Evaluation:</strong> no public benchmark found for run
+survival. Fault injection tools can create the failures: Chaos Mesh,
+Litmus, Toxiproxy [20][21][22].</li>
+</ul>
+<h2 id="today">Today</h2>
+<p>Teams pick one engine and put each model and tool call in a retryable
+unit (a step the engine can re-run). Engines are alternatives, and
+stacking them multiplies retries, so the documented pattern is one
+framework on one engine [14]. Human approvals and long waits are well
+covered (external events, signals, timers) [1][6]. Side-effect safety is
+left to the application, usually through idempotency keys (a unique ID
+sent with a request, so the receiver can ignore a repeat).</p>
+<h2 id="comparison">Comparison</h2>
+<p>Engines differ in what they record and how they resume. Temporal and
+Dapr replay deterministic code against a recorded history [6]. Restate
+journals steps [4]. DBOS checkpoints steps in Postgres [7]. Argo re-runs
+a whole step [8]. Temporal, Dapr and DBOS state that a step may run more
+than once [1][6][7]: if the worker dies mid-step, the step runs again,
+so an idempotency key is what prevents a second refund. LangGraph
+resumes a node (one step of its graph) from its beginning, re-running
+its model and API calls [10]. kagent restores the last snapshot but does
+not retry the interrupted turn: that is snapshot-and-revert, not durable
+execution [12]. Engines and frameworks are alternatives at each layer,
+not a stack.</p>
+<h2 id="how-to-monitor-it">How to monitor it</h2>
+<p>D2 says which signals must be observable; how they are emitted
+belongs to the Observability WG. For recovery, the questions and the
+signals that answer them are:</p>
+<table>
+<thead>
+<tr>
+<th>Question</th>
+<th>Signal to observe</th>
+<th>Where it can come from</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Did the run survive the interruption?</td>
+<td>Run outcome (completed, failed, stuck) for runs in flight at the
+time</td>
+<td>Engine run status; the application</td>
+</tr>
+<tr>
+<td>How long did recovery take?</td>
+<td>Time from interruption to resumed progress (time to safe state)</td>
+<td>Engine events joined with platform events (pod and node events on
+Kubernetes [16])</td>
+</tr>
+<tr>
+<td>Did it resume in the right place?</td>
+<td>Resumed step versus last completed step; checkpoint timestamps</td>
+<td>Engine history or journal</td>
+</tr>
+<tr>
+<td>Was the outcome repeated or lost?</td>
+<td>Count of repeated side effects, compared with the system of
+record</td>
+<td>The application's ledger or database, not the agent's own
+report</td>
+</tr>
+<tr>
+<td>Was it one interruption or many?</td>
+<td>Attempt count and retry source (engine, framework or platform)</td>
+<td>Engine and framework logs and traces</td>
+</tr>
+</tbody>
+</table>
+<p>Sources of signal available today are engine-specific, and which of
+these each engine and the OpenTelemetry GenAI conventions expose has not
+been checked. This is one of the gaps below.</p>
+<h2 id="gaps">Gaps</h2>
+<table>
+<thead>
+<tr>
+<th>Gap</th>
+<th>Type (§8)</th>
+<th>Layer</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>No comprehensive, vendor-agnostic overview: guarantees, limits and
+behaviour on platforms such as Kubernetes are documented per product,
+and we found no neutral comparison (the landscape above was assembled
+from each product's own documentation)</td>
+<td>Coverage</td>
+<td>Practice</td>
+</tr>
+<tr>
+<td>No standard interface: resume, retry and history semantics, and the
+way a run's state is recorded, differ per engine and framework, so runs
+and tooling are not portable between them</td>
+<td>Standardization</td>
+<td>Interop</td>
+</tr>
+<tr>
+<td>Engines and frameworks re-run the step that was in flight at the
+crash [1][6][7][10], and do not track whether a model or tool call had
+already taken effect, so external effects are left to idempotency keys
+set by the application (see Q-PRD-02)</td>
+<td>Coverage</td>
+<td>Infrastructure</td>
+</tr>
+<tr>
+<td>Overlap with platform and scaling: shutdown timeouts disagree across
+layers (on Kubernetes: pod, engine, sidecar); eviction, OOM
+(out-of-memory) kills and preemption bypass graceful termination [18];
+autoscalers cannot choose which replica to remove and may ignore
+in-flight work [19]; engine, framework and platform retries compound
+[6]</td>
+<td>Continuity / Depth</td>
+<td>Infrastructure</td>
+</tr>
+<tr>
+<td>Run survival, time to safe state and checkpoint completeness have no
+standard names, little tool-native measurement and no conformance
+scenario</td>
+<td>Observability / Standardization</td>
+<td>Evaluation</td>
+</tr>
+</tbody>
+</table>
+<p>Also open, not detailed here: versioning covers code shape but not a
+changed model, prompt or tool schema under in-flight runs [5].</p>
+<h2 id="next">Next</h2>
+<ul>
+<li><strong>D3:</strong> a reference pattern: align the platform's
+shutdown grace period (on Kubernetes, the pod's) with engine shutdown,
+and give each run one owner. Longer term, a common vocabulary and
+interface for durable execution of agents.</li>
+<li><strong>D4:</strong> names and definitions for run survival (share
+of in-flight runs that complete correctly after an interruption), time
+to safe state, and checkpoint completeness.</li>
+<li><strong>D5:</strong> recovery rules for interrupted runs.</li>
+<li><strong>External:</strong> bridge to the CNCF AI conformance work,
+which today says nothing on resume; input to the Observability WG on the
+signals above.</li>
+</ul>
+<h2 id="requirements-and-checks">Requirements and checks</h2>
+<ul>
+<li><strong>REQ-A:</strong> an in-flight run completes correctly after a
+crash, machine loss, deployment, scale-in or timeout (on Kubernetes: pod
+loss, node drain, scale-in or rolling update).</li>
+<li><strong>REQ-B:</strong> after resume, no completed step is repeated
+and no side effect is duplicated.</li>
+<li><strong>TEST-A:</strong> kill a worker with no grace period during a
+step of a 20-step reference run; assert resume at or after the last
+durable step and zero duplicate effects.</li>
+<li><strong>TEST-B</strong> (Kubernetes case): delete a worker with a
+grace period and drain its node; assert the signal is handled and the
+run completes.</li>
+<li><strong>TEST-C:</strong> roll out a new worker version mid-run;
+assert the run finishes or resumes without non-determinism errors.</li>
+<li><strong>TEST-D:</strong> trigger scale-in and preemption while runs
+are in flight; assert none is cut off or restarted from the
+beginning.</li>
+<li><strong>TEST-E</strong> (with Q-PRD-02): partition a worker from the
+engine, then heal; assert exactly one completion per step.</li>
+</ul>
+<p>None of these checks has been run yet.</p>
+<h2 id="sources">Sources</h2>
+<p>Product pages were read on 2026-11-12. Statements about what a
+product does not do come from its documentation and are hypotheses until
+a second reviewer confirms them.</p>
+<ol type="1">
+<li>Temporal, <a
+href="https://docs.temporal.io/activity-definition">Activities</a> (also
+<a href="https://docs.temporal.io/encyclopedia/retry-policies">retry
+policies</a>)</li>
+<li>Temporal, <a
+href="https://docs.temporal.io/encyclopedia/retry-policies">retry
+policies</a></li>
+<li>Temporal, <a
+href="https://docs.temporal.io/cloud/limits">limits</a></li>
+<li>Restate, <a
+href="https://docs.restate.dev/foundations/key-concepts">key
+concepts</a></li>
+<li>Restate, <a
+href="https://docs.restate.dev/operate/versioning">versioning</a></li>
+<li>Dapr, <a
+href="https://docs.dapr.io/developing-applications/building-blocks/workflow/workflow-features-concepts/">workflow
+features and concepts</a></li>
+<li>DBOS, <a
+href="https://docs.dbos.dev/architecture">architecture</a></li>
+<li>Argo Workflows, <a
+href="https://argo-workflows.readthedocs.io/en/latest/retries/">retries</a></li>
+<li>Argo Workflows, <a
+href="https://argo-workflows.readthedocs.io/en/latest/scaling/">scaling</a></li>
+<li>LangGraph, <a
+href="https://docs.langchain.com/oss/python/langgraph/checkpointers">checkpointers</a></li>
+<li>LangSmith, <a
+href="https://docs.langchain.com/langsmith/agent-server">Agent
+Server</a></li>
+<li>kagent, <a
+href="https://github.com/kagent-dev/kagent/blob/main/docs/architecture/runtime-and-lifecycle.md">runtime
+and lifecycle</a></li>
+<li>kagent, <a
+href="https://github.com/kagent-dev/kagent/blob/main/docs/architecture/persistence-checkpoints-and-forks.md">persistence
+and checkpoints</a></li>
+<li>Pydantic AI, <a
+href="https://pydantic.dev/docs/ai/integrations/durable_execution/overview/">durable
+execution overview</a></li>
+<li>Dapr Agents, <a
+href="https://github.com/dapr/dapr-agents/blob/main/dapr_agents/agents/durable.py">durable
+agent source</a></li>
+<li>Kubernetes, <a
+href="https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle/">pod
+lifecycle</a></li>
+<li>Kubernetes, <a
+href="https://kubernetes.io/docs/concepts/workloads/pods/disruptions/">disruptions</a></li>
+<li>Kubernetes, <a
+href="https://kubernetes.io/docs/concepts/scheduling-eviction/node-pressure-eviction/">node-pressure
+eviction</a></li>
+<li>KEDA, <a
+href="https://keda.sh/docs/2.21/concepts/scaling-deployments/">scaling
+deployments</a></li>
+<li>Chaos Mesh, <a
+href="https://chaos-mesh.org/docs/simulate-pod-chaos-on-kubernetes/">pod
+chaos</a></li>
+<li>Litmus, <a
+href="https://github.com/litmuschaos/chaos-charts/tree/master/faults/kubernetes">Kubernetes
+faults</a></li>
+<li><a href="https://github.com/Shopify/toxiproxy">Toxiproxy</a></li>
+<li>CNCF landscape data, <a
+href="https://landscape.cncf.io/data/full.json">full.json</a> (project
+maturity)</li>
+<li>AAIF, <a
+href="https://github.com/aaif/ws-taxonomy-landscape">ws-taxonomy-landscape</a>,
+<code>landscape/landscape.yml</code>, as of 10 Nov 2026</li>
+<li>CNCF, <a
+href="https://www.cncf.io/blog/2026/03/23/cloud-native-agentic-standards/">Cloud
+native agentic standards</a></li>
+<li>Temporal, <a
+href="https://docs.temporal.io/develop/python/integrations/google-adk">Google
+ADK integration</a></li>
+<li>ADK, <a href="https://adk.dev/integrations/dapr/">Dapr
+integration</a></li>
+<li><a href="https://github.com/cncf/k8s-ai-conformance">Certified
+Kubernetes AI Conformance</a></li>
+</ol>
+</body>
+</html>

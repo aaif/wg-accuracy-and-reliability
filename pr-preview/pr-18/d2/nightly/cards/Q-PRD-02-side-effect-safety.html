@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Q-PRD-02 · How do I make sure an agent's side effects happen
+exactly once when tools fail or time out?</title>
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+  <link rel="stylesheet" href="../../../assets/site.css" />
+</head>
+<body>
+<div class="wip"><strong>Work in progress.</strong> Nightly build of 2026-11-24, not reviewed or released. Preview of pull request.</div>
+<div class="nav"><a href="../../../index.html">All deliverables</a> | <a href="../../../d2/index.html">D2 versions</a> | <a href="../../../d2/nightly/index.html">Nightly</a> | <a href="../../../d2/nightly/d2-single-page.html">Single page</a> | <a href="../../../d2/nightly/d2-deliverable.pdf">PDF</a></div>
+<h1
+id="q-prd-02--how-do-i-make-sure-an-agents-side-effects-happen-exactly-once-when-tools-fail-or-time-out">Q-PRD-02
+· How do I make sure an agent's side effects happen exactly once when
+tools fail or time out?</h1>
+<p><strong>Stage:</strong> Production · <strong>Status:</strong> partly
+· <strong>Use cases:</strong> UC-2 customer refund assistant (also UC-1)
+· <strong>Patterns (§4):</strong> Tool-Mediated Action, Long-Running
+Recoverable Workflow · <strong>Requirements (§5):</strong> concurrency
+and retry safety; safe retry/resume/rollback/compensation; outcome
+verification <strong>Pairs with:</strong> Q-PRD-01 (durable execution) ·
+<strong>Author:</strong> Jay Prajapat</p>
+<h2 id="challenge">Challenge</h2>
+<p>A refund, cancellation or deployment can succeed while its response
+is lost (timeout, crash, pod loss). The agent then retries, so the
+action happens twice, or it reports failure for something that
+succeeded. The trajectory and the final answer look plausible; only the
+system of record shows the error.</p>
+<p>Illustration (small, n=3 per mode, Google ADK + Gemini, one
+<code>issue_refund</code> tool): a failure <em>before</em> the refund
+was handled correctly in 3/3 runs. When the refund succeeded but its
+response was lost, the reply did not match reality in 3/3 runs and the
+refund was issued twice in 2/3. This is an illustration, not a
+benchmark.</p>
+<h2 id="landscape">Landscape</h2>
+<ul>
+<li><strong>Protocol:</strong> MCP <code>ToolAnnotations</code>
+(<code>idempotentHint</code>, <code>destructiveHint</code>). They are
+hints only, and the defaults assume a tool is non-idempotent and
+destructive.</li>
+<li><strong>Practice:</strong> idempotency keys and checking status
+before retrying, common in payment APIs.</li>
+<li><strong>Runtime:</strong> durable execution engines; retry semantics
+differ per engine (see Q-PRD-01).</li>
+<li><strong>Evaluation:</strong> fault injection in agent eval
+frameworks (for example ADK environment simulation, which injects faults
+<em>before</em> the tool runs); trajectory assertions that can check
+which tools were called and how often (for example promptfoo
+<code>trajectory:tool-sequence</code> and <code>trace-span-count</code>,
+DeepEval); state-based benchmarks (τ²-bench database state checks,
+AgentDojo).</li>
+<li><strong>Guidance:</strong> OWASP Top 10 for Agentic Applications
+2026 mentions repeated actions only as cascade or cost symptoms.</li>
+</ul>
+<h2 id="today">Today</h2>
+<p>Teams rely on tool-level idempotency where the backend offers it, and
+on manual review otherwise. Agent frameworks warn about repeated side
+effects on resume (for example LangGraph's interrupts docs) but leave
+handling to developers.</p>
+<h2 id="comparison">Comparison</h2>
+<p>Complementary: protocol hints declare intent, durable engines decide
+when to retry, idempotency keys make retries safe, state-based
+evaluation verifies the outcome. No single layer covers the problem.</p>
+<h2 id="gaps">Gaps</h2>
+<table>
+<thead>
+<tr>
+<th>Gap</th>
+<th>Type (§8)</th>
+<th>Layer</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Eval tooling can count tool <em>calls</em>, but none surveyed can
+inject a failure <em>after</em> the tool commits, or assert on the
+committed <em>effect</em> (for example "one refund in the ledger")
+rather than the call count</td>
+<td>Coverage</td>
+<td>Evaluation</td>
+</tr>
+<tr>
+<td><code>idempotentHint</code> exists, but client and framework retry
+behaviour is not specified or testable</td>
+<td>Standardization / Adoption</td>
+<td>Protocol</td>
+</tr>
+<tr>
+<td>Idempotency conventions for agent tools are ad hoc per backend</td>
+<td>Standardization</td>
+<td>Practice</td>
+</tr>
+<tr>
+<td>Whether the outcome the agent <em>reports</em> matches the
+<em>actual</em> outcome is not a standard metric</td>
+<td>Observability</td>
+<td>Evaluation</td>
+</tr>
+</tbody>
+</table>
+<h2 id="next">Next</h2>
+<ul>
+<li><strong>D3:</strong> a "side-effect-safe tools" pattern (idempotency
+keys, status check before retry, compensation).</li>
+<li><strong>D4:</strong> outcome-consistency and exactly-once
+metrics.</li>
+<li><strong>D5:</strong> compensation and escalation when duplicates
+occur.</li>
+<li><strong>External:</strong> input to the MCP Tool Annotations
+interest group. Possible link with the Attestation &amp; Evidence group
+on reported vs actual outcomes.</li>
+</ul>
+<h2 id="requirements-and-checks">Requirements and checks</h2>
+<ul>
+<li><strong>REQ-A:</strong> at most one side effect per user intent
+under retries and resumes.</li>
+<li><strong>REQ-B:</strong> the outcome reported to the user matches the
+system of record.</li>
+<li><strong>TEST-A:</strong> inject a failure <em>after</em> the tool
+commits; assert side-effect count = 1.</li>
+<li><strong>TEST-B:</strong> compare the agent's final message with the
+ledger; flag mismatches.</li>
+<li><strong>TEST-C</strong> (with Q-PRD-01): kill the worker
+mid-tool-call, resume, assert no duplicate.</li>
+</ul>
+<h2 id="sources">Sources</h2>
+<ul>
+<li>MCP specification 2026-07-28, <code>ToolAnnotations</code> schema;
+MCP blog, "Tool Annotations as Risk Vocabulary" (Mar 2026)</li>
+<li>OWASP Top 10 for Agentic Applications 2026</li>
+<li>LangGraph documentation, interrupts</li>
+<li>τ²-bench evaluation documentation</li>
+<li>Retry experiment write-up (author; available on request)</li>
+</ul>
+</body>
+</html>

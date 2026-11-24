@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>4. Enterprise Use Cases → Patterns</title>
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+  <link rel="stylesheet" href="../../assets/site.css" />
+</head>
+<body>
+<div class="wip"><strong>Work in progress.</strong> Nightly build of 2026-11-24, not reviewed or released. Preview of pull request.</div>
+<div class="nav"><a href="../../index.html">All deliverables</a> | <a href="../../d2/index.html">D2 versions</a> | <a href="../../d2/nightly/index.html">Nightly</a> | <a href="../../d2/nightly/d2-single-page.html">Single page</a> | <a href="../../d2/nightly/d2-deliverable.pdf">PDF</a></div>
+<h1 id="4-enterprise-use-cases--patterns">4. Enterprise Use Cases →
+Patterns</h1>
+<blockquote>
+<p>Status: outline (carried over from the running notes)</p>
+</blockquote>
+<p>Group use cases by enterprise business task, not industry. Candidate
+families: knowledge retrieval and synthesis, document processing and
+review, customer or employee support, software engineering and CI/CD,
+business operations workflows, risk/compliance/audit, incident response
+and remediation, and procurement/vendor/entity review.</p>
+<h2 id="patterns">Patterns</h2>
+<ul>
+<li><strong>Knowledge and Evidence:</strong> retrieving, synthesizing,
+and citing information for business tasks like research, support, and
+procurement review.</li>
+<li><strong>Artifact Generation and Review:</strong> creating or
+assessing documents, code changes, or structured outputs for tasks such
+as document processing, compliance review, and CI/CD.</li>
+<li><strong>Decision Support:</strong> analyzing evidence to recommend
+actions to humans during risk assessments, audits, and entity
+reviews.</li>
+<li><strong>Tool-Mediated Action:</strong> executing actions that alter
+external states for business operations, remediation, and software
+operations.</li>
+<li><strong>Delegated Multi-Agent Workflow:</strong> transferring work,
+context, and responsibility between agents for complex support,
+investigations, and multi-step automation.</li>
+<li><strong>Long-Running Recoverable Workflow:</strong> maintaining
+state, verifying outcomes, and recovering from interruptions during
+incident responses, approval workflows, and remediation.</li>
+</ul>
+<h2 id="pattern-template">Pattern template</h2>
+<p>Intended outcome · Evaluation subject(s) · Tools, data, and actors ·
+Acceptance criteria or trust anchor · Main failure conditions ·
+User-visible consequences</p>
+<p>Examples so far: lost context, incorrect delegation, duplicate
+actions, concurrent writes, partial effects, and unverified
+outcomes.</p>
+<h2 id="gaps-impacting-enterprise-use-cases">Gaps impacting enterprise
+use cases</h2>
+<p>One of the gaps companies must tackle to properly test the accuracy
+and reliability of their agentic solutions is reconciling the consumer
+and producer points of view on those concepts. With today's testing
+environments, there is no way to unify the viewpoints of consumers
+(typically users prompting agents, or agents interacting with other
+agents) and producers (the AI system) on accuracy and reliability of
+generated content. Developers of agentic solutions have all faced agents
+confidently claiming outcomes that they could easily show to be
+inaccurate.</p>
+<p>Since the business objective of agentic providers is to improve trust
+between consumers and producers, companies must develop frameworks to
+reduce this gap. Based on experience with conversational agents for
+professional software users in a B2B setting, user trust in AI is
+task/topic specific and built or lost over time. While it depends on the
+accuracy and reliability of the underlying solution, it also heavily
+depends on:</p>
+<ol type="1">
+<li><strong>Use-case type:</strong> assessment depends on how the
+produced content will be used: <em>explain this to me</em>, <em>show
+this to me</em>, or <em>do this for me</em>.</li>
+<li><strong>Task risk profile:</strong> what is the business implication
+of poor advice if the user acts on it?</li>
+<li><strong>User profile:</strong> is the user a novice or an expert on
+the topic?</li>
+<li><strong>History of consumer-producer interactions</strong> on this
+topic and use-case type: is there evidence the user trusted the AI on
+it?</li>
+<li>The ability to reconcile the different data and tool contexts with
+which consumer and producer measure the validity of accuracy and
+reliability claims.</li>
+</ol>
+<p>Companies therefore need analytics frameworks that quantify gaps
+between consumer and producer quality measures. Users are less likely to
+engage with AI when the gap between the two perspectives is high,
+regardless of the producer's scores. Testing therefore needs both
+benchmarks against set quality metrics and measurement of content
+delivery in the context of the user's environment.</p>
+</body>
+</html>
