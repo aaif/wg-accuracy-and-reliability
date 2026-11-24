@@ -2,13 +2,13 @@
 
 > Status: outline (carried over from the running notes)
 
-| Stage | Focus |
-|---|---|
-| Research and selection | Model/task fit, benchmark relevance, quality–cost trade-offs |
-| Development and integration | Grounding, tools, routing, agent communication, state management |
-| Pre-production validation | End-to-end testing, perturbation, concurrency, recovery |
-| Deployment and operations | Release traceability, drift, failure detection, outcome verification |
-| Recovery and improvement | Retry, resume, compensate, escalate, and convert incidents into tests |
+| Stage | Focus | 10 Nov slides step(s) |
+|---|---|---|
+| Research and selection | Model/task fit, benchmark relevance, quality–cost trade-offs | Research |
+| Development and integration | Grounding, tools, routing, agent communication, state management | Design, Develop |
+| Pre-production validation | End-to-end testing, perturbation, concurrency, recovery | Test, Pre-prod |
+| Deployment and operations | Release traceability, drift, failure detection, outcome verification | Prod, Operate |
+| Recovery and improvement | Retry, resume, compensate, escalate, and convert incidents into tests | Operate (spans Prod) |
 
 ## Four main questions
 

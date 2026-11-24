@@ -1,0 +1,51 @@
+name: Deliverables PR preview
+
+on:
+  pull_request:
+    types: [opened, reopened, synchronize, closed]
+    paths:
+      - 'D2-gap-analysis-benchmark-survey/**'
+      - 'scripts/site/**'
+      - '.github/workflows/site-pr-preview.yml'
+
+permissions:
+  contents: write
+  pull-requests: write
+
+concurrency:
+  group: pr-preview-${{ github.event.number }}
+  cancel-in-progress: true
+
+jobs:
+  preview:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        if: github.event.action != 'closed'
+        uses: actions/checkout@v4
+
+      - name: Setup Pandoc
+        if: github.event.action != 'closed'
+        uses: r-lib/actions/setup-pandoc@v2
+
+      - name: Install TeX (PDF engine)
+        if: github.event.action != 'closed'
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq --no-install-recommends \
+            texlive-xetex texlive-latex-recommended texlive-latex-extra \
+            texlive-fonts-recommended lmodern
+
+      - name: Build site (HTML and PDF)
+        if: github.event.action != 'closed'
+        env:
+          SITE_LABEL: "Preview of pull request #${{ github.event.number }}"
+        run: bash scripts/site/build.sh
+
+      # Published under gh-pages:/pr-preview/pr-<number>/ and removed when the
+      # PR closes. Requires Pages to deploy from the gh-pages branch.
+      - name: Deploy PR preview
+        uses: rossjrw/pr-preview-action@v1
+        with:
+          source-dir: ./_site
+          preview-branch: gh-pages
