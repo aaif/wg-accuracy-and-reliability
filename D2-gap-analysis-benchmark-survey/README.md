@@ -33,7 +33,7 @@ Sections 6–8 can be answered as question cards grouped by lifecycle stage: eac
 
 | ID | Stage | Question | Owner | Status |
 |---|---|---|---|---|
-| Q-PRD-01 | Production | Durable execution (see 10 Nov slides) | Jordan Augé | to add |
+| [Q-PRD-01](cards/Q-PRD-01-durable-execution.md) | Production | How do I keep a long-running agent run going when the process running it crashes, restarts or is moved? | Jordan Augé | draft |
 | [Q-PRD-02](cards/Q-PRD-02-side-effect-safety.md) | Production | How do I make sure an agent's side effects happen exactly once when tools fail or time out? | Jay Prajapat | draft |
 
 ## Contributing
