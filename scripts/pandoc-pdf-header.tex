@@ -1,0 +1,15 @@
+% Improve table rendering in PDF outputs.
+\usepackage[margin=0.9in]{geometry}
+\usepackage{tabularx}
+\usepackage{etoolbox}
+\setlength{\tabcolsep}{4pt}
+\setlength{\emergencystretch}{2em}
+\renewcommand{\tabularxcolumn}[1]{p{#1}}
+\makeatletter
+\AtBeginDocument{%
+	\@ifundefined{LTleft}{}{\setlength{\LTleft}{0pt}}%
+	\@ifundefined{LTright}{}{\setlength{\LTright}{0pt}}%
+	\hypersetup{linktoc=all}%
+}
+\makeatother
+\AtBeginEnvironment{longtable}{\small\raggedright}
